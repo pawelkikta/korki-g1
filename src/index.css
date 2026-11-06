@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+/* Nowoczesny font tekstu (Manrope) + techniczny mono (JetBrains Mono) – wersje zmienne z @fontsource-variable (main.jsx) */
+@theme {
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", "Menlo", monospace;
+}
+
+:root {
+  color-scheme: light;
+  font-family: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* kolor krawędzi dla ściętych kart */
+  --edge: var(--c-cdd5d1);
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* większa baza = wszystkie rozmiary rem skalują się w górę – łatwiej czytać dłużej */
+html {
+  font-size: 16.5px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--c-d4dad9);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.011em; /* Manrope czyta się lepiej z lekko ujemnym trackingiem */
+}
+
+button {
+  font: inherit;
+}
+
+input[type="range"] {
+  accent-color: var(--c-1a5c46);
+}
+
+/* ── Ścięte rogi (chamfer) ─────────────────────────────────────────
+   Dwa przeciwległe rogi ścięte = techniczny, „inżynierski" kształt.   */
+.cham {
+  --cut: 9px;
+  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+}
+.cham-lg {
+  --cut: 15px;
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+.cham-sm {
+  --cut: 5px;
+  clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+}
+
+/* Ramka 1px na ściętym kształcie (też na skosie). Rysuje ją ::after wewnątrz elementu:
+   pierścień = prostokąt minus kształt wcięty o 1px (evenodd), resztę przycina clip-path elementu.
+   Drop-shadow się tu nie nadaje – clip-path obcina go razem z elementem.
+   Kolor ustawiasz zmienną --e (domyślnie --edge), skos bierze z --cut klasy .cham*. */
+@layer components {
+  .edge {
+    position: relative;
+  }
+}
+.edge {
+  --e: var(--edge);
+}
+.edge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--e);
+  /* 0.42px ≈ √2 − 1: przesunięcie skosu o 1px w poprzek */
+  clip-path: polygon(
+    evenodd,
+    0 0, 100% 0, 100% 100%, 0 100%, 0 0,
+    calc(var(--cut, 0px) + 0.42px) 1px,
+    calc(100% - 1px) 1px,
+    calc(100% - 1px) calc(100% - var(--cut, 0px) - 0.42px),
+    calc(100% - var(--cut, 0px) - 0.42px) calc(100% - 1px),
+    1px calc(100% - 1px),
+    1px calc(var(--cut, 0px) + 0.42px),
+    calc(var(--cut, 0px) + 0.42px) 1px
+  );
+}
+.edge-shadow {
+  --e: var(--edge);
+  filter:
+    drop-shadow(1px 0 0 var(--e)) drop-shadow(-1px 0 0 var(--e))
+    drop-shadow(0 1px 0 var(--e)) drop-shadow(0 -1px 0 var(--e))
+    drop-shadow(0 8px 14px rgba(20, 50, 38, 0.10));
+}
+html.dark .edge-shadow {
+  filter:
+    drop-shadow(1px 0 0 var(--e)) drop-shadow(-1px 0 0 var(--e))
+    drop-shadow(0 1px 0 var(--e)) drop-shadow(0 -1px 0 var(--e))
+    drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
+}

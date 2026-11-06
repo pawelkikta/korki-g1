@@ -1,0 +1,14 @@
+# zależności i build
+node_modules/
+dist/
+dev-dist/
+
+# pliki lokalne
+.claude/
+.env
+.env.*
+
+# logi i pliki systemowe
+*.log
+.DS_Store
+Thumbs.db
