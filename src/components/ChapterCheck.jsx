@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react'
 import { Check, X, RotateCcw, Trophy } from 'lucide-react'
 import { chapterQuiz } from '../data/chapterQuiz.js'
-import { Button, NoteBox } from './ui.jsx'
+import { Button, NoteBox, OptionLetter, optionClass } from './ui.jsx'
 
-// „Sprawdź się" – 3 pytania po rozdziale (retrieval practice).
-// Komplet poprawnych = rozdział zaliczony (zapis przez onPassed w TrainingPanel).
+// „Sprawdź się” – 3 pytania po rozdziale (retrieval practice).
+// Komplet poprawnych = rozdział zaliczony (zapis przez onPassed w panelu).
 
 function shuffle(arr) {
   const a = [...arr]
@@ -51,9 +51,9 @@ export function ChapterCheck({ chapterId, passed, onPassed }) {
   if (!items.length) return null
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {passed && answered === 0 ? (
-        <NoteBox type="remember" title="Rozdział już zaliczony ✓">
+        <NoteBox type="ok" title="Już zaliczone">
           Masz to opanowane – ale powtórka nigdy nie zaszkodzi. Odpowiedz jeszcze raz albo idź dalej.
         </NoteBox>
       ) : null}
@@ -62,50 +62,44 @@ export function ChapterCheck({ chapterId, passed, onPassed }) {
         const picked = answers[qi]
         const isAnswered = picked != null
         return (
-          <div key={`${attempt}-${qi}`} className="border border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] p-4">
-            <div className="flex items-start gap-2">
-              <span style={{ '--e': 'var(--c-bcd4c8)' }} className="cham-sm edge mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center bg-[color:var(--b-e7f0eb)] font-mono text-[10px] font-bold text-[color:var(--c-14543e)]">{qi + 1}</span>
-              <div className="text-sm font-semibold leading-6 text-gray-900">{q.question}</div>
+          <div key={`${attempt}-${qi}`}>
+            <div className="flex items-start gap-2.5">
+              <span className="font-mono text-[15px] font-bold leading-6 text-ink-3">{qi + 1}.</span>
+              <div className="font-serif text-[17px] font-semibold leading-[1.45] text-ink">{q.question}</div>
             </div>
-            <div className="mt-2.5 grid gap-1.5 md:grid-cols-2">
+            <div className="mt-3 grid gap-2 md:grid-cols-2">
               {q.order.map((optIdx, i) => {
                 const isPicked = picked === i
                 const isCorrect = optIdx === q.correct
-                let cls = 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-ffffff)] text-gray-700 hover:border-[color:var(--c-b9c4bd)]'
-                if (isAnswered) {
-                  if (isCorrect) cls = 'border-[color:var(--c-1f7a4d)] bg-[color:var(--b-e9f4ed)] text-[color:var(--c-1f7a4d)]'
-                  else if (isPicked) cls = 'border-[color:var(--c-c03538)] bg-[color:var(--b-fdf0ee)] text-[color:var(--c-b3261e)]'
-                  else cls = 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-ffffff)] text-gray-400'
-                }
                 return (
                   <button
                     key={i}
                     disabled={isAnswered}
                     onClick={() => pick(qi, i)}
-                    className={`flex items-start gap-2 border px-2.5 py-2 text-left text-[13px] leading-5 transition disabled:cursor-default ${cls}`}
+                    className={`flex items-start gap-2.5 rounded-[4px] px-3 py-2.5 text-left text-[14.5px] leading-[1.45] transition disabled:cursor-default ${optionClass(isAnswered, isCorrect, isPicked)}`}
                   >
-                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-current font-mono text-[9px] font-bold">{LETTERS[i]}</span>
+                    <OptionLetter letter={LETTERS[i]} isAnswered={isAnswered} isCorrect={isCorrect} isPicked={isPicked} />
                     <span className="flex-1">{q.options[optIdx]}</span>
-                    {isAnswered && isCorrect ? <Check className="mt-0.5 h-3.5 w-3.5 shrink-0" /> : null}
-                    {isAnswered && isPicked && !isCorrect ? <X className="mt-0.5 h-3.5 w-3.5 shrink-0" /> : null}
+                    {isAnswered && isCorrect ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-ok" /> : null}
+                    {isAnswered && isPicked && !isCorrect ? <X className="mt-0.5 h-4 w-4 shrink-0 text-red-ink" /> : null}
                   </button>
                 )
               })}
             </div>
-            {isAnswered ? <div className="mt-2 text-[12px] leading-5 text-gray-600">{q.explain}</div> : null}
+            {isAnswered ? <p className="mt-2.5 font-serif text-[15.5px] leading-[1.55] text-ink-2">{q.explain}</p> : null}
           </div>
         )
       })}
 
       {done ? (
         allCorrect ? (
-          <NoteBox type="remember" title={<span className="inline-flex items-center gap-1.5"><Trophy className="h-3.5 w-3.5" /> 3/3 – rozdział zaliczony!</span>}>
-            Cały rozdział siedzi. Zaliczenie zapisane – widać je na liście rozdziałów i na stronie Start. Leć do następnego.
+          <NoteBox type="ok" title={<span className="inline-flex items-center gap-1.5"><Trophy className="h-3.5 w-3.5" /> 3/3 – zaliczone</span>}>
+            Cały rozdział siedzi. Zaliczenie zapisane – widać je w menu i na ekranie Plan. Idź dalej.
           </NoteBox>
         ) : (
-          <div className="space-y-2">
+          <div className="space-y-3">
             <NoteBox type="mistake" title={`Wynik: ${correct}/${items.length} – jeszcze raz`}>
-              Przewiń wyżej, doczytaj fragmenty przy błędnych odpowiedziach i spróbuj ponownie. Rozdział zaliczasz kompletem 3/3.
+              Przewiń wyżej, doczytaj fragmenty przy błędnych odpowiedziach i spróbuj ponownie. Zaliczasz kompletem 3/3.
             </NoteBox>
             <Button variant="secondary" onClick={retry}><RotateCcw className="mr-2 h-4 w-4" /> Spróbuj ponownie</Button>
           </div>

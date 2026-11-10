@@ -120,7 +120,7 @@ export function SimCiagloscPE() {
       </div>
 
       {state === 'oxide' && !highCurrent ? (
-        <button onClick={() => setTick((t) => t + 1)} className="cham-sm edge bg-[color:var(--b-fafbfa)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-gray-700" style={{ '--e': 'var(--c-d7ded9)' }}>
+        <button onClick={() => setTick((t) => t + 1)} className="rounded-xs edge bg-[color:var(--b-fafbfa)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] text-gray-700" style={{ '--e': 'var(--c-d7ded9)' }}>
           Zmierz jeszcze raz →
         </button>
       ) : null}

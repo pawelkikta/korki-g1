@@ -2,20 +2,12 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Korki G1 – trener do egzaminu SEP G1</title>
     <meta name="description" content="Interaktywny trener do egzaminu kwalifikacyjnego SEP G1: fiszki, test, egzamin próbny i symulacje pomiarów. Działa offline." />
-    <meta name="theme-color" content="#0d1210" />
+    <meta name="theme-color" content="#e8ebe3" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <script>
-      try {
-        // ciemny motyw domyślnie – jasny tylko, gdy użytkownik go wybrał
-        if (JSON.parse(localStorage.getItem('sepg1.theme')) !== 'light') document.documentElement.classList.add('dark')
-      } catch (e) {
-        document.documentElement.classList.add('dark')
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -207,7 +207,7 @@ export function SystemDecoder() {
           <button
             key={k}
             onClick={() => { setId(k); setFocus(null) }}
-            className={`cham-sm edge px-3 py-1.5 font-mono text-[12px] font-bold tracking-[0.08em] transition ${id === k ? 'bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'bg-[color:var(--b-fafbfa)] text-gray-500 hover:text-gray-800'}`}
+            className={`rounded-xs edge px-3 py-1.5 font-mono text-[12px] font-bold tracking-[0.08em] transition ${id === k ? 'bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'bg-[color:var(--b-fafbfa)] text-gray-500 hover:text-gray-800'}`}
             style={{ '--e': id === k ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
           >
             {k}
@@ -223,7 +223,7 @@ export function SystemDecoder() {
             <button
               key={i}
               onClick={() => setFocus(on ? null : pos)}
-              className={`cham edge px-3 py-2.5 text-left transition ${on ? 'bg-[color:var(--b-e7f0eb)]' : 'bg-[color:var(--b-fafbfa)] hover:bg-[color:var(--b-eef3f0)]'}`}
+              className={`rounded-sm edge px-3 py-2.5 text-left transition ${on ? 'bg-[color:var(--b-e7f0eb)]' : 'bg-[color:var(--b-fafbfa)] hover:bg-[color:var(--b-eef3f0)]'}`}
               style={{ '--e': on ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
             >
               <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-gray-500">

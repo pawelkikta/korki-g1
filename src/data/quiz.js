@@ -1,9 +1,10 @@
 // Test ABCD wygenerowany z pytań egzaminacyjnych – dystraktory to typowe błędy egzaminacyjne (treść: Claude (AI) pod kierunkiem autora).
 // correct = indeks poprawnej odpowiedzi w options (kolejność jest tasowana przy wyświetlaniu).
+// topic = gdzie doczytać teorię (topics.js).
 
 export const quiz = [
   {
-    id: 'q1', category: 'Eksploatacja',
+    id: 'q1', category: 'Eksploatacja', topic: 'podstawy-prawne',
     question: 'Instalacja w budynku mieszkalnym (230/400 V) to w grupie G1:',
     options: [
       'Pkt 2 – urządzenia, instalacje i sieci o napięciu do 1 kV',
@@ -15,7 +16,7 @@ export const quiz = [
     explain: 'Granica 1 kV oddziela pkt 2 (do 1 kV) od pkt 3–5 (wyższe napięcia) – sama grupa G1 obejmuje wszystkie napięcia. Sieć domowa 230/400 V = pkt 2.',
   },
   {
-    id: 'q2', category: 'Eksploatacja',
+    id: 'q2', category: 'Eksploatacja', topic: 'podstawy-prawne',
     question: 'Do czego uprawnia zakres E, a do czego zakres D?',
     options: [
       'E = praca fizyczna przy urządzeniach, D = nadzór nad pracami innych',
@@ -27,7 +28,7 @@ export const quiz = [
     explain: 'E = fizyczna praca (obsługa, konserwacja, montaż, pomiary), D = nadzór nad innymi.',
   },
   {
-    id: 'q3', category: 'BHP',
+    id: 'q3', category: 'BHP', topic: 'pierwsza-pomoc',
     question: 'Którymi środkami wolno gasić urządzenia elektryczne pod napięciem?',
     options: [
       'Gaśnicą proszkową ABC lub CO2 (śniegową)',
@@ -39,14 +40,14 @@ export const quiz = [
     explain: 'Proszek ABC i CO2 – TAK. Woda i piana przewodzą prąd – NIE. Dopuszczalne napięcie i odległość (np. 1000 V, 1 m) podaje oznaczenie na gaśnicy – gaśnica wodna nadaje się tylko z takim oznaczeniem.',
   },
   {
-    id: 'q4', category: 'BHP',
+    id: 'q4', category: 'BHP', topic: 'organizacja-pracy',
     question: 'Granica strefy prac w pobliżu napięcia (DV) dla urządzeń do 1 kV to:',
     options: ['0,3 m', '0,5 m', '1,5 m', '3 m'],
     correct: 0,
     explain: 'Rozporządzenie BHP (2019): do 1 kV DL = „bez dotyku", DV = 0,3 m. „0,5 m" to zapis ze starych materiałów.',
   },
   {
-    id: 'q5', category: 'BHP',
+    id: 'q5', category: 'BHP', topic: 'organizacja-pracy',
     question: 'Kto ma obowiązek wyposażyć stanowiska pracy w instrukcje eksploatacyjne?',
     options: [
       'Pracodawca lub osoba kierująca pracownikami',
@@ -58,7 +59,7 @@ export const quiz = [
     explain: 'Instrukcje eksploatacji opracowuje i zatwierdza pracodawca (prowadzący eksploatację) – korzysta przy tym z dokumentacji producenta, ale ta dokumentacja jej nie zastępuje.',
   },
   {
-    id: 'q6', category: 'Pierwsza pomoc',
+    id: 'q6', category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
     question: 'Osoba porażona prądem leży bez oddechu. Prawidłowy schemat RKO to:',
     options: [
       '112, AED i RKO: 30 uciśnięć + 2 oddechy – a gdy AED dotrze, wykonuj jego polecenia',
@@ -70,7 +71,7 @@ export const quiz = [
     explain: 'Brak oddechu → 112, AED, RKO 30:2. Po porażeniu prądem częste jest migotanie komór – przerwać je może tylko defibrylacja (AED).',
   },
   {
-    id: 'q7', category: 'Pierwsza pomoc',
+    id: 'q7', category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
     question: 'Który czynnik ma NAJWIĘKSZY wpływ na skutki porażenia prądem?',
     options: [
       'Wartość natężenia prądu płynącego przez ciało',
@@ -82,28 +83,28 @@ export const quiz = [
     explain: 'Liczy się prąd płynący przez ciało (plus czas i droga przepływu). Moc odbiornika i prąd zabezpieczenia nie mają tu znaczenia – już 50 mA AC może zabić.',
   },
   {
-    id: 'q8', category: 'Dozór',
+    id: 'q8', category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Jak długo ważne jest świadectwo kwalifikacyjne SEP?',
     options: ['5 lat', 'Bezterminowo', '1 rok', '10 lat'],
     correct: 0,
     explain: '5 lat od daty wydania (art. 54 Prawa energetycznego). Po upływie – ponowny egzamin, bez karencji. Świadectwa „bezterminowe" wygasły 3.07.2026.',
   },
   {
-    id: 'q9', category: 'Pomiary',
+    id: 'q9', category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Jakim napięciem mierzy się rezystancję izolacji instalacji 230/400 V?',
     options: ['500 V DC', '230 V AC', '250 V DC', '1000 V AC'],
     correct: 0,
     explain: 'Instalacja 230/400 V: 500 V DC. 250 V DC stosuje się dla obwodów SELV i PELV, 1000 V DC – powyżej 500 V.',
   },
   {
-    id: 'q10', category: 'Pomiary',
+    id: 'q10', category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Minimalna dopuszczalna rezystancja izolacji dla instalacji 230/400 V wynosi:',
     options: ['1 MΩ', '0,5 MΩ', '230 kΩ (1 kΩ na wolt)', '10 MΩ'],
     correct: 0,
     explain: 'Minimum 1 MΩ (PN-HD 60364-6). 0,5 MΩ dotyczy obwodów SELV/PELV, „1 kΩ na wolt" to dawne kryterium.',
   },
   {
-    id: 'q11', category: 'Pomiary',
+    id: 'q11', category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Instalacja ma rezystancję izolacji 0,8 MΩ. Co robisz?',
     options: [
       'Nie oddaję do użytku – wynik poniżej 1 MΩ, szukam uszkodzenia i mierzę ponownie',
@@ -115,7 +116,7 @@ export const quiz = [
     explain: 'Pułapka egzaminacyjna: 0,8 MΩ brzmi jak dużo, ale próg to 1 MΩ. Nie ma „prawie dobrze".',
   },
   {
-    id: 'q12', category: 'Pomiary',
+    id: 'q12', category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Dlaczego do pomiaru izolacji NIE używa się zwykłego multimetru?',
     options: [
       'Mierzy przy zbyt niskim napięciu – nie wykryje mikrouszkodzeń izolacji',
@@ -127,7 +128,7 @@ export const quiz = [
     explain: 'Multimetr mierzy przy kilku woltach. Mikrouszkodzenia ujawniają się dopiero pod ~500 V DC.',
   },
   {
-    id: 'q13', category: 'Pomiary',
+    id: 'q13', category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Co trzeba BEZWZGLĘDNIE zrobić przed pomiarem rezystancji izolacji?',
     options: [
       'Odłączyć wszystkie urządzenia końcowe – 500 V DC niszczy elektronikę',
@@ -139,14 +140,14 @@ export const quiz = [
     explain: '500 V DC trwale uszkadza elektronikę – odbiorniki i SPD się odłącza. Łączniki ustawia się w pozycji załączonej, żeby zmierzyć cały obwód.',
   },
   {
-    id: 'q14', category: 'Pomiary',
+    id: 'q14', category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Po jakim czasie w praktyce odczytuje się wynik pomiaru rezystancji izolacji?',
     options: ['Po ok. 60 s – gdy wskazanie się ustabilizuje', 'Od razu – wynik jest natychmiastowy', 'Po 5 s – dłużej nic się nie zmienia', 'Po 10 min – krócej wynik jest nieważny'],
     correct: 0,
     explain: 'Izolacja ładuje się jak kondensator i odczyt rośnie z czasem – wynik odczytuje się po ustabilizowaniu, w praktyce po 60 s.',
   },
   {
-    id: 'q15', category: 'Pomiary',
+    id: 'q15', category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Co należy zrobić bezpośrednio PO pomiarze rezystancji izolacji?',
     options: [
       'Rozładować obwód (miernik robi to sam – nie odpinać przewodów przed 0 V), bo obwód trzyma ładunek',
@@ -158,14 +159,14 @@ export const quiz = [
     explain: 'Najczęstszy błąd: pominięcie rozładowania. Przewód trzyma ładunek i może razić.',
   },
   {
-    id: 'q16', category: 'Pomiary',
+    id: 'q16', category: 'Pomiary', topic: 'ciaglosc-pe',
     question: 'Minimalny prąd pomiarowy przy pomiarze ciągłości przewodów PE to:',
     options: ['200 mA', '30 mA', '16 A', '1 mA'],
     correct: 0,
     explain: '≥ 200 mA przy 4–24 V (PN-EN 61557-4) – stabilny, miarodajny wynik w miliomach. 30 mA to próg RCD, 16 A – wyłącznika nadprądowego.',
   },
   {
-    id: 'q17', category: 'Pomiary',
+    id: 'q17', category: 'Pomiary', topic: 'ciaglosc-pe',
     question: 'Dlaczego prąd pomiarowy ciągłości PE musi wynosić co najmniej 200 mA?',
     options: [
       'Żeby wynik w miliomach był miarodajny – taki prąd przebija cienkie tlenki, a luźny zacisk pokazuje jako konkretną wartość',
@@ -177,21 +178,21 @@ export const quiz = [
     explain: 'Wymaganie PN-HD 60364-6 (przyrząd wg PN-EN 61557-4: 4–24 V, ≥ 200 mA). Przerwę wykryje nawet multimetr – ale nie oceni jakości połączenia: przy ~1 mA tlenki zawyżają wynik, a brzęczyk piszczy także przy kilku omach.',
   },
   {
-    id: 'q18', category: 'Pomiary',
+    id: 'q18', category: 'Pomiary', topic: 'ciaglosc-pe',
     question: 'Spodziewany zakres wyników pomiaru ciągłości PE to:',
     options: ['Miliomy do pojedynczych omów (mΩ..Ω)', 'Megaomy (MΩ)', 'Kiloomy (kΩ)', 'Zawsze dokładnie 0 Ω'],
     correct: 0,
     explain: 'Ciągłość PE = małe R (mΩ..Ω). Megaomy to zakres rezystancji izolacji – odwrotny pomiar.',
   },
   {
-    id: 'q19', category: 'Pomiary',
+    id: 'q19', category: 'Pomiary', topic: 'petla-zwarcia',
     question: 'Wzór na prąd zwarciowy w pętli zwarcia (system TN, 230 V) to:',
     options: ['Ik = 230 / Zs', 'Ik = 230 × Zs', 'Ik = Zs / 230', 'Ik = 400 / Zs'],
     correct: 0,
     explain: 'Ik = U₀ / Zs, gdzie U₀ = 230 V to napięcie faza–ziemia (pętla L–PE). 400 V to napięcie międzyfazowe – nie dotyczy pętli L–PE.',
   },
   {
-    id: 'q20', category: 'Pomiary',
+    id: 'q20', category: 'Pomiary', topic: 'petla-zwarcia',
     question: 'Im WYŻSZA impedancja pętli zwarcia (Zs), tym:',
     options: [
       'Niższy prąd zwarciowy i wolniejsze zadziałanie zabezpieczenia',
@@ -203,28 +204,28 @@ export const quiz = [
     explain: 'Ik = 230/Zs – wysoki Zs = niski prąd = zabezpieczenie może nie zadziałać w wymaganym czasie.',
   },
   {
-    id: 'q21', category: 'Pomiary',
+    id: 'q21', category: 'Pomiary', topic: 'petla-zwarcia',
     question: 'Maksymalny czas wyłączenia dla obwodu gniazd B16 w układzie TN 230 V:',
     options: ['0,4 s', '5 s', '300 ms', '40 ms'],
     correct: 0,
     explain: 'Obwody odbiorcze do 32 A (z gniazdami do 63 A) = 0,4 s. 5 s dotyczy obwodów rozdzielczych. 300 i 40 ms to limity RCD.',
   },
   {
-    id: 'q22', category: 'Pomiary',
+    id: 'q22', category: 'Pomiary', topic: 'petla-zwarcia',
     question: 'Obwód oświetlenia B10 w układzie TN 230 V musi zostać wyłączony przy zwarciu w czasie:',
     options: ['≤ 0,4 s – to obwód odbiorczy do 32 A', '≤ 5 s – bo to obwód stały', '≤ 60 s', 'Czas nie ma znaczenia'],
     correct: 0,
     explain: 'Pułapka ze starej normy: dawniej „obwody stałe = 5 s". Wg PN-HD 60364-4-41 każdy obwód odbiorczy do 32 A wyłącza w 0,4 s; 5 s – obwody rozdzielcze (np. WLZ).',
   },
   {
-    id: 'q23', category: 'Pomiary',
+    id: 'q23', category: 'Pomiary', topic: 'klasy',
     question: 'Który system uziemienia jest najpopularniejszy w Polsce?',
     options: ['TN (w budynkach zwykle TN-C-S)', 'TT – bo każdy budynek ma własny uziom', 'IT – bo pierwsze zwarcie nie wyłącza zasilania', 'Każdy operator stosuje inny – nie ma przewagi'],
     correct: 0,
     explain: 'TN = standard polski, ochrona przez impedancję pętli. TT = wymagany RCD. IT = szpitale/przemysł.',
   },
   {
-    id: 'q24', category: 'Pomiary',
+    id: 'q24', category: 'Pomiary', topic: 'klasy',
     question: 'W systemie IT (szpitale, przemysł) pierwsze zwarcie:',
     options: [
       'Nie powoduje wyłączenia – sygnalizuje je monitor izolacji (IMD)',
@@ -236,14 +237,14 @@ export const quiz = [
     explain: 'IT: brak uziemienia punktu neutralnego, pierwsze zwarcie nie wyłącza – dlatego stosowany w szpitalach.',
   },
   {
-    id: 'q25', category: 'Pomiary',
+    id: 'q25', category: 'Pomiary', topic: 'rcd',
     question: 'Prąd różnicowy RCD typu ogólnego (przeciwporażeniowego) wynosi:',
     options: ['30 mA', '300 mA', '16 A', '50 mA'],
     correct: 0,
     explain: '30 mA = ochrona przeciwporażeniowa. 300 mA = RCD przeciwpożarowy.',
   },
   {
-    id: 'q26', category: 'Pomiary',
+    id: 'q26', category: 'Pomiary', topic: 'podstawy-obwodu',
     question: 'Człowiek dotyka fazy, stojąc na podłodze (prąd przez ciało ok. 200 mA). Co wyłączy obwód?',
     options: [
       'Tylko RCD 30 mA – dla wyłącznika nadprądowego B16 200 mA to nic',
@@ -255,7 +256,7 @@ export const quiz = [
     explain: 'Dotyk części czynnej = ochrona uzupełniająca RCD 30 mA. Wyłącznik nadprądowy chroni przed porażeniem tylko przy zwarciu na obudowę (samoczynne wyłączenie w TN), gdy płynie prąd zwarciowy setek amperów.',
   },
   {
-    id: 'q27', category: 'Pomiary',
+    id: 'q27', category: 'Pomiary', topic: 'rcd',
     question: 'RCD typu AC NIE zadziała przy:',
     options: [
       'Pulsującym prądzie DC (np. upływ z obwodu z prostownikiem)',
@@ -267,28 +268,28 @@ export const quiz = [
     explain: 'Kluczowa pułapka: typ AC reaguje tylko na sinusoidalny AC. Nowoczesna elektronika wymaga typu A lub wyższego.',
   },
   {
-    id: 'q28', category: 'Pomiary',
+    id: 'q28', category: 'Pomiary', topic: 'rcd',
     question: 'Jaki typ RCD wybierzesz dla obwodu falownika PV, jeśli producent nie wyklucza gładkiego prądu stałego?',
     options: ['Typ B', 'Typ AC', 'Żaden – PV nie wymaga RCD', 'Typ F'],
     correct: 0,
     explain: 'Typ B reaguje na AC + pulsujący DC + gładki DC – stosowany przy PV (gdy falownik może wprowadzić gładki DC), napędach i ładowaniu EV (tam alternatywnie typ A z detekcją DC 6 mA).',
   },
   {
-    id: 'q29', category: 'Pomiary',
+    id: 'q29', category: 'Pomiary', topic: 'rcd',
     question: 'Przy teście miernikiem RCD prądem 0,5×IΔn (15 mA) wyłącznik powinien:',
     options: ['Nie zadziałać', 'Zadziałać w ≤ 300 ms', 'Zadziałać w ≤ 40 ms', 'Zadziałać natychmiast'],
     correct: 0,
     explain: '0,5×IΔn = nie działa, 1×IΔn = działa ≤ 300 ms, 5×IΔn = działa ≤ 40 ms.',
   },
   {
-    id: 'q30', category: 'Pomiary',
+    id: 'q30', category: 'Pomiary', topic: 'rcd',
     question: 'Maksymalny czas zadziałania RCD przy prądzie 5×IΔn (150 mA):',
     options: ['≤ 40 ms', '≤ 300 ms', '≤ 5 s', '≤ 1 s'],
     correct: 0,
     explain: 'Większy prąd różnicowy = krótszy wymagany czas: 5×IΔn → ≤ 40 ms.',
   },
   {
-    id: 'q31', category: 'Pomiary',
+    id: 'q31', category: 'Pomiary', topic: 'rcd',
     question: 'Czy przycisk TEST na RCD zastępuje pomiar miernikiem przy odbiorze instalacji?',
     options: [
       'Nie – TEST sprawdza tylko mechanizm; do protokołu wymagany pomiar miernikiem',
@@ -300,14 +301,14 @@ export const quiz = [
     explain: 'Pułapka: TEST nie mierzy czasu ani prądu zadziałania. Wystarczy do comiesięcznej kontroli, nie do odbioru.',
   },
   {
-    id: 'q32', category: 'Pomiary',
+    id: 'q32', category: 'Pomiary', topic: 'uziemienie',
     question: 'Dopuszczalna rezystancja uziemienia odgromowego (standard) to:',
     options: ['Poniżej 10 Ω', 'Poniżej 1 MΩ', 'Powyżej 1 MΩ', 'Poniżej 1666 Ω'],
     correct: 0,
     explain: 'Odgrom: zalecane poniżej 10 Ω (PN-EN 62305-3). 1666 Ω to granica dla układu TT z RCD 30 mA (RA × IΔn ≤ 50 V), a megaomy to izolacja.',
   },
   {
-    id: 'q33', category: 'Pomiary',
+    id: 'q33', category: 'Pomiary', topic: 'uziemienie',
     question: 'Rezystancję uziemienia mierzy się metodą:',
     options: [
       'Trójzaciskową (spadku potencjału) – elektrody E, P, C',
@@ -319,7 +320,7 @@ export const quiz = [
     explain: 'Omomierz pokazałby bzdurę – elektroda z definicji łączy się z ziemią. Metoda spadku potencjału (na kursach „Wernera"): prąd przez E-C, napięcie na P, RE = U/I.',
   },
   {
-    id: 'q34', category: 'Pomiary',
+    id: 'q34', category: 'Pomiary', topic: 'uziemienie',
     question: 'Co należy zrobić z badaną elektrodą przed pomiarem rezystancji uziemienia?',
     options: [
       'Odłączyć ją od instalacji – inaczej mierzymy całą sieć uziemiającą',
@@ -331,7 +332,7 @@ export const quiz = [
     explain: 'Bez odłączenia wynik dotyczy całej sieci uziemiającej, a nie pojedynczej elektrody.',
   },
   {
-    id: 'q35', category: 'Pomiary',
+    id: 'q35', category: 'Pomiary', topic: 'protokol',
     question: 'Prawidłowa kolejność pomiarów przy odbiorze instalacji (PN-HD 60364-6):',
     options: [
       'Oględziny → ciągłość PE → izolacja → impedancja pętli → RCD',
@@ -343,7 +344,7 @@ export const quiz = [
     explain: 'PN-HD 60364-6 podaje tę kolejność jako zalecaną – i ma ona logikę (każdy pomiar opiera się na poprzednim). Te 5 kroków wystarczy na egzaminie.',
   },
   {
-    id: 'q36', category: 'Pomiary',
+    id: 'q36', category: 'Pomiary', topic: 'protokol',
     question: 'Świadectwo wzorcowania miernika było przeterminowane w dniu pomiaru. Protokół jest:',
     options: [
       'Nieważny – świadectwa muszą być ważne w dniu pomiaru',
@@ -355,7 +356,7 @@ export const quiz = [
     explain: 'Najczęstszy błąd: przeterminowane wzorcowanie = protokół nieważny. Sprawdź daty przed wyjazdem.',
   },
   {
-    id: 'q37', category: 'Pomiary',
+    id: 'q37', category: 'Pomiary', topic: 'podstawy-prawne',
     question: 'Co musi obejmować świadectwo kwalifikacyjne osoby wykonującej pomiary instalacji w budynku?',
     options: [
       'Zakres kontrolno-pomiarowy dla G1 pkt 2 (instalacje do 1 kV)',
@@ -367,7 +368,7 @@ export const quiz = [
     explain: 'Pomiary = zakres kontrolno-pomiarowy. Aparatura pomiarowa i automatyka to pkt 13 (dawniej 10) – a dziś pkt 10 grupy G1 to elektryczna sieć trakcyjna.',
   },
   {
-    id: 'q38', category: 'Eksploatacja',
+    id: 'q38', category: 'Eksploatacja', topic: 'klasy',
     question: 'Urządzenie klasy II (podwójna izolacja) podłączamy do PE:',
     options: [
       'Nie – klasa II jest zaprojektowana do pracy bez PE (symbol: kwadrat w kwadracie)',
@@ -379,7 +380,7 @@ export const quiz = [
     explain: 'Pułapka: klasa II jest bezpieczna bez PE z założenia. Symbol kwadrat w kwadracie.',
   },
   {
-    id: 'q39', category: 'Eksploatacja',
+    id: 'q39', category: 'Eksploatacja', topic: 'klasy',
     question: 'Klasa ochronności III oznacza:',
     options: [
       'Zasilanie napięciem bezpiecznym SELV/PELV (≤ 50 V AC)',
@@ -391,14 +392,14 @@ export const quiz = [
     explain: 'III = napięcie bezpieczne ≤ 50 V AC lub ≤ 120 V DC. Nie wymaga uziemienia.',
   },
   {
-    id: 'q40', category: 'Eksploatacja',
+    id: 'q40', category: 'Eksploatacja', topic: 'klasy',
     question: 'W oznaczeniu IP44 pierwsza cyfra oznacza ochronę przed:',
     options: ['Ciałami stałymi i pyłem', 'Wodą', 'Uderzeniem mechanicznym', 'Przepięciem'],
     correct: 0,
     explain: '1. cyfra = pył/ciała stałe (0–6), 2. cyfra = woda (0–9). IP44 = minimum na zewnątrz.',
   },
   {
-    id: 'q41', category: 'Eksploatacja',
+    id: 'q41', category: 'Eksploatacja', topic: 'organizacja-pracy',
     question: 'Kolega mówi, że sprawdził brak napięcia. Czy możesz zacząć pracę?',
     options: [
       'Nie – każdy osobiście sprawdza brak napięcia własnym wskaźnikiem przed dotykiem',
@@ -410,7 +411,7 @@ export const quiz = [
     explain: 'Pułapka: „Nie zakładaj, zawsze sprawdź". Słowo kolegi nie jest zabezpieczeniem.',
   },
   {
-    id: 'q42', category: 'BHP',
+    id: 'q42', category: 'BHP', topic: 'organizacja-pracy',
     question: 'Miernik nie wskazuje napięcia. Co to oznacza?',
     options: [
       'Niekoniecznie brak napięcia – najpierw sprawdź miernik na znanym napięciu',
@@ -422,7 +423,7 @@ export const quiz = [
     explain: 'Pułapka: miernik może być uszkodzony. Testuj go przed i po pomiarze na znanym napięciu (np. 230 V).',
   },
   {
-    id: 'q43', category: 'Dozór',
+    id: 'q43', category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Przy pracy na polecenie pisemne – która para funkcji NIE może być łączona przez jedną osobę?',
     options: [
       'Dopuszczający i kierujący zespołem (poza pracami pod napięciem)',
@@ -434,7 +435,7 @@ export const quiz = [
     explain: 'Przy poleceniu pisemnym łączy się najwyżej dwie funkcje, a dopuszczającego i kierującego zespołem nie łączy się wcale – jeden przygotowuje strefę, drugi ją sprawdza i przyjmuje.',
   },
   {
-    id: 'q44', category: 'Dozór',
+    id: 'q44', category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Kiedy dopuszczający zakłada uziemiacze na obwód?',
     options: [
       'Po sprawdzeniu braku napięcia wskaźnikiem',
@@ -446,14 +447,14 @@ export const quiz = [
     explain: 'Kolejność prawnie określona: wyłącz → zabezpiecz → sprawdź brak napięcia → uziem → wygrodź → tabliczki → dopuść.',
   },
   {
-    id: 'q45', category: 'Dozór',
+    id: 'q45', category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Przegląd instalacji elektrycznej w budynku mieszkalnym wykonuje się:',
     options: ['Co 5 lat', 'Co 1 rok', 'Co 10 lat', 'Tylko po awarii'],
     correct: 0,
     explain: 'Art. 62 Prawa budowlanego: co najmniej raz na 5 lat (kontroluje osoba z D albo z uprawnieniami budowlanymi). Częściej – np. w strefach zagrożenia wybuchem – wg dokumentu zabezpieczenia przed wybuchem.',
   },
   {
-    id: 'q46', category: 'Dozór',
+    id: 'q46', category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Instalacja ma 8 lat, działa bez zarzutu. Czy przegląd jest wymagany?',
     options: [
       'Tak – obowiązek co 5 lat niezależnie od tego czy instalacja „działa"',
@@ -465,7 +466,7 @@ export const quiz = [
     explain: 'Pułapka: degradacja izolacji jest niewidoczna gołym okiem. 5 lat = obowiązek ustawowy.',
   },
   {
-    id: 'q47', category: 'BHP',
+    id: 'q47', category: 'BHP', topic: 'organizacja-pracy',
     question: 'Elektryk z uprawnieniami E chce pracować bez polecenia, bo „sam wyłączył napięcie". Czy może?',
     options: [
       'Zależy od pracy: przy szczególnym zagrożeniu – tylko na polecenie pisemne; bez polecenia wolno jedynie prace wskazane przez pracodawcę i ratowanie życia/mienia',
@@ -477,7 +478,7 @@ export const quiz = [
     explain: 'Uprawnienia nie zastępują polecenia ani dopuszczenia. Bez polecenia – tylko prace z instrukcji eksploatacji wskazane w IOBP i ratowanie życia, zdrowia lub mienia.',
   },
   {
-    id: 'q48', category: 'Pierwsza pomoc',
+    id: 'q48', category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
     question: 'Porażony jest przytomny i mówi, że czuje się dobrze. Co robisz?',
     options: [
       'Mimo wszystko wzywam 112 – skutki porażenia bywają opóźnione (arytmia serca)',
@@ -489,7 +490,7 @@ export const quiz = [
     explain: 'Pułapka: objawy (arytmia, uszkodzenia wewnętrzne) mogą pojawić się po godzinach. Zawsze 112.',
   },
   {
-    id: 'q49', category: 'BHP',
+    id: 'q49', category: 'BHP', topic: 'pierwsza-pomoc',
     question: 'Jak odciągnąć porażonego, gdy nie można wyłączyć napięcia?',
     options: [
       'Suchym, nieprzewodzącym przedmiotem (deska, sucha lina), stojąc na izolującym podłożu',
@@ -501,7 +502,7 @@ export const quiz = [
     explain: 'Tylko suchy przedmiot izolujący i izolujące podłoże. Mokre drewno przewodzi, a rękawice kuchenne nie są sprzętem ochronnym – ratownik może stać się kolejną ofiarą. Dotyczy napięcia do 1 kV – przy wyższym nie podchodzisz.',
   },
   {
-    id: 'q50', category: 'Dozór',
+    id: 'q50', category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Osoba z samym D (bez E) może wykonywać prace fizyczne przy urządzeniach?',
     options: [
       'Nie – samo D uprawnia wyłącznie do nadzorowania prac',

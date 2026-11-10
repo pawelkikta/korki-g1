@@ -1,14 +1,13 @@
 import React, { useMemo, useState } from 'react'
-import { Search, EyeOff, Eye } from 'lucide-react'
 import { cheatsheet, extraNumbers } from '../data/cheatsheet.js'
-import { SectionFrame, Button, Tag } from './ui.jsx'
+import { PageHeader, SearchField, SectionFrame, Switch, Tag, keepCase } from './ui.jsx'
 
 function ValueCell({ value, drill, revealed, onReveal }) {
   if (!drill || revealed) {
-    return <span className="font-mono text-base font-black text-[color:var(--c-14543e)]">{value}</span>
+    return <span className="font-mono text-[17px] font-bold text-red-ink">{value}</span>
   }
   return (
-    <button onClick={onReveal} className="border border-dashed border-[color:var(--c-b9c4bd)] bg-[color:var(--b-f6f8f7)] px-3 py-0.5 font-mono text-xs uppercase tracking-[0.14em] text-gray-500 transition hover:border-[color:var(--c-1a5c46)] hover:text-[color:var(--c-14543e)]">
+    <button onClick={onReveal} className="rounded-[3px] border-2 border-dashed border-rule-2 bg-paper-2 px-3 py-0.5 text-[13px] font-semibold text-ink-3 transition hover:border-accent hover:text-accent-ink">
       pokaż
     </button>
   )
@@ -16,13 +15,13 @@ function ValueCell({ value, drill, revealed, onReveal }) {
 
 function CheatTable({ rows, drill, revealed, setRevealed }) {
   return (
-    <div className="grid gap-2">
+    <div className="divide-y divide-rule">
       {rows.map((r) => (
-        <div key={r.id} className="grid grid-cols-1 gap-2 border border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] px-3 py-2.5 md:grid-cols-[180px_minmax(0,1fr)_130px] md:items-center">
-          <div className="font-mono text-[11px] uppercase tracking-[0.12em] text-gray-500">{r.group}</div>
+        <div key={r.id} className="grid grid-cols-1 gap-1 py-3 md:grid-cols-[170px_minmax(0,1fr)_150px] md:items-center md:gap-4">
+          <div className="eyebrow">{keepCase(r.group)}</div>
           <div>
-            <div className="text-sm text-gray-800">{r.param}</div>
-            <div className="mt-0.5 text-[11px] leading-4 text-gray-500">{r.hint}</div>
+            <div className="text-[15.5px] font-semibold leading-[1.4] text-ink">{r.param}</div>
+            <div className="mt-0.5 font-serif text-[14.5px] leading-[1.45] text-ink-2">{r.hint}</div>
           </div>
           <div className="md:text-right">
             <ValueCell value={r.value} drill={drill} revealed={!!revealed[r.id]} onReveal={() => setRevealed((s) => ({ ...s, [r.id]: true }))} />
@@ -47,28 +46,17 @@ export function CheatsheetPanel() {
   const extra = useMemo(() => filter(extraNumbers), [query]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="space-y-6">
-      <SectionFrame
-        tag="Tryb 06"
+    <div className="space-y-7">
+      <PageHeader
+        eyebrow="Utrwal · liczby"
         title="Ściąga – liczby, które musisz znać na pamięć"
-        subtitle={'Przy pomiarach komisja pyta o konkretne wartości. Tryb „drill" zakrywa liczby – odpytuj się aż wszystkie będziesz mieć w głowie.'}
-        badge={drill ? 'tryb drill' : 'podgląd'}
+        lead={'Przy pomiarach komisja pyta o konkretne wartości. Tryb drill zakrywa liczby – odpytuj się, aż wszystkie będziesz mieć w głowie.'}
       >
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex flex-1 items-center gap-2 border border-[color:var(--c-d7ded9)] bg-[color:var(--b-f6f8f7)] px-3 py-2">
-            <Search className="h-4 w-4 text-gray-500" />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Szukaj: RCD, izolacja, uziemienie..."
-              className="w-full bg-transparent text-sm text-gray-800 outline-none placeholder:text-gray-400"
-            />
-          </div>
-          <Button variant={drill ? 'primary' : 'secondary'} onClick={() => { setDrill((d) => !d); setRevealed({}) }}>
-            {drill ? <><Eye className="mr-2 h-4 w-4" /> Odkryj wszystko</> : <><EyeOff className="mr-2 h-4 w-4" /> Tryb drill</>}
-          </Button>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <SearchField value={query} onChange={setQuery} placeholder="Szukaj: RCD, izolacja, uziemienie..." />
+          <Switch checked={drill} onChange={(v) => { setDrill(v); setRevealed({}) }} label="Tryb drill" hint="zakryj liczby" />
         </div>
-      </SectionFrame>
+      </PageHeader>
 
       <SectionFrame tag="Pomiary" title="Wartości graniczne i terminy" badge={`${main.length} pozycji`}>
         {main.length ? <CheatTable rows={main} drill={drill} revealed={revealed} setRevealed={setRevealed} /> : <Tag>Brak wyników dla „{query}"</Tag>}

@@ -22,8 +22,8 @@ export default defineConfig({
         description: 'Interaktywny trener do egzaminu kwalifikacyjnego SEP G1: fiszki, test, egzamin próbny i symulacje pomiarów.',
         lang: 'pl',
         display: 'standalone',
-        background_color: '#0d1210',
-        theme_color: '#0d1210',
+        background_color: '#e8ebe3',
+        theme_color: '#e8ebe3',
         icons: [
           { src: 'pwa-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'pwa-512.png', sizes: '512x512', type: 'image/png' },

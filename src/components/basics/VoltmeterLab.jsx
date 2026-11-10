@@ -75,7 +75,7 @@ export function VoltmeterLab() {
             <button
               key={p.id}
               onClick={() => setValue(p.id)}
-              className={`cham-sm edge px-2.5 py-1.5 text-left transition ${active ? 'bg-[color:var(--b-e7f0eb)]' : 'bg-[color:var(--b-fafbfa)] hover:bg-[color:var(--b-ffffff)]'}`}
+              className={`rounded-xs edge px-2.5 py-1.5 text-left transition ${active ? 'bg-[color:var(--b-e7f0eb)]' : 'bg-[color:var(--b-fafbfa)] hover:bg-[color:var(--b-ffffff)]'}`}
               style={{ '--e': active ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
             >
               <div className="font-mono text-[13px] font-bold" style={{ color: active ? 'var(--c-14543e)' : p.color }}>{p.label}</div>

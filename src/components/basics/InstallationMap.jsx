@@ -247,7 +247,7 @@ export function InstallationMap() {
           <button
             key={id}
             onClick={() => setSel(id)}
-            className={`cham-sm edge px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.1em] transition ${
+            className={`rounded-xs edge px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.1em] transition ${
               sel === id ? 'bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'bg-[color:var(--b-fafbfa)] text-gray-500 hover:text-gray-800'
             }`}
             style={{ '--e': sel === id ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
