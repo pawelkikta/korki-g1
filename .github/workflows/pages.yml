@@ -1,0 +1,50 @@
+# Buduje aplikację i wdraża ją na GitHub Pages.
+# Uruchamia się po każdym pushu do main. Można go też uruchomić ręcznie:
+# zakładka Actions → „Deploy na GitHub Pages” → Run workflow.
+# Wymaga: Settings → Pages → Source: GitHub Actions.
+name: Deploy na GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# jeden deploy naraz; deploy w toku nie jest przerywany
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: pages
+        uses: actions/configure-pages@v6
+      # base_path to /<nazwa-repo> (albo pusty przy własnej domenie) – Vite czyta go z BASE_PATH
+      - run: npm run build
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
