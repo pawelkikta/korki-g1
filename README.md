@@ -2,29 +2,52 @@
 
 Interaktywny trener do egzaminu kwalifikacyjnego SEP G1 (eksploatacja i dozór, do 1 kV).
 Nazwa to gra słów: „korki” to potocznie bezpieczniki, a też korepetycje.
-Teoria i symulacje skupiają się na pomiarach. Fiszki, test i egzamin próbny obejmują cały zakres G1:
-eksploatację, dozór, BHP i pierwszą pomoc.
+Teoria i symulacje skupiają się na pomiarach, ale są też działy o organizacji pracy i pierwszej pomocy.
+Fiszki, test i egzamin próbny obejmują cały zakres G1: eksploatację, dozór, BHP i pierwszą pomoc.
 
 To mój prywatny projekt poboczny. Zrobiłem go do własnej nauki i udostępniam za darmo.
 Kod i treść napisał model AI Claude (Anthropic) na moje polecenie – zobacz [Jak powstała treść](#jak-powstała-treść).
 
 **Otwórz aplikację:** <https://pawelkikta.github.io/korki-g1/>
 
-![Ekran startowy Korki G1](docs/screenshot.png)
+![Plan nauki w Korki G1](docs/screenshot.png)
 
 ## Co zawiera
 
-- **Szkolenie** – 7 rozdziałów o pomiarach: podstawy prawne, rezystancja izolacji, ciągłość PE, pętla zwarcia,
+Aplikacja prowadzi w trzech krokach: zrozum, utrwal, sprawdź. Ekran **Plan nauki** pokazuje następny krok,
+materiał do powtórki i gotowość w każdym obszarze egzaminu.
+
+**Zrozum** – teoria z symulacjami. Działy (oprócz Urządzeń) kończą się pytaniami „Sprawdź się”.
+
+- **Skąd prąd** – podstawy: skąd 230 V, czym są L, N i PE, kiedy płynie prąd.
+- **Pomiary** – 7 rozdziałów: podstawy prawne, rezystancja izolacji, ciągłość PE, pętla zwarcia,
   RCD, uziemienie, protokół i odbiór instalacji. Każdy rozdział ma interaktywną symulację.
 - **Urządzenia** – bezpiecznik topikowy, wyłącznik nadprądowy, RCD, RCBO, ogranicznik przepięć
   i kalkulator doboru zabezpieczenia.
 - **Organizacja pracy** – polecenie pisemne, osoby funkcyjne, przygotowanie strefy pracy.
-- **Fiszki** – 55 pytań w 4 rundach, jak na egzaminie ustnym, z pytaniami dodatkowymi komisji.
-- **Test ABCD** (50 pytań) i **egzamin próbny** (10 losowych pytań).
-- **Ściąga** z wartościami granicznymi i **słowniczek** pojęć i skrótów.
+- **Pierwsza pomoc** – porażenie prądem, uwolnienie spod napięcia, RKO z AED, gaszenie urządzeń pod napięciem
+  i ćwiczenie „ułóż kolejność działań”.
 
-Postęp nauki zapisuje się tylko w Twojej przeglądarce (`localStorage`). Aplikacja nie wysyła żadnych danych
-i nie ma analityki.
+**Utrwal**
+
+- **Fiszki** – 55 pytań w 4 rundach, jak na egzaminie ustnym, z pytaniami dodatkowymi komisji.
+  Zanim zobaczysz wzorcową odpowiedź, zaznaczasz, co padło w twojej.
+- **Test ABCD** – 50 pytań zamkniętych w partiach po 10. Test zapamiętuje błędy: pytania „do poprawki”
+  wracają częściej, a możesz też powtórzyć tylko je.
+- **Ściąga** – wartości graniczne, które trzeba znać na pamięć.
+
+**Sprawdź**
+
+- **Egzamin próbny** – 10 losowych pytań z dopytaniami komisji.
+
+Pod ręką jest też **słowniczek** pojęć, urządzeń i skrótów.
+
+Teoria i pytania są połączone tematami. Pod każdym działem teorii są fiszki i test z tego tematu.
+Przy błędnej odpowiedzi w teście jest link „Doczytaj” do teorii z tego tematu. Każdy dział ma własny adres
+(np. `#/pomiary/3`), więc możesz go zapisać w zakładkach.
+
+Postęp nauki i wyniki testu zapisują się tylko w Twojej przeglądarce (`localStorage`).
+Aplikacja nie wysyła żadnych danych i nie ma analityki.
 
 ## Instalacja jako aplikacja
 
@@ -94,8 +117,8 @@ To nie jest recenzja eksperta. Traktuj aplikację jako pomoc do nauki, nie jako 
 - Kod: [MIT](LICENSE).
 - Treść edukacyjna (pytania, odpowiedzi, rozdziały, ściąga, słowniczek): [CC0 1.0](LICENSE-CONTENT.md) –
   domena publiczna, możesz jej używać bez warunków.
-- Fonty Manrope i JetBrains Mono: SIL Open Font License 1.1 (paczki `@fontsource-variable`).
-  Ikony interfejsu: [Lucide](https://lucide.dev) (ISC).
+- Fonty (paczki `@fontsource-variable`): Manrope, JetBrains Mono i Source Serif 4 – SIL Open Font License 1.1;
+  Roboto Slab – Apache License 2.0. Ikony interfejsu: [Lucide](https://lucide.dev) (ISC).
 
 ## Autor
 
