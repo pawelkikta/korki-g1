@@ -135,7 +135,7 @@ export function DeviceDobor() {
               <div
                 key={s}
                 style={{ '--e': chosen ? 'var(--c-1a5c46)' : tooSmall ? 'var(--c-e5b8b4)' : 'var(--c-d7ded9)' }}
-                className={`cham-sm edge flex h-11 w-12 flex-col items-center justify-center text-center font-mono transition ${
+                className={`rounded-xs edge flex h-11 w-12 flex-col items-center justify-center text-center font-mono transition ${
                   chosen
                     ? 'bg-[color:var(--b-1a5c46)] text-white'
                     : tooSmall

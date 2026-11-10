@@ -1,8 +1,11 @@
-import React, { useMemo, useState } from 'react'
-import { Check, X, RotateCcw, Play } from 'lucide-react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { Check, X, RotateCcw, Play, History } from 'lucide-react'
 import { quiz } from '../data/quiz.js'
-import { useStoredState } from '../lib/storage.js'
-import { Button, SectionFrame, NoteBox, Tag, ProgressBar } from './ui.jsx'
+import { quizOf, topicById } from '../data/topics.js'
+import { loadStored, useStoredState } from '../lib/storage.js'
+import { plural } from '../lib/plural.js'
+import { Button, NoteBox, OptionLetter, PageHeader, ProgressBar, Tag, optionClass } from './ui.jsx'
+import { ReadMore } from './TopicLinks.jsx'
 
 function shuffle(arr, rng = Math.random) {
   const a = [...arr]
@@ -16,98 +19,158 @@ function shuffle(arr, rng = Math.random) {
 const LETTERS = ['A', 'B', 'C', 'D']
 const BATCH = 10
 
-export function QuizPanel() {
+// każde pytanie z przetasowanymi odpowiedziami – zapamiętuj treść, nie literę
+const withOrder = (qs) => qs.map((q) => ({ ...q, order: shuffle(q.options.map((_, i) => i)) }))
+
+// Losowanie ważone bez powtórzeń: ostatnio błędne ×4, jeszcze niewidziane ×3, reszta ×1.
+// Po kilku partiach przejdziesz wszystkie pytania, a błędy wracają częściej niż reszta.
+function drawBatch(stats) {
+  const weight = (q) => (stats[q.id]?.last === 'wrong' ? 4 : stats[q.id] ? 1 : 3)
+  const pool = [...quiz]
+  const out = []
+  while (out.length < BATCH && pool.length) {
+    let r = Math.random() * pool.reduce((sum, q) => sum + weight(q), 0)
+    const i = pool.findIndex((q) => (r -= weight(q)) < 0)
+    out.push(pool.splice(i < 0 ? pool.length - 1 : i, 1)[0])
+  }
+  return withOrder(out)
+}
+
+// topicId z adresu (#/test/<temat>) – test ze wszystkich pytań jednego tematu
+export function QuizPanel({ topicId }) {
+  const topic = topicById[topicId] && quizOf(topicId).length ? topicId : null
   const [seed, setSeed] = useState(0)
   const [answers, setAnswers] = useState({}) // qid -> wybrany index (w potasowanej kolejności)
   const [finished, setFinished] = useState(false)
-  const [customBatch, setCustomBatch] = useState(null) // partia "powtórz błędne"
+  const [custom, setCustom] = useState(null) // { kind: 'wrong' | 'history', items } – partie powtórkowe
   const [best, setBest] = useStoredState('quizBest', null)
+  const [stats, setStats] = useStoredState('quizStats', {}) // qid -> { seen, wrong, last: 'ok' | 'wrong' }
 
-  // Partia 10 losowych pytań z potasowanymi odpowiedziami
-  const randomBatch = useMemo(() => {
-    return shuffle(quiz).slice(0, BATCH).map((q) => {
-      const order = shuffle(q.options.map((_, i) => i))
-      return { ...q, order }
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seed])
+  // statystyki czytamy przy losowaniu, nie przy każdej odpowiedzi – partia nie zmienia się w trakcie
+  const drawn = useMemo(
+    () => (topic ? withOrder(shuffle(quizOf(topic))) : drawBatch(loadStored('quizStats', {}))),
+    [seed, topic], // eslint-disable-line react-hooks/exhaustive-deps
+  )
 
-  const batch = customBatch ?? randomBatch
+  // zmiana tematu w adresie = nowa partia
+  useEffect(() => {
+    setCustom(null)
+    setAnswers({})
+    setFinished(false)
+  }, [topic])
+
+  const batch = custom?.items ?? drawn
   const total = batch.length
 
-  const answered = Object.keys(answers).filter((id) => batch.some((q) => q.id === id)).length
+  const answered = batch.filter((q) => answers[q.id] != null).length
   const score = batch.reduce((acc, q) => {
     const picked = answers[q.id]
     return acc + (picked != null && q.order[picked] === q.correct ? 1 : 0)
   }, 0)
-
   const wrongQuestions = batch.filter((q) => answers[q.id] != null && q.order[answers[q.id]] !== q.correct)
+  const seenCount = quiz.filter((q) => stats[q.id]).length
+  const toFix = quiz.filter((q) => stats[q.id]?.last === 'wrong')
+
+  // wynik zapisuje się od razu – nawet jeśli wyjdziesz w połowie partii
+  const pick = (q, i) => {
+    if (answers[q.id] != null) return
+    const ok = q.order[i] === q.correct
+    setAnswers((a) => ({ ...a, [q.id]: i }))
+    setStats((s) => {
+      const prev = s[q.id] ?? { seen: 0, wrong: 0 }
+      return { ...s, [q.id]: { seen: prev.seen + 1, wrong: prev.wrong + (ok ? 0 : 1), last: ok ? 'ok' : 'wrong' } }
+    })
+  }
 
   const finish = () => {
     setFinished(true)
-    // rekord liczymy tylko dla pełnych losowych partii, nie dla powtórek błędnych
-    if (!customBatch && (!best || score > best.score)) setBest({ score, total, date: new Date().toISOString().slice(0, 10) })
+    // rekord liczymy tylko dla losowych partii – nie dla powtórek ani testu z tematu
+    if (!custom && !topic && (!best || score > best.score)) setBest({ score, total, date: new Date().toISOString().slice(0, 10) })
   }
 
   const restart = () => {
-    setCustomBatch(null)
+    setCustom(null)
     setSeed((s) => s + 1)
     setAnswers({})
     setFinished(false)
+    window.scrollTo(0, 0)
   }
 
-  const retryWrong = () => {
-    // nowa partia tylko z błędnych pytań, z przetasowanymi odpowiedziami
-    setCustomBatch(wrongQuestions.map((q) => ({ ...q, order: shuffle(q.options.map((_, i) => i)) })))
+  const startCustom = (kind, qs) => {
+    setCustom({ kind, items: withOrder(shuffle(qs)) })
     setAnswers({})
     setFinished(false)
-    window.scrollTo({ top: 0 })
+    window.scrollTo(0, 0)
   }
 
+  const title = custom?.kind === 'wrong' ? 'Powtórka błędnych' : custom?.kind === 'history' ? 'Pytania do poprawki' : 'Test ABCD'
+  const lead =
+    custom?.kind === 'wrong'
+      ? `${total} ${plural(total, 'pytanie poszło', 'pytania poszły', 'pytań poszło')} źle w poprzedniej partii. Odpowiedzi są przetasowane – nie zapamiętuj litery, zapamiętaj treść.`
+      : custom?.kind === 'history'
+      ? `${total} ${plural(total, 'pytanie', 'pytania', 'pytań')}, na które ostatnio odpowiedziałeś źle. Dobra odpowiedź zdejmuje pytanie z listy.`
+      : topic
+      ? `Wszystkie pytania z tematu: ${topicById[topic].label} (${total}). Teoria jest pod linkiem „Doczytaj”.`
+      : `Partia ${BATCH} pytań z ${quiz.length}. Najpierw trafiają te, których jeszcze nie widziałeś, i te, w których ostatnio był błąd.`
+
   return (
-    <div className="space-y-6">
-      <SectionFrame
-        tag="Tryb 04"
-        title={customBatch ? `Powtórka błędnych – ${total} ${total === 1 ? 'pytanie' : 'pytania(-ań)'}` : 'Test ABCD – 10 losowych pytań'}
-        subtitle={customBatch
-          ? 'Te pytania poszły źle w poprzedniej partii. Odpowiedzi są przetasowane – nie zapamiętuj litery, zapamiętaj treść.'
-          : 'Pytania zamknięte wygenerowane z materiału egzaminacyjnego. Dystraktory to typowe błędne odpowiedzi z egzaminów – uważaj na pułapki.'}
-        badge={best ? `rekord: ${best.score}/${best.total}` : 'pierwsze podejście'}
-        accent={customBatch ? 'var(--c-c03538)' : 'var(--c-1a5c46)'}
-      >
-        <div className="flex items-center gap-4">
-          <div className="flex-1"><ProgressBar value={answered} max={total} /></div>
-          <div className="font-mono text-xs text-gray-600">{answered}/{total}</div>
+    <div className="space-y-7">
+      <PageHeader
+        eyebrow={topic ? 'Utrwal · test z tematu' : 'Utrwal · pytania zamknięte'}
+        title={title}
+        lead={lead}
+        meta={best ? `rekord ${best.score}/${best.total}` : 'pierwsze podejście'}
+      />
+
+      <section className="sheet relative z-[1] px-5 py-4 md:px-7">
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="min-w-[140px] flex-1"><ProgressBar value={answered} max={total} /></div>
+          <div className="font-mono text-[13px] font-semibold tabular-nums text-ink-2">{answered}/{total}</div>
           {finished ? (
-            <Button onClick={restart}><RotateCcw className="mr-1 h-4 w-4" /> Nowa partia</Button>
+            <Button onClick={restart}><RotateCcw className="mr-1.5 h-4 w-4" /> {topic && !custom ? 'Jeszcze raz' : 'Nowa partia'}</Button>
           ) : (
-            <Button onClick={finish} disabled={answered < total}><Play className="mr-1 h-4 w-4" /> Zakończ</Button>
+            <Button onClick={finish} disabled={answered < total}><Play className="mr-1.5 h-4 w-4" /> Zakończ</Button>
           )}
         </div>
+        {!finished && answered < total ? <div className="mt-2 text-[13px] text-ink-3">Odpowiedz na wszystkie pytania, potem „Zakończ”.</div> : null}
+
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-rule pt-3 text-[13.5px] text-ink-2">
+          <span>Widziane: <span className="font-semibold tabular-nums text-ink">{seenCount}/{quiz.length}</span></span>
+          <span>Do poprawki: <span className={`font-semibold tabular-nums ${toFix.length ? 'text-red-ink' : 'text-ink'}`}>{toFix.length}</span></span>
+          {toFix.length && custom?.kind !== 'history' ? (
+            <button onClick={() => startCustom('history', toFix)} className="inline-flex items-center gap-1.5 font-semibold text-accent-ink hover:underline">
+              <History className="h-4 w-4" /> Powtórz pytania do poprawki
+            </button>
+          ) : null}
+          {topic ? (
+            <a href="#/test" className="ml-auto font-semibold text-accent-ink hover:underline">Wróć do losowych partii</a>
+          ) : null}
+        </div>
+
         {finished ? (
           <div className="mt-4 space-y-3">
-            <NoteBox type={score === total ? 'remember' : score >= total * 0.8 ? 'remember' : 'mistake'} title={`Wynik: ${score}/${total}`}>
+            <NoteBox type={score >= total * 0.8 ? 'ok' : 'mistake'} title={`Wynik: ${score}/${total}`}>
               {score === total
                 ? 'Komplet! Jesteś gotowy na ten zakres – przejdź do egzaminu próbnego.'
                 : score >= total * 0.8
                 ? 'Dobry wynik. Poniżej podsumowanie błędów – domknij je powtórką.'
-                : 'Wróć do szkolenia i fiszek – poniżej widzisz, gdzie uciekły punkty.'}
+                : 'Wróć do teorii i fiszek – poniżej widzisz, gdzie uciekły punkty.'}
             </NoteBox>
             {wrongQuestions.length > 0 ? (
-              <div className="border border-[color:var(--c-e5b8b4)] bg-[color:var(--b-fdf0ee)] p-4">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--c-b3261e)]">
-                  Do poprawki: {wrongQuestions.length} {wrongQuestions.length === 1 ? 'pytanie' : 'pytania(-ań)'}
+              <div className="rounded-r-[3px] border-l-[3px] border-red-ink bg-red-soft px-4 py-3">
+                <div className="eyebrow !text-red-ink">
+                  Do poprawki: {wrongQuestions.length} {plural(wrongQuestions.length, 'pytanie', 'pytania', 'pytań')}
                 </div>
-                <ul className="mt-2 space-y-1.5">
+                <ul className="mt-2 space-y-2">
                   {wrongQuestions.map((q) => (
-                    <li key={q.id} className="text-[13px] leading-5 text-gray-800">
-                      <span className="text-gray-600">{q.question}</span>{' '}
-                      <span className="font-semibold text-[color:var(--c-14543e)]">→ {q.options[q.correct]}</span>
+                    <li key={q.id} className="font-serif text-[15.5px] leading-[1.5] text-ink-2">
+                      {q.question}{' '}
+                      <span className="font-semibold text-ink">→ {q.options[q.correct]}</span>
                     </li>
                   ))}
                 </ul>
                 <div className="mt-3">
-                  <Button variant="danger" onClick={retryWrong}>
+                  <Button variant="danger" onClick={() => startCustom('wrong', wrongQuestions)}>
                     <RotateCcw className="mr-2 h-4 w-4" /> Powtórz tylko błędne ({wrongQuestions.length})
                   </Button>
                 </div>
@@ -115,53 +178,51 @@ export function QuizPanel() {
             ) : null}
           </div>
         ) : null}
-      </SectionFrame>
+      </section>
 
       {batch.map((q, qi) => {
         const picked = answers[q.id]
         const isAnswered = picked != null
+        const ok = isAnswered && q.order[picked] === q.correct
         return (
-          <SectionFrame key={q.id} tag={`Pytanie ${qi + 1}`} title={q.category} accent={isAnswered ? (q.order[picked] === q.correct ? 'var(--c-1f7a4d)' : 'var(--c-c03538)') : 'var(--c-1a5c46)'}>
-            <div className="text-base font-semibold leading-6 text-gray-900">{q.question}</div>
-            <div className="mt-3 grid gap-2">
+          <section key={q.id} className="sheet relative z-[1] overflow-hidden px-5 py-5 md:px-7 md:py-6">
+            {isAnswered ? <div className="absolute inset-y-0 left-0 w-1" style={{ background: ok ? 'var(--ok)' : 'var(--red)' }} /> : null}
+            <div className="flex items-center gap-2">
+              <span className="eyebrow">Pytanie {qi + 1}</span>
+              <Tag>{q.category}</Tag>
+              {stats[q.id]?.last === 'wrong' && !isAnswered ? <Tag tone="red">ostatnio źle</Tag> : null}
+            </div>
+            <div className="mt-2 font-serif text-[18.5px] font-semibold leading-[1.45] text-ink">{q.question}</div>
+            <div className="mt-4 grid gap-2">
               {q.order.map((optIdx, i) => {
                 const isPicked = picked === i
                 const isCorrect = optIdx === q.correct
-                let cls = 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-700 hover:border-[color:var(--c-b9c4bd)] hover:text-gray-900'
-                if (isAnswered) {
-                  if (isCorrect) cls = 'border-[color:var(--c-1f7a4d)] bg-[color:var(--b-e9f4ed)] text-[color:var(--c-1f7a4d)]'
-                  else if (isPicked) cls = 'border-[color:var(--c-c03538)] bg-[color:var(--b-fdf0ee)] text-[color:var(--c-b3261e)]'
-                  else cls = 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-400'
-                }
                 return (
                   <button
                     key={i}
                     disabled={isAnswered}
-                    onClick={() => setAnswers((a) => ({ ...a, [q.id]: i }))}
-                    className={`flex items-start gap-3 border px-3 py-2.5 text-left text-sm leading-5 transition disabled:cursor-default ${cls}`}
+                    onClick={() => pick(q, i)}
+                    className={`flex items-start gap-3 rounded-[4px] px-3.5 py-3 text-left text-[15px] leading-[1.45] transition disabled:cursor-default ${optionClass(isAnswered, isCorrect, isPicked)}`}
                   >
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-current font-mono text-[10px] font-bold">{LETTERS[i]}</span>
+                    <OptionLetter letter={LETTERS[i]} isAnswered={isAnswered} isCorrect={isCorrect} isPicked={isPicked} />
                     <span className="flex-1">{q.options[optIdx]}</span>
-                    {isAnswered && isCorrect ? <Check className="mt-0.5 h-4 w-4 shrink-0" /> : null}
-                    {isAnswered && isPicked && !isCorrect ? <X className="mt-0.5 h-4 w-4 shrink-0" /> : null}
+                    {isAnswered && isCorrect ? <Check className="mt-0.5 h-4 w-4 shrink-0 text-ok" /> : null}
+                    {isAnswered && isPicked && !isCorrect ? <X className="mt-0.5 h-4 w-4 shrink-0 text-red-ink" /> : null}
                   </button>
                 )
               })}
             </div>
             {isAnswered ? (
-              <div className="mt-3">
-                <NoteBox type={q.order[picked] === q.correct ? 'remember' : 'mistake'} title={q.order[picked] === q.correct ? 'Dobrze' : 'Niestety nie'}>
+              <div className="mt-4 space-y-2.5">
+                <NoteBox type={ok ? 'ok' : 'mistake'} title={ok ? 'Dobrze' : 'Niestety nie'}>
                   {q.explain}
                 </NoteBox>
+                {!ok ? <ReadMore topicId={q.topic} /> : null}
               </div>
             ) : null}
-          </SectionFrame>
+          </section>
         )
       })}
-
-      <div className="flex justify-end gap-2">
-        {!finished ? <Tag>Odpowiedz na wszystkie pytania, potem „Zakończ"</Tag> : null}
-      </div>
     </div>
   )
 }

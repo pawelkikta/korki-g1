@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Home, BookOpen, Layers, ListChecks, GraduationCap, Table2, Zap, BookMarked, ToggleRight, Waypoints, ShieldCheck, Moon, Sun } from 'lucide-react'
-import { StartPanel } from './components/StartPanel.jsx'
+import React, { useEffect, useMemo, useReducer, useState } from 'react'
+import { Compass, BookOpen, Layers, ListChecks, GraduationCap, Table2, BookMarked, ToggleRight, Waypoints, ShieldCheck, HeartPulse, Check, Lightbulb, X } from 'lucide-react'
+import { PlanPanel } from './components/PlanPanel.jsx'
 import { TrainingPanel } from './components/TrainingPanel.jsx'
 import { FlashcardsPanel } from './components/FlashcardsPanel.jsx'
 import { QuizPanel } from './components/QuizPanel.jsx'
@@ -10,183 +10,241 @@ import { GlossaryPanel } from './components/GlossaryPanel.jsx'
 import { DevicesPanel } from './components/DevicesPanel.jsx'
 import { BasicsPanel } from './components/BasicsPanel.jsx'
 import { OrgPanel } from './components/OrgPanel.jsx'
-import { Chamfer } from './components/ui.jsx'
+import { FirstAidPanel } from './components/FirstAidPanel.jsx'
 import { APP_VERSION, APP_STAGE, REPO_URL } from './version.js'
-import { useStoredState } from './lib/storage.js'
+import { useHashRoute } from './lib/route.js'
+import { STORAGE_EVENT } from './lib/storage.js'
+import { readProgress, learningPath } from './lib/progress.js'
 
-const SECTIONS = [
-  { id: 'start', short: 'Start', label: 'Przegląd i postęp', icon: Home },
-  { id: 'podstawy', short: 'Skąd prąd', label: 'Fundament: L, N, PE', icon: Waypoints },
-  { id: 'szkolenie', short: 'Szkolenie', label: 'Pomiary – 7 rozdziałów', icon: BookOpen },
-  { id: 'urzadzenia', short: 'Urządzenia', label: 'Aparaty – jak działają', icon: ToggleRight },
-  { id: 'organizacja', short: 'Organizacja pracy', label: 'BHP: polecenia, strefa, role', icon: ShieldCheck },
-  { id: 'fiszki', short: 'Fiszki', label: '55 pytań – 4 rundy', icon: Layers },
-  { id: 'test', short: 'Test ABCD', label: '50 pytań zamkniętych', icon: ListChecks },
-  { id: 'egzamin', short: 'Egzamin', label: 'Próbny – 10 losowych', icon: GraduationCap },
-  { id: 'sciaga', short: 'Ściąga', label: 'Wartości graniczne', icon: Table2 },
-  { id: 'slowniczek', short: 'Słowniczek', label: 'Pojęcia, urządzenia, skróty', icon: BookMarked },
+// Menu według etapu nauki: najpierw zrozum, potem utrwal, na końcu sprawdź. Słowniczek – pod ręką.
+const GROUPS = [
+  { id: 'plan', label: null, items: [{ id: 'plan', label: 'Plan nauki', icon: Compass }] },
+  {
+    id: 'zrozum', label: 'Zrozum', icon: Lightbulb,
+    items: [
+      { id: 'podstawy', label: 'Skąd prąd', sub: 'L, N, PE od podstaw', icon: Waypoints },
+      { id: 'pomiary', label: 'Pomiary', sub: '7 rozdziałów z symulacjami', icon: BookOpen },
+      { id: 'urzadzenia', label: 'Urządzenia', sub: 'MCB, RCD, RCBO, SPD', icon: ToggleRight },
+      { id: 'organizacja', label: 'Organizacja pracy', sub: 'polecenia, strefa, role', icon: ShieldCheck },
+      { id: 'pierwsza-pomoc', label: 'Pierwsza pomoc', sub: 'porażenie, RKO, pożar', icon: HeartPulse },
+    ],
+  },
+  {
+    id: 'utrwal', label: 'Utrwal', icon: Layers,
+    items: [
+      { id: 'fiszki', label: 'Fiszki', sub: 'pytania ustne, 4 rundy', icon: Layers },
+      { id: 'test', label: 'Test ABCD', sub: '50 pytań zamkniętych', icon: ListChecks },
+      { id: 'sciaga', label: 'Ściąga', sub: 'liczby na pamięć', icon: Table2 },
+    ],
+  },
+  { id: 'sprawdz', label: 'Sprawdź', items: [{ id: 'egzamin', label: 'Egzamin próbny', sub: '10 pytań + dopytania', icon: GraduationCap }] },
+  { id: 'pod-reka', label: 'Pod ręką', items: [{ id: 'slowniczek', label: 'Słowniczek', sub: 'pojęcia i skróty', icon: BookMarked }] },
+]
+const ITEMS = GROUPS.flatMap((g) => g.items.map((it) => ({ ...it, group: g.id })))
+const SECTION_IDS = ITEMS.map((it) => it.id)
+
+// Liczba albo ✓ przy pozycji menu – z tej samej ścieżki co ekran Plan.
+// Przelicza się po każdym zapisie postępu (zdarzenie z storage.js).
+function useNavMeta() {
+  const [tick, bump] = useReducer((x) => x + 1, 0)
+  useEffect(() => {
+    window.addEventListener(STORAGE_EVENT, bump)
+    return () => window.removeEventListener(STORAGE_EVENT, bump)
+  }, [])
+  return useMemo(() => Object.fromEntries(learningPath(readProgress()).map((s) => [s.id, s])), [tick])
+}
+
+function NavMeta({ step }) {
+  if (!step) return null
+  if (step.status === 'done') return <Check className="h-4 w-4 shrink-0 text-ok" aria-label="zrobione" />
+  if (step.nav) return <span className="shrink-0 text-[12px] font-semibold tabular-nums text-ink-3">{step.nav}</span>
+  return null
+}
+
+function Brand({ compact = false }) {
+  return (
+    <a href="#/plan" className="block">
+      <div className={`font-slab font-bold leading-none tracking-[-0.02em] text-ink ${compact ? 'text-[20px]' : 'text-[27px]'}`}>Korki G1</div>
+      {compact ? null : <div className="mt-1.5 text-[13px] leading-snug text-ink-3">Trener do egzaminu SEP G1<br />eksploatacja · dozór · pomiary</div>}
+    </a>
+  )
+}
+
+function Sidebar({ section, meta }) {
+  return (
+    <aside className="sticky top-0 hidden h-screen w-[256px] shrink-0 flex-col overflow-y-auto px-4 py-7 lg:flex">
+      <div className="px-2"><Brand /></div>
+      <nav className="mt-7 space-y-5" aria-label="Sekcje">
+        {GROUPS.map((g) => (
+          <div key={g.id}>
+            {g.label ? <div className="eyebrow mb-1.5 px-2">{g.label}</div> : null}
+            <div className="space-y-0.5">
+              {g.items.map((it) => {
+                const Icon = it.icon
+                const active = it.id === section
+                return (
+                  <a
+                    key={it.id}
+                    href={`#/${it.id}`}
+                    aria-current={active ? 'page' : undefined}
+                    className={`flex items-center gap-2.5 rounded-[4px] px-2 py-1.5 text-[15px] transition ${
+                      active ? 'bg-paper font-semibold text-ink shadow-sheet' : 'text-ink-2 hover:bg-paper/60 hover:text-ink'
+                    }`}
+                  >
+                    <Icon className={`h-[18px] w-[18px] shrink-0 ${active ? 'text-accent' : 'text-ink-3'}`} />
+                    <span className="min-w-0 flex-1 truncate">{it.label}</span>
+                    <NavMeta step={meta[it.id]} />
+                  </a>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+      </nav>
+      <div className="mt-auto px-2 pt-8 text-[12px] leading-5 text-ink-3">
+        wersja {APP_VERSION} ({APP_STAGE.toLowerCase()})
+        <br />
+        <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink">kod na GitHubie</a>
+      </div>
+    </aside>
+  )
+}
+
+// Telefon: dolny pasek. „Zrozum” i „Utrwal” otwierają listę swoich sekcji.
+const MOBILE_TABS = [
+  { id: 'plan', label: 'Plan', icon: Compass, target: 'plan' },
+  { id: 'zrozum', label: 'Zrozum', icon: Lightbulb },
+  { id: 'utrwal', label: 'Utrwal', icon: Layers },
+  { id: 'egzamin', label: 'Egzamin', icon: GraduationCap, target: 'egzamin' },
+  { id: 'slowniczek', label: 'Słowniczek', icon: BookMarked, target: 'slowniczek' },
 ]
 
-function ThemeToggle({ theme, setTheme }) {
-  const dark = theme === 'dark'
-  return (
-    <button
-      onClick={() => setTheme(dark ? 'light' : 'dark')}
-      aria-label={dark ? 'Włącz jasny motyw' : 'Włącz ciemny motyw'}
-      className="cham-sm edge inline-flex shrink-0 items-center gap-1.5 bg-[color:var(--b-f3f6f4)] px-2.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-gray-700 transition hover:text-gray-900"
-      style={{ '--e': 'var(--c-d7ded9)' }}
-    >
-      {dark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
-      {dark ? 'Tryb jasny' : 'Tryb ciemny'}
-    </button>
-  )
-}
+function MobileNav({ section, meta, navigate }) {
+  const [open, setOpen] = useState(null)
+  const current = ITEMS.find((it) => it.id === section)
+  const openGroup = GROUPS.find((g) => g.id === open)
 
-function AppHeader({ theme, setTheme }) {
-  return (
-    <Chamfer size="lg">
-      <header>
-        <div className="h-1.5 bg-[color:var(--b-1a5c46)]" />
-        <div className="p-5">
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.26em] text-[color:var(--c-14543e)]">
-              <Zap className="h-3.5 w-3.5" /> Eksploatacja + Dozór + Pomiary
-            </div>
-            <ThemeToggle theme={theme} setTheme={setTheme} />
-          </div>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 md:text-6xl">Korki&nbsp;G1</h1>
-            <span className="cham-sm edge bg-[color:var(--b-1a5c46)] px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-white" style={{ '--e': 'var(--c-0f4030)' }}>
-              {APP_STAGE} · v{APP_VERSION}
-            </span>
-          </div>
-          <p className="mt-3 max-w-5xl text-[15px] leading-6 text-gray-600">
-            Interaktywne przygotowanie do egzaminu kwalifikacyjnego SEP G1. Postęp nauki zapisuje się w przeglądarce.
-          </p>
-          <div className="mt-4 grid max-w-5xl gap-2 sm:grid-cols-3">
-            <div className="cham edge bg-[color:var(--b-f3f6f4)] px-3 py-2.5" style={{ '--e': 'var(--c-d7ded9)' }}>
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[color:var(--c-14543e)]">Szkolenie + Urządzenia</div>
-              <div className="mt-0.5 text-[12.5px] leading-5 text-gray-600">Teoria i symulacje skupione na <span className="font-semibold text-gray-800">pomiarach</span> (zakres kontrolno-pomiarowy).</div>
-            </div>
-            <div className="cham edge bg-[color:var(--b-f3f6f4)] px-3 py-2.5" style={{ '--e': 'var(--c-d7ded9)' }}>
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[color:var(--c-14543e)]">Organizacja pracy</div>
-              <div className="mt-0.5 text-[12.5px] leading-5 text-gray-600">Teoria i symulacje z <span className="font-semibold text-gray-800">BHP i dozoru</span>: polecenia, strefa pracy, osoby funkcyjne.</div>
-            </div>
-            <div className="cham edge bg-[color:var(--b-f3f6f4)] px-3 py-2.5" style={{ '--e': 'var(--c-d7ded9)' }}>
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[color:var(--c-14543e)]">Fiszki · Test · Egzamin</div>
-              <div className="mt-0.5 text-[12.5px] leading-5 text-gray-600">Pełny zakres G1: <span className="font-semibold text-gray-800">eksploatacja, dozór, BHP</span> i pomiary.</div>
-            </div>
-          </div>
-        </div>
-      </header>
-    </Chamfer>
-  )
-}
+  useEffect(() => setOpen(null), [section])
 
-function Sidebar({ section, setSection }) {
   return (
-    <Chamfer size="lg" className="lg:sticky lg:top-6">
-      <aside className="p-3">
-        <div className="border-b border-[color:var(--c-e3e8e5)] pb-3">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--c-14543e)]">Tryby nauki</div>
-        </div>
-        <div className="mt-3 grid grid-cols-2 gap-1.5 lg:grid-cols-1">
-          {SECTIONS.map((s, i) => {
-            const Icon = s.icon
-            const active = s.id === section
+    <>
+      {openGroup ? (
+        <>
+          <div className="fixed inset-0 z-30 bg-ink/25 lg:hidden" onClick={() => setOpen(null)} />
+          <div className="sheet fixed inset-x-3 bottom-[calc(68px+env(safe-area-inset-bottom))] z-40 p-2 lg:hidden">
+            <div className="flex items-center justify-between px-2 pb-1 pt-1">
+              <div className="eyebrow">{openGroup.label}</div>
+              <button onClick={() => setOpen(null)} aria-label="Zamknij" className="p-1 text-ink-3"><X className="h-4 w-4" /></button>
+            </div>
+            {openGroup.items.map((it) => {
+              const Icon = it.icon
+              const active = it.id === section
+              return (
+                <a key={it.id} href={`#/${it.id}`} className={`flex items-center gap-3 rounded-[4px] px-2.5 py-2.5 ${active ? 'bg-accent-soft' : ''}`}>
+                  <Icon className={`h-5 w-5 shrink-0 ${active ? 'text-accent' : 'text-ink-3'}`} />
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[15.5px] font-semibold text-ink">{it.label}</span>
+                    <span className="block text-[13px] text-ink-3">{it.sub}</span>
+                  </span>
+                  <NavMeta step={meta[it.id]} />
+                </a>
+              )
+            })}
+          </div>
+        </>
+      ) : null}
+      <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden" aria-label="Sekcje">
+        <div className="grid grid-cols-5">
+          {MOBILE_TABS.map((t) => {
+            const Icon = t.icon
+            const active = t.target ? t.target === section : current?.group === t.id
             return (
               <button
-                key={s.id}
-                onClick={() => setSection(s.id)}
-                style={{ '--e': active ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
-                className={`cham edge px-3 py-3 text-left transition ${
-                  active
-                    ? 'bg-[color:var(--b-e7f0eb)] text-gray-900'
-                    : 'bg-[color:var(--b-fafbfa)] text-gray-500 hover:bg-[color:var(--b-eef3f0)] hover:text-gray-800'
-                }`}
+                key={t.id}
+                onClick={() => (t.target ? navigate(t.target) : setOpen(open === t.id ? null : t.id))}
+                className={`flex flex-col items-center gap-0.5 pb-2 pt-2.5 text-[11.5px] font-semibold ${active || open === t.id ? 'text-accent' : 'text-ink-3'}`}
               >
-                <div className="flex items-center gap-3">
-                  <div className="cham-sm edge flex h-8 w-8 shrink-0 items-center justify-center bg-[color:var(--b-f3f6f4)]" style={{ '--e': 'var(--c-d7ded9)' }}>
-                    <Icon className={`h-4 w-4 ${active ? 'text-[color:var(--c-14543e)]' : ''}`} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-gray-400">{String(i + 1).padStart(2, '0')}</div>
-                    <div className="text-[13px] font-bold tracking-tight">{s.short}</div>
-                    <div className="mt-0.5 hidden truncate text-[11px] text-gray-500 lg:block">{s.label}</div>
-                  </div>
-                </div>
+                <Icon className="h-5 w-5" />
+                {t.label}
               </button>
             )
           })}
         </div>
-      </aside>
-    </Chamfer>
+      </nav>
+    </>
   )
 }
 
-export default function App() {
-  const [section, setSection] = useState('start')
-  // motyw: ciemny domyślnie, jasny z wyboru użytkownika (klasa .dark na <html>, kolory w theme.css)
-  const [theme, setTheme] = useStoredState('theme', 'dark')
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-  }, [theme])
-
+function MobileTopBar({ section }) {
+  const current = ITEMS.find((it) => it.id === section)
   return (
-    <main className="min-h-screen bg-[linear-gradient(180deg,var(--c-dde2e3)_0%,var(--c-e7ebec)_45%,var(--c-dde2e3)_100%)] p-4 text-gray-900 md:p-6">
-      <div className="mx-auto max-w-[1560px] space-y-6">
-        <AppHeader theme={theme} setTheme={setTheme} />
-        <div className="grid gap-6 lg:grid-cols-[290px_minmax(0,1fr)] lg:items-start">
-          <Sidebar section={section} setSection={setSection} />
-          <div className="min-w-0 space-y-6">
-            {section === 'start' && <StartPanel goTo={setSection} />}
-            {section === 'podstawy' && <BasicsPanel />}
-            {section === 'szkolenie' && <TrainingPanel />}
-            {section === 'urzadzenia' && <DevicesPanel />}
-            {section === 'organizacja' && <OrgPanel />}
-            {section === 'fiszki' && <FlashcardsPanel />}
-            {section === 'test' && <QuizPanel />}
-            {section === 'egzamin' && <ExamPanel />}
-            {section === 'sciaga' && <CheatsheetPanel />}
-            {section === 'slowniczek' && <GlossaryPanel />}
-          </div>
-        </div>
-        <AppFooter />
-      </div>
-    </main>
+    <div className="sticky top-0 z-30 flex items-center gap-2 border-b border-rule bg-desk/90 px-4 py-2.5 backdrop-blur lg:hidden">
+      <Brand compact />
+      {current && current.id !== 'plan' ? <span className="truncate text-[14px] font-semibold text-ink-2">· {current.label}</span> : null}
+    </div>
   )
 }
 
 function AppFooter() {
   const year = new Date().getFullYear()
   return (
-    <Chamfer size="lg">
-      <footer className="px-5 py-4">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] font-semibold text-gray-800">
-          <Zap className="h-3.5 w-3.5 text-[color:var(--c-1a5c46)]" />
-          <span>Korki G1</span>
-          <span className="text-gray-400">·</span>
-          <span>© {year} Paweł Kikta</span>
-          <span className="text-gray-400">·</span>
-          <span className="font-normal text-gray-500">kod: MIT · treść: CC0</span>
-          <span className="text-gray-400">·</span>
-          <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="font-normal text-[color:var(--c-14543e)] underline underline-offset-2 hover:text-gray-900">
-            GitHub
-          </a>
-          <span className="text-gray-400">·</span>
-          <span className="font-mono text-[11px] font-medium text-[color:var(--c-14543e)]">wersja {APP_VERSION} ({APP_STAGE.toLowerCase()})</span>
-        </div>
-        <p className="mt-2 max-w-4xl text-[12px] leading-5 text-gray-500">
-          <span className="font-semibold text-gray-600">Zastrzeżenie:</span> Materiał ma charakter wyłącznie pomocniczy
-          i edukacyjny. Treść przygotował model AI (Claude) pod kierunkiem autora. Autor sprawdził ją z tekstami przepisów
-          i wartościami z norm (m.in. PN-HD 60364), ale może zawierać błędy – nie jest oficjalnym materiałem egzaminacyjnym, źródłem prawa
-          ani substytutem szkolenia z uprawnionym wykładowcą. To prywatny projekt autora, niezwiązany ze Stowarzyszeniem
-          Elektryków Polskich (SEP) ani z żadną komisją kwalifikacyjną. Wartości i procedury upraszczamy na potrzeby nauki;
-          przed przystąpieniem do egzaminu i do jakichkolwiek prac przy instalacjach elektrycznych kieruj się aktualnymi
-          normami, przepisami oraz posiadanymi uprawnieniami. Autor nie ponosi odpowiedzialności za skutki wykorzystania
-          informacji zawartych w aplikacji.
+    <footer className="border-t border-rule-2 pt-4 text-[13px] leading-6 text-ink-3">
+      <div className="flex flex-wrap gap-x-2 gap-y-0.5">
+        <span className="font-semibold text-ink-2">Korki G1</span>
+        <span>·</span>
+        <span>© {year} Paweł Kikta</span>
+        <span>·</span>
+        <span>kod: MIT · treść: CC0</span>
+        <span>·</span>
+        <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink">GitHub</a>
+      </div>
+      <p className="mt-1">Pomoc do nauki, nie oficjalny materiał egzaminacyjny. Treść przygotował model AI (Claude) pod kierunkiem autora.</p>
+      <details className="mt-1">
+        <summary className="cursor-pointer font-semibold text-ink-2 hover:text-ink">Pełne zastrzeżenie</summary>
+        <p className="mt-1 max-w-[80ch]">
+          Materiał ma charakter wyłącznie pomocniczy i edukacyjny. Treść przygotował model AI (Claude) pod kierunkiem autora.
+          Autor sprawdził ją z tekstami przepisów i wartościami z norm (m.in. PN-HD 60364), ale może zawierać błędy – nie jest
+          oficjalnym materiałem egzaminacyjnym, źródłem prawa ani substytutem szkolenia z uprawnionym wykładowcą. To prywatny
+          projekt autora, niezwiązany ze Stowarzyszeniem Elektryków Polskich (SEP) ani z żadną komisją kwalifikacyjną. Wartości
+          i procedury upraszczamy na potrzeby nauki; przed przystąpieniem do egzaminu i do jakichkolwiek prac przy instalacjach
+          elektrycznych kieruj się aktualnymi normami, przepisami oraz posiadanymi uprawnieniami. Autor nie ponosi
+          odpowiedzialności za skutki wykorzystania informacji zawartych w aplikacji.
         </p>
-      </footer>
-    </Chamfer>
+      </details>
+    </footer>
+  )
+}
+
+export default function App() {
+  const [{ section, sub }, navigate] = useHashRoute(SECTION_IDS, 'plan')
+  const meta = useNavMeta()
+
+  // każda zmiana ekranu albo rozdziału zaczyna się od góry strony
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [section, sub])
+
+  return (
+    <div className="min-h-screen text-ink lg:flex">
+      <Sidebar section={section} meta={meta} />
+      <MobileTopBar section={section} />
+      <main className="min-w-0 flex-1 px-4 pb-28 pt-5 md:px-8 lg:pb-12 lg:pt-9">
+        <div className="mx-auto max-w-[980px] space-y-7">
+          {section === 'plan' && <PlanPanel navigate={navigate} />}
+          {section === 'podstawy' && <BasicsPanel />}
+          {section === 'pomiary' && <TrainingPanel chapterNum={Number(sub) || 1} onChapter={(n) => navigate('pomiary', String(n))} />}
+          {section === 'urzadzenia' && <DevicesPanel deviceId={sub} onDevice={(id) => navigate('urzadzenia', id)} />}
+          {section === 'organizacja' && <OrgPanel />}
+          {section === 'pierwsza-pomoc' && <FirstAidPanel />}
+          {section === 'fiszki' && <FlashcardsPanel topicId={sub} onTopic={(t) => navigate('fiszki', t ?? '')} />}
+          {section === 'test' && <QuizPanel topicId={sub} />}
+          {section === 'egzamin' && <ExamPanel />}
+          {section === 'sciaga' && <CheatsheetPanel />}
+          {section === 'slowniczek' && <GlossaryPanel />}
+          <AppFooter />
+        </div>
+      </main>
+      <MobileNav section={section} meta={meta} navigate={navigate} />
+    </div>
   )
 }

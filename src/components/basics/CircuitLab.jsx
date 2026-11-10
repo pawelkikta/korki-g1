@@ -137,7 +137,7 @@ export function CircuitLab() {
           <button
             key={key}
             onClick={() => setId(key)}
-            className={`cham edge px-3 py-2 text-left transition ${id === key ? 'bg-[color:var(--b-e7f0eb)]' : 'bg-[color:var(--b-fafbfa)] hover:bg-[color:var(--b-ffffff)]'}`}
+            className={`rounded-sm edge px-3 py-2 text-left transition ${id === key ? 'bg-[color:var(--b-e7f0eb)]' : 'bg-[color:var(--b-fafbfa)] hover:bg-[color:var(--b-ffffff)]'}`}
             style={{ '--e': id === key ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
           >
             <div className={`text-[13px] font-bold ${id === key ? 'text-gray-900' : 'text-gray-700'}`}>{s.label}</div>

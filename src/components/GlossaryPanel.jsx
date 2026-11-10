@@ -1,23 +1,23 @@
 import React, { useMemo, useState } from 'react'
-import { BookMarked, Search, Type, Wrench } from 'lucide-react'
+import { BookMarked, Type, Wrench } from 'lucide-react'
 import { glossary, glossaryGroups } from '../data/glossary.js'
 import { abbreviations, abbrGroups, abbrLangs } from '../data/abbreviations.js'
 import { useStoredState } from '../lib/storage.js'
 import { SystemDecoder } from './SystemDecoder.jsx'
-import { NoteBox, SectionFrame, Tag } from './ui.jsx'
+import { FilterChips, FolderTabs, NoteBox, PageHeader, SearchField, Tag } from './ui.jsx'
 
 function GlossaryCard({ entry }) {
   return (
-    <div className="border border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] p-4">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="text-base font-bold text-gray-900">{entry.term}</div>
+    <div className="rounded-[4px] bg-paper px-4 py-4 shadow-[inset_0_0_0_1px_var(--rule)]">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <div className="font-slab text-[18px] font-semibold leading-snug text-ink">{entry.term}</div>
         <Tag>{entry.group}</Tag>
       </div>
-      <p className="mt-2 text-sm leading-6 text-gray-700">{entry.what}</p>
-      <p className="mt-1.5 text-sm leading-6 text-gray-700"><span className="font-semibold text-[color:var(--c-14543e)]">Do czego służy: </span>{entry.use}</p>
-      <div className="mt-2.5 border border-[color:var(--c-bcd4c8)] bg-[color:var(--b-e7f0eb)] px-3 py-2 text-sm leading-6 text-gray-800">
-        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--c-14543e)]">W praktyce </span>
-        <span className="mt-0.5 block">{entry.example}</span>
+      <p className="mt-2 font-serif text-[16px] leading-[1.6] text-ink">{entry.what}</p>
+      <p className="mt-1.5 font-serif text-[16px] leading-[1.6] text-ink"><span className="font-sans text-[14px] font-bold text-ink-2">Do czego służy: </span>{entry.use}</p>
+      <div className="mt-3 rounded-r-[3px] border-l-[3px] border-accent-line bg-accent-soft px-3 py-2">
+        <div className="eyebrow !text-accent-ink">W praktyce</div>
+        <div className="mt-0.5 font-serif text-[15.5px] leading-[1.55] text-ink">{entry.example}</div>
       </div>
     </div>
   )
@@ -26,34 +26,31 @@ function GlossaryCard({ entry }) {
 // rozwinięcie skrótu: litery w [nawiasach] tworzą skrót – wyróżniamy je kolorem
 function Expansion({ text }) {
   return text.split(/\[([^\]]+)\]/).map((part, i) =>
-    i % 2 ? <strong key={i} className="font-extrabold text-[color:var(--c-14543e)]">{part}</strong> : <span key={i}>{part}</span>
+    i % 2 ? <strong key={i} className="font-bold text-red-ink">{part}</strong> : <span key={i}>{part}</span>
   )
 }
 
 function AbbrCard({ entry }) {
   return (
-    <div className="border border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] p-4">
-      <div className="flex items-start gap-3">
-        <div
-          style={{ '--e': 'var(--c-bcd4c8)' }}
-          className={`cham-sm edge w-24 shrink-0 bg-[color:var(--b-e7f0eb)] px-2 py-2 text-center font-mono font-bold leading-tight text-[color:var(--c-14543e)] ${entry.abbr.length > 8 ? 'text-[12px]' : 'text-lg'}`}
-        >
+    <div className="rounded-[4px] bg-paper px-4 py-4 shadow-[inset_0_0_0_1px_var(--rule)]">
+      <div className="flex items-start gap-3.5">
+        <div className={`w-24 shrink-0 rounded-[3px] bg-paper-2 px-2 py-2 text-center font-mono font-bold leading-tight text-ink shadow-[inset_0_0_0_1px_var(--rule-2)] ${entry.abbr.length > 8 ? 'text-[12.5px]' : 'text-[18px]'}`}>
           {entry.abbr}
         </div>
         <div className="min-w-0 flex-1">
-          {entry.src ? <div className="text-[15px] leading-6 text-gray-900"><Expansion text={entry.src} /></div> : null}
-          {entry.pl ? <div className="text-sm font-semibold leading-6 text-gray-800">→ {entry.pl}</div> : null}
+          {entry.src ? <div className="font-serif text-[16.5px] leading-[1.5] text-ink"><Expansion text={entry.src} /></div> : null}
+          {entry.pl ? <div className="text-[14.5px] font-semibold leading-6 text-ink-2">→ {entry.pl}</div> : null}
           <div className="mt-1.5"><Tag tone={entry.lang === 'sym' ? 'slate' : 'amber'}>{abbrLangs[entry.lang]}</Tag></div>
         </div>
       </div>
-      {entry.note ? <p className="mt-2.5 text-[13px] leading-6 text-gray-700">{entry.note}</p> : null}
+      {entry.note ? <p className="mt-2.5 font-serif text-[15px] leading-[1.6] text-ink-2">{entry.note}</p> : null}
     </div>
   )
 }
 
 const TABS = [
   { id: 'pojecia', label: 'Pojęcia i urządzenia', icon: BookMarked },
-  { id: 'skroty', label: 'Skróty – skąd się biorą', icon: Type },
+  { id: 'skroty', label: 'Skróty', icon: Type },
 ]
 
 export function GlossaryPanel() {
@@ -91,109 +88,81 @@ export function GlossaryPanel() {
   const showDecoder = abbrMode && !q && (group === null || group === 'Układy sieci')
 
   return (
-    <div className="space-y-6">
-      <SectionFrame
-        tag="Słowniczek"
-        title={abbrMode ? 'Skróty i oznaczenia – skąd się biorą' : 'Pojęcia i urządzenia – od przewodu po miernik'}
-        subtitle={
-          abbrMode
-            ? 'TN pochodzi z francuskiego, RCD z angielskiego, NH z niemieckiego. Rozwinięcie mówi, CO oznacza skrót – a komisja lubi zapytać, co znaczy litera T w TN.'
-            : 'Krótko: co to jest, do czego służy i przykład z życia. Egzamin ustny to rozmowa – komisja lubi, gdy umiesz wyjaśnić pojęcie „po ludzku", a nie regułką.'
-        }
-        badge={abbrMode ? `${count}/${abbreviations.length} skrótów` : `${count}/${glossary.length} haseł`}
-      >
-        <div className="mb-3 grid gap-1.5 sm:grid-cols-2">
-          {TABS.map((t) => {
-            const Icon = t.icon
-            const on = tab === t.id
-            return (
-              <button
-                key={t.id}
-                onClick={() => switchTab(t.id)}
-                className={`cham edge flex items-center gap-2 px-3 py-2.5 text-left text-sm font-bold transition ${on ? 'bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'bg-[color:var(--b-fafbfa)] text-gray-500 hover:text-gray-800'}`}
-                style={{ '--e': on ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
-              >
-                <Icon className="h-4 w-4 shrink-0" /> {t.label}
-              </button>
-            )
-          })}
-        </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex min-w-[220px] flex-1 items-center gap-2 border border-[color:var(--c-d7ded9)] bg-[color:var(--b-f6f8f7)] px-3 py-2">
-            <Search className="h-4 w-4 text-gray-500" />
-            <input
+    <div className="space-y-7">
+      <PageHeader
+        eyebrow="Pod ręką"
+        title="Słowniczek"
+        lead="Pojęcia i urządzenia wyjaśnione „po ludzku” oraz skróty – skąd się biorą. Egzamin ustny to rozmowa: komisja lubi, gdy umiesz wyjaśnić pojęcie własnymi słowami, a nie regułką."
+      />
+
+      <div>
+        <FolderTabs label="Słowniczek" value={tab} onChange={switchTab} tabs={TABS.map((t) => ({ ...t, label: `${t.label} (${t.id === 'skroty' ? abbreviations.length : glossary.length})` }))} />
+        <section className="sheet relative z-[1] px-5 py-5 md:px-7 md:py-6">
+          <p className="max-w-[70ch] font-serif text-[16px] leading-[1.55] text-ink-2">
+            {abbrMode
+              ? 'TN pochodzi z francuskiego, RCD z angielskiego, NH z niemieckiego. Rozwinięcie mówi, CO oznacza skrót – a komisja lubi zapytać, co znaczy litera T w TN.'
+              : 'Krótko: co to jest, do czego służy i przykład z życia.'}
+          </p>
+          <div className="mt-4">
+            <SearchField
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={setQuery}
               placeholder={abbrMode ? 'Szukaj skrótu: TN, RCD, SELV, IP...' : 'Szukaj: RCD, pralka, cęgi, PEN...'}
-              className="w-full bg-transparent text-sm text-gray-800 outline-none placeholder:text-gray-400"
             />
           </div>
-        </div>
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          <button
-            onClick={() => setGroup(null)}
-            className={`border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition ${
-              group === null ? 'border-[color:var(--c-1a5c46)] bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-500 hover:border-[color:var(--c-b9c4bd)]'
-            }`}
-          >
-            Wszystkie
-          </button>
-          {groups.map((g) => (
-            <button
-              key={g}
-              onClick={() => setGroup(group === g ? null : g)}
-              className={`border px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition ${
-                group === g ? 'border-[color:var(--c-1a5c46)] bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-500 hover:border-[color:var(--c-b9c4bd)]'
-              }`}
-            >
-              {g}
-            </button>
-          ))}
-        </div>
-      </SectionFrame>
-
-      {showDecoder ? (
-        <SectionFrame
-          tag="Dekoder"
-          title="TN, TT, IT – litera po literze"
-          subtitle="Każda litera odpowiada na inne pytanie. Wybierz układ i kliknij literę, żeby zobaczyć na schemacie, czego dotyczy."
-        >
-          <SystemDecoder />
-          <div className="mt-4">
-            <NoteBox type="trap" title="Na egzaminie">
-              Nie kończ na „T to ziemia". Powiedz, czego dotyczy litera: pierwsza – jak źródło jest połączone z ziemią, druga – jak
-              połączone są obudowy, kolejne – czy N i PE biegną razem (C), czy osobno (S).
-            </NoteBox>
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <span className="text-[13px] font-semibold text-ink-3">Pokaż:</span>
+            <FilterChips options={groups} value={group} onChange={setGroup} />
+            <span className="ml-auto text-[13px] tabular-nums text-ink-3">{abbrMode ? `${count} z ${abbreviations.length}` : `${count} z ${glossary.length}`}</span>
           </div>
-        </SectionFrame>
-      ) : null}
 
-      {count === 0 ? (
-        <SectionFrame tag="Pusto" title={`Brak ${abbrMode ? 'skrótów' : 'haseł'} dla „${query}"`}>
-          <div className="flex items-center gap-2 text-sm text-gray-600"><Wrench className="h-4 w-4" /> Spróbuj krócej, np. „RCD" albo „izolacja".</div>
-        </SectionFrame>
-      ) : abbrMode ? (
-        q ? (
-          <div className="grid gap-3 lg:grid-cols-2">
-            {filteredAbbr.map((e) => <AbbrCard key={e.id} entry={e} />)}
-          </div>
-        ) : (
-          abbrGroups
-            .filter((g) => filteredAbbr.some((e) => e.group === g))
-            .map((g) => (
-              <div key={g}>
-                <div className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[color:var(--c-14543e)]">{g}</div>
-                <div className="grid gap-3 lg:grid-cols-2">
-                  {filteredAbbr.filter((e) => e.group === g).map((e) => <AbbrCard key={e.id} entry={e} />)}
-                </div>
+          {showDecoder ? (
+            <div className="mt-6 border-t border-rule pt-5">
+              <div className="eyebrow">Dekoder</div>
+              <h2 className="mt-1 font-slab text-[20px] font-semibold text-ink">TN, TT, IT – litera po literze</h2>
+              <p className="mt-1 font-serif text-[15.5px] leading-[1.55] text-ink-2">Każda litera odpowiada na inne pytanie. Wybierz układ i kliknij literę, żeby zobaczyć na schemacie, czego dotyczy.</p>
+              <div className="mt-4"><SystemDecoder /></div>
+              <div className="mt-4">
+                <NoteBox type="trap" title="Na egzaminie">
+                  Nie kończ na „T to ziemia". Powiedz, czego dotyczy litera: pierwsza – jak źródło jest połączone z ziemią, druga – jak
+                  połączone są obudowy, kolejne – czy N i PE biegną razem (C), czy osobno (S).
+                </NoteBox>
               </div>
-            ))
-        )
-      ) : (
-        <div className="grid gap-3 lg:grid-cols-2">
-          {filtered.map((e) => <GlossaryCard key={e.id} entry={e} />)}
-        </div>
-      )}
+            </div>
+          ) : null}
+
+          <div className="mt-6 border-t border-rule pt-5">
+            {count === 0 ? (
+              <div className="flex items-center gap-2 text-[15px] text-ink-2">
+                <Wrench className="h-4 w-4" /> Brak {abbrMode ? 'skrótów' : 'haseł'} dla „{query}”. Spróbuj krócej, np. „RCD” albo „izolacja”.
+              </div>
+            ) : abbrMode ? (
+              q ? (
+                <div className="grid gap-3 lg:grid-cols-2">
+                  {filteredAbbr.map((e) => <AbbrCard key={e.id} entry={e} />)}
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {abbrGroups
+                    .filter((g) => filteredAbbr.some((e) => e.group === g))
+                    .map((g) => (
+                      <div key={g}>
+                        <div className="eyebrow mb-2">{g}</div>
+                        <div className="grid gap-3 lg:grid-cols-2">
+                          {filteredAbbr.filter((e) => e.group === g).map((e) => <AbbrCard key={e.id} entry={e} />)}
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              )
+            ) : (
+              <div className="grid gap-3 lg:grid-cols-2">
+                {filtered.map((e) => <GlossaryCard key={e.id} entry={e} />)}
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
     </div>
   )
 }

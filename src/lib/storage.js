@@ -17,7 +17,12 @@ export function saveStored(key, value) {
   } catch {
     // storage pełny/zablokowany – apka działa dalej bez zapisu
   }
+  // menu i ekran Plan pokazują postęp – odświeżają się po każdym zapisie.
+  // Mikrozadanie: saveStored działa też w updaterze setState, a tam nie wolno aktualizować innych komponentów.
+  queueMicrotask(() => window.dispatchEvent(new CustomEvent(STORAGE_EVENT, { detail: key })))
 }
+
+export const STORAGE_EVENT = 'sepg1-storage'
 
 export function useStoredState(key, fallback) {
   const [value, setValue] = useState(() => loadStored(key, fallback))

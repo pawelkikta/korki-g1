@@ -1,10 +1,12 @@
 import React, { useEffect, useMemo } from 'react'
-import { ChevronLeft, ChevronRight, Eye, Check, RotateCcw, Zap, Shuffle, ClipboardCheck } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Eye, Check, Zap, ClipboardCheck } from 'lucide-react'
 import { questions, rounds } from '../data/questions.js'
 import { coach } from '../data/examCoach.js'
 import { useStoredState } from '../lib/storage.js'
-import { Button, SectionFrame, NoteBox, Tag, ProgressBar } from './ui.jsx'
+import { Badge, Button, FolderTabs, Kbd, NoteBox, PageHeader, ProgressBar, Switch, Tag } from './ui.jsx'
 import { Checklist, FollowUps } from './Coach.jsx'
+import { ReadMore } from './TopicLinks.jsx'
+import { flashcardsOf, topicById } from '../data/topics.js'
 
 function shuffleArr(arr) {
   const a = [...arr]
@@ -17,16 +19,20 @@ function shuffleArr(arr) {
 
 const byId = Object.fromEntries(questions.map((q) => [q.id, q]))
 
+// pula: runda albo temat (z adresu #/fiszki/<temat>, np. po „Fiszki z tego tematu” w rozdziale)
+const scopeOf = (roundId, topic) => (topic ? flashcardsOf(topic) : questions.filter((q) => q.round === roundId))
+
 // kolejność pytań (lista id) zapisujemy razem z pozycją – po powrocie losowa kolejność
 // i skład puli „do powtórki" są takie same jak przed wyjściem z fiszek
-function buildOrder(roundId, onlyReview, shuffleOn, progress) {
-  const base = questions.filter((q) => q.round === roundId)
+function buildOrder(roundId, onlyReview, shuffleOn, progress, topic = null) {
+  const base = scopeOf(roundId, topic)
   const filtered = onlyReview ? base.filter((q) => progress[q.id] === 'review') : base
   return (shuffleOn ? shuffleArr(filtered) : filtered).map((q) => q.id)
 }
 
 const POS_DEFAULT = {
   roundId: 1,
+  topic: null,
   onlyReview: false,
   shuffleOn: false,
   order: buildOrder(1, false, false, {}),
@@ -35,12 +41,14 @@ const POS_DEFAULT = {
   checked: {},
 }
 
-export function FlashcardsPanel() {
+export function FlashcardsPanel({ topicId, onTopic }) {
   const [progress, setProgress] = useStoredState('flash', {})
   // pozycja w fiszkach zapisana w przeglądarce: po przejściu do innego trybu (i po odświeżeniu) wracasz do tego samego pytania
   const [storedPos, setPos] = useStoredState('flashPos', POS_DEFAULT)
   const pos = { ...POS_DEFAULT, ...storedPos }
-  const { roundId, onlyReview, shuffleOn, revealed, checked } = pos
+  const { roundId, topic, onlyReview, shuffleOn, revealed, checked } = pos
+  // temat z adresu jest ważniejszy niż zapisana pozycja
+  const routeTopic = topicById[topicId] && flashcardsOf(topicId).length ? topicId : null
   const patch = (next) => setPos((s) => ({ ...POS_DEFAULT, ...s, ...(typeof next === 'function' ? next({ ...POS_DEFAULT, ...s }) : next) }))
 
   const pool = useMemo(() => {
@@ -54,13 +62,23 @@ export function FlashcardsPanel() {
   const items = extra?.checklist ?? []
   const checkedCount = items.filter((_, i) => checked[i]).length
   const allSaid = items.length > 0 && checkedCount === items.length
-  const known = questions.filter((q) => q.round === roundId && progress[q.id] === 'know').length
-  const total = questions.filter((q) => q.round === roundId).length
+  const scope = scopeOf(roundId, topic)
+  const known = scope.filter((q) => progress[q.id] === 'know').length
+  const total = scope.length
 
-  // zmiana rundy / filtra / losowania układa pulę od nowa i wraca na pierwsze pytanie
+  // zmiana rundy / tematu / filtra / losowania układa pulę od nowa i wraca na pierwsze pytanie
   const setPool = (next) => {
-    const n = { roundId, onlyReview, shuffleOn, ...next }
-    patch({ ...n, order: buildOrder(n.roundId, n.onlyReview, n.shuffleOn, progress), index: 0, revealed: false, checked: {} })
+    const n = { roundId, topic, onlyReview, shuffleOn, ...next }
+    patch({ ...n, order: buildOrder(n.roundId, n.onlyReview, n.shuffleOn, progress, n.topic), index: 0, revealed: false, checked: {} })
+  }
+
+  useEffect(() => {
+    if ((topic ?? null) !== routeTopic) setPool({ topic: routeTopic })
+  }, [routeTopic]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const pickRound = (id) => {
+    setPool({ roundId: id, topic: null })
+    if (routeTopic) onTopic(null)
   }
 
   const go = (dir) => {
@@ -102,123 +120,115 @@ export function FlashcardsPanel() {
     return () => window.removeEventListener('keydown', onKeyDown)
   })
 
+  const reviewInScope = scope.filter((q) => progress[q.id] === 'review').length
+  const roundTabs = rounds.map((r) => {
+    const k = questions.filter((q) => q.round === r.id && progress[q.id] === 'know').length
+    return { id: r.id, kicker: `Runda ${r.id} · ${r.count} pyt.`, label: r.title, done: k === r.count }
+  })
+  const tabs = topic ? [{ id: `t:${topic}`, kicker: `Temat · ${total} pyt.`, label: topicById[topic]?.label }, ...roundTabs] : roundTabs
+  const status = card ? progress[card.id] : null
+
   return (
-    <div className="space-y-6">
-      <SectionFrame
-        tag="Tryb 03"
-        title="Fiszki – trening egzaminu ustnego"
-        subtitle="Przeczytaj pytanie i odpowiedz na głos, jak przed komisją. Potem odsłoń meritum i uczciwie zaznacz, które kluczowe elementy padły – pytanie jest opanowane dopiero wtedy, gdy padły wszystkie. Skróty: spacja = odsłoń, 1–4 = zaznacz element, Enter = zatwierdź, ← → = nawigacja."
-        badge={`${known}/${total} opanowane`}
-      >
-        <div className="flex flex-wrap items-center gap-2">
-          {rounds.map((r) => {
-            const active = r.id === roundId && !onlyReview
-            return (
-              <button
-                key={r.id}
-                onClick={() => setPool({ roundId: r.id, onlyReview: false })}
-                className={`border px-3 py-2 text-left transition ${
-                  active ? 'border-[color:var(--c-1a5c46)] bg-[color:var(--b-e7f0eb)] text-gray-900' : 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-500 hover:border-[color:var(--c-b9c4bd)] hover:text-gray-800'
-                }`}
-              >
-                <div className="font-mono text-[10px] uppercase tracking-[0.16em]">Runda {r.id} · {r.count} pyt.</div>
-                <div className="text-xs font-bold">{r.title}</div>
-              </button>
-            )
-          })}
-          <button
-            onClick={() => setPool({ onlyReview: !onlyReview })}
-            className={`border px-3 py-2 transition ${
-              onlyReview ? 'border-[color:var(--c-c03538)] bg-[color:var(--b-fdf0ee)] text-gray-900' : 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-500 hover:border-[color:var(--c-b9c4bd)] hover:text-gray-800'
-            }`}
-          >
-            <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em]"><RotateCcw className="h-3 w-3" /> Do powtórki</div>
-            <div className="text-xs font-bold">{questions.filter((q) => q.round === roundId && progress[q.id] === 'review').length} pytań</div>
-          </button>
-          <button
-            onClick={() => setPool({ shuffleOn: !shuffleOn })}
-            title={'Losowa kolejność pytań – żeby nie uczyć się „kolejnością"'}
-            className={`border px-3 py-2 transition ${
-              shuffleOn ? 'border-[color:var(--c-1a5c46)] bg-[color:var(--b-e7f0eb)] text-gray-900' : 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-500 hover:border-[color:var(--c-b9c4bd)] hover:text-gray-800'
-            }`}
-          >
-            <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em]"><Shuffle className="h-3 w-3" /> Losowo</div>
-            <div className="text-xs font-bold">{shuffleOn ? 'włączone' : 'po kolei'}</div>
-          </button>
-        </div>
+    <div className="space-y-7">
+      <PageHeader
+        eyebrow="Utrwal · egzamin ustny"
+        title="Fiszki"
+        lead="Przeczytaj pytanie i odpowiedz na głos, jak przed komisją. Potem odsłoń i uczciwie zaznacz, które kluczowe elementy padły – dopiero wtedy przeczytaj wzorcową odpowiedź. Pytanie jest opanowane, gdy padły wszystkie elementy."
+        meta={`opanowane ${topic ? 'w temacie' : 'w rundzie'} ${known}/${total}`}
+      />
 
-        <div className="mt-4">
-          <ProgressBar value={known} max={total} />
-        </div>
-      </SectionFrame>
-
-      {!card ? (
-        <SectionFrame tag="Pusto" title={onlyReview ? 'Brak pytań do powtórki' : 'Brak pytań'} subtitle={onlyReview ? 'W tej rundzie nie masz nic oznaczonego „powtórzyć". Dobra robota!' : ''}>
-          <Button variant="secondary" onClick={() => setPool({ onlyReview: false })}>Pokaż całą rundę</Button>
-        </SectionFrame>
-      ) : (
-        <SectionFrame
-          tag={`Pytanie ${index + 1} / ${pool.length}`}
-          title={card.category}
-          accent={card.trap ? 'var(--c-c03538)' : 'var(--c-1a5c46)'}
-          badge={progress[card.id] === 'know' ? 'opanowane ✓' : progress[card.id] === 'review' ? 'do powtórki' : 'nowe'}
-        >
-          <div className="flex flex-wrap items-center gap-2">
-            <Tag tone={card.trap ? 'red' : 'amber'}>{card.trap ? <span className="inline-flex items-center gap-1"><Zap className="h-3 w-3" /> Podchwytliwe</span> : `Runda ${card.round}`}</Tag>
-            <Tag>{card.category}</Tag>
+      <div>
+        <FolderTabs
+          label="Rundy"
+          value={topic ? `t:${topic}` : roundId}
+          onChange={(id) => (typeof id === 'number' ? pickRound(id) : null)}
+          tabs={tabs}
+        />
+        <section className="sheet relative z-[1] overflow-hidden">
+          {card?.trap ? <div className="absolute inset-y-0 left-0 w-1 bg-red-ink" /> : null}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-b border-rule px-5 py-3.5 md:px-7">
+            <Switch checked={onlyReview} onChange={(v) => setPool({ onlyReview: v })} label="Tylko do powtórki" hint={reviewInScope} />
+            <Switch checked={shuffleOn} onChange={(v) => setPool({ shuffleOn: v })} label="Losowa kolejność" />
+            <div className="flex min-w-[160px] flex-1 items-center gap-3">
+              <div className="flex-1"><ProgressBar value={known} max={total} tone={known === total ? 'green' : 'amber'} /></div>
+            </div>
           </div>
 
-          <div className="mt-4 min-h-[72px] text-lg font-semibold leading-7 text-gray-900">{card.question}</div>
-
-          {revealed ? (
-            <div key={`answer-${card.id}`} className="mt-4 space-y-3">
-              <div className="border border-[color:var(--c-d7ded9)] bg-[color:var(--b-f6f8f7)] p-4">
-                <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--c-14543e)]">Odpowiedź – meritum</div>
-                <div className="mt-2 text-sm leading-7 text-gray-800">{card.answer}</div>
-              </div>
-              {items.length ? (
-                <Checklist items={items} checked={checked} onToggle={toggle} />
-              ) : (
-                <NoteBox type="remember" title="Kluczowe">{card.keyPoints}</NoteBox>
-              )}
-              {card.trap ? <NoteBox type="trap" title="Pułapka">{card.trap}</NoteBox> : null}
-              {card.wrongAnswer ? <NoteBox type="mistake" title="✗ Błędna odpowiedź">{card.wrongAnswer}</NoteBox> : null}
-              <FollowUps key={card.id} items={extra?.followUps} />
+          {!card ? (
+            <div className="px-5 py-8 md:px-7">
+              <div className="font-slab text-[20px] font-semibold text-ink">{onlyReview ? 'Brak pytań do powtórki' : 'Brak pytań'}</div>
+              {onlyReview ? <p className="mt-1 font-serif text-[16px] text-ink-2">W tej rundzie nie masz nic oznaczonego „do powtórki”. Dobra robota!</p> : null}
+              <Button variant="secondary" className="mt-4" onClick={() => setPool({ onlyReview: false })}>Pokaż całą rundę</Button>
             </div>
           ) : (
-            <div key="hidden" className="mt-4">
-              <button
-                onClick={() => setRevealed(true)}
-                className="flex w-full items-center justify-center gap-2 border border-dashed border-[color:var(--c-b9c4bd)] bg-[color:var(--b-f6f8f7)] px-4 py-10 font-mono text-xs uppercase tracking-[0.2em] text-gray-500 transition hover:border-[color:var(--c-1a5c46)] hover:text-[color:var(--c-14543e)]"
-              >
-                <Eye className="h-4 w-4" /> Odsłoń odpowiedź (spacja)
-              </button>
+            <div className="px-5 py-5 md:px-7 md:py-6">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="eyebrow mr-1">Pytanie {index + 1} z {pool.length}</span>
+                <Tag>{card.category}</Tag>
+                {card.trap ? <Tag tone="red"><Zap className="mr-1 h-3 w-3" /> Podchwytliwe</Tag> : null}
+                <span className="ml-auto">
+                  {status === 'know' ? <Badge tone="ok">opanowane ✓</Badge> : status === 'review' ? <Badge tone="red">do powtórki</Badge> : <Badge>nowe</Badge>}
+                </span>
+              </div>
+
+              <div className="mt-4 min-h-[64px] font-serif text-[21px] font-semibold leading-[1.4] text-ink md:text-[23px]">{card.question}</div>
+
+              {revealed ? (
+                <div key={`answer-${card.id}`} className="mt-5 space-y-4">
+                  {items.length ? (
+                    <Checklist items={items} checked={checked} onToggle={toggle} />
+                  ) : (
+                    <NoteBox type="remember" title="Kluczowe">{card.keyPoints}</NoteBox>
+                  )}
+                  <div className="rounded-[3px] bg-paper-2 px-4 py-3.5 shadow-[inset_0_0_0_1px_var(--rule)]">
+                    <div className="eyebrow">Wzorcowa odpowiedź</div>
+                    <div className="mt-1.5 font-serif text-[16.5px] leading-[1.65] text-ink">{card.answer}</div>
+                  </div>
+                  {card.trap ? <NoteBox type="trap" title="Pułapka">{card.trap}</NoteBox> : null}
+                  {card.wrongAnswer ? <NoteBox type="mistake" title="Błędna odpowiedź">{card.wrongAnswer}</NoteBox> : null}
+                  <FollowUps key={card.id} items={extra?.followUps} />
+                  <ReadMore topicId={card.topic} />
+                </div>
+              ) : (
+                <div key="hidden" className="mt-5">
+                  <button
+                    onClick={() => setRevealed(true)}
+                    className="flex w-full flex-col items-center justify-center gap-1.5 rounded-[4px] border-2 border-dashed border-rule-2 bg-paper-2 px-4 py-9 text-ink-2 transition hover:border-accent hover:text-accent-ink"
+                  >
+                    <span className="flex items-center gap-2 text-[15.5px] font-semibold"><Eye className="h-4 w-4" /> Odsłoń odpowiedź</span>
+                    <span className="text-[13px] text-ink-3">najpierw odpowiedz na głos · <Kbd>spacja</Kbd></span>
+                  </button>
+                </div>
+              )}
+
+              <div className="mt-5 grid grid-cols-2 gap-2 border-t border-rule pt-5 md:grid-cols-[auto_auto_1fr]">
+                <Button variant="secondary" onClick={() => go(-1)} disabled={index === 0}>
+                  <ChevronLeft className="mr-1 h-4 w-4" /> Wstecz
+                </Button>
+                <Button variant="secondary" onClick={() => go(1)} disabled={index >= pool.length - 1}>
+                  Pomiń <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+                <Button
+                  onClick={confirm}
+                  disabled={!revealed}
+                  variant={revealed && allSaid ? 'ok' : 'primary'}
+                  className="col-span-2 md:col-span-1"
+                >
+                  {revealed && allSaid ? <Check className="mr-1.5 h-4 w-4" /> : <ClipboardCheck className="mr-1.5 h-4 w-4" />}
+                  {!revealed
+                    ? 'Najpierw odpowiedz i odsłoń'
+                    : allSaid
+                      ? 'Zatwierdź: opanowane'
+                      : `Zatwierdź: do powtórki (brakuje ${items.length - checkedCount})`}
+                </Button>
+              </div>
+              <div className="mt-3 hidden text-[12.5px] text-ink-3 md:block">
+                Klawiatura: <Kbd>spacja</Kbd> odsłoń · <Kbd>1</Kbd>–<Kbd>{items.length || 4}</Kbd> zaznacz element · <Kbd>Enter</Kbd> zatwierdź · <Kbd>←</Kbd> <Kbd>→</Kbd> poprzednie / następne
+              </div>
             </div>
           )}
-
-          <div className="mt-4 grid grid-cols-2 gap-2 border-t border-[color:var(--c-d7ded9)] pt-4 md:grid-cols-[1fr_1fr_2fr]">
-            <Button variant="secondary" onClick={() => go(-1)} disabled={index === 0}>
-              <ChevronLeft className="mr-1 h-4 w-4" /> Wstecz
-            </Button>
-            <Button variant="secondary" onClick={() => go(1)} disabled={index >= pool.length - 1}>
-              Dalej <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
-            <Button
-              onClick={confirm}
-              disabled={!revealed}
-              variant={revealed && !allSaid ? 'danger' : 'primary'}
-              className={`col-span-2 md:col-span-1 ${revealed && allSaid ? '!bg-[color:var(--b-1f7a4d)] hover:!bg-[color:var(--b-27915d)]' : ''}`}
-            >
-              {revealed && allSaid ? <Check className="mr-1 h-4 w-4" /> : <ClipboardCheck className="mr-1 h-4 w-4" />}
-              {!revealed
-                ? 'Najpierw odpowiedz i odsłoń'
-                : allSaid
-                  ? 'Zatwierdź: opanowane [Enter]'
-                  : `Zatwierdź: do powtórki – brakuje ${items.length - checkedCount} [Enter]`}
-            </Button>
-          </div>
-        </SectionFrame>
-      )}
+        </section>
+      </div>
     </div>
   )
 }

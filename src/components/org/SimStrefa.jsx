@@ -164,7 +164,7 @@ export function SimStrefa() {
           <button
             key={m.id}
             onClick={() => reset(m.id)}
-            className={`cham-sm edge px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition ${mode === m.id ? 'bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'bg-[color:var(--b-fafbfa)] text-gray-500 hover:text-gray-800'}`}
+            className={`rounded-xs edge px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.1em] transition ${mode === m.id ? 'bg-[color:var(--b-e7f0eb)] text-[color:var(--c-14543e)]' : 'bg-[color:var(--b-fafbfa)] text-gray-500 hover:text-gray-800'}`}
             style={{ '--e': mode === m.id ? 'var(--c-1a5c46)' : 'var(--c-e3e8e5)' }}
           >
             {m.label}

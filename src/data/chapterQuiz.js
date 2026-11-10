@@ -207,4 +207,34 @@ export const chapterQuiz = {
       explain: 'Podpisuje wykonujący pomiary z zakresem kontrolno-pomiarowym. Kontrolę okresową z art. 62 może przeprowadzić osoba z kwalifikacjami D albo z uprawnieniami budowlanymi.',
     },
   ],
+  'pierwsza-pomoc': [
+    {
+      question: 'Porażony leży przy urządzeniu 230 V, którego nie da się wyłączyć. Co robisz najpierw?',
+      options: [
+        'Stajesz na suchym, izolującym podłożu i odsuwasz go suchym, nieprzewodzącym przedmiotem',
+        'Chwytasz go za rękę i jednym szybkim szarpnięciem odciągasz',
+        'Od razu zaczynasz RKO na miejscu – liczy się każda sekunda',
+        'Polewasz go wodą, żeby przerwać łuk',
+      ],
+      correct: 0,
+      explain: 'Najpierw przerywasz przepływ prądu – bez tego RKO nic nie da, a dotknięcie porażonego gołą ręką robi z ciebie kolejną ofiarę.',
+    },
+    {
+      question: 'Uciśnięcia klatki piersiowej u dorosłego wykonujesz:',
+      options: ['Na głębokość 5–6 cm, w tempie 100–120/min', 'Na głębokość 2–3 cm, w tempie 60–80/min', 'Na głębokość 8–10 cm, w tempie 140–160/min', 'Tak głęboko, jak się da, raz na 2 sekundy'],
+      correct: 0,
+      explain: 'Środek klatki piersiowej, 5–6 cm, 100–120 uciśnięć na minutę, pełne odprężenie po każdym uciśnięciu. Schemat 30:2.',
+    },
+    {
+      question: 'Dlaczego po porażeniu prądem tak ważny jest AED?',
+      options: [
+        'Porażenie często wywołuje migotanie komór – przerwać je może tylko defibrylacja',
+        'AED mierzy, jakim napięciem został porażony poszkodowany',
+        'Z AED nie trzeba już dzwonić na 112',
+        'AED używa się tylko wtedy, gdy poszkodowany oddycha',
+      ],
+      correct: 0,
+      explain: 'Migotanie komór to częsty skutek porażenia. RKO podtrzymuje krążenie, ale rytm przywraca dopiero defibrylacja – dlatego AED jak najszybciej, razem z 112.',
+    },
+  ],
 }

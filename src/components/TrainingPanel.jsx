@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { ChevronLeft, ChevronRight, FlaskConical, ClipboardCheck, Check } from 'lucide-react'
+import React, { useEffect } from 'react'
+import { ChevronLeft, ChevronRight, FlaskConical, ClipboardCheck } from 'lucide-react'
 import { chapters } from '../data/chapters.js'
 import { useStoredState } from '../lib/storage.js'
-import { Button, SectionFrame } from './ui.jsx'
+import { Badge, Button, FolderTabs, PageHeader, SectionFrame } from './ui.jsx'
 import { ChapterSection } from './ChapterSection.jsx'
 import { ChapterCheck } from './ChapterCheck.jsx'
+import { PracticeTopic } from './TopicLinks.jsx'
 import { SimPrzeglady } from './sims/SimPrzeglady.jsx'
 import { SimMegaomomierz } from './sims/SimMegaomomierz.jsx'
 import { SimCiagloscPE } from './sims/SimCiagloscPE.jsx'
@@ -23,58 +24,55 @@ const SIMS = {
   'protokol': { component: SimProtokol, title: 'Odbiór instalacji – ćwiczenie', subtitle: 'Ułóż pomiary w kolejności zalecanej przez normę i skompletuj protokół.' },
 }
 
-export function TrainingPanel() {
-  const [idx, setIdx] = useState(0)
+// Rozdział wybiera adres (#/pomiary/3), więc „Wstecz” i odświeżenie wracają do tego samego rozdziału.
+export function TrainingPanel({ chapterNum, onChapter }) {
+  const idx = Math.min(Math.max(chapterNum - 1, 0), chapters.length - 1)
   const [chapterDone, setChapterDone] = useStoredState('chapters', {})
   const chapter = chapters[idx]
+  const prev = chapters[idx - 1]
+  const next = chapters[idx + 1]
   const sim = SIMS[chapter.id]
   const SimComponent = sim?.component
   const doneCount = chapters.filter((c) => chapterDone[c.id]).length
+  const passed = !!chapterDone[chapter.id]
 
   useEffect(() => {
     const onKeyDown = (e) => {
       const tag = e.target.tagName
       if (tag === 'INPUT' || tag === 'TEXTAREA') return
-      if (e.key === 'ArrowRight') setIdx((i) => Math.min(i + 1, chapters.length - 1))
-      else if (e.key === 'ArrowLeft') setIdx((i) => Math.max(i - 1, 0))
+      if (e.key === 'ArrowRight' && next) onChapter(idx + 2)
+      else if (e.key === 'ArrowLeft' && prev) onChapter(idx)
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
+  }, [idx, next, prev, onChapter])
 
   return (
-    <div className="space-y-6">
-      <SectionFrame
-        tag="Tryb 02 – szkolenie"
-        title="Pomiary elektryczne (zakres kontrolno-pomiarowy)"
-        subtitle={'7 rozdziałów z pełnym wyjaśnieniem zagadnień pomiarowych. Przeczytaj przed rundami 2 i 4 fiszek. Każdy rozdział kończy się symulacją i mini-quizem „Sprawdź się" – komplet 3/3 zalicza rozdział.'}
-        badge={`zaliczone ${doneCount}/7 · rozdział ${chapter.num}/7`}
-      >
-        <div className="flex flex-wrap gap-1.5">
-          {chapters.map((c, i) => (
-            <button
-              key={c.id}
-              onClick={() => setIdx(i)}
-              className={`inline-flex items-center gap-1.5 border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.1em] transition ${
-                i === idx ? 'border-[color:var(--c-1a5c46)] bg-[color:var(--b-e7f0eb)] text-gray-900' : 'border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] text-gray-500 hover:border-[color:var(--c-b9c4bd)] hover:text-gray-800'
-              }`}
-            >
-              {c.num}. {c.short}
-              {chapterDone[c.id] ? <Check className="h-3.5 w-3.5 text-[color:var(--c-1f7a4d)]" /> : null}
-            </button>
-          ))}
-        </div>
-      </SectionFrame>
+    <div className="space-y-7">
+      <PageHeader
+        eyebrow="Zrozum · pomiary"
+        title="Pomiary elektryczne"
+        lead={'Zakres kontrolno-pomiarowy w 7 rozdziałach. Każdy ma teorię, symulację przyrządu i 3 pytania „Sprawdź się” – komplet 3/3 zalicza rozdział. Przeczytaj przed rundami 2 i 4 fiszek.'}
+        meta={`zaliczone ${doneCount}/${chapters.length}`}
+      />
 
-      <SectionFrame tag={`Rozdział ${chapter.num}`} title={chapter.title} subtitle={chapter.lead}>
-        <div className="space-y-8">
-          {chapter.sections.map((s) => <ChapterSection key={s.heading} section={s} />)}
-        </div>
-      </SectionFrame>
+      <div>
+        <FolderTabs
+          label="Rozdziały"
+          value={chapter.id}
+          onChange={(id) => onChapter(chapters.findIndex((c) => c.id === id) + 1)}
+          tabs={chapters.map((c) => ({ id: c.id, kicker: `Rozdział ${c.num}`, label: c.short, done: !!chapterDone[c.id] }))}
+        />
+        <SectionFrame tag={`Rozdział ${chapter.num} z ${chapters.length}`} title={chapter.title} subtitle={chapter.lead}>
+          <div className="space-y-10">
+            {chapter.sections.map((s) => <ChapterSection key={s.heading} section={s} />)}
+          </div>
+        </SectionFrame>
+      </div>
 
       {SimComponent ? (
         <SectionFrame
-          tag={<span className="inline-flex items-center gap-1.5"><FlaskConical className="h-3.5 w-3.5" /> Symulacja</span>}
+          tag={<><FlaskConical className="h-3.5 w-3.5" /> Symulacja</>}
           title={sim.title}
           subtitle={sim.subtitle}
         >
@@ -83,27 +81,32 @@ export function TrainingPanel() {
       ) : null}
 
       <SectionFrame
-        tag={<span className="inline-flex items-center gap-1.5"><ClipboardCheck className="h-3.5 w-3.5" /> Sprawdź się</span>}
+        tag={<><ClipboardCheck className="h-3.5 w-3.5" /> Sprawdź się</>}
         title={`3 pytania z rozdziału ${chapter.num}`}
         subtitle="Odpowiedz bez podglądania – to najlepszy moment na utrwalenie. Komplet 3/3 zalicza rozdział."
-        badge={chapterDone[chapter.id] ? 'zaliczony ✓' : 'niezaliczony'}
-        accent={chapterDone[chapter.id] ? 'var(--c-1f7a4d)' : 'var(--c-1a5c46)'}
+        badge={passed ? <Badge tone="ok">zaliczony ✓</Badge> : <Badge>niezaliczony</Badge>}
+        accent={passed ? 'var(--ok)' : undefined}
       >
         <ChapterCheck
           key={chapter.id}
           chapterId={chapter.id}
-          passed={!!chapterDone[chapter.id]}
+          passed={passed}
           onPassed={() => setChapterDone((d) => ({ ...d, [chapter.id]: true }))}
         />
+        <PracticeTopic topicId={chapter.id} />
       </SectionFrame>
 
-      <div className="grid grid-cols-2 gap-2">
-        <Button variant="secondary" onClick={() => setIdx((i) => Math.max(i - 1, 0))} disabled={idx === 0}>
-          <ChevronLeft className="mr-1 h-4 w-4" /> Poprzedni rozdział
-        </Button>
-        <Button onClick={() => setIdx((i) => Math.min(i + 1, chapters.length - 1))} disabled={idx === chapters.length - 1}>
-          Następny rozdział <ChevronRight className="ml-1 h-4 w-4" />
-        </Button>
+      <div className="grid gap-2 sm:grid-cols-2">
+        {prev ? (
+          <Button variant="secondary" className="justify-start text-left" onClick={() => onChapter(idx)}>
+            <ChevronLeft className="mr-1.5 h-4 w-4 shrink-0" /> <span className="truncate">Rozdział {prev.num}: {prev.short}</span>
+          </Button>
+        ) : <div className="hidden sm:block" />}
+        {next ? (
+          <Button className="justify-end text-right" onClick={() => onChapter(idx + 2)}>
+            <span className="truncate">Rozdział {next.num}: {next.short}</span> <ChevronRight className="ml-1.5 h-4 w-4 shrink-0" />
+          </Button>
+        ) : null}
       </div>
     </div>
   )

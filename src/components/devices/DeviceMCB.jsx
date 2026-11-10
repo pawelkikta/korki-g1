@@ -205,7 +205,7 @@ export function DeviceMCB() {
             'Komora gaszeniowa – gasi łuk elektryczny przy rozłączaniu',
           ].map((t, i) => (
             <li key={i} className="flex gap-2.5 border border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] px-3 py-1.5 text-[13px] leading-5 text-gray-700">
-              <span style={{ '--e': 'var(--c-bcd4c8)' }} className="cham-sm edge flex h-5 w-5 shrink-0 items-center justify-center bg-[color:var(--b-e7f0eb)] font-mono text-[10px] font-bold text-[color:var(--c-14543e)]">{i + 1}</span>
+              <span style={{ '--e': 'var(--c-bcd4c8)' }} className="rounded-xs edge flex h-5 w-5 shrink-0 items-center justify-center bg-[color:var(--b-e7f0eb)] font-mono text-[10px] font-bold text-[color:var(--c-14543e)]">{i + 1}</span>
               {t}
             </li>
           ))}
@@ -251,5 +251,5 @@ export function DeviceMCB() {
 }
 
 function ValueTileTag({ children }) {
-  return <span style={{ '--e': 'var(--c-d7ded9)' }} className="cham-sm edge bg-[color:var(--b-fafbfa)] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-gray-600">{keepCase(children)}</span>
+  return <span style={{ '--e': 'var(--c-d7ded9)' }} className="rounded-xs edge bg-[color:var(--b-fafbfa)] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-gray-600">{keepCase(children)}</span>
 }

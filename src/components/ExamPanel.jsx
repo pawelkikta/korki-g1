@@ -1,20 +1,14 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Eye, Check, RotateCcw, GraduationCap, Zap, MessageCircleQuestion, ChevronRight } from 'lucide-react'
 import { questions } from '../data/questions.js'
 import { coach } from '../data/examCoach.js'
+import { AREAS } from '../data/areas.js'
 import { useStoredState, loadStored } from '../lib/storage.js'
-import { Button, SectionFrame, NoteBox, Tag, ProgressBar } from './ui.jsx'
+import { Badge, Button, NoteBox, PageHeader, ProgressBar, Tag } from './ui.jsx'
 import { Checklist } from './Coach.jsx'
 
 const EXAM_SIZE = 10
 
-// Obszary egzaminu – z każdego co najmniej jedno pytanie, jak na prawdziwej komisji
-const AREAS = [
-  { label: 'BHP i pierwsza pomoc', cats: ['BHP', 'Pierwsza pomoc'] },
-  { label: 'Dozór i organizacja pracy', cats: ['Dozór'] },
-  { label: 'Pomiary', cats: ['Pomiary'] },
-  { label: 'Eksploatacja', cats: ['Eksploatacja'] },
-]
 
 function shuffle(arr) {
   const a = [...arr]
@@ -70,6 +64,11 @@ export function ExamPanel() {
   const score = Object.values(results).filter((r) => r.ok).length
   const done = running && answeredCount === exam.length && exam.length > 0
 
+  // nowe pytanie zaczyna się od góry – po dopytaniu jesteś na dole poprzedniego
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [index, running, done])
+
   const start = () => {
     setSeed((s) => s + 1)
     setRunning(true)
@@ -98,77 +97,79 @@ export function ExamPanel() {
   if (!running || done) {
     const failed = done ? exam.filter((q) => !results[q.id]?.ok) : []
     return (
-      <div className="space-y-6">
-        <SectionFrame
-          tag="Tryb 05"
-          title="Egzamin próbny – symulacja komisji"
-          subtitle={`${EXAM_SIZE} pytań ze wszystkich obszarów (BHP, dozór, pomiary, eksploatacja) – częściej te, których jeszcze nie opanowałeś. Odpowiadasz na głos, zaznaczasz, które kluczowe elementy padły, a potem komisja dopytuje. Pytanie jest zaliczone tylko wtedy, gdy padły wszystkie elementy i obroniłeś się przy dopytaniu.`}
-          badge={history.length ? `ostatnio: ${history[history.length - 1].score}/${history[history.length - 1].total}` : 'brak podejść'}
-        >
+      <div className="space-y-7">
+        <PageHeader
+          eyebrow="Sprawdź · symulacja komisji"
+          title="Egzamin próbny"
+          lead={`${EXAM_SIZE} pytań ze wszystkich obszarów (BHP, dozór, pomiary, eksploatacja) – częściej te, których jeszcze nie opanowałeś. Odpowiadasz na głos, zaznaczasz, które kluczowe elementy padły, a potem komisja dopytuje. Pytanie jest zaliczone tylko wtedy, gdy padły wszystkie elementy i obroniłeś się przy dopytaniu.`}
+          meta={history.length ? `ostatnio ${history[history.length - 1].score}/${history[history.length - 1].total}` : 'brak podejść'}
+        />
+
+        <section className="sheet relative z-[1] px-5 py-5 md:px-7 md:py-6">
           {done ? (
-            <div className="space-y-4">
-              <NoteBox type={score >= 8 ? 'remember' : 'mistake'} title={`Wynik: ${score}/${exam.length}`}>
+            <div className="mb-5 space-y-4">
+              <NoteBox type={score >= 8 ? 'ok' : 'mistake'} title={`Wynik: ${score}/${exam.length}`}>
                 {score >= 8
                   ? 'Tak trzymaj. Na prawdziwym egzaminie komisja oczekuje pewnych, pełnych odpowiedzi i spokoju przy dopytaniach.'
                   : 'Pytania niezaliczone trafiły do fiszek z oznaczeniem „do powtórki". Przejdź je, a potem podejdź do egzaminu jeszcze raz.'}
               </NoteBox>
               {failed.length ? (
-                <div className="space-y-1.5">
-                  <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-gray-600">Do poprawki</div>
-                  {failed.map((q) => {
-                    const r = results[q.id]
-                    return (
-                      <div key={q.id} className="border border-[color:var(--c-e5b8b4)] bg-[color:var(--b-fdf0ee)] px-3 py-2 text-[13px] leading-5">
-                        <div className="font-semibold text-gray-900">{q.question}</div>
-                        <div className="mt-0.5 text-[12px] text-[color:var(--c-b3261e)]">
-                          {r.said < r.total ? `Brakowało kluczowych elementów: ${r.said}/${r.total}. ` : ''}
-                          {!r.follow ? 'Nie obroniłeś się przy dopytaniu.' : ''}
-                        </div>
-                      </div>
-                    )
-                  })}
+                <div>
+                  <div className="eyebrow mb-2">Do poprawki</div>
+                  <ul className="divide-y divide-rule">
+                    {failed.map((q) => {
+                      const r = results[q.id]
+                      return (
+                        <li key={q.id} className="py-2.5">
+                          <div className="font-serif text-[16px] font-semibold leading-[1.45] text-ink">{q.question}</div>
+                          <div className="mt-0.5 text-[13.5px] text-red-ink">
+                            {r.said < r.total ? `Brakowało kluczowych elementów: ${r.said}/${r.total}. ` : ''}
+                            {!r.follow ? 'Nie obroniłeś się przy dopytaniu.' : ''}
+                          </div>
+                        </li>
+                      )
+                    })}
+                  </ul>
                 </div>
               ) : null}
             </div>
           ) : null}
-          <div className="mt-4 flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Button onClick={start}><GraduationCap className="mr-2 h-4 w-4" /> {done ? 'Jeszcze raz' : 'Rozpocznij egzamin'}</Button>
             {history.length > 1 ? (
               <div className="flex flex-wrap items-center gap-1.5">
+                <span className="mr-1 text-[13px] text-ink-3">Historia:</span>
                 {history.map((h, i) => (
                   <Tag key={i} tone={h.score / h.total >= 0.8 ? 'green' : 'red'}>{h.score}/{h.total}</Tag>
                 ))}
               </div>
             ) : null}
           </div>
-        </SectionFrame>
+        </section>
       </div>
     )
   }
 
   return (
-    <div className="space-y-6">
-      <SectionFrame
-        tag={`Egzamin – pytanie ${index + 1} / ${exam.length}`}
-        title={card.category}
-        accent={card.trap ? 'var(--c-c03538)' : 'var(--c-1a5c46)'}
-        badge={`zaliczone: ${score}`}
-      >
-        <div className="mb-3"><ProgressBar value={answeredCount} max={exam.length} /></div>
-        {card.trap ? <Tag tone="red"><span className="inline-flex items-center gap-1"><Zap className="h-3 w-3" /> Podchwytliwe</span></Tag> : null}
-        <div className="mt-3 min-h-[72px] text-lg font-semibold leading-7 text-gray-900">{card.question}</div>
+    <div className="space-y-7">
+      <section className="sheet relative z-[1] overflow-hidden px-5 py-5 md:px-7 md:py-6">
+        {card.trap ? <div className="absolute inset-y-0 left-0 w-1 bg-red-ink" /> : null}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="eyebrow mr-1">Egzamin · pytanie {index + 1} z {exam.length}</span>
+          <Tag>{card.category}</Tag>
+          {card.trap ? <Tag tone="red"><Zap className="mr-1 h-3 w-3" /> Podchwytliwe</Tag> : null}
+          <span className="ml-auto"><Badge tone="ok">zaliczone: {score}</Badge></span>
+        </div>
+        <div className="mt-3"><ProgressBar value={answeredCount} max={exam.length} /></div>
+        <div className="mt-5 min-h-[64px] font-serif text-[21px] font-semibold leading-[1.4] text-ink md:text-[23px]">{card.question}</div>
 
         {phase === 'ask' ? (
-          <div className="mt-4 border border-dashed border-[color:var(--c-b9c4bd)] bg-[color:var(--b-f6f8f7)] px-4 py-8 text-center">
-            <div className="font-mono text-xs uppercase tracking-[0.2em] text-gray-500">Odpowiedz na głos, pełnym zdaniem – dopiero wtedy odsłoń</div>
-            <Button className="mt-4" onClick={() => setPhase('check')}><Eye className="mr-2 h-4 w-4" /> Pokaż wzorcową odpowiedź</Button>
+          <div className="mt-5 rounded-[4px] border-2 border-dashed border-rule-2 bg-paper-2 px-4 py-8 text-center">
+            <div className="text-[15px] font-semibold text-ink-2">Odpowiedz na głos, pełnym zdaniem – dopiero wtedy odsłoń</div>
+            <Button className="mt-4" onClick={() => setPhase('check')}><Eye className="mr-2 h-4 w-4" /> Odpowiedziałem – pokaż kluczowe elementy</Button>
           </div>
         ) : (
-          <div className="mt-4 space-y-3">
-            <div className="border border-[color:var(--c-d7ded9)] bg-[color:var(--b-f6f8f7)] p-4">
-              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[color:var(--c-14543e)]">Wzorcowa odpowiedź</div>
-              <div className="mt-2 text-sm leading-6 text-gray-800">{card.answer}</div>
-            </div>
+          <div className="mt-5 space-y-4">
             <Checklist
               items={items}
               checked={checked}
@@ -176,6 +177,10 @@ export function ExamPanel() {
               disabled={phase !== 'check'}
               keys={false}
             />
+            <div className="rounded-[3px] bg-paper-2 px-4 py-3.5 shadow-[inset_0_0_0_1px_var(--rule)]">
+              <div className="eyebrow">Wzorcowa odpowiedź</div>
+              <div className="mt-1.5 font-serif text-[16.5px] leading-[1.65] text-ink">{card.answer}</div>
+            </div>
             {card.trap && phase === 'check' ? <NoteBox type="trap" title="Pułapka">{card.trap}</NoteBox> : null}
 
             {phase === 'check' ? (
@@ -189,20 +194,20 @@ export function ExamPanel() {
             ) : null}
 
             {phase === 'follow' || phase === 'followShown' ? (
-              <div className="cham edge bg-[color:var(--b-ffffff)] px-3.5 py-3" style={{ '--e': 'var(--c-1a5c46)' }}>
-                <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--c-14543e)]">
+              <div className="rounded-r-[3px] border-l-[3px] border-accent bg-accent-soft px-4 py-3.5">
+                <div className="eyebrow flex items-center gap-1.5 !text-accent-ink">
                   <MessageCircleQuestion className="h-3.5 w-3.5" /> Komisja dopytuje
                 </div>
-                <div className="mt-2 text-[15px] font-semibold leading-6 text-gray-900">{card.followUp.q}</div>
+                <div className="mt-1.5 font-serif text-[18px] font-semibold leading-[1.45] text-ink">{card.followUp.q}</div>
                 {phase === 'follow' ? (
                   <Button className="mt-3" variant="secondary" onClick={() => setPhase('followShown')}>
                     <Eye className="mr-2 h-4 w-4" /> Odpowiedziałem – pokaż wzorzec
                   </Button>
                 ) : (
                   <>
-                    <div className="mt-2 border border-[color:var(--c-d7ded9)] bg-[color:var(--b-f6f8f7)] px-3 py-2 text-[13px] leading-6 text-gray-800">{card.followUp.a}</div>
+                    <div className="mt-2 rounded-[3px] bg-paper px-3.5 py-2.5 font-serif text-[15.5px] leading-[1.6] text-ink shadow-[inset_0_0_0_1px_var(--rule)]">{card.followUp.a}</div>
                     <div className="mt-3 grid grid-cols-2 gap-2">
-                      <Button onClick={() => grade(true)} className="!bg-[color:var(--b-1f7a4d)] hover:!bg-[color:var(--b-27915d)]">
+                      <Button variant="ok" onClick={() => grade(true)}>
                         <Check className="mr-1 h-4 w-4" /> Obroniłem się
                       </Button>
                       <Button variant="danger" onClick={() => grade(false)}>
@@ -215,7 +220,7 @@ export function ExamPanel() {
             ) : null}
           </div>
         )}
-      </SectionFrame>
+      </section>
     </div>
   )
 }
