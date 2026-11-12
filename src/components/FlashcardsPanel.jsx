@@ -6,6 +6,7 @@ import { useStoredState } from '../lib/storage.js'
 import { Badge, Button, FolderTabs, Kbd, NoteBox, PageHeader, ProgressBar, Switch, Tag } from './ui.jsx'
 import { Checklist, FollowUps } from './Coach.jsx'
 import { ReadMore } from './TopicLinks.jsx'
+import { ReportLink } from './ReportLink.jsx'
 import { flashcardsOf, topicById } from '../data/topics.js'
 
 function shuffleArr(arr) {
@@ -181,7 +182,10 @@ export function FlashcardsPanel({ topicId, onTopic }) {
                     <NoteBox type="remember" title="Kluczowe">{card.keyPoints}</NoteBox>
                   )}
                   <div className="rounded-[3px] bg-paper-2 px-4 py-3.5 shadow-[inset_0_0_0_1px_var(--rule)]">
-                    <div className="eyebrow">Wzorcowa odpowiedź</div>
+                    <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                      <div className="eyebrow">Wzorcowa odpowiedź</div>
+                      <ReportLink what={`Fiszka ${card.id}: ${card.question}`} />
+                    </div>
                     <div className="mt-1.5 font-serif text-[16.5px] leading-[1.65] text-ink">{card.answer}</div>
                   </div>
                   {card.trap ? <NoteBox type="trap" title="Pułapka">{card.trap}</NoteBox> : null}
