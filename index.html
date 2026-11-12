@@ -5,12 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Korki G1 – trener do egzaminu SEP G1</title>
     <meta name="description" content="Interaktywny trener do egzaminu kwalifikacyjnego SEP G1: fiszki, test, egzamin próbny i symulacje pomiarów. Działa offline." />
+    <!-- Publiczny adres aplikacji. Jeśli się zmieni, popraw go tutaj i w public/sitemap.xml. -->
+    <link rel="canonical" href="https://pawelkikta.github.io/korki-g1/" />
+    <!-- Podgląd linku na forach i w komunikatorach (Open Graph) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="Korki G1" />
+    <meta property="og:title" content="Korki G1 – trener do egzaminu SEP G1" />
+    <meta property="og:description" content="Fiszki, test ABCD, egzamin próbny i symulacje pomiarów do egzaminu SEP G1. Za darmo, bez rejestracji, działa offline." />
+    <meta property="og:url" content="https://pawelkikta.github.io/korki-g1/" />
+    <meta property="og:image" content="https://pawelkikta.github.io/korki-g1/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Plan nauki w aplikacji Korki G1" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#e8ebe3" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Opis dla wyszukiwarek i ekran ładowania. React zastępuje go po starcie. Trzymaj go zgodnego z treścią aplikacji. -->
+      <main class="mx-auto max-w-2xl px-5 py-12 font-serif text-[17px] leading-relaxed text-ink-2">
+        <h1 class="font-slab text-[27px] font-bold leading-tight text-ink">Korki G1 – trener do egzaminu SEP G1</h1>
+        <p class="mt-3">
+          Darmowa aplikacja do nauki na egzamin kwalifikacyjny SEP G1: eksploatacja i dozór urządzeń elektrycznych do 1 kV.
+        </p>
+        <ul class="mt-4 list-disc space-y-1.5 pl-5">
+          <li><strong>Fiszki</strong> – 55 pytań jak na egzaminie ustnym, z pytaniami dodatkowymi komisji.</li>
+          <li><strong>Test ABCD</strong> – 50 pytań zamkniętych. Pytania z błędną odpowiedzią wracają częściej.</li>
+          <li><strong>Egzamin próbny</strong> – 10 losowych pytań z dopytaniami komisji.</li>
+          <li>
+            <strong>Pomiary</strong> – teoria z symulacjami: rezystancja izolacji, ciągłość przewodu ochronnego PE,
+            impedancja pętli zwarcia, wyłączniki różnicowoprądowe (RCD), rezystancja uziemienia, protokół i odbiór instalacji.
+          </li>
+          <li>
+            <strong>Urządzenia</strong> – bezpiecznik topikowy, wyłącznik nadprądowy, RCD, RCBO, ogranicznik przepięć.
+          </li>
+          <li><strong>Organizacja pracy</strong> i <strong>pierwsza pomoc</strong>, ściąga z wartościami granicznymi i słowniczek.</li>
+        </ul>
+        <p class="mt-4 font-sans text-[14px] text-ink-3">Aplikacja się ładuje. Jeśli nic się nie zmienia, włącz JavaScript w przeglądarce.</p>
+      </main>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

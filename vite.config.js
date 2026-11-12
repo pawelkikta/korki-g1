@@ -32,8 +32,9 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
-        // podzbiory fontów z cyrylicą i wietnamskim są zbędne (grecki zostaje: Ω, Δ, η w treści)
-        globIgnores: ['**/*-cyrillic-*', '**/*-vietnamese-*'],
+        // podzbiory fontów z cyrylicą i wietnamskim są zbędne (grecki zostaje: Ω, Δ, η w treści);
+        // og.png (podgląd linku) i google*.html (weryfikacja w Google Search Console) są dla serwisów zewnętrznych
+        globIgnores: ['**/*-cyrillic-*', '**/*-vietnamese-*', 'og.png', 'google*.html'],
       },
     }),
   ],
