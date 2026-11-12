@@ -6,6 +6,7 @@ import { loadStored, useStoredState } from '../lib/storage.js'
 import { plural } from '../lib/plural.js'
 import { Button, NoteBox, OptionLetter, PageHeader, ProgressBar, Tag, optionClass } from './ui.jsx'
 import { ReadMore } from './TopicLinks.jsx'
+import { ReportLink } from './ReportLink.jsx'
 
 function shuffle(arr, rng = Math.random) {
   const a = [...arr]
@@ -217,7 +218,10 @@ export function QuizPanel({ topicId }) {
                 <NoteBox type={ok ? 'ok' : 'mistake'} title={ok ? 'Dobrze' : 'Niestety nie'}>
                   {q.explain}
                 </NoteBox>
-                {!ok ? <ReadMore topicId={q.topic} /> : null}
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+                  {!ok ? <ReadMore topicId={q.topic} /> : <span />}
+                  <ReportLink what={`Test ABCD ${q.id}: ${q.question}`} />
+                </div>
               </div>
             ) : null}
           </section>

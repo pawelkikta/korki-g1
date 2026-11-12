@@ -6,6 +6,7 @@ import { AREAS } from '../data/areas.js'
 import { useStoredState, loadStored } from '../lib/storage.js'
 import { Badge, Button, NoteBox, PageHeader, ProgressBar, Tag } from './ui.jsx'
 import { Checklist } from './Coach.jsx'
+import { ReportLink } from './ReportLink.jsx'
 
 const EXAM_SIZE = 10
 
@@ -178,7 +179,10 @@ export function ExamPanel() {
               keys={false}
             />
             <div className="rounded-[3px] bg-paper-2 px-4 py-3.5 shadow-[inset_0_0_0_1px_var(--rule)]">
-              <div className="eyebrow">Wzorcowa odpowiedź</div>
+              <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                <div className="eyebrow">Wzorcowa odpowiedź</div>
+                <ReportLink what={`Egzamin próbny ${card.id}: ${card.question}`} />
+              </div>
               <div className="mt-1.5 font-serif text-[16.5px] leading-[1.65] text-ink">{card.answer}</div>
             </div>
             {card.trap && phase === 'check' ? <NoteBox type="trap" title="Pułapka">{card.trap}</NoteBox> : null}

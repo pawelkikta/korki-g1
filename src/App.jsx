@@ -11,6 +11,7 @@ import { DevicesPanel } from './components/DevicesPanel.jsx'
 import { BasicsPanel } from './components/BasicsPanel.jsx'
 import { OrgPanel } from './components/OrgPanel.jsx'
 import { FirstAidPanel } from './components/FirstAidPanel.jsx'
+import { ReportLink } from './components/ReportLink.jsx'
 import { APP_VERSION, APP_STAGE, REPO_URL } from './version.js'
 import { useHashRoute } from './lib/route.js'
 import { STORAGE_EVENT } from './lib/storage.js'
@@ -70,7 +71,13 @@ function Brand({ compact = false }) {
   )
 }
 
-function Sidebar({ section, meta }) {
+// „Zgłoś błąd” w stopce i menu: kontekstem jest bieżąca strona (pytania mają własne linki z ID)
+const pageReport = (section, sub) => {
+  const item = ITEMS.find((it) => it.id === section)
+  return `Strona: ${item?.label ?? section}${sub ? ` (${sub})` : ''}`
+}
+
+function Sidebar({ section, meta, report }) {
   return (
     <aside className="sticky top-0 hidden h-screen w-[256px] shrink-0 flex-col overflow-y-auto px-4 py-7 lg:flex">
       <div className="px-2"><Brand /></div>
@@ -102,6 +109,7 @@ function Sidebar({ section, meta }) {
         ))}
       </nav>
       <div className="mt-auto px-2 pt-8 text-[12px] leading-5 text-ink-3">
+        <div className="mb-2"><ReportLink what={report} label="Zgłoś błąd na tej stronie" className="!text-[12px]" /></div>
         wersja {APP_VERSION} ({APP_STAGE.toLowerCase()})
         <br />
         <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink">kod na GitHubie</a>
@@ -185,7 +193,7 @@ function MobileTopBar({ section }) {
   )
 }
 
-function AppFooter() {
+function AppFooter({ report }) {
   const year = new Date().getFullYear()
   return (
     <footer className="border-t border-rule-2 pt-4 text-[13px] leading-6 text-ink-3">
@@ -198,7 +206,10 @@ function AppFooter() {
         <span>·</span>
         <a href={REPO_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink">GitHub</a>
       </div>
-      <p className="mt-1">Pomoc do nauki, nie oficjalny materiał egzaminacyjny. Treść przygotował model AI (Claude) pod kierunkiem autora.</p>
+      <p className="mt-1">
+        Pomoc do nauki, nie oficjalny materiał egzaminacyjny. Treść przygotował model AI (Claude) pod kierunkiem autora.
+        Widzisz błąd? <ReportLink what={report} label="Zgłoś go" className="!text-[13px] font-semibold !text-ink-2" />
+      </p>
       <details className="mt-1">
         <summary className="cursor-pointer font-semibold text-ink-2 hover:text-ink">Pełne zastrzeżenie</summary>
         <p className="mt-1 max-w-[80ch]">
@@ -218,6 +229,7 @@ function AppFooter() {
 export default function App() {
   const [{ section, sub }, navigate] = useHashRoute(SECTION_IDS, 'plan')
   const meta = useNavMeta()
+  const report = pageReport(section, sub)
 
   // każda zmiana ekranu albo rozdziału zaczyna się od góry strony
   useEffect(() => {
@@ -226,7 +238,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-ink lg:flex">
-      <Sidebar section={section} meta={meta} />
+      <Sidebar section={section} meta={meta} report={report} />
       <MobileTopBar section={section} />
       <main className="min-w-0 flex-1 px-4 pb-28 pt-5 md:px-8 lg:pb-12 lg:pt-9">
         <div className="mx-auto max-w-[980px] space-y-7">
@@ -241,7 +253,7 @@ export default function App() {
           {section === 'egzamin' && <ExamPanel />}
           {section === 'sciaga' && <CheatsheetPanel />}
           {section === 'slowniczek' && <GlossaryPanel />}
-          <AppFooter />
+          <AppFooter report={report} />
         </div>
       </main>
       <MobileNav section={section} meta={meta} navigate={navigate} />

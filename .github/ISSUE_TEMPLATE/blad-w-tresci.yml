@@ -1,0 +1,41 @@
+# Szablon zgłoszenia błędu w treści. Link „Zgłoś błąd” w aplikacji wypełnia pola
+# „dotyczy” i „wersja” (src/lib/report.js), gdy nie ma ustawionego formularza Google.
+name: Błąd w treści
+description: Zła odpowiedź, niejasne wyjaśnienie, literówka albo błąd w symulacji.
+title: "Błąd: "
+body:
+  - type: input
+    id: dotyczy
+    attributes:
+      label: Czego dotyczy
+      description: Pytanie, rozdział albo symulacja. Link „Zgłoś błąd” w aplikacji wpisuje to sam.
+    validations:
+      required: true
+  - type: dropdown
+    id: rodzaj
+    attributes:
+      label: Rodzaj błędu
+      options:
+        - Zła lub niepełna odpowiedź
+        - Niejasne wyjaśnienie
+        - Literówka albo błąd językowy
+        - Błąd w symulacji
+        - Inne
+    validations:
+      required: true
+  - type: textarea
+    id: opis
+    attributes:
+      label: Co jest nie tak? Jak powinno być?
+    validations:
+      required: true
+  - type: input
+    id: zrodlo
+    attributes:
+      label: Źródło, jeśli znasz
+      description: Przepis albo norma, np. „PN-HD 60364-6”.
+  - type: input
+    id: wersja
+    attributes:
+      label: Wersja i miejsce w aplikacji
+      description: Wpisuje się samo. Nie zmieniaj.

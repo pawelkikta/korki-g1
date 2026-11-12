@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { Check, X, RotateCcw, Trophy } from 'lucide-react'
 import { chapterQuiz } from '../data/chapterQuiz.js'
 import { Button, NoteBox, OptionLetter, optionClass } from './ui.jsx'
+import { ReportLink } from './ReportLink.jsx'
 
 // „Sprawdź się” – 3 pytania po rozdziale (retrieval practice).
 // Komplet poprawnych = rozdział zaliczony (zapis przez onPassed w panelu).
@@ -86,7 +87,12 @@ export function ChapterCheck({ chapterId, passed, onPassed }) {
                 )
               })}
             </div>
-            {isAnswered ? <p className="mt-2.5 font-serif text-[15.5px] leading-[1.55] text-ink-2">{q.explain}</p> : null}
+            {isAnswered ? (
+              <>
+                <p className="mt-2.5 font-serif text-[15.5px] leading-[1.55] text-ink-2">{q.explain}</p>
+                <ReportLink className="mt-1.5" what={`Sprawdź się (${chapterId}), pytanie ${qi + 1}: ${q.question}`} />
+              </>
+            ) : null}
           </div>
         )
       })}
