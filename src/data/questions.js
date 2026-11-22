@@ -233,8 +233,9 @@ export const questions = [
     id: 'r3q1', round: 3, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Czy elektryk z uprawnieniami E może sam wyłączyć napięcie i przystąpić do pracy bez polecenia?',
     answer:
-      'To zależy od rodzaju pracy – a samo wyłączenie napięcia niczego tu nie zmienia. Prace stwarzające możliwość szczególnego zagrożenia wykonuje się wyłącznie na polecenie pisemne, z przygotowaniem strefy pracy i dopuszczeniem. Bez polecenia wolno wykonywać tylko prace wskazane przez pracodawcę – typowo rutynowe czynności opisane w instrukcji eksploatacji – oraz działania ratujące życie, zdrowie lub mienie (z niezwłocznym powiadomieniem przełożonego).',
+      'To zależy od rodzaju pracy – a samo wyłączenie napięcia niczego tu nie zmienia. Prace stwarzające możliwość szczególnego zagrożenia wykonuje się wyłącznie na polecenie pisemne, z przygotowaniem strefy pracy i dopuszczeniem. Bez polecenia wolno wykonywać tylko prace wskazane przez pracodawcę – typowo rutynowe czynności opisane w instrukcji eksploatacji – oraz działania ratujące życie lub zdrowie ludzi albo środowisko i zabezpieczające mienie przed zniszczeniem (z niezwłocznym powiadomieniem przełożonego).',
     keyPoints: 'Szczególne zagrożenie → polecenie pisemne. Bez polecenia: prace z instrukcji eksploatacji wskazane w IOBP i ratowanie życia/mienia. Uprawnienia E same nie wystarczą.',
+    sources: [{ act: 'bhp', at: '§ 27 ust. 1, § 29 i § 30 ust. 1 pkt 2–3' }, { act: 'kp', at: 'art. 211 pkt 6' }],
     trap: 'Brzmi logicznie – sam wyłączył, sam sprawdził. Komisja sprawdza, czy wiesz, kiedy potrzebne jest polecenie.',
     wrongAnswer: '„Tak, bo mam E i sam wyłączyłem napięcie." – uprawnienia nie zastępują polecenia ani dopuszczenia.',
   },
@@ -242,8 +243,9 @@ export const questions = [
     id: 'r3q2', round: 3, category: 'Eksploatacja', topic: 'organizacja-pracy',
     question: 'Kolega mówi ci, że sprawdził napięcie i jest wyłączone – czy możesz zacząć pracę?',
     answer:
-      'Nie. Każda osoba przystępująca do pracy musi osobiście sprawdzić brak napięcia własnym wskaźnikiem – bezpośrednio przed dotykiem. Zasada: „Nie zakładaj, zawsze sprawdź." Słowo kolegi nie jest wystarczającym zabezpieczeniem.',
-    keyPoints: 'Osobiste sprawdzenie wskaźnikiem = obowiązek każdego elektryka.',
+      'Nie. Przed pracą przy urządzeniu odłączonym od napięcia trzeba sprawdzić, że napięcia nie ma – wskaźnikiem napięcia, w miejscu pracy, bezpośrednio przed rozpoczęciem pracy. Ustna informacja kolegi tego nie zastępuje. W praktyce każdy, kto ma dotknąć urządzenia, sprawdza brak napięcia sam, sprawnym wskaźnikiem. Zasada: „Nie zakładaj, zawsze sprawdź."',
+    keyPoints: 'Brak napięcia sprawdzasz wskaźnikiem, sam – nie na słowo kolegi.',
+    sources: [{ act: 'bhp', at: '§ 25 ust. 1 pkt 3' }, { act: 'pn-en-50110-1' }],
     trap: 'Komisja sprawdza czy wiesz że zaufanie = śmierć w elektryce.',
     wrongAnswer: '„Tak, ufam koledze." – komisja przerwie i obleje.',
   },
@@ -253,6 +255,7 @@ export const questions = [
     answer:
       'Nie. Minimalna dopuszczalna rezystancja izolacji dla instalacji 230/400 V to 1 MΩ. Wynik 0,8 MΩ jest za niski, więc instalacji nie wolno oddać do użytku. Trzeba znaleźć i usunąć uszkodzenie izolacji, a potem powtórzyć pomiar.',
     keyPoints: '< 1 MΩ = instalacja do naprawy. Nie ma „prawie dobrze".',
+    sources: [{ act: 'pn-hd-60364-6' }],
     trap: '0,8 MΩ to dużo – brzmi jak dobry wynik. Ale próg to 1 MΩ.',
     wrongAnswer: '„Tak, to dużo omów." – wartości poniżej 1 MΩ dyskwalifikują instalację.',
   },
@@ -262,6 +265,7 @@ export const questions = [
     answer:
       'Częściowo – i trzeba umieć powiedzieć kiedy. W układzie TN wyłącznik nadprądowy realizuje ochronę przy uszkodzeniu (dotyk pośredni) przez samoczynne wyłączenie zasilania: gdy faza zewrze się z obudową, prąd zwarciowy płynie przez PE i wyłącznik wyłącza obwód – pod warunkiem, że impedancja pętli zwarcia jest dostatecznie mała (B16: ≥ 80 A, czyli Zs ≤ 2,88 Ω). Nie chroni natomiast przy dotyku części czynnej (np. fazy) – prąd płynący przez ciało (dziesiątki–setki mA) jest dla niego niezauważalny. Tu działa ochrona uzupełniająca: RCD 30 mA.',
     keyPoints: 'Zwarcie na obudowę (dotyk pośredni) → wyłącznik nadprądowy, jeśli Zs jest mała. Dotyk fazy przez człowieka → tylko RCD 30 mA. Podstawowa funkcja MCB to ochrona przewodów przed przeciążeniem i zwarciem.',
+    sources: [{ act: 'pn-hd-60364-4-41' }],
     trap: 'Slogan „bezpiecznik chroni kable, RCD chroni ludzi" jest za prosty – komisja dopyta o samoczynne wyłączenie zasilania w TN.',
     wrongAnswer: '„Nie, wyłącznik nadprądowy w ogóle nie chroni przed porażeniem" – a pomiar pętli zwarcia sprawdza właśnie tę ochronę.',
   },
@@ -271,6 +275,7 @@ export const questions = [
     answer:
       'Nie. Urządzenie klasy II ma podwójną lub wzmocnioną izolację i jest zaprojektowane do pracy bez przewodu ochronnego PE. Symbol klasy II to kwadrat w kwadracie na tabliczce znamionowej.',
     keyPoints: 'Klasa II = bezpieczna bez PE. Symbol kwadrat w kwadracie.',
+    sources: [{ act: 'pn-en-61140' }, { act: 'pn-hd-60364-4-41' }],
     trap: 'PE kojarzony z bezpieczeństwem – intuicja mówi „tak".',
     wrongAnswer: '„Tak, dla bezpieczeństwa zawsze PE." – klasa II jest bezpieczna bez PE z założenia.',
   },
@@ -278,15 +283,17 @@ export const questions = [
     id: 'r3q6', round: 3, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Kierujący zespołem musi na chwilę opuścić miejsce pracy zespołu – co robi, zanim odejdzie?',
     answer:
-      'Kierujący zespołem nie może samowolnie opuścić strefy pracy, w której pracuje zespół. Jeśli musi odejść, przerywa pracę i wyprowadza zespół ze strefy pracy (zabezpieczając ją) albo kierowanie przejmuje inna osoba ze świadectwem E, wyznaczona zgodnie z poleceniem. Jeśli praca była wykonywana na polecenie pisemne, po przerwie wznowienie wymaga ponownego dopuszczenia.',
-    keyPoints: 'Kierujący zespołem (E) nie opuszcza samowolnie strefy pracy. Albo przerwanie pracy i wyjście zespołu, albo formalne przejęcie kierowania.',
+      'Przerywa pracę i wyprowadza zespół ze strefy pracy. Rozporządzenie BHP mówi wprost: gdy kierujący zespołem opuszcza strefę pracy, praca zostaje przerwana, a zespół – wyprowadzony ze strefy. Nie zostawia zespołu „na chwilę" samego. Zmiana kierującego zespołem to zmiana polecenia pisemnego – możliwa tylko w trybie, który przewiduje IOBP pracodawcy. Pracę na polecenie pisemne wznawia się po ponownym dopuszczeniu. Nie jest ono potrzebne, jeśli w czasie przerwy nie stwierdzono pogorszenia zabezpieczenia strefy ani warunków pracy. Przed każdym wznowieniem kierujący zespołem sprawdza zabezpieczenia strefy.',
+    keyPoints: 'Kierujący zespołem (E) opuszcza strefę → praca przerwana, zespół wychodzi ze strefy. Przed wznowieniem kierujący sprawdza zabezpieczenia strefy.',
+    sources: [{ act: 'bhp', at: '§ 31 ust. 2–4 i § 33 pkt 10' }],
   },
   {
     id: 'r3q7', round: 3, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Poleceniodawca wydał polecenie pisemne. Czy może je cofnąć w trakcie pracy?',
     answer:
-      'Tak. Poleceniodawca może w każdej chwili cofnąć polecenie pisemne, jeżeli zmieniły się warunki pracy albo pojawiło się zagrożenie. Informuje o tym dopuszczającego i kierującego zespołem, a pracę trzeba natychmiast przerwać. Cofnięcie odnotowuje się w poleceniu.',
+      'Tak. Poleceniodawca może w każdej chwili cofnąć polecenie pisemne, jeżeli zmieniły się warunki pracy albo pojawiło się zagrożenie. Informuje o tym dopuszczającego i kierującego zespołem, a pracę trzeba natychmiast przerwać. Cofnięcie odnotowuje się w poleceniu. Rozporządzenie BHP nie opisuje cofnięcia polecenia wprost – zmiany w poleceniu pisemnym i tryb ich wprowadzania określa IOBP pracodawcy.',
     keyPoints: 'Tak – cofnięcie jest zawsze możliwe. Bezpieczeństwo ponad wszystko.',
+    sources: [{ act: 'bhp', at: '§ 28 ust. 1 i § 33 pkt 10' }],
   },
   {
     id: 'r3q8', round: 3, category: 'Eksploatacja', topic: 'organizacja-pracy',
@@ -294,6 +301,7 @@ export const questions = [
     answer:
       'Natychmiast przerywa pracę i oddala się od urządzenia bez dotykania jakichkolwiek elementów. Nie próbuje dokończyć czynności ani wyłączyć napięcia gołymi rękami. Powiadamia kierującego zespołem lub dopuszczającego. Praca może być wznowiona dopiero po ustaleniu przyczyny i ponownym przygotowaniu strefy pracy.',
     keyPoints: 'Odejdź natychmiast, nic nie dotykaj, zgłoś kierującemu zespołem lub dopuszczającemu.',
+    sources: [{ act: 'kp', at: 'art. 210 § 1 i 2' }, { act: 'bhp', at: '§ 24, § 25 ust. 1 i § 31 ust. 4–5' }],
   },
   {
     id: 'r3q9', round: 3, category: 'BHP', topic: 'pierwsza-pomoc',
@@ -310,6 +318,7 @@ export const questions = [
     answer:
       'Używamy wyłącznie suchych, nieprzewodzących przedmiotów – drewniana deska, plastikowy fotel, sucha lina, złożona sucha odzież. Nigdy gołymi rękami – ratownik staje się kolejną ofiarą. Stajemy na suchym, izolującym podłożu. Dotyczy to tylko napięcia do 1 kV – przy wyższym nie podchodzimy, tylko wzywamy pomoc i czekamy na wyłączenie napięcia. Po odciągnięciu: sprawdzamy reakcję, a jeśli jej nie ma – od razu wzywamy 112, oceniamy oddech i przy braku prawidłowego oddechu zaczynamy RKO.',
     keyPoints: 'Suchy nieprzewodzący przedmiot. Nigdy gołymi rękami. Tylko do 1 kV.',
+    sources: [{ act: 'erc-bls', at: 'reakcja, 112, oddech, RKO' }],
   },
   {
     id: 'r3q11', round: 3, category: 'Dozór', topic: 'podstawy-prawne',
@@ -317,6 +326,7 @@ export const questions = [
     answer:
       'Tylko jeśli ma też świadectwo E. Samo D uprawnia do kierowania pracą innych i nadzoru – nie do wykonywania prac. Dlatego zwykle zdaje się na oba świadectwa: E i D.',
     keyPoints: 'D bez E = tylko nadzór. Aby pracować fizycznie potrzeba E.',
+    sources: [{ act: 'kwal', at: '§ 4 ust. 1' }],
     trap: 'D wydaje się „wyższą" kategorią niż E – więc logicznie może więcej.',
     wrongAnswer: '„Tak, D to wyższe uprawnienia." – D bez E = tylko nadzór, zero pracy fizycznej.',
   },
@@ -326,6 +336,7 @@ export const questions = [
     answer:
       'Nie. Po upływie daty ważności świadectwo traci moc prawną natychmiast – nie ma okresu karencji. Praca bez ważnego świadectwa to naruszenie przepisów: pracodawcy grozi kara za dopuszczenie do pracy osoby bez wymaganych kwalifikacji, a w razie wypadku obaj odpowiadają także karnie i cywilnie.',
     keyPoints: 'Natychmiastowa utrata ważności. Brak okresu karencji.',
+    sources: [{ act: 'pe', at: 'art. 54 ust. 1, 1aa i 2 oraz art. 56 ust. 1 pkt 9' }, { act: 'kp', at: 'art. 237³ § 1 i art. 283 § 1' }],
     trap: 'Tydzień to nic – „prawie ważne".',
     wrongAnswer: '„Kilka dni to drobiazg." – dla inspektora PIP nie jest.',
   },
@@ -335,6 +346,7 @@ export const questions = [
     answer:
       'Niekoniecznie. Miernik może być uszkodzony, mieć rozładowaną baterię albo przerwany przewód pomiarowy. Dlatego przed pomiarem sprawdź miernik na znanym źródle napięcia (np. w gniazdku 230 V), a po pomiarze sprawdź go jeszcze raz. Wynik „brak napięcia" jest wiarygodny dopiero wtedy, gdy miernik działał przed pomiarem i po nim.',
     keyPoints: 'Zawsze testuj miernik przed i po pomiarze. Uszkodzony miernik = fałszywe bezpieczeństwo.',
+    sources: [{ act: 'bhp', at: '§ 25 ust. 1 pkt 3 i § 26' }, { act: 'pn-en-50110-1' }],
     trap: 'Brak wskazania = brak napięcia. Niekoniecznie.',
     wrongAnswer: '„Nie wskazuje = nie ma napięcia." – uszkodzony miernik zabił niejednego elektryka.',
   },
@@ -346,6 +358,7 @@ export const questions = [
     answer:
       'Stosuje się megaomomierz i napięcie pomiarowe 500 V DC. Zwykły multimetr mierzy rezystancję przy kilku woltach. Tak niskie napięcie nie wykryje drobnych uszkodzeń izolacji, które ujawniają się dopiero pod napięciem roboczym. Megaomomierz sprawdza izolację napięciem wyższym niż robocze.',
     keyPoints: '500 V DC, megaomomierz. Multimetr = za niskie napięcie = fałszywie dobry wynik.',
+    sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 2' }],
   },
   {
     id: 'r4q2', round: 4, category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -353,6 +366,7 @@ export const questions = [
     answer:
       'Minimum to 1 MΩ (PN-HD 60364-6). Wynik 0,5 MΩ oznacza, że izolacja jest uszkodzona lub zawilgocona – instalacji nie wolno oddać do użytku ani dalej eksploatować. Trzeba znaleźć uszkodzenie, naprawić je i zmierzyć ponownie.',
     keyPoints: '< 1 MΩ = instalacja do naprawy, zakaz oddania do użytku.',
+    sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r4q3', round: 4, category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -360,6 +374,7 @@ export const questions = [
     answer:
       'Tak – bezwzględnie. Megaomomierz przykłada 500 V DC, a takie napięcie może trwale uszkodzić elektronikę: komputery, zasilacze, sterowniki, falowniki. Przed pomiarem odłączamy wszystkie urządzenia, wyjmujemy żarówki i odłączamy ograniczniki przepięć (SPD). Łączniki w obwodzie ustawiamy w pozycji załączonej, żeby pomiar objął cały obwód.',
     keyPoints: '500 V DC niszczy elektronikę. Odłącz wszystko przed pomiarem – to obowiązek, nie opcja.',
+    sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r4q4', round: 4, category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -367,6 +382,7 @@ export const questions = [
     answer:
       '1. Wyłącz napięcie i sprawdź jego brak wskaźnikiem. 2. Odłącz wszystkie urządzenia końcowe. 3. Podłącz megaomomierz i zmierz L–PE, N–PE i L–N (albo zwarte L+N do PE). 4. Odczytaj wynik po ustabilizowaniu wskazania – w praktyce po 60 sekundach. 5. Rozładuj obwód – nie odpinaj przewodów, dopóki miernik nie pokaże 0 V; obwód trzyma ładunek i może razić! 6. Zapisz wynik w protokole.',
     keyPoints: 'Odczyt po ustabilizowaniu (praktyka: 60 s). Rozładowanie po pomiarze – obowiązkowe!',
+    sources: [{ act: 'pn-hd-60364-6' }, { act: 'bhp', at: '§ 25 ust. 1' }],
   },
   {
     id: 'r4q5', round: 4, category: 'Pomiary', topic: 'ciaglosc-pe',
@@ -374,6 +390,7 @@ export const questions = [
     answer:
       'Sprawdzamy, czy przewód ochronny PE jest ciągły od gniazda aż do szyny PE w rozdzielnicy. Mierzy się małą rezystancję (omy lub miliomy) przy niskim napięciu (4–24 V) i prądzie co najmniej 200 mA. Stosuje się miernik małych rezystancji wg PN-EN 61557-4 – zwykle funkcję ciągłości w mierniku wielofunkcyjnym instalacji.',
     keyPoints: 'PE ciągłość = małe R. Brak ciągłości = brak ochrony przeciwporażeniowej.',
+    sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 4' }],
   },
   {
     id: 'r4q6', round: 4, category: 'Pomiary', topic: 'ciaglosc-pe',
@@ -381,6 +398,7 @@ export const questions = [
     answer:
       'Bo mierzy się ułamki oma, a luźny zacisk musi dać wyraźnie za duży wynik. Norma PN-HD 60364-6 wymaga przyrządu wg PN-EN 61557-4 o napięciu 4–24 V i prądzie co najmniej 200 mA. Taki prąd przebija cienkie warstwy tlenków na zaciskach (podobnie jak prąd zwarciowy), więc wynik w miliomach jest stabilny i powtarzalny. Multimetr mierzy prądem ok. 1 mA, więc przez tlenki jego wynik bywa zawyżony i niestabilny. Jego brzęczyk piszczy nawet przy kilku omach – nie odróżni dobrego połączenia od złego.',
     keyPoints: '≥ 200 mA przy 4–24 V (PN-EN 61557-4) = wynik miarodajny i powtarzalny. Brzęczyk multimetru mówi tylko „jest przewód", nie „połączenie jest dobre".',
+    sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 4' }],
   },
   {
     id: 'r4q7', round: 4, category: 'Pomiary', topic: 'petla-zwarcia',
@@ -388,6 +406,7 @@ export const questions = [
     answer:
       'Impedancja pętli zwarcia (Zs) to całkowita impedancja drogi, którą płynie prąd zwarciowy: źródło → przewód fazowy → miejsce zwarcia → przewód PE → z powrotem do źródła. Prąd zwarciowy oblicza się ze wzoru Ik = U₀ / Zs (U₀ = 230 V). Zabezpieczenie zadziała w wymaganym czasie, jeśli Ik jest co najmniej równy prądowi wyłączającemu Ia – dla B16 to 5 × 16 A = 80 A. W praktyce zmierzoną Zs porównuje się z tabelą maksymalnych impedancji dla danego zabezpieczenia (B16: Zs ≤ 2,88 Ω).',
     keyPoints: 'Ik = 230 / Zs. Im mniejsze Zs, tym wyższy prąd zwarciowy, tym pewniejsza ochrona.',
+    sources: [{ act: 'pn-hd-60364-4-41' }, { act: 'pn-en-61557', at: 'część 3' }],
   },
   {
     id: 'r4q8', round: 4, category: 'Pomiary', topic: 'petla-zwarcia',
@@ -395,6 +414,7 @@ export const questions = [
     answer:
       'Wg PN-HD 60364-4-41: obwody odbiorcze do 32 A (a z gniazdami – do 63 A) – maksymalnie 0,4 s. Dotyczy to gniazd, ale też np. obwodu oświetlenia czy ogrzewania. Obwody rozdzielcze (np. WLZ) oraz obwody odbiorcze powyżej tych prądów – maksymalnie 5 s.',
     keyPoints: 'TN 230 V: obwody odbiorcze do 32 A = 0,4 s (także oświetlenie). Obwody rozdzielcze = 5 s.',
+    sources: [{ act: 'pn-hd-60364-4-41' }],
     trap: 'Stare materiały: „obwody stałe = 5 s". Według aktualnej normy obwód oświetlenia B10 też musi wyłączyć w 0,4 s.',
     wrongAnswer: '„Oświetlenie wbudowane – 5 s" – to zapis ze starej normy.',
   },
@@ -404,6 +424,7 @@ export const questions = [
     answer:
       'Typ AC: reaguje wyłącznie na sinusoidalny prąd AC – najprostszy, ale dziś wypierany (w nowej instalacji wymaga się minimum typu A). Typ A: reaguje na AC i pulsujący DC – dziś podstawowy domowy, do obwodów z elektroniką. Typ F: jak A, plus prądy o mieszanej częstotliwości i większa odporność na udary – urządzenia z falownikiem jednofazowym (pralki, pompy ciepła, klimatyzatory). Typ B: reaguje na wszystkie rodzaje prądów, też gładki DC – falowniki trójfazowe, napędy, PV; przy ładowaniu EV stosuje się typ B albo typ A z detekcją DC 6 mA.',
     keyPoints: 'Dziś minimum to typ A (AC – wypierany). A = elektronika. F = falowniki 1-fazowe. B = gładki DC: napędy, PV, EV. Typ AC nie zadziała przy prądzie pulsującym DC.',
+    sources: [{ act: 'pn-en-61008-1' }, { act: 'pn-en-62423' }, { act: 'pn-hd-60364-7-722' }],
   },
   {
     id: 'r4q10', round: 4, category: 'Pomiary', topic: 'rcd',
@@ -411,6 +432,7 @@ export const questions = [
     answer:
       'Miernik RCD wykonuje dwie próby. Pomiar prądu zadziałania: prąd różnicowy rośnie stopniowo, a miernik zapisuje, przy jakiej wartości RCD wyłączył (dla prądu sinusoidalnego: między 0,5 a 1 × IΔn). Pomiar czasu zadziałania przy stałym prądzie: przy 0,5×IΔn RCD nie może zadziałać, przy 1×IΔn musi zadziałać w czasie ≤ 300 ms, a przy 5×IΔn – w czasie ≤ 40 ms. Próby wykonuje się dla obu biegunowości prądu (0° i 180°).',
     keyPoints: '0,5×IΔn = nie działa, 1×IΔn = działa ≤ 300 ms, 5×IΔn = działa ≤ 40 ms.',
+    sources: [{ act: 'pn-en-61008-1' }, { act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 6' }],
   },
   {
     id: 'r4q11', round: 4, category: 'Pomiary', topic: 'rcd',
@@ -418,6 +440,7 @@ export const questions = [
     answer:
       'Nie. Przycisk TEST sprawdza wyłącznie mechanizm wyzwalający – czy RCD w ogóle zadziała. Nie mierzy czasu zadziałania ani dokładnego prądu zadziałania. Do odbioru instalacji i protokołu pomiarowego wymagany jest pomiar miernikiem RCD z udokumentowanymi wynikami.',
     keyPoints: 'TEST = sprawdzenie mechaniczne, wystarczy do eksploatacji co miesiąc. Miernik RCD = wymagany do protokołu odbiorczego.',
+    sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 6' }],
     trap: 'Przycisk TEST wystarczy, przecież działa.',
     wrongAnswer: '„TEST wystarczy." Na odbiór instalacji – nie wystarczy.',
   },
@@ -427,6 +450,7 @@ export const questions = [
     answer:
       'Rezystancja uziemienia (RE) to opór między elektrodą uziemiającą a ziemią odniesienia. Wymaganie zależy od funkcji uziomu: uziemienie odgromowe – zalecane poniżej 10 Ω (PN-EN 62305-3); układ TT z RCD – RA × IΔn ≤ 50 V (przy RCD 30 mA: RA ≤ 1666 Ω); w układzie TN nie ma jednej wartości RE – o ochronie decyduje impedancja pętli zwarcia. Uziemienia stacji SN/nn ocenia operator sieci.',
     keyPoints: 'Odgrom: poniżej 10 Ω. TT z RCD: RA × IΔn ≤ 50 V. TN: liczy się pętla zwarcia.',
+    sources: [{ act: 'pn-en-62305-3' }, { act: 'pn-hd-60364-4-41' }],
   },
   {
     id: 'r4q13', round: 4, category: 'Pomiary', topic: 'uziemienie',
@@ -434,6 +458,7 @@ export const questions = [
     answer:
       'Stosuje się metodę trójzaciskową (spadku potencjału): trzy elektrody – badana, pomocnicza prądowa i pomocnicza napięciowa. Na kursach bywa nazywana „metodą Wernera" (ściśle: Wenner to 4-elektrodowy pomiar rezystywności gruntu). Zwykły omomierz się nie nada: ma tylko dwa zaciski, a rezystancję uziemienia mierzy się względem odległej „ziemi odniesienia", do której nie da się go podłączyć. Dlatego potrzebne są elektrody pomocnicze i miernik uziemień.',
     keyPoints: 'Metoda trójzaciskowa / spadku potencjału, dedykowany miernik uziemienia. Zwykły omomierz = błędny wynik.',
+    sources: [{ act: 'pn-en-61557', at: 'część 5' }, { act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r4q14', round: 4, category: 'Pomiary', topic: 'protokol',
@@ -441,6 +466,7 @@ export const questions = [
     answer:
       'Norma podaje zalecaną kolejność: 1) Oględziny, 2) Pomiar ciągłości przewodów ochronnych PE, 3) Pomiar rezystancji izolacji, 4) Ochrona przez separację / SELV / PELV (jeśli zastosowana), 5) Samoczynne wyłączenie zasilania – impedancja pętli zwarcia, 6) Sprawdzenie działania RCD, 7) Sprawdzenie kolejności faz (instalacje 3-fazowe) i próby funkcjonalne.',
     keyPoints: 'Oględziny → ciągłość PE → izolacja → impedancja pętli → RCD. Pięć kroków w kolejności.',
+    sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r4q17', round: 4, category: 'Pomiary', topic: 'klasy',
@@ -448,6 +474,7 @@ export const questions = [
     answer:
       'Pierwsza litera mówi, jak z ziemią połączony jest punkt neutralny źródła: T – uziemiony bezpośrednio, I – odizolowany od ziemi albo uziemiony przez impedancję. Druga litera mówi, jak uziemione są części przewodzące dostępne odbiorników: T – przez własny uziom, niezależny od uziemienia sieci, N – przewodem ochronnym połączonym z uziemionym punktem neutralnym sieci. W układzie TN kolejne litery opisują przewody N i PE: S – osobne, C – wspólny przewód PEN, C-S – PEN rozdzielony dalej na N i PE. Od układu zależy, co sprawdzasz: w TN samoczynne wyłączenie potwierdza pomiar impedancji pętli zwarcia, w TT – sprawdzenie RCD i warunku RA × IΔn ≤ 50 V.',
     keyPoints: '1. litera – źródło (T/I), 2. litera – odbiorniki (T/N). Typowy dom: TN-C-S. TN → pętla zwarcia, TT → RCD i RA × IΔn ≤ 50 V.',
+    sources: [{ act: 'pn-hd-60364-1' }, { act: 'pn-hd-60364-4-41' }],
   },
   {
     id: 'r4q16', round: 4, category: 'Pomiary', topic: 'podstawy-prawne',
@@ -455,6 +482,7 @@ export const questions = [
     answer:
       'Tak – bezwzględnie. Art. 62 Prawa budowlanego wymaga kontroli instalacji elektrycznej co najmniej raz na 5 lat, niezależnie od tego, czy instalacja „działa". Osiem lat bez kontroli to naruszenie prawa. Izolacja starzeje się niewidocznie – jej rzeczywisty stan pokazuje dopiero pomiar.',
     keyPoints: '5 lat = obowiązek ustawowy, nie opcja. Za jego niedopełnienie właścicielowi grozi grzywna – bez względu na stan instalacji.',
+    sources: [{ act: 'pb', at: 'art. 62 ust. 1 pkt 2 i art. 93 pkt 8' }],
     trap: 'Instalacja działa – po co sprawdzać? Bo wypadki przy „działających" instalacjach zdarzają się najczęściej.',
     wrongAnswer: '„Działa dobrze, nie trzeba." – degradacja izolacji jest niewidoczna gołym okiem.',
   },

@@ -382,13 +382,13 @@ export const coach = {
   },
   r3q6: {
     checklist: [
-      'Kierujący nie opuszcza samowolnie strefy pracy',
-      'Przerywa pracę i wyprowadza zespół',
+      'Kierujący opuszcza strefę → praca przerwana',
+      'Zespół wyprowadzony ze strefy pracy',
       'Zabezpiecza strefę przed osobami postronnymi',
       'Wznowienie po sprawdzeniu zabezpieczeń albo ponownym dopuszczeniu',
     ],
     followUps: [
-      { q: 'Kiedy po przerwie nie trzeba ponownego dopuszczenia?', a: 'Gdy zespół nie opuścił strefy pracy albo strefa była zabezpieczona przed dostępem osób postronnych. Kierujący i tak sprawdza przed wznowieniem zabezpieczenia – jeśli coś się zmieniło, wznowienie jest zabronione.' },
+      { q: 'Kiedy po przerwie nie trzeba ponownego dopuszczenia?', a: 'Gdy w czasie przerwy nie stwierdzono pogorszenia zabezpieczenia strefy pracy ani warunków bezpiecznej pracy. Kierujący i tak sprawdza zabezpieczenia przed każdym wznowieniem – jeśli się pogorszyły, praca rusza dopiero po przywróceniu wymaganego poziomu bezpieczeństwa.' },
       { q: 'Kto i kiedy może przerwać pracę zespołu?', a: 'Każdy pracownik musi przerwać pracę, gdy pojawi się zagrożenie (i zawiadomić kierującego). Osoby dozoru muszą ją wstrzymać, gdy nie są zachowane warunki bezpieczeństwa.' },
     ],
   },

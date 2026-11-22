@@ -22,11 +22,15 @@ export const SOURCES = {
   'erc-fa': { name: 'Wytyczne ERC 2025: pierwsza pomoc', url: 'https://doi.org/10.1016/j.resuscitation.2025.110752' },
 
   // ── Normy ──
+  'pn-hd-60364-1': { name: 'PN-HD 60364-1 (wymagania podstawowe, układy sieci)' },
   'pn-hd-60364-4-41': { name: 'PN-HD 60364-4-41 (ochrona przeciwporażeniowa)' },
   'pn-hd-60364-6': { name: 'PN-HD 60364-6 (sprawdzanie instalacji)' },
+  'pn-hd-60364-7-722': { name: 'PN-HD 60364-7-722 (zasilanie pojazdów elektrycznych)' },
   'pn-en-50110-1': { name: 'PN-EN 50110-1 (eksploatacja urządzeń elektrycznych)' },
   'pn-en-61557': { name: 'PN-EN 61557 (przyrządy do pomiarów ochrony)' },
   'pn-en-61008-1': { name: 'PN-EN 61008-1 (wyłączniki różnicowoprądowe)' },
+  'pn-en-62423': { name: 'PN-EN 62423 (wyłączniki różnicowoprądowe typu F i B)' },
+  'pn-en-62305-3': { name: 'PN-EN 62305-3 (ochrona odgromowa obiektów)' },
   'pn-en-61140': { name: 'PN-EN 61140 (klasy ochronności)' },
   'pn-en-60529': { name: 'PN-EN 60529 (kod IP)' },
   'pn-en-3-7': { name: 'PN-EN 3-7 (gaśnice przenośne)' },
