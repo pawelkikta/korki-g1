@@ -147,7 +147,7 @@ export const questions = [
     id: 'r2q7', round: 2, category: 'Pomiary', topic: 'protokol',
     question: 'Jakie elementy musi zawierać protokół pomiarowy?',
     answer:
-      'Protokół musi zawierać: dane obiektu i instalacji, typ i numer seryjny przyrządów pomiarowych ze świadectwami wzorcowania, wyniki pomiarów dla każdego obwodu z jednostkami, ocenę zgodności z normą, datę wykonania, podpis osoby wykonującej pomiary – ze świadectwem kwalifikacyjnym obejmującym zakres kontrolno-pomiarowy.',
+      'Protokół musi zawierać: dane obiektu, opis lub schemat badanej instalacji, typ i numer seryjny przyrządów pomiarowych ze świadectwami wzorcowania ważnymi w dniu pomiaru, wyniki pomiarów dla każdego obwodu z jednostkami i wartościami dopuszczalnymi, ocenę zgodności z normą, datę wykonania oraz imię, nazwisko i podpis osoby wykonującej pomiary – ze świadectwem kwalifikacyjnym obejmującym zakres kontrolno-pomiarowy.',
     keyPoints: 'Świadectwa wzorcowania + wyniki każdego obwodu + podpis osoby z zakresem kontrolno-pomiarowym.',
   },
   {
@@ -415,11 +415,11 @@ export const questions = [
     keyPoints: 'Oględziny → ciągłość PE → izolacja → impedancja pętli → RCD. Pięć kroków w kolejności.',
   },
   {
-    id: 'r4q15', round: 4, category: 'Pomiary', topic: 'protokol',
-    question: 'Co musi zawierać protokół pomiarowy?',
+    id: 'r4q17', round: 4, category: 'Pomiary', topic: 'klasy',
+    question: 'Co oznaczają litery w nazwie układu sieci (np. TN-C-S, TT) i co od układu zależy przy pomiarach?',
     answer:
-      'Protokół musi zawierać: dane identyfikacyjne obiektu, schemat lub opis badanej instalacji, wykaz zastosowanych przyrządów ze świadectwami wzorcowania (ważne w dniu pomiaru!), wyniki pomiarów dla każdego obwodu, ocenę wyników, datę, imię, nazwisko i podpis osoby wykonującej pomiary – ze świadectwem kwalifikacyjnym obejmującym zakres kontrolno-pomiarowy.',
-    keyPoints: 'Świadectwa wzorcowania muszą być ważne w dniu pomiaru. Brak = protokół nieważny.',
+      'Pierwsza litera mówi, jak z ziemią połączony jest punkt neutralny źródła: T – uziemiony bezpośrednio, I – odizolowany od ziemi albo uziemiony przez impedancję. Druga litera mówi, jak uziemione są części przewodzące dostępne odbiorników: T – przez własny uziom, niezależny od uziemienia sieci, N – przewodem ochronnym połączonym z uziemionym punktem neutralnym sieci. W układzie TN kolejne litery opisują przewody N i PE: S – osobne, C – wspólny przewód PEN, C-S – PEN rozdzielony dalej na N i PE. Od układu zależy, co sprawdzasz: w TN samoczynne wyłączenie potwierdza pomiar impedancji pętli zwarcia, w TT – sprawdzenie RCD i warunku RA × IΔn ≤ 50 V.',
+    keyPoints: '1. litera – źródło (T/I), 2. litera – odbiorniki (T/N). Typowy dom: TN-C-S. TN → pętla zwarcia, TT → RCD i RA × IΔn ≤ 50 V.',
   },
   {
     id: 'r4q16', round: 4, category: 'Pomiary', topic: 'podstawy-prawne',

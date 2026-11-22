@@ -1,6 +1,6 @@
 {
   "name": "korki-g1",
-  "version": "0.12.2",
+  "version": "0.13.0",
   "private": true,
   "description": "Interaktywny trener do egzaminu kwalifikacyjnego SEP G1: fiszki, test, egzamin próbny i symulacje pomiarów.",
   "author": "Paweł Kikta (https://github.com/pawelkikta)",

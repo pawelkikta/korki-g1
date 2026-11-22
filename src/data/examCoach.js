@@ -646,16 +646,16 @@ export const coach = {
       { q: 'W trakcie pomiarów wykryłeś usterkę i ją naprawiłeś. Co dalej?', a: 'Powtarzam pomiar, przy którym wykryto usterkę, oraz wszystkie wcześniejsze pomiary, na które naprawa mogła mieć wpływ.' },
     ],
   },
-  r4q15: {
+  r4q17: {
     checklist: [
-      'Dane obiektu, opis lub schemat instalacji',
-      'Przyrządy z ważnym w dniu pomiaru świadectwem wzorcowania',
-      'Wyniki każdego obwodu, wartości dopuszczalne i ocena',
-      'Data, imię, nazwisko i podpis osoby z zakresem kontrolno-pomiarowym',
+      '1. litera – punkt neutralny źródła: T uziemiony, I odizolowany',
+      '2. litera – części przewodzące dostępne: T własny uziom, N przewód ochronny do punktu neutralnego',
+      'S, C, C-S: osobne N i PE, wspólny PEN, PEN rozdzielony',
+      'TN: pętla zwarcia. TT: RCD i RA × IΔn ≤ 50 V',
     ],
     followUps: [
-      { q: 'Kto wystawia świadectwo wzorcowania miernika?', a: 'Laboratorium wzorcujące (najlepiej akredytowane). Świadectwo dotyczy konkretnego egzemplarza (numer seryjny) – sprawdza się je przed wyjazdem na pomiary.' },
-      { q: 'Czy protokół można spisać z pamięci po kilku dniach?', a: 'Nie – wyniki zapisuje się w trakcie pomiarów albo w pamięci miernika. Protokół musi odzwierciedlać rzeczywiście zmierzone wartości z datą pomiaru.' },
+      { q: 'Dlaczego w układzie TT zwykle potrzebny jest RCD?', a: 'Prąd zwarcia z obudową płynie przez uziom odbiornika i ziemię do uziemienia sieci. Te rezystancje są duże, więc prąd jest za mały, żeby wyłącznik nadprądowy zadziałał w wymaganym czasie. RCD wyłącza już przy małym prądzie różnicowym, np. 30 mA.' },
+      { q: 'W rozdzielnicy domu rozdzielono PEN na N i PE. Czy dalej w instalacji wolno połączyć N z PE?', a: 'Nie. Za punktem rozdziału N i PE są już osobnymi przewodami. Gdyby je połączyć, część prądu roboczego wracałaby przewodem ochronnym. Jeśli takie połączenie jest za wyłącznikiem RCD, wyłącznik zwykle zadziała, gdy tylko odbiornik zacznie pobierać prąd.' },
     ],
   },
   r4q16: {
