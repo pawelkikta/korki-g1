@@ -71,10 +71,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-button {
-  font: inherit;
-}
-
 input[type="range"] {
   accent-color: var(--accent);
 }
