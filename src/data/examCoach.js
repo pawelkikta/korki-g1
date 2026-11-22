@@ -12,7 +12,7 @@ export const coach = {
       'Stanowisko: eksploatacja (E) albo dozór (D)',
     ],
     followUps: [
-      { q: 'Jakie są inne grupy świadectw poza G1?', a: 'G2 – urządzenia cieplne (wytwarzające, przesyłające i zużywające ciepło) i inne urządzenia energetyczne, G3 – urządzenia, instalacje i sieci gazowe. Elektryk potrzebuje G1.' },
+      { q: 'Jakie są inne grupy świadectw poza G1?', a: 'Są jeszcze dwie: G2 – urządzenia wytwarzające, magazynujące, przetwarzające, przesyłające i zużywające ciepło oraz inne urządzenia energetyczne, i G3 – urządzenia, instalacje i sieci gazowe. Elektryk potrzebuje G1.' },
       { q: 'Co oznacza punkt 13 grupy G1?', a: 'Aparaturę kontrolno-pomiarową oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń urządzeń z pkt 1–12. W starej numeracji (2003 r.) był to pkt 10.' },
     ],
   },
@@ -37,7 +37,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Co robisz najpierw, gdy pali się rozdzielnica?', a: 'Jeśli to możliwe i bezpieczne – wyłączam zasilanie (np. wyłącznikiem głównym albo przeciwpożarowym wyłącznikiem prądu), alarmuję i wzywam straż pożarną, a dopiero potem gaszę gaśnicą proszkową lub CO₂ z bezpiecznej odległości.' },
-      { q: 'Na co uważać przy gaśnicy śniegowej CO₂?', a: 'Śnieg CO₂ ma ok. −78 °C – nie kieruje się go na ludzi i trzyma gaśnicę za uchwyt, bo dysza mocno się wychładza. W małym pomieszczeniu CO₂ wypiera tlen – po gaszeniu trzeba je przewietrzyć.' },
+      { q: 'Na co uważać przy gaśnicy śniegowej CO₂?', a: 'Śnieg CO₂ ma ok. −78 °C. Nie kieruje się go na ludzi, a gaśnicę trzyma się za uchwyt, bo dysza mocno się wychładza. W małym pomieszczeniu CO₂ wypiera tlen – po gaszeniu trzeba je przewietrzyć.' },
     ],
   },
   r1q4: {
@@ -45,11 +45,11 @@ export const coach = {
       'Dwie strefy: prac pod napięciem (DL) i prac w pobliżu napięcia (DV)',
       'Do 1 kV: DL = bez dotyku',
       'Do 1 kV: DV = 0,3 m',
-      'Odstępu nie narusza ciało, narzędzie ani przedmiot – albo osłonić części czynne',
+      'Ciało, narzędzie ani przedmiot nie wchodzą w strefę prac pod napięciem – albo części czynne się osłania',
     ],
     followUps: [
-      { q: 'Czym różni się praca w pobliżu napięcia od pracy pod napięciem?', a: 'Pod napięciem – masz kontakt z częścią czynną albo naruszasz strefę prac pod napięciem (do 1 kV: dotyk). W pobliżu napięcia – jesteś w strefie DV (do 1 kV: bliżej niż 0,3 m), ale części czynnych nie dotykasz.' },
-      { q: 'Kiedy praca przy wyłączonym urządzeniu jest też pracą w pobliżu napięcia?', a: 'Gdy obok są nieosłonięte części pod napięciem i ciało albo narzędzie może naruszyć ich strefę DV – np. wymiana aparatu w rozdzielnicy, której sąsiednie pola są pod napięciem. Wtedy części czynne osłania się lub wygradza.' },
+      { q: 'Czym różni się praca w pobliżu napięcia od pracy pod napięciem?', a: 'Pod napięciem – dotykasz części czynnej albo wchodzisz w strefę prac pod napięciem (do 1 kV to jedno i to samo, bo granica DL to dotyk). W pobliżu napięcia – jesteś w strefie prac w pobliżu napięcia (do 1 kV: bliżej niż 0,3 m od części czynnych), ale w strefę prac pod napięciem nie wchodzisz.' },
+      { q: 'Kiedy praca przy wyłączonym urządzeniu jest też pracą w pobliżu napięcia?', a: 'Gdy obok są nieosłonięte części pod napięciem, a ciało albo narzędzie może się do nich zbliżyć bardziej niż na granicę DV (do 1 kV: 0,3 m) – np. wymiana aparatu w rozdzielnicy, której sąsiednie pola są pod napięciem. Wtedy części czynne osłania się lub wygradza.' },
     ],
   },
   r1q5: {
@@ -85,7 +85,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Czy samo świadectwo kwalifikacyjne wystarczy, żeby przystąpić do pracy?', a: 'Nie. Potrzebne jest też upoważnienie pracodawcy (prowadzącego eksploatację), aktualne badania lekarskie i szkolenie BHP, a do prac w warunkach szczególnego zagrożenia – polecenie i dopuszczenie do pracy.' },
-      { q: 'Kto może wykonywać prace pomocnicze przy urządzeniach bez świadectwa?', a: 'Osoba bez kwalifikacji – tylko prace pomocnicze z wykazu pracodawcy i pod nadzorem osoby upoważnionej. Samodzielnie nie może wykonywać prac eksploatacyjnych.' },
+      { q: 'Kto może wykonywać prace pomocnicze przy urządzeniach bez świadectwa?', a: 'Osoba bez kwalifikacji może wykonywać tylko prace pomocnicze (np. budowlane, porządkowe, transportowe) z wykazu, który ustala pracodawca, pod nadzorem na zasadach, które też on określa. Samodzielnie nie może wykonywać prac eksploatacyjnych.' },
     ],
   },
   r1q8: {
@@ -121,7 +121,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Dlaczego mokre ręce są tak niebezpieczne?', a: 'Mokra skóra ma znacznie mniejszą rezystancję – przy tym samym napięciu płynie kilka razy większy prąd. Np. 230 V przez 500 Ω to ok. 460 mA, a przez 2000 Ω – ok. 115 mA.' },
-      { q: 'Od jakiego prądu człowiek nie jest w stanie puścić przewodu?', a: 'Od ok. 10 mA prądu przemiennego (próg samouwolnienia) – mięśnie kurczą się tak, że dłoń zaciska się na przewodzie. Dlatego RCD przeciwporażeniowy ma 30 mA i wyłącza w ułamku sekundy.' },
+      { q: 'Od jakiego prądu człowiek nie jest w stanie puścić przewodu?', a: 'Od ok. 10 mA prądu przemiennego (próg samouwolnienia) – mięśnie kurczą się tak, że dłoń zaciska się na przewodzie i człowiek sam się nie uwolni. Dlatego tak ważny jest czas: RCD 30 mA nie zapobiegnie skurczowi, ale wyłączy prąd w ułamku sekundy, zanim zdąży on wywołać migotanie komór.' },
     ],
   },
   r1q11: {
@@ -195,12 +195,12 @@ export const coach = {
     ],
     followUps: [
       { q: 'Czy RCD zadziała przy zwarciu L–N?', a: 'Nie – prąd zwarciowy wypływa przewodem L i wraca N, różnica wynosi zero. Zwarcie L–N wyłącza wyłącznik nadprądowy.' },
-      { q: 'Czy RCD 30 mA ogranicza prąd rażenia do 30 mA?', a: 'Nie. Przez ciało płynie prąd wynikający z napięcia i rezystancji ciała – często setki mA. RCD skraca czas przepływu do kilkudziesięciu milisekund i to on ratuje życie.' },
+      { q: 'Czy RCD 30 mA ogranicza prąd rażenia do 30 mA?', a: 'Nie. Przez ciało płynie prąd wynikający z napięcia i rezystancji ciała – często setki mA. RCD skraca czas przepływu do kilkudziesięciu milisekund – i właśnie ten krótki czas ratuje życie.' },
     ],
   },
   r2q5: {
     checklist: [
-      'Ciągłość PE – czy przewód ochronny jest połączony, wynik mΩ..Ω',
+      'Ciągłość PE – czy przewód ochronny jest połączony; wynik od miliomów do kilku omów',
       'Ciągłość: przyrząd 4–24 V, prąd ≥ 200 mA',
       'Izolacja – czy izolacja nie przepuszcza prądu, wynik w MΩ',
       'Izolacja: 500 V DC, minimum 1 MΩ',
@@ -278,7 +278,7 @@ export const coach = {
       'Koordynujący (D), nadzorujący (E lub D); dopuszczającego i kierującego się nie łączy',
     ],
     followUps: [
-      { q: 'Dlaczego dopuszczający nie może być jednocześnie kierującym zespołem?', a: 'To zasada dwóch par oczu: jeden przygotowuje strefę, drugi niezależnie ją sprawdza i przyjmuje. Połączenie usuwa tę kontrolę (wyjątek: prace pod napięciem).' },
+      { q: 'Dlaczego dopuszczający nie może być jednocześnie kierującym zespołem?', a: 'To zasada dwóch par oczu: jeden przygotowuje strefę, drugi niezależnie ją sprawdza i przyjmuje. Połączenie tych funkcji usuwa tę kontrolę (wyjątek: prace pod napięciem).' },
       { q: 'Kiedy wyznacza się nadzorującego?', a: 'Gdy pracę wykonują osoby bez wymaganych kwalifikacji lub pracownicy firmy zewnętrznej, albo gdy poleceniodawca uzna to za konieczne. Nadzorujący wykonuje wyłącznie nadzór.' },
     ],
   },
@@ -315,7 +315,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Co sprawdzasz w rękawicach elektroizolacyjnych przed użyciem?', a: 'Datę ważności badania okresowego, klasę napięciową oraz brak uszkodzeń i szczelność – np. zwijając mankiet i sprawdzając, czy rękawica trzyma powietrze.' },
-      { q: 'Jakie środki ochrony stosujesz przy zakładaniu uziemiaczy w urządzeniach do 1 kV?', a: 'Rękawice (do 1 kV mogą być skórzane, powyżej 1 kV – elektroizolacyjne) i hełm z przeciwłukową osłoną twarzy; zaciski fazowe zakłada się drążkiem, nie gołymi rękami.' },
+      { q: 'Jakie środki ochrony stosujesz przy zakładaniu uziemiaczy w urządzeniach do 1 kV?', a: 'Rękawice elektroizolacyjne dobrane do napięcia i hełm z przeciwłukową osłoną twarzy. Zaciski fazowe zakłada się drążkiem izolacyjnym, nie gołymi rękami. Szczegóły podaje instrukcja organizacji bezpiecznej pracy (IOBP) pracodawcy.' },
     ],
   },
 
@@ -400,7 +400,7 @@ export const coach = {
       'Odnotowanie w poleceniu',
     ],
     followUps: [
-      { q: 'Jak długo ważne jest polecenie pisemne?', a: 'Przez czas określony przez poleceniodawcę. Poleceniodawca może w nim zmienić termin wykonania pracy lub liczbę pracowników – zmiany odnotowuje się w poleceniu.' },
+      { q: 'Jak długo ważne jest polecenie pisemne?', a: 'Przez czas, który wyznacza poleceniodawca: polecenie podaje termin rozpoczęcia i zakończenia pracy oraz przerwy w niej i warunki wznowienia po przerwie. Zmiany odnotowuje się w poleceniu, zgodnie z IOBP pracodawcy.' },
       { q: 'Kto zamyka polecenie po zakończeniu pracy?', a: 'Kierujący zespołem po wyprowadzeniu zespołu i usunięciu narzędzi podpisuje zakończenie i powiadamia dopuszczającego; dopuszczający po oględzinach likwiduje strefę i potwierdza zakończenie w poleceniu.' },
     ],
   },
@@ -436,7 +436,7 @@ export const coach = {
       'Po uwolnieniu: ocena oddechu, 112, RKO i AED',
     ],
     followUps: [
-      { q: 'Czy tak samo uwolnisz porażonego przy linii 15 kV?', a: 'Nie. Przy napięciu powyżej 1 kV się nie podchodzi – trzeba doprowadzić do wyłączenia napięcia przez operatora sieci. Niebezpieczne jest już samo zbliżenie, m.in. przez napięcie krokowe.' },
+      { q: 'Czy tak samo uwolnisz porażonego przy linii 15 kV?', a: 'Nie. Przy napięciu powyżej 1 kV nie podchodzi się do poszkodowanego – trzeba doprowadzić do wyłączenia napięcia przez operatora sieci. Niebezpieczne jest już samo zbliżenie, m.in. przez napięcie krokowe.' },
       { q: 'Co to jest napięcie krokowe?', a: 'Napięcie między stopami człowieka stojącego w pobliżu miejsca, w którym prąd spływa do ziemi (np. zerwany przewód). Odchodzi się drobnymi krokami albo skacząc na złączonych nogach.' },
     ],
   },
@@ -461,7 +461,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Kto odpowiada za to, że pracownik pracuje z nieważnym świadectwem?', a: 'Pracodawca – nie może dopuścić do prac osoby bez wymaganych kwalifikacji. Pracownik też łamie przepisy – w razie wypadku odpowiadają obaj.' },
-      { q: 'Czy bez ważnego świadectwa możesz pomagać przy pracach?', a: 'Tylko jak osoba bez kwalifikacji – przy pracach pomocniczych z wykazu pracodawcy, pod nadzorem osoby upoważnionej. Samodzielnych prac eksploatacyjnych – nie.' },
+      { q: 'Czy bez ważnego świadectwa możesz pomagać przy pracach?', a: 'Tylko jak osoba bez kwalifikacji – przy pracach pomocniczych z wykazu pracodawcy, pod nadzorem na zasadach, które on określa. Samodzielnych prac eksploatacyjnych – nie.' },
     ],
   },
   r3q13: {
@@ -523,13 +523,13 @@ export const coach = {
     ],
     followUps: [
       { q: 'Dlaczego obwód po pomiarze trzeba rozładować?', a: 'Przewody tworzą kondensator – po pomiarze 500 V DC mogą trzymać ładunek. Nowoczesny miernik rozładowuje obwód sam, dlatego nie odpina się przewodów, dopóki nie pokaże 0 V.' },
-      { q: 'Dlaczego wynik rośnie w czasie pomiaru?', a: 'Izolacja ładuje się jak kondensator i prąd upływu maleje. To normalne – dlatego wynik odczytuje się po ustabilizowaniu (w praktyce ok. 60 s).' },
+      { q: 'Dlaczego wynik rośnie w czasie pomiaru?', a: 'Na początku płynie nie tylko prąd upływu, ale też prąd ładowania pojemności przewodów i polaryzacji izolacji. Ten dodatkowy prąd z czasem maleje, więc zmierzona rezystancja rośnie. To normalne – dlatego wynik odczytuje się po ustabilizowaniu (w praktyce ok. 60 s).' },
     ],
   },
   r4q5: {
     checklist: [
       'Czy PE jest ciągły od gniazda lub obudowy do szyny PE',
-      'Wynik w mΩ..Ω',
+      'Wynik od miliomów do kilku omów',
       'Przyrząd wg PN-EN 61557-4: 4–24 V, ≥ 200 mA',
       'Kompensacja przewodów pomiarowych przed pomiarem',
     ],
@@ -559,7 +559,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Ile wynosi Ia dla C16 i jakie jest dopuszczalne Zs?', a: 'Dla charakterystyki C Ia = 10 × In = 160 A, więc Zs ≤ 230 / 160 ≈ 1,44 Ω.' },
-      { q: 'Dlaczego zmierzona Zs powinna mieć zapas względem wartości granicznej?', a: 'Mierzysz na zimnych przewodach, a przy zwarciu się nagrzewają i ich rezystancja rośnie. Norma w załączniku informacyjnym podpowiada porównanie z ok. 2/3 wartości granicznej.' },
+      { q: 'Dlaczego zmierzona Zs powinna mieć zapas względem wartości granicznej?', a: 'Mierzysz na zimnych przewodach, a przy zwarciu nagrzewają się i ich rezystancja rośnie. Norma w załączniku informacyjnym podpowiada porównanie z ok. 2/3 wartości granicznej.' },
     ],
   },
   r4q8: {
@@ -607,7 +607,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Jak często użytkownik powinien naciskać TEST?', a: 'Zgodnie z zaleceniem producenta – zwykle raz w miesiącu. Wyłącznik, który długo nie działał, może się „zastać".' },
-      { q: 'TEST działa, ale miernik nie wywołuje zadziałania przy 1×IΔn. Co to znaczy?', a: 'RCD lub obwód jest niesprawny mimo działającego mechanizmu – np. za mała czułość wyłącznika albo błąd połączeń (N połączony z PE za wyłącznikiem, część prądu wraca przez przekładnik). Obwód wymaga sprawdzenia i naprawy.' },
+      { q: 'TEST działa, ale miernik nie wywołuje zadziałania przy 1×IΔn. Co to znaczy?', a: 'RCD lub obwód jest niesprawny mimo działającego mechanizmu – np. za mała czułość wyłącznika albo błąd połączeń (N połączony z PE za wyłącznikiem – część prądu probierczego wraca wtedy przewodem N przez przekładnik i RCD jej nie widzi). Obwód wymaga sprawdzenia i naprawy.' },
     ],
   },
   r4q12: {
@@ -631,7 +631,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Co się stanie, gdy elektroda P będzie za blisko uziomu E?', a: 'Znajdzie się w jego lejku potencjału – zmierzone napięcie będzie za małe i wynik zaniżony. Za blisko C – zawyżony. Dlatego przesuwa się P o kilka metrów i sprawdza, czy wynik się nie zmienia.' },
-      { q: 'Kiedy można zmierzyć uziemienie bez rozkręcania zacisku kontrolnego?', a: 'Metodą cęgową (dwucęgową) albo trójzaciskową z cęgami – miernik mierzy prąd tylko w badanym przewodzie uziemiającym. Wymaga to istnienia równoległych dróg przez inne uziomy.' },
+      { q: 'Kiedy można zmierzyć uziemienie bez rozkręcania zacisku kontrolnego?', a: 'Metodą trójzaciskową z cęgami – cęgi mierzą prąd tylko w badanym przewodzie uziemiającym, więc zacisku nie trzeba rozkręcać. Albo metodą dwucęgową, bez elektrod pomocniczych – ta wymaga jednak równoległych dróg przez inne uziomy, które zamykają obwód pomiarowy.' },
     ],
   },
   r4q14: {
