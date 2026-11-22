@@ -103,9 +103,9 @@ export const coach = {
   r1q9: {
     checklist: [
       'Najpierw uwolnić spod napięcia – wyłączyć albo odsunąć izolującym przedmiotem',
-      'Ocena: reakcja, drożność dróg oddechowych, oddech do 10 s',
-      'Brak oddechu: 112 + AED + RKO 30:2',
-      'Oddycha, nieprzytomny: pozycja bezpieczna i kontrola oddechu',
+      'Nie reaguje: od razu 112 i AED, oddech oceniasz w trakcie połączenia',
+      'Nie oddycha prawidłowo: RKO 30:2, AED jak najszybciej',
+      'Oddycha prawidłowo, nie reaguje: pozycja bezpieczna (bez oznak urazu)',
     ],
     followUps: [
       { q: 'Jak głęboko i jak szybko uciskasz klatkę piersiową dorosłego?', a: 'Na głębokość 5–6 cm, w tempie 100–120 uciśnięć na minutę, na środku klatki piersiowej, pozwalając jej w pełni się unieść po każdym uciśnięciu.' },
@@ -433,7 +433,7 @@ export const coach = {
       'Własna izolacja: suche, nieprzewodzące podłoże',
       'Suchy przedmiot izolujący: deska, lina, ubranie',
       'Nigdy gołymi rękami ani przedmiotem przewodzącym',
-      'Po uwolnieniu: ocena oddechu, 112, RKO i AED',
+      'Po uwolnieniu: reakcja, od razu 112, oddech, RKO i AED',
     ],
     followUps: [
       { q: 'Czy tak samo uwolnisz porażonego przy linii 15 kV?', a: 'Nie. Przy napięciu powyżej 1 kV nie podchodzi się do poszkodowanego – trzeba doprowadzić do wyłączenia napięcia przez operatora sieci. Niebezpieczne jest już samo zbliżenie, m.in. przez napięcie krokowe.' },

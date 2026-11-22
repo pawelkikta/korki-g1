@@ -22,8 +22,9 @@ export function FirstAidPanel() {
       />
 
       <NoteBox type="warning" title="To skrót na egzamin, nie kurs">
-        Kroki są zgodne z odpowiedziami w fiszkach i z podstawowym schematem resuscytacji. Wytyczne resuscytacji (ERC) zmieniają się co
-        kilka lat, a uciskania klatki piersiowej i obsługi AED uczy się w praktyce – na kursie pierwszej pomocy.
+        Kroki są zgodne z odpowiedziami w fiszkach i z wytycznymi resuscytacji ERC 2025. Wytyczne zmieniają się co kilka lat
+        (w 2025 r. – 112 dzwonisz od razu, gdy poszkodowany nie reaguje), a uciskania klatki piersiowej i obsługi AED uczy się
+        w praktyce – na kursie pierwszej pomocy.
       </NoteBox>
 
       <SectionFrame tag={<><HeartPulse className="h-3.5 w-3.5" /> Teoria</>} title="Co musisz umieć powiedzieć komisji">
@@ -39,7 +40,7 @@ export function FirstAidPanel() {
       >
         <SequenceDrill
           steps={firstAidSequence}
-          doneText="Najpierw przerwanie przepływu prądu, potem reakcja i oddech, 112 z AED, RKO 30:2 i defibrylacja. Tak samo odpowiadasz komisji."
+          doneText="Najpierw przerwanie przepływu prądu, potem reakcja, od razu 112 z AED, ocena oddechu, RKO 30:2 i defibrylacja. Tak samo odpowiadasz komisji."
         />
       </SectionFrame>
 

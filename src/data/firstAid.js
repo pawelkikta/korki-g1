@@ -1,6 +1,7 @@
 // Moduł „Pierwsza pomoc” – porażenie prądem, RKO i pożar urządzenia pod napięciem.
 // Treść zebrana z odpowiedzi w fiszkach, dopytaniach komisji i teście ABCD (r1q3, r1q9, r1q10, r3q9, r3q10, q6, q49),
-// uzupełniona o podstawowe kroki oceny poszkodowanego wg wytycznych resuscytacji (ERC).
+// uzupełniona o kroki oceny poszkodowanego wg wytycznych ERC 2025 (rozdziały BLS i Pierwsza pomoc).
+// ERC 2025 nie ma osobnej części o porażeniu prądem – uwolnienie spod napięcia to zasada bezpieczeństwa ratownika.
 // Format sekcji jak w chapters.js (ChapterSection). Treść: Claude (AI) pod kierunkiem autora.
 
 export const firstAidSections = [
@@ -26,7 +27,7 @@ export const firstAidSections = [
       '**Wyłącz napięcie** – wyłącznikiem, zabezpieczeniem albo wyjmując wtyczkę. To najszybszy i najbezpieczniejszy sposób.',
       'Jeśli nie da się wyłączyć: **odizoluj siebie** – stań na suchym, nieprzewodzącym podłożu.',
       '**Odsuń porażonego suchym, nieprzewodzącym przedmiotem** – deską, suchą liną, złożoną suchą odzieżą. Nigdy gołymi rękami ani przedmiotem przewodzącym.',
-      'Po uwolnieniu: ocena reakcji i oddechu, 112, RKO i AED.',
+      'Po uwolnieniu: sprawdź reakcję. Nie reaguje – od razu 112, potem oddech, RKO i AED.',
     ],
     box: {
       type: 'warning',
@@ -40,13 +41,16 @@ export const firstAidSections = [
   },
   {
     heading: 'Ocena poszkodowanego i RKO',
+    paragraphs: [
+      'Wytyczne ERC 2025 zmieniły kolejność: **112 dzwonisz od razu, gdy poszkodowany nie reaguje**. Oddech oceniasz w trakcie połączenia, a dyspozytor pomoże ci rozpoznać, czy jest prawidłowy. Wcześniej (ERC 2021) najpierw oceniało się oddech, a dopiero potem dzwoniło.',
+    ],
     steps: [
       'Sprawdź **reakcję** – zawołaj głośno, potrząśnij delikatnie za ramiona.',
-      'Udrożnij drogi oddechowe i **oceń oddech – nie dłużej niż 10 s**.',
-      'Nie oddycha prawidłowo: **wezwij 112** (najlepiej na głośniku telefonu) i **poproś o AED**.',
-      'Zacznij **RKO: 30 uciśnięć klatki piersiowej + 2 oddechy**. Uciskasz na środku klatki piersiowej i po każdym uciśnięciu pozwalasz jej w pełni się unieść.',
-      'Gdy dotrze AED – włącz go i **wykonuj polecenia głosowe**.',
-      'Oddycha, ale jest nieprzytomny: **pozycja bezpieczna** i stała kontrola oddechu.',
+      'Nie reaguje: **od razu wezwij 112** (najlepiej na głośniku telefonu) i poproś kogoś o **AED**.',
+      'W trakcie połączenia udrożnij drogi oddechowe i **oceń oddech – nie dłużej niż 10 s**. Oddech wolny, ciężki albo pojedyncze westchnięcia (oddech agonalny) to nie jest prawidłowy oddech.',
+      'Nie oddycha prawidłowo albo masz wątpliwości: zacznij **RKO: 30 uciśnięć klatki piersiowej + 2 oddechy**. Uciskasz na środku klatki piersiowej i po każdym uciśnięciu pozwalasz jej w pełni się unieść. Jeśli nie umiesz robić oddechów – uciskaj bez przerw.',
+      'Gdy dotrze AED – włącz go i **wykonuj polecenia głosowe**. Nie przerywaj RKO, żeby samemu szukać AED.',
+      'Oddycha prawidłowo, ale nie reaguje: **pozycja bezpieczna** i stała kontrola oddechu. Wyjątek: oznaki urazu, np. po upadku z drabiny – wtedy nie przekładaj poszkodowanego.',
     ],
     values: [
       { value: '≤ 10 s', label: 'ocena oddechu' },
@@ -100,8 +104,8 @@ export const firstAidSections = [
 export const firstAidSequence = [
   { id: 'uwolnij', label: 'Przerwij przepływ prądu: wyłącz napięcie albo odsuń porażonego suchym, izolującym przedmiotem', why: '' },
   { id: 'reakcja', label: 'Sprawdź reakcję: zawołaj, potrząśnij za ramiona', why: 'Najpierw przerwij przepływ prądu – dopiero wtedy wolno dotknąć porażonego.' },
-  { id: 'oddech', label: 'Udrożnij drogi oddechowe i oceń oddech (do 10 s)', why: 'Najpierw uwolnienie spod napięcia i sprawdzenie, czy poszkodowany reaguje.' },
-  { id: '112', label: 'Nie oddycha prawidłowo: wezwij 112 i poproś o AED', why: 'Najpierw musisz wiedzieć, co się dzieje: uwolnienie, reakcja, oddech.' },
-  { id: 'rko', label: 'RKO: 30 uciśnięć + 2 oddechy', why: 'RKO zaczynasz po ocenie oddechu i wezwaniu 112 z AED – pomoc musi być w drodze.' },
+  { id: '112', label: 'Nie reaguje: od razu wezwij 112 (głośnik telefonu) i poproś o AED', why: 'Najpierw uwolnienie spod napięcia i sprawdzenie, czy poszkodowany reaguje.' },
+  { id: 'oddech', label: 'W trakcie połączenia: udrożnij drogi oddechowe i oceń oddech (do 10 s)', why: 'Według wytycznych ERC 2025 najpierw dzwonisz na 112 – oddech oceniasz, czekając na połączenie.' },
+  { id: 'rko', label: 'Nie oddycha prawidłowo: RKO 30 uciśnięć + 2 oddechy', why: 'RKO zaczynasz, gdy wiesz, że poszkodowany nie oddycha prawidłowo – po wezwaniu 112 i ocenie oddechu.' },
   { id: 'aed', label: 'AED dotarł: włącz go i wykonuj polecenia głosowe', why: 'AED dociera w trakcie RKO – do tego czasu uciskasz klatkę piersiową.' },
 ]
