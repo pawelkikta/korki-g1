@@ -58,9 +58,9 @@ export const questions = [
     id: 'r1q6', round: 1, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Co to jest polecenie pisemne i kiedy jest wymagane przy pracach eksploatacyjnych?',
     answer:
-      'Polecenie pisemne to dokument, na podstawie którego wykonuje się prace stwarzające możliwość wystąpienia szczególnego zagrożenia dla zdrowia lub życia. Wydaje je poleceniodawca – osoba upoważniona przez pracodawcę, ze świadectwem D. Polecenie określa zakres i miejsce pracy, środki bezpieczeństwa, sposób przygotowania strefy pracy oraz osoby funkcyjne: dopuszczającego, kierującego zespołem, a w razie potrzeby koordynującego i nadzorującego. Które prace wymagają polecenia, a które można wykonywać bez niego, pracodawca określa w instrukcji organizacji bezpiecznej pracy (IOBP).',
-    keyPoints: 'Polecenie pisemne = prace w warunkach szczególnego zagrożenia. Wydaje poleceniodawca (D). Wykaz prac – w IOBP pracodawcy.',
-    sources: [{ act: 'bhp', at: '§ 2 pkt 8, § 27 i § 28' }],
+      'Polecenie pisemne to dokument, na podstawie którego wykonuje się prace stwarzające możliwość wystąpienia szczególnego zagrożenia dla zdrowia lub życia. Wydaje je poleceniodawca – osoba upoważniona przez pracodawcę, ze świadectwem D. Polecenie określa zakres prac i strefę pracy, środki ochronne, terminy oraz osoby funkcyjne: dopuszczającego, kierującego zespołem, a w razie potrzeby koordynującego. Pracodawca przechowuje je co najmniej 90 dni od zakończenia pracy. Szczegółowy wykaz prac na polecenie pisemne ustala pracodawca po ocenie ryzyka – zwykle w instrukcji organizacji bezpiecznej pracy (IOBP). Bez polecenia wolno tylko prace określone w instrukcji eksploatacji oraz ratowanie życia, zdrowia, środowiska i mienia.',
+    keyPoints: 'Polecenie pisemne = prace w warunkach szczególnego zagrożenia. Wydaje poleceniodawca (D). Wykaz prac ustala pracodawca (zwykle w IOBP). Przechowywanie – min. 90 dni.',
+    sources: [{ act: 'bhp', at: '§ 2 pkt 8 i § 27–29' }],
   },
   {
     id: 'r1q7', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
@@ -199,15 +199,15 @@ export const questions = [
     id: 'r2q11', round: 2, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Jakie osoby funkcyjne występują przy pracy na polecenie pisemne i jakie muszą mieć kwalifikacje?',
     answer:
-      'Poleceniodawca – wydaje polecenie pisemne; świadectwo D i upoważnienie pracodawcy. Koordynujący – koordynuje prace kilku zespołów lub w kilku miejscach; świadectwo D. Dopuszczający – przygotowuje strefę pracy (czynności łączeniowe) i dopuszcza zespół; świadectwo E i upoważnienie. Kierujący zespołem – kieruje pracą na miejscu, sprawdza i przyjmuje strefę pracy; świadectwo E. Nadzorujący – nadzoruje pracę osób bez kwalifikacji lub obcych firm i nie wykonuje innych prac; E lub D. Członkowie zespołu – wykonują pracę. Przy poleceniu pisemnym nie łączy się więcej niż dwóch funkcji, a funkcji dopuszczającego i kierującego zespołem nie łączy się wcale (wyjątek: prace pod napięciem).',
-    keyPoints: 'Poleceniodawca (D), koordynujący (D), dopuszczający (E), kierujący zespołem (E), nadzorujący (E lub D), członek zespołu. Dopuszczający ≠ kierujący.',
-    sources: [{ act: 'bhp', at: '§ 2 pkt 8–11 i § 30 ust. 3' }],
+      'Poleceniodawca – wydaje polecenie pisemne; świadectwo D. Koordynujący – koordynuje prace z ruchem urządzeń (kolejność łączeń, zezwolenie na przygotowanie i likwidację strefy, zgoda na uruchomienie urządzenia); świadectwo D. Dopuszczający – przygotowuje strefę pracy (czynności łączeniowe) i dopuszcza zespół; świadectwo E. Kierujący zespołem – sprawdza i przyjmuje strefę pracy, kieruje pracą na miejscu; świadectwo E. Każda z tych osób musi być upoważniona przez pracodawcę. Członkowie zespołu – wykonują pracę. Przy poleceniu pisemnym nie łączy się więcej niż dwóch funkcji, a funkcji dopuszczającego i kierującego zespołem nie łączy się wcale (wyjątek: prace pod napięciem). Osoby bez świadectwa (np. serwis specjalistyczny) pracują wyłącznie pod nadzorem osoby upoważnionej – w wielu IOBP to „nadzorujący", ale rozporządzenie nie definiuje takiej funkcji.',
+    keyPoints: 'Poleceniodawca (D), koordynujący (D), dopuszczający (E), kierujący zespołem (E) – wszyscy upoważnieni przez pracodawcę. Najwyżej dwie funkcje na osobę. Dopuszczający ≠ kierujący.',
+    sources: [{ act: 'bhp', at: '§ 2 pkt 8–11, § 6 ust. 2 i § 30 ust. 3' }],
   },
   {
     id: 'r2q12', round: 2, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Jakie czynności musi wykonać dopuszczający przed dopuszczeniem zespołu do pracy?',
     answer:
-      'Po uzyskaniu zezwolenia od koordynującego lub poleceniodawcy: 1) wyłączyć napięcie ze wszystkich stron tak, by uzyskać przerwę izolacyjną, 2) zabezpieczyć przed przypadkowym załączeniem (do 1 kV: wyjęte wkładki albo zablokowany napęd) i wywiesić tablice „Nie załączać – pracują ludzie", 3) sprawdzić brak napięcia sprawnym wskaźnikiem na wszystkich fazach i N, 4) uziemić i zewrzeć – ze wszystkich stron, co najmniej jeden uziemiacz widoczny z miejsca pracy, 5) ogrodzić i oznaczyć strefę, osłonić sąsiednie części pod napięciem, 6) dopuścić zespół: wskazać strefę, udowodnić brak napięcia, potwierdzić podpisami w poleceniu.',
+      'Po uzyskaniu zezwolenia od koordynującego lub poleceniodawcy: 1) wyłączyć napięcie ze wszystkich stron tak, by uzyskać przerwę izolacyjną, 2) zabezpieczyć przed przypadkowym załączeniem (do 1 kV: wyjęte wkładki albo zablokowany napęd) i wywiesić tablice „Nie załączać – pracują ludzie", 3) sprawdzić brak napięcia sprawnym wskaźnikiem na wszystkich fazach i N, 4) uziemić i zewrzeć, jeżeli wymaga tego technologia prac – ze wszystkich stron, co najmniej jeden uziemiacz widoczny z miejsca pracy, 5) ogrodzić i oznaczyć strefę, osłonić sąsiednie części pod napięciem, 6) dopuścić zespół: sprawdzić przygotowanie strefy, wskazać ją, przeprowadzić instruktaż o zagrożeniach, potwierdzić dopuszczenie na piśmie i zgłosić je koordynującemu.',
     keyPoints: 'Wyłącz → zabezpiecz → sprawdź brak napięcia → uziem → oznacz strefę → dopuść. Uziemienie zakłada się po sprawdzeniu braku napięcia, nie przed.',
     sources: [{ act: 'bhp', at: '§ 25 i § 30 ust. 1 pkt 2–3' }, { act: 'pn-en-50110-1' }],
   },
@@ -234,7 +234,7 @@ export const questions = [
     question: 'Czy elektryk z uprawnieniami E może sam wyłączyć napięcie i przystąpić do pracy bez polecenia?',
     answer:
       'To zależy od rodzaju pracy – a samo wyłączenie napięcia niczego tu nie zmienia. Prace stwarzające możliwość szczególnego zagrożenia wykonuje się wyłącznie na polecenie pisemne, z przygotowaniem strefy pracy i dopuszczeniem. Bez polecenia wolno wykonywać tylko prace wskazane przez pracodawcę – typowo rutynowe czynności opisane w instrukcji eksploatacji – oraz działania ratujące życie lub zdrowie ludzi albo środowisko i zabezpieczające mienie przed zniszczeniem (z niezwłocznym powiadomieniem przełożonego).',
-    keyPoints: 'Szczególne zagrożenie → polecenie pisemne. Bez polecenia: prace z instrukcji eksploatacji wskazane w IOBP i ratowanie życia/mienia. Uprawnienia E same nie wystarczą.',
+    keyPoints: 'Szczególne zagrożenie → polecenie pisemne. Bez polecenia: prace określone w instrukcji eksploatacji i ratowanie życia/mienia. Uprawnienia E same nie wystarczą.',
     sources: [{ act: 'bhp', at: '§ 27 ust. 1, § 29 i § 30 ust. 1 pkt 2–3' }, { act: 'kp', at: 'art. 211 pkt 6' }],
     trap: 'Brzmi logicznie – sam wyłączył, sam sprawdził. Komisja sprawdza, czy wiesz, kiedy potrzebne jest polecenie.',
     wrongAnswer: '„Tak, bo mam E i sam wyłączyłem napięcie." – uprawnienia nie zastępują polecenia ani dopuszczenia.',

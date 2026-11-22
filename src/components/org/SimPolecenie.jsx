@@ -26,7 +26,7 @@ export function SimPolecenie() {
   return (
     <div className="space-y-4">
       <NoteBox type="warning" title="Typowe przypadki">
-        Ostateczny wykaz prac na polecenie pisemne i bez polecenia ustala pracodawca w IOBP. Poniżej sytuacje, w których odpowiedź jest jednoznaczna.
+        Szczegółowy wykaz prac na polecenie pisemne ustala pracodawca (zwykle w IOBP), a prace bez polecenia – w instrukcji eksploatacji. Poniżej sytuacje, w których odpowiedź jest jednoznaczna.
       </NoteBox>
       <div className="space-y-2">
         {cases.map((c) => {
@@ -66,8 +66,8 @@ export function SimPolecenie() {
       </div>
       {done ? (
         <NoteBox type={score === orderCases.length ? 'remember' : 'mistake'} title={`Wynik: ${score}/${orderCases.length}`}>
-          Reguła do zapamiętania: szczególne zagrożenie, firma zewnętrzna albo decyzja poleceniodawcy → polecenie pisemne.
-          Bez polecenia – tylko czynności z instrukcji eksploatacji oraz ratowanie życia, zdrowia lub mienia.
+          Reguła do zapamiętania: bez polecenia – tylko czynności z instrukcji eksploatacji oraz ratowanie życia, zdrowia, środowiska
+          lub mienia. Wszystko inne, a zwłaszcza prace stwarzające szczególne zagrożenie, wykonuje się na polecenie pisemne.
         </NoteBox>
       ) : null}
       <Button variant="secondary" onClick={() => { setPicks({}); setAttempt((a) => a + 1) }}><RotateCcw className="mr-1 h-4 w-4" /> Wymieszaj od nowa</Button>
