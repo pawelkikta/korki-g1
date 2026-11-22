@@ -13,10 +13,36 @@ export const chapters = [
     lead: 'Kto może mierzyć, kto kontroluje i jak często',
     sections: [
       {
+        heading: 'Grupa G1 – 16 punktów, czyli rodzaje urządzeń',
+        paragraphs: [
+          'Świadectwo kwalifikacyjne określa **grupę** (G1 – urządzenia, instalacje i sieci elektroenergetyczne), **punkt** w tej grupie, czyli rodzaj urządzeń, **zakres czynności** i **stanowisko**: eksploatacja (E) albo dozór (D).',
+          'Rozporządzenie MKiŚ z 1 lipca 2022 r. (załącznik nr 1) dzieli grupę 1 na 16 punktów:',
+          { list: [
+            '**pkt 1** – urządzenia prądotwórcze przyłączone do sieci przesyłowej lub dystrybucyjnej energii elektrycznej bez względu na wysokość napięcia znamionowego',
+            '**pkt 2** – urządzenia, instalacje i sieci elektroenergetyczne o napięciu znamionowym nie wyższym niż 1 kV',
+            '**pkt 3** – urządzenia, instalacje i sieci elektroenergetyczne o napięciu znamionowym wyższym niż 1 kV i nie wyższym niż 30 kV',
+            '**pkt 4** – urządzenia, instalacje i sieci elektroenergetyczne o napięciu znamionowym wyższym niż 30 kV i nie wyższym niż 110 kV',
+            '**pkt 5** – urządzenia, instalacje i sieci elektroenergetyczne o napięciu znamionowym wyższym niż 110 kV',
+            '**pkt 6** – zespoły prądotwórcze o mocy wyższej niż 50 kW',
+            '**pkt 7** – urządzenia elektrotermiczne',
+            '**pkt 8** – urządzenia do elektrolizy',
+            '**pkt 9** – sieci elektrycznego oświetlenia ulicznego',
+            '**pkt 10** – elektryczna sieć trakcyjna',
+            '**pkt 11** – elektryczne urządzenia w wykonaniu przeciwwybuchowym',
+            '**pkt 12** – urządzenia umożliwiające magazynowanie energii elektrycznej i jej wprowadzanie do sieci elektroenergetycznej o mocy wyższej niż 10 kW',
+            '**pkt 13** – aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń urządzeń i instalacji wymienionych w pkt 1–12',
+            '**pkt 14** – urządzenia techniki wojskowej lub uzbrojenia',
+            '**pkt 15** – urządzenia ratowniczo-gaśnicze',
+            '**pkt 16** – urządzenia ochrony granic',
+          ] },
+          'Zakres czynności (§ 4 rozporządzenia) to: **obsługa**, **konserwacja**, **remont lub naprawa**, **montaż lub demontaż** oraz **czynności kontrolno-pomiarowe**. We wniosku o egzamin podajesz numer grupy i punkt, który opisuje urządzenia, przy których chcesz pracować.',
+        ],
+        box: { type: 'remember', text: 'Instalacje w budynkach (230/400 V) = **pkt 2**. Pomiary = **zakres kontrolno-pomiarowy**. Aparatura pomiarowa i automatyka = **pkt 13** – nie myl jej z pomiarami.' },
+      },
+      {
         heading: 'Zakres kontrolno-pomiarowy i punkt 13 (dawniej 10) – co jest czym?',
         paragraphs: [
-          'Świadectwo kwalifikacyjne opisuje dwie rzeczy: **rodzaj urządzeń** (grupa G1 i jej punkty – instalacje w budynkach to **pkt 2**: urządzenia, instalacje i sieci do 1 kV) oraz **zakres czynności**: obsługa, konserwacja, remont, montaż i **kontrolno-pomiarowy**.',
-          'Prawo do **wykonywania pomiarów** instalacji daje właśnie **zakres kontrolno-pomiarowy** wpisany dla urządzeń, które mierzysz. Aparatura pomiarowa i automatyka to w obowiązującym rozporządzeniu (MKiŚ z 1 lipca 2022 r.) osobny rodzaj urządzeń – **punkt 13** grupy G1:',
+          'Prawo do **wykonywania pomiarów** daje **zakres kontrolno-pomiarowy** wpisany dla urządzeń, które mierzysz – dla instalacji w budynkach to **pkt 2**. Punkt 13 to coś innego: w obowiązującym rozporządzeniu (MKiŚ z 1 lipca 2022 r.) to osobny rodzaj urządzeń – aparatura pomiarowa i automatyka:',
           { quote: 'aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń urządzeń i instalacji wymienionych w pkt 1–12' },
           'W starym rozporządzeniu z 2003 r. był to **punkt 10** – stąd „pomiary z pkt 10" na wielu kursach i w starszych świadectwach. **Dziś pkt 10 to elektryczna sieć trakcyjna.** Wypełniając wniosek, czytaj opis punktu, a nie sam numer.',
           'Osobna sprawa to **okresowa kontrola z art. 62 Prawa budowlanego**: instalację elektryczną może kontrolować osoba z kwalifikacjami **dozoru (D)** (art. 62 ust. 5) albo osoba z **uprawnieniami budowlanymi** w specjalności instalacyjnej elektrycznej (ust. 4).',

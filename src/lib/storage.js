@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 
-const PREFIX = 'sepg1.'
+export const PREFIX = 'sepg1.'
 
 export function loadStored(key, fallback) {
   try {

@@ -3,6 +3,7 @@ import { ArrowRight, Check, Circle, CircleDot, RotateCcw } from 'lucide-react'
 import { readProgress, learningPath } from '../lib/progress.js'
 import { plural } from '../lib/plural.js'
 import { PageHeader, NoteBox, ProgressBar, Button } from './ui.jsx'
+import { ProgressTransfer } from './ProgressTransfer.jsx'
 
 // Ekran „Plan” – odpowiada na dwa pytania: co teraz zrobić i czy jestem gotowy do egzaminu.
 // Liczby czyta z localStorage przy każdym renderze; App renderuje go ponownie po zapisie postępu.
@@ -134,6 +135,8 @@ export function PlanPanel({ navigate }) {
         Komisja ocenia rozumienie, nie numerację norm. Wystarczy „zgodnie z normą instalacji elektrycznych PN-HD 60364".
         Ale liczby ze ściągi (1 MΩ, 500 V DC, 200 mA, 30 mA, 0,4 s...) musisz znać na pamięć – przy zakresie kontrolno-pomiarowym pytają szczegółowo.
       </NoteBox>
+
+      <ProgressTransfer />
     </div>
   )
 }

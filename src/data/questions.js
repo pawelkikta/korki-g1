@@ -15,28 +15,28 @@ export const questions = [
     id: 'r1q1', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
     question: 'Co to są uprawnienia SEP grupy G1 i co obejmują?',
     answer:
-      'Świadectwo kwalifikacyjne grupy 1 – urządzenia, instalacje i sieci elektroenergetyczne. Rozporządzenie z 2022 r. dzieli grupę na 16 punktów (rodzajów urządzeń), m.in. pkt 2 – urządzenia, instalacje i sieci do 1 kV, pkt 9 – oświetlenie uliczne, pkt 13 – aparatura kontrolno-pomiarowa i automatyka. Do tego dochodzi zakres czynności: obsługa, konserwacja, remont, montaż, kontrolno-pomiarowy.',
-    keyPoints: '„Elektroenergetyczne", rodzaj urządzeń (np. pkt 2 – do 1 kV) + zakres czynności (w tym kontrolno-pomiarowy). Numeracja punktów wg rozporządzenia z 2022 r.',
+      '„Uprawnienia SEP" to potoczna nazwa świadectwa kwalifikacyjnego. Grupa 1 to urządzenia, instalacje i sieci elektroenergetyczne. Świadectwo określa trzy rzeczy: rodzaj urządzeń, zakres czynności i stanowisko. Rodzaj urządzeń to punkt grupy – rozporządzenie z 2022 r. dzieli grupę 1 na 16 punktów, np. pkt 2 – urządzenia, instalacje i sieci do 1 kV, pkt 9 – sieci elektrycznego oświetlenia ulicznego, pkt 13 – aparatura kontrolno-pomiarowa i automatyka. Zakres czynności to obsługa, konserwacja, remont lub naprawa, montaż lub demontaż oraz czynności kontrolno-pomiarowe. Stanowisko to eksploatacja (E) albo dozór (D).',
+    keyPoints: 'Grupa 1 = elektroenergetyczne. Świadectwo określa punkt (np. pkt 2 – do 1 kV), zakres czynności (w tym kontrolno-pomiarowy) i stanowisko E albo D. Numeracja punktów wg rozporządzenia z 2022 r.',
   },
   {
     id: 'r1q2', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
     question: 'Czym różni się eksploatacja (E) od dozoru (D) w uprawnieniach SEP?',
     answer:
-      'Eksploatacja (E) to uprawnienie do bezpośredniej pracy przy urządzeniach – obsługa, konserwacja, montaż, pomiary. Dozór (D) to uprawnienie do nadzorowania prac wykonywanych przez innych, planowania i organizacji bezpiecznej pracy.',
+      'Eksploatacja (E) to świadectwo do wykonywania prac przy urządzeniach: obsługi, konserwacji, remontu, montażu i pomiarów. Dozór (D) to świadectwo do kierowania pracą innych i nadzoru nad eksploatacją – planowania prac i organizowania ich tak, żeby były bezpieczne. To dwa osobne świadectwa, zdawane osobno.',
     keyPoints: 'E = fizyczna praca, D = nadzór nad innymi.',
   },
   {
     id: 'r1q3', round: 1, category: 'BHP', topic: 'pierwsza-pomoc',
     question: 'Jakie środki gaśnicze wolno stosować przy gaszeniu urządzeń elektrycznych pod napięciem?',
     answer:
-      'Przy urządzeniach pod napięciem używa się gaśnic dopuszczonych do gaszenia urządzeń pod napięciem – w praktyce proszkowych (ABC) lub śniegowych (CO2). Dopuszczalne napięcie i bezpieczną odległość podaje oznaczenie na gaśnicy, np. „do 1000 V z odległości 1 m". Nie gasi się wodą z hydrantu ani zwykłą pianą – prąd może popłynąć strumieniem do ratownika. Gaśnica wodna lub mgłowa nadaje się tylko wtedy, gdy ma takie oznaczenie (przeszła badanie dielektryczne).',
-    keyPoints: 'Proszek ABC i CO2 – TAK (sprawdź oznaczenie, np. do 1000 V, 1 m). Woda i zwykła piana – NIE.',
+      'Używa się gaśnic dopuszczonych do gaszenia urządzeń pod napięciem – w praktyce proszkowych (ABC) albo śniegowych (CO₂). Na gaśnicy jest oznaczenie, do jakiego napięcia i z jakiej odległości wolno nią gasić, np. „do 1000 V z odległości 1 m". Nie gasi się wodą z hydrantu ani zwykłą pianą – prąd może popłynąć strumieniem do ratownika. Gaśnica wodna lub mgłowa nadaje się tylko wtedy, gdy ma takie oznaczenie (przeszła badanie dielektryczne).',
+    keyPoints: 'Proszek ABC i CO₂ – TAK (sprawdź oznaczenie, np. do 1000 V, 1 m). Woda i zwykła piana – NIE.',
   },
   {
     id: 'r1q4', round: 1, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Czym są strefa prac pod napięciem i strefa prac w pobliżu napięcia? Jakie odległości obowiązują do 1 kV?',
     answer:
-      'Rozporządzenie BHP przy urządzeniach energetycznych (2019) wyznacza wokół nieosłoniętych części pod napięciem dwie strefy: strefę prac pod napięciem (granica DL) i strefę prac w pobliżu napięcia (granica DV). Dla urządzeń do 1 kV: DL – „bez dotyku" (każde dotknięcie części czynnej to już praca pod napięciem), DV – 0,3 m. Pracując w pobliżu napięcia, nie wolno przekroczyć tych odstępów żadną częścią ciała, narzędziem ani przedmiotem – chyba że części czynne zostaną osłonięte.',
+      'Rozporządzenie BHP przy urządzeniach energetycznych (2019) wyznacza wokół nieosłoniętych części pod napięciem dwie strefy: strefę prac pod napięciem (jej granica to DL) i strefę prac w pobliżu napięcia (jej granica to DV). Dla urządzeń do 1 kV: DL – „bez dotyku", czyli każde dotknięcie części czynnej to już praca pod napięciem; DV – 0,3 m. Przy pracy w pobliżu napięcia nie wolno wejść w strefę prac pod napięciem żadną częścią ciała, narzędziem ani przedmiotem. Do 1 kV oznacza to: nie dotykać części czynnych, chyba że zostały osłonięte.',
     keyPoints: 'Do 1 kV: DL = bez dotyku, DV = 0,3 m. Dwie strefy: prac pod napięciem i prac w pobliżu napięcia.',
     trap: 'Stare materiały podają „0,5 m" i „strefę niebezpieczną" – to nie są pojęcia z obecnego rozporządzenia.',
     wrongAnswer: '„Do 1 kV bezpieczna odległość to 0,5 m" – obecnie granica strefy prac w pobliżu napięcia to 0,3 m.',
@@ -45,14 +45,14 @@ export const questions = [
     id: 'r1q5', round: 1, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Na kim spoczywa obowiązek wyposażenia stanowisk pracy w instrukcje eksploatacyjne?',
     answer:
-      'Obowiązek spoczywa na pracodawcy lub osobie kierującej pracownikami. Pracodawca jest zobowiązany do opracowania i udostępnienia instrukcji eksploatacyjnych dla każdego stanowiska pracy przy urządzeniach elektrycznych.',
+      'Na pracodawcy albo osobie, która kieruje pracownikami. Pracodawca musi opracować instrukcje eksploatacji i udostępnić je na każdym stanowisku pracy przy urządzeniach elektrycznych.',
     keyPoints: 'Pracodawca – nie pracownik, nie SEP.',
   },
   {
     id: 'r1q6', round: 1, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Co to jest polecenie pisemne i kiedy jest wymagane przy pracach eksploatacyjnych?',
     answer:
-      'Polecenie pisemne wydaje poleceniodawca (osoba upoważniona przez pracodawcę, ze świadectwem D). Określa zakres i miejsce pracy, środki bezpieczeństwa, sposób przygotowania strefy pracy oraz osoby funkcyjne (dopuszczający, kierujący zespołem, ewentualnie koordynujący i nadzorujący). Na polecenie pisemne wykonuje się prace stwarzające możliwość wystąpienia szczególnego zagrożenia dla zdrowia lub życia. Które prace wymagają polecenia, a które można wykonywać bez niego, określa pracodawca w instrukcji organizacji bezpiecznej pracy (IOBP).',
+      'Polecenie pisemne to dokument, na podstawie którego wykonuje się prace stwarzające możliwość wystąpienia szczególnego zagrożenia dla zdrowia lub życia. Wydaje je poleceniodawca – osoba upoważniona przez pracodawcę, ze świadectwem D. Polecenie określa zakres i miejsce pracy, środki bezpieczeństwa, sposób przygotowania strefy pracy oraz osoby funkcyjne: dopuszczającego, kierującego zespołem, a w razie potrzeby koordynującego i nadzorującego. Które prace wymagają polecenia, a które można wykonywać bez niego, pracodawca określa w instrukcji organizacji bezpiecznej pracy (IOBP).',
     keyPoints: 'Polecenie pisemne = prace w warunkach szczególnego zagrożenia. Wydaje poleceniodawca (D). Wykaz prac – w IOBP pracodawcy.',
   },
   {
@@ -64,9 +64,9 @@ export const questions = [
   },
   {
     id: 'r1q8', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
-    question: 'Co to jest napięcie znamionowe i jaka wartość przyjmuje się za granicę grupy G1?',
+    question: 'Co to jest napięcie znamionowe i jaką wartość przyjmuje się za granicę w grupie G1?',
     answer:
-      'Napięcie znamionowe to napięcie, do pracy przy którym urządzenie zostało zaprojektowane. W grupie G1 kluczowa granica to 1 kV (1000 V): do 1 kV – pkt 2 (większość instalacji budynkowych i przemysłowych nn), powyżej – pkt 3–5. Sama grupa G1 obejmuje wszystkie napięcia.',
+      'Napięcie znamionowe to napięcie, na które zaprojektowano urządzenie, instalację lub sieć (np. 230/400 V). Sama grupa G1 obejmuje wszystkie napięcia, ale ważną granicą jest 1 kV (1000 V): do 1 kV to pkt 2 (większość instalacji w budynkach i zakładach, sieci nn), powyżej 1 kV – pkt 3–5.',
     keyPoints: '1 kV = granica pkt 2 w G1. Sieć domowa 230/400 V = pkt 2.',
   },
   {
@@ -80,7 +80,7 @@ export const questions = [
     id: 'r1q10', round: 1, category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
     question: 'Jakie czynniki wpływają na skutki porażenia prądem elektrycznym?',
     answer:
-      'Wartość natężenia prądu (najważniejsza), napięcie, rodzaj prądu (AC groźniejszy niż DC), czas przepływu, droga prądu przez ciało, opór ciała (sucha/mokra skóra), częstotliwość (50 Hz AC szczególnie groźna). Już 50 mA AC może być śmiertelne.',
+      'Najważniejsze jest natężenie prądu płynącego przez ciało. Liczą się też: napięcie, rodzaj prądu (AC jest groźniejszy niż DC), częstotliwość (50 Hz jest szczególnie groźne), czas przepływu, droga prądu przez ciało i rezystancja ciała (mokra skóra ma mniejszą niż sucha). Już 50 mA AC może zabić.',
     keyPoints: 'Natężenie > napięcie. 50 mA AC = zagrożenie życia. Mokra skóra = mniejszy opór = większe niebezpieczeństwo.',
   },
   {
@@ -103,7 +103,7 @@ export const questions = [
     id: 'r2q1', round: 2, category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Co to jest pomiar rezystancji izolacji i kiedy się go wykonuje?',
     answer:
-      'Sprawdza, czy izolacja przewodów i urządzeń nie jest uszkodzona – mierzy opór między przewodem fazowym a PE lub ekranem. Wykonuje się go przy odbiorze nowej instalacji, po remoncie, po zalaniu lub pożarze, oraz w ramach przeglądów okresowych.',
+      'To pomiar, który sprawdza, czy izolacja przewodów i urządzeń nie jest uszkodzona. Megaomomierz mierzy rezystancję między przewodami czynnymi (L, N) a przewodem ochronnym PE oraz między przewodami czynnymi. Pomiar wykonuje się przy odbiorze nowej instalacji, po remoncie, po zalaniu lub pożarze oraz podczas kontroli okresowych.',
     keyPoints: 'Megaomomierz, 500 V DC dla instalacji 230/400 V, wynik min. 1 MΩ.',
   },
   {
@@ -117,28 +117,28 @@ export const questions = [
     id: 'r2q3', round: 2, category: 'Pomiary', topic: 'petla-zwarcia',
     question: 'Na czym polega pomiar impedancji pętli zwarcia i jaki jest jego cel?',
     answer:
-      'Mierzy impedancję pętli: przewód fazowy → urządzenie → przewód ochronny PE → powrót do źródła. Na podstawie wyniku oblicza się prąd zwarciowy i sprawdza, czy zadziała zabezpieczenie. Im niższa impedancja, tym wyższy prąd zwarciowy, tym pewniejsze zadziałanie.',
+      'Miernik mierzy impedancję drogi, którą popłynie prąd przy zwarciu fazy z obudową: źródło → przewód fazowy → miejsce zwarcia → przewód ochronny PE → z powrotem do źródła. Z wyniku oblicza się prąd zwarciowy i sprawdza, czy zabezpieczenie wyłączy zasilanie w wymaganym czasie. Im mniejsza impedancja, tym większy prąd zwarciowy i tym pewniej zabezpieczenie zadziała.',
     keyPoints: 'Mała impedancja = dobra ochrona. TN 230 V: ≤ 0,4 s dla obwodów odbiorczych do 32 A (z gniazdami do 63 A), ≤ 5 s dla obwodów rozdzielczych.',
   },
   {
     id: 'r2q4', round: 2, category: 'Pomiary', topic: 'rcd',
     question: 'Co to jest wyłącznik różnicowoprądowy (RCD) i jak sprawdzić jego poprawne działanie?',
     answer:
-      'Wyłącznik reagujący na prąd różnicowy między fazą a neutralem – wykrywa upływ prądu np. przez ciało człowieka. RCD o IΔn 30 mA daje ochronę uzupełniającą przy dotyku części czynnej. Sprawdzenie: przyciskiem TEST na obudowie – zwykle raz w miesiącu, wg zalecenia producenta – oraz miernikiem RCD, który mierzy czas i prąd zadziałania.',
+      'To wyłącznik, który porównuje prąd płynący do odbiornika z prądem, który z niego wraca (L i N). Jeśli różnica – prąd różnicowy – przekroczy próg zadziałania, RCD wyłącza obwód. Taka różnica oznacza upływ prądu, np. przez ciało człowieka do ziemi. RCD o IΔn 30 mA daje ochronę uzupełniającą przy dotyku części czynnej. Działanie sprawdza się przyciskiem TEST na obudowie (zwykle raz w miesiącu, wg zalecenia producenta) oraz miernikiem RCD, który mierzy czas i prąd zadziałania.',
     keyPoints: 'IΔn 30 mA = ochrona uzupełniająca. Czas zadziałania przy 1×IΔn ≤ 300 ms. TEST – zwykle co miesiąc, wg zalecenia producenta.',
   },
   {
     id: 'r2q5', round: 2, category: 'Pomiary', topic: 'ciaglosc-pe',
     question: 'Czym różni się pomiar ciągłości przewodów ochronnych PE od pomiaru rezystancji izolacji?',
     answer:
-      'Ciągłość PE: sprawdza czy przewód ochronny jest nieprzerwany. Mierzy się małą rezystancję (mΩ..Ω) przy niskim napięciu DC. Rezystancja izolacji: sprawdza jakość izolacji. Mierzy się bardzo dużą rezystancję (MΩ) przy wysokim napięciu DC (500 V). Oba pomiary obowiązkowe przy odbiorze instalacji.',
+      'Pomiar ciągłości PE sprawdza, czy przewód ochronny nie jest nigdzie przerwany. Mierzy się małą rezystancję (od miliomów do kilku omów) przy niskim napięciu (4–24 V). Pomiar rezystancji izolacji sprawdza, czy izolacja jest sprawna. Mierzy się bardzo dużą rezystancję (megaomy) przy wysokim napięciu stałym (500 V DC). Oba pomiary są obowiązkowe przy odbiorze instalacji.',
     keyPoints: 'PE ciągłość = małe R, izolacja = duże R. Różne przyrządy, różne napięcia, różny cel.',
   },
   {
     id: 'r2q6', round: 2, category: 'Pomiary', topic: 'podstawy-prawne',
     question: 'Co musisz mieć w świadectwie kwalifikacyjnym, żeby wykonywać pomiary instalacji elektrycznej? Czym jest punkt 13 (dawniej 10)?',
     answer:
-      'Do wykonywania pomiarów potrzebny jest zakres kontrolno-pomiarowy wpisany dla urządzeń, które mierzysz – dla instalacji w budynkach to G1 pkt 2 (do 1 kV). Punkt 13 grupy G1 (w rozporządzeniu z 2003 r. był to pkt 10) to rodzaj urządzeń: aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń. Kontrolę okresową instalacji z art. 62 Prawa budowlanego może przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi.',
+      'Potrzebujesz zakresu kontrolno-pomiarowego dla urządzeń, które mierzysz. Dla instalacji w budynkach to G1 pkt 2 (do 1 kV). Punkt 13 grupy G1 to nie „pomiary", tylko rodzaj urządzeń: aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń. W rozporządzeniu z 2003 r. był to pkt 10. Kontrolę okresową instalacji z art. 62 Prawa budowlanego może przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi.',
     keyPoints: 'Pomiary = zakres kontrolno-pomiarowy. Pkt 13 (dawniej 10) = aparatura pomiarowa i automatyka. Dziś pkt 10 = sieć trakcyjna.',
     trap: 'Na kursach wciąż mówi się „pomiary z pkt 10" – to stara numeracja i skrót myślowy.',
     wrongAnswer: '„Pkt 10 = pomiary" – od 2022 r. pkt 10 grupy G1 to elektryczna sieć trakcyjna.',
@@ -154,21 +154,21 @@ export const questions = [
     id: 'r2q8', round: 2, category: 'Eksploatacja', topic: 'klasy',
     question: 'Co oznaczają klasy ochronności urządzeń elektrycznych I, II i III?',
     answer:
-      'Klasa I: izolacja podstawowa + przewód ochronny PE (uziemienie). Klasa II: podwójna lub wzmocniona izolacja, brak PE – symbol kwadratu w kwadracie. Klasa III: zasilanie napięciem bezpiecznym SELV/PELV (≤ 50 V AC lub ≤ 120 V DC). Klasa II i III nie wymagają uziemienia.',
+      'Klasa I: izolacja podstawowa i przewód ochronny PE, do którego przyłącza się metalową obudowę. Klasa II: izolacja podwójna lub wzmocniona, bez przewodu PE – symbol to kwadrat w kwadracie. Klasa III: zasilanie bardzo niskim napięciem SELV lub PELV (≤ 50 V AC albo ≤ 120 V DC). Urządzeń klasy II i III nie przyłącza się do przewodu PE.',
     keyPoints: 'I = PE wymagany, II = bez PE (kwadrat w kwadracie), III = ≤ 50 V AC.',
   },
   {
     id: 'r2q9', round: 2, category: 'Eksploatacja', topic: 'klasy',
     question: 'Co oznacza oznaczenie IP (np. IP44) na urządzeniu elektrycznym?',
     answer:
-      'IP (Ingress Protection) – stopień ochrony obudowy. Pierwsza cyfra (0–6): ochrona przed ciałami stałymi i pyłem (4 = cząstki > 1 mm). Druga cyfra (0–9): ochrona przed wodą (4 = bryzgi z każdego kierunku). IP44 = minimum dla urządzeń na zewnątrz lub w wilgotnych pomieszczeniach.',
+      'IP (Ingress Protection) to stopień ochrony, jaki daje obudowa. Pierwsza cyfra (0–6) to ochrona przed ciałami stałymi i pyłem, np. 4 – przed cząstkami większymi niż 1 mm. Druga cyfra (0–9) to ochrona przed wodą, np. 4 – przed bryzgami z każdego kierunku. IP44 to typowe minimum dla urządzeń na zewnątrz i w pomieszczeniach wilgotnych.',
     keyPoints: '1. cyfra = pył, 2. cyfra = woda. IP44 = minimum zewnętrze. IP67 = zanurzenie do 1 m.',
   },
   {
     id: 'r2q10', round: 2, category: 'Eksploatacja', topic: 'organizacja-pracy',
     question: 'Jakie są obowiązki elektryka bezpośrednio przed przystąpieniem do pracy przy urządzeniu wyłączonym spod napięcia?',
     answer:
-      'Elektryk musi: sprawdzić ważność swoich uprawnień SEP, upewnić się że ma polecenie, osobiście sprawdzić brak napięcia wskaźnikiem napięcia – nigdy nie wolno zakładać że napięcie jest wyłączone, sprawdzić czy założone są uziemiacze i tabliczki ostrzegawcze, dopiero wtedy przystąpić do pracy.',
+      'Elektryk musi: 1) sprawdzić, czy ma ważne świadectwo kwalifikacyjne, 2) upewnić się, że ma polecenie wykonania pracy, 3) osobiście sprawdzić brak napięcia wskaźnikiem – nigdy nie zakładać, że napięcie jest wyłączone, 4) sprawdzić, czy założono uziemiacze i wywieszono tablice ostrzegawcze. Dopiero wtedy może zacząć pracę.',
     keyPoints: 'Zawsze sprawdź napięcie wskaźnikiem osobiście. „Założył, że jest wyłączone" = najczęstsza przyczyna wypadków.',
   },
   {
@@ -189,7 +189,7 @@ export const questions = [
     id: 'r2q13', round: 2, category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Jak często należy wykonywać przeglądy i pomiary instalacji elektrycznych w budynkach?',
     answer:
-      'Art. 62 Prawa budowlanego: kontrola instalacji elektrycznej co najmniej raz na 5 lat – może ją przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi. Częściej kontroluje się tam, gdzie ryzyko jest większe – np. w strefach zagrożenia wybuchem częstotliwość ustala pracodawca w dokumencie zabezpieczenia przed wybuchem, zwykle co rok. Pomiary wykonuje elektryk z zakresem kontrolno-pomiarowym.',
+      'Co najmniej raz na 5 lat – tak wymaga art. 62 Prawa budowlanego. Kontrolę może przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi, a pomiary wykonuje elektryk z zakresem kontrolno-pomiarowym. Tam, gdzie ryzyko jest większe, kontroluje się częściej – np. w strefach zagrożenia wybuchem częstotliwość ustala pracodawca w dokumencie zabezpieczenia przed wybuchem, zwykle co rok.',
     keyPoints: 'Co 5 lat = art. 62 (kontroluje osoba z D albo z uprawnieniami budowlanymi). Strefy Ex = częściej, wg dokumentu zabezpieczenia przed wybuchem (typowo co rok).',
   },
   {
@@ -212,7 +212,7 @@ export const questions = [
   },
   {
     id: 'r3q2', round: 3, category: 'Eksploatacja', topic: 'organizacja-pracy',
-    question: 'Kolega mówi ci że sprawdził napięcie i jest wyłączone – czy możesz zacząć pracę?',
+    question: 'Kolega mówi ci, że sprawdził napięcie i jest wyłączone – czy możesz zacząć pracę?',
     answer:
       'Nie. Każda osoba przystępująca do pracy musi osobiście sprawdzić brak napięcia własnym wskaźnikiem – bezpośrednio przed dotykiem. Zasada: „Nie zakładaj, zawsze sprawdź." Słowo kolegi nie jest wystarczającym zabezpieczeniem.',
     keyPoints: 'Osobiste sprawdzenie wskaźnikiem = obowiązek każdego elektryka.',
@@ -223,7 +223,7 @@ export const questions = [
     id: 'r3q3', round: 3, category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Instalacja ma rezystancję izolacji 0,8 MΩ – czy można ją oddać do użytku?',
     answer:
-      'Nie. Minimalna dopuszczalna rezystancja izolacji dla instalacji 230/400 V wynosi 1 MΩ. Wynik 0,8 MΩ jest poniżej normy – instalacja nie może zostać oddana do użytku. Należy zlokalizować i naprawić uszkodzenie izolacji, następnie powtórzyć pomiar.',
+      'Nie. Minimalna dopuszczalna rezystancja izolacji dla instalacji 230/400 V to 1 MΩ. Wynik 0,8 MΩ jest za niski, więc instalacji nie wolno oddać do użytku. Trzeba znaleźć i usunąć uszkodzenie izolacji, a potem powtórzyć pomiar.',
     keyPoints: '< 1 MΩ = instalacja do naprawy. Nie ma „prawie dobrze".',
     trap: '0,8 MΩ to dużo – brzmi jak dobry wynik. Ale próg to 1 MΩ.',
     wrongAnswer: '„Tak, to dużo omów." – wartości poniżej 1 MΩ dyskwalifikują instalację.',
@@ -250,14 +250,14 @@ export const questions = [
     id: 'r3q6', round: 3, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Kierujący zespołem musi na chwilę opuścić miejsce pracy zespołu – co robi, zanim odejdzie?',
     answer:
-      'Kierujący zespołem nie może samowolnie opuścić strefy pracy, w której pracuje zespół. Jeśli musi odejść, przerywa pracę i wyprowadza zespół ze strefy pracy (zabezpieczając ją), albo kierowanie przejmuje inna osoba wyznaczona zgodnie z poleceniem – ze świadectwem E. Po przerwie w pracy wykonywanej na polecenie pisemne wznowienie wymaga ponownego dopuszczenia.',
+      'Kierujący zespołem nie może samowolnie opuścić strefy pracy, w której pracuje zespół. Jeśli musi odejść, przerywa pracę i wyprowadza zespół ze strefy pracy (zabezpieczając ją) albo kierowanie przejmuje inna osoba ze świadectwem E, wyznaczona zgodnie z poleceniem. Jeśli praca była wykonywana na polecenie pisemne, po przerwie wznowienie wymaga ponownego dopuszczenia.',
     keyPoints: 'Kierujący zespołem (E) nie opuszcza samowolnie strefy pracy. Albo przerwanie pracy i wyjście zespołu, albo formalne przejęcie kierowania.',
   },
   {
     id: 'r3q7', round: 3, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Poleceniodawca wydał polecenie pisemne. Czy może je cofnąć w trakcie pracy?',
     answer:
-      'Tak. Poleceniodawca może w każdej chwili cofnąć polecenie pisemne jeżeli warunki pracy uległy zmianie lub pojawia się zagrożenie. Musi poinformować dopuszczającego i kierującego zespołem, a prace należy natychmiast wstrzymać. Cofnięcie dokumentuje się w poleceniu.',
+      'Tak. Poleceniodawca może w każdej chwili cofnąć polecenie pisemne, jeżeli zmieniły się warunki pracy albo pojawiło się zagrożenie. Informuje o tym dopuszczającego i kierującego zespołem, a pracę trzeba natychmiast przerwać. Cofnięcie odnotowuje się w poleceniu.',
     keyPoints: 'Tak – cofnięcie jest zawsze możliwe. Bezpieczeństwo ponad wszystko.',
   },
   {
@@ -269,7 +269,7 @@ export const questions = [
   },
   {
     id: 'r3q9', round: 3, category: 'BHP', topic: 'pierwsza-pomoc',
-    question: 'Poszkodowany po porażeniu prądem jest przytomny i mówi że czuje się dobrze. Czy można zrezygnować z wezwania pomocy?',
+    question: 'Poszkodowany po porażeniu prądem jest przytomny i mówi, że czuje się dobrze. Czy można zrezygnować z wezwania pomocy?',
     answer:
       'Nie. Porażenie może powodować opóźnione skutki – arytmię serca, uszkodzenia wewnętrzne, oparzenia niewidoczne z zewnątrz. Nawet jeśli poszkodowany czuje się dobrze, należy wezwać pogotowie (112) lub niezwłocznie przetransportować do szpitala na obserwację.',
     keyPoints: 'Zawsze 112 po porażeniu prądem. Objawy mogą pojawić się z opóźnieniem godzin.',
@@ -278,7 +278,7 @@ export const questions = [
   },
   {
     id: 'r3q10', round: 3, category: 'BHP', topic: 'pierwsza-pomoc',
-    question: 'Jak prawidłowo odciągnąć osobę porażoną prądem gdy nie można wyłączyć napięcia?',
+    question: 'Jak prawidłowo odciągnąć osobę porażoną prądem, gdy nie można wyłączyć napięcia?',
     answer:
       'Używamy wyłącznie suchych, nieprzewodzących przedmiotów – drewniana deska, plastikowy fotel, sucha lina, złożona sucha odzież. Nigdy gołymi rękami – ratownik staje się kolejną ofiarą. Stajemy na suchym, izolującym podłożu. Dotyczy to tylko napięcia do 1 kV – przy wyższym nie podchodzimy, tylko wzywamy pomoc i czekamy na wyłączenie napięcia. Po odciągnięciu: sprawdzamy oddech, wzywamy 112, RKO jeśli brak oddechu.',
     keyPoints: 'Suchy nieprzewodzący przedmiot. Nigdy gołymi rękami. Tylko do 1 kV.',
@@ -287,7 +287,7 @@ export const questions = [
     id: 'r3q11', round: 3, category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Czy osoba z uprawnieniami D (dozór) może samodzielnie wykonywać prace fizyczne przy urządzeniach elektrycznych?',
     answer:
-      'Tylko jeśli posiada równocześnie uprawnienia E. Samo D uprawnia wyłącznie do nadzorowania prac – nie do ich fizycznego wykonywania. Dlatego standardowo bierze się E+D łącznie.',
+      'Tylko jeśli ma też świadectwo E. Samo D uprawnia do kierowania pracą innych i nadzoru – nie do wykonywania prac. Dlatego zwykle zdaje się na oba świadectwa: E i D.',
     keyPoints: 'D bez E = tylko nadzór. Aby pracować fizycznie potrzeba E.',
     trap: 'D wydaje się „wyższą" kategorią niż E – więc logicznie może więcej.',
     wrongAnswer: '„Tak, D to wyższe uprawnienia." – D bez E = tylko nadzór, zero pracy fizycznej.',
@@ -303,9 +303,9 @@ export const questions = [
   },
   {
     id: 'r3q13', round: 3, category: 'BHP', topic: 'organizacja-pracy',
-    question: 'Miernik nie wskazuje napięcia przy urządzeniu. Czy to znaczy że napięcia nie ma?',
+    question: 'Miernik nie wskazuje napięcia przy urządzeniu. Czy to znaczy, że napięcia nie ma?',
     answer:
-      'Nie zawsze. Miernik może być uszkodzony, rozładowany lub mieć przerwany przewód pomiarowy. Zasada: przed pomiarem sprawdź działanie miernika na znanym napięciu (np. gniazdku 230 V). Po pomiarze sprawdź ponownie. Dopiero dwa poprawne odczyty dają pewność.',
+      'Niekoniecznie. Miernik może być uszkodzony, mieć rozładowaną baterię albo przerwany przewód pomiarowy. Dlatego przed pomiarem sprawdź miernik na znanym źródle napięcia (np. w gniazdku 230 V), a po pomiarze sprawdź go jeszcze raz. Wynik „brak napięcia" jest wiarygodny dopiero wtedy, gdy miernik działał przed pomiarem i po nim.',
     keyPoints: 'Zawsze testuj miernik przed i po pomiarze. Uszkodzony miernik = fałszywe bezpieczeństwo.',
     trap: 'Brak wskazania = brak napięcia. Niekoniecznie.',
     wrongAnswer: '„Nie wskazuje = nie ma napięcia." – uszkodzony miernik zabił niejednego elektryka.',
@@ -316,21 +316,21 @@ export const questions = [
     id: 'r4q1', round: 4, category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Jakie jest minimalne napięcie pomiarowe przy pomiarze rezystancji izolacji instalacji 230/400 V i dlaczego nie stosuje się zwykłego multimetru?',
     answer:
-      'Stosuje się napięcie pomiarowe 500 V DC (megaomomierz). Zwykły multimetr mierzy rezystancję przy kilku woltach – tak niskie napięcie nie wykryje mikrouszkodzeń izolacji które ujawnią się dopiero pod napięciem roboczym. Megaomomierz „stresuje" izolację napięciem wyższym od roboczego.',
+      'Stosuje się megaomomierz i napięcie pomiarowe 500 V DC. Zwykły multimetr mierzy rezystancję przy kilku woltach. Tak niskie napięcie nie wykryje drobnych uszkodzeń izolacji, które ujawniają się dopiero pod napięciem roboczym. Megaomomierz sprawdza izolację napięciem wyższym niż robocze.',
     keyPoints: '500 V DC, megaomomierz. Multimetr = za niskie napięcie = fałszywie dobry wynik.',
   },
   {
     id: 'r4q2', round: 4, category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Ile wynosi minimalna rezystancja izolacji dla instalacji 230/400 V i co oznacza wynik 0,5 MΩ?',
     answer:
-      'Minimum wynosi 1 MΩ (PN-HD 60364-6). Wynik 0,5 MΩ oznacza że izolacja jest uszkodzona lub zawilgocona – instalacja nie może być oddana do użytku ani eksploatowana. Należy zlokalizować uszkodzenie, naprawić i zmierzyć ponownie.',
+      'Minimum to 1 MΩ (PN-HD 60364-6). Wynik 0,5 MΩ oznacza, że izolacja jest uszkodzona lub zawilgocona – instalacji nie wolno oddać do użytku ani dalej eksploatować. Trzeba znaleźć uszkodzenie, naprawić je i zmierzyć ponownie.',
     keyPoints: '< 1 MΩ = instalacja do naprawy, zakaz oddania do użytku.',
   },
   {
     id: 'r4q3', round: 4, category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Czy przed pomiarem rezystancji izolacji należy odłączyć urządzenia końcowe (np. komputery)? Dlaczego?',
     answer:
-      'Tak – bezwzględnie. Megaomomierz przykłada 500 V DC. Większość urządzeń elektronicznych (komputery, zasilacze, sterowniki, falowniki) zostanie trwale uszkodzona przez 500 V DC. Przed pomiarem odłączamy wszystkie urządzenia, wyjmujemy żarówki i odłączamy ograniczniki przepięć (SPD), a łączniki w obwodzie ustawiamy w pozycji załączonej, żeby pomiar objął cały obwód.',
+      'Tak – bezwzględnie. Megaomomierz przykłada 500 V DC, a takie napięcie może trwale uszkodzić elektronikę: komputery, zasilacze, sterowniki, falowniki. Przed pomiarem odłączamy wszystkie urządzenia, wyjmujemy żarówki i odłączamy ograniczniki przepięć (SPD). Łączniki w obwodzie ustawiamy w pozycji załączonej, żeby pomiar objął cały obwód.',
     keyPoints: '500 V DC niszczy elektronikę. Odłącz wszystko przed pomiarem – to obowiązek, nie opcja.',
   },
   {
@@ -344,21 +344,21 @@ export const questions = [
     id: 'r4q5', round: 4, category: 'Pomiary', topic: 'ciaglosc-pe',
     question: 'Co mierzy się podczas pomiaru ciągłości przewodów ochronnych PE i jakie narzędzie stosujemy?',
     answer:
-      'Sprawdzamy czy przewód ochronny PE jest nieprzerwany od gniazda aż do szyny PE w rozdzielnicy. Mierzy się małą rezystancję (omy lub miliomy) przy niskim napięciu (4–24 V) i prądzie co najmniej 200 mA. Stosuje się miernik małych rezystancji wg PN-EN 61557-4 – zwykle funkcję ciągłości w mierniku wielofunkcyjnym instalacji.',
+      'Sprawdzamy, czy przewód ochronny PE jest ciągły od gniazda aż do szyny PE w rozdzielnicy. Mierzy się małą rezystancję (omy lub miliomy) przy niskim napięciu (4–24 V) i prądzie co najmniej 200 mA. Stosuje się miernik małych rezystancji wg PN-EN 61557-4 – zwykle funkcję ciągłości w mierniku wielofunkcyjnym instalacji.',
     keyPoints: 'PE ciągłość = małe R. Brak ciągłości = brak ochrony przeciwporażeniowej.',
   },
   {
     id: 'r4q6', round: 4, category: 'Pomiary', topic: 'ciaglosc-pe',
     question: 'Dlaczego pomiar ciągłości PE wykonuje się prądem o wartości co najmniej 200 mA?',
     answer:
-      'Mierzy się ułamki oma, więc wynik musi być miarodajny. Norma PN-HD 60364-6 wymaga przyrządu (wg PN-EN 61557-4) o napięciu 4–24 V i prądzie co najmniej 200 mA. Taki prąd przebija cienkie warstwy tlenków na zaciskach (jak prąd zwarciowy) i daje stabilny wynik w miliomach, w którym luźny zacisk widać jako konkretną, za dużą wartość. Multimetr przy ~1 mA bywa zawyżony i niestabilny przez tlenki, a jego brzęczyk piszczy nawet przy kilku omach – nie odróżni dobrego połączenia od złego.',
+      'Bo mierzy się ułamki oma, a luźny zacisk musi dać wyraźnie za duży wynik. Norma PN-HD 60364-6 wymaga przyrządu wg PN-EN 61557-4 o napięciu 4–24 V i prądzie co najmniej 200 mA. Taki prąd przebija cienkie warstwy tlenków na zaciskach (podobnie jak prąd zwarciowy), więc wynik w miliomach jest stabilny i powtarzalny. Multimetr mierzy prądem ok. 1 mA, więc przez tlenki jego wynik bywa zawyżony i niestabilny. Jego brzęczyk piszczy nawet przy kilku omach – nie odróżni dobrego połączenia od złego.',
     keyPoints: '≥ 200 mA przy 4–24 V (PN-EN 61557-4) = wynik miarodajny i powtarzalny. Brzęczyk multimetru mówi tylko „jest przewód", nie „połączenie jest dobre".',
   },
   {
     id: 'r4q7', round: 4, category: 'Pomiary', topic: 'petla-zwarcia',
-    question: 'Co to jest impedancja pętli zwarcia i jak obliczyć na jej podstawie czy zabezpieczenie zadziała?',
+    question: 'Co to jest impedancja pętli zwarcia i jak na jej podstawie sprawdzić, czy zabezpieczenie zadziała?',
     answer:
-      'Impedancja pętli zwarcia (Zs) to całkowity opór drogi którą płynie prąd zwarciowy: źródło → przewód fazowy → miejsce zwarcia → przewód PE → powrót do źródła. Prąd zwarciowy: Ik = U₀ / Zs (gdzie U₀ = 230 V). Wynik pomiaru Zs porównujemy z tabelą maksymalnych impedancji dla danego zabezpieczenia.',
+      'Impedancja pętli zwarcia (Zs) to całkowita impedancja drogi, którą płynie prąd zwarciowy: źródło → przewód fazowy → miejsce zwarcia → przewód PE → z powrotem do źródła. Prąd zwarciowy oblicza się ze wzoru Ik = U₀ / Zs (U₀ = 230 V). Zabezpieczenie zadziała w wymaganym czasie, jeśli Ik jest co najmniej równy prądowi wyłączającemu Ia – dla B16 to 5 × 16 A = 80 A. W praktyce zmierzoną Zs porównuje się z tabelą maksymalnych impedancji dla danego zabezpieczenia (B16: Zs ≤ 2,88 Ω).',
     keyPoints: 'Ik = 230 / Zs. Im mniejsze Zs, tym wyższy prąd zwarciowy, tym pewniejsza ochrona.',
   },
   {
@@ -381,7 +381,7 @@ export const questions = [
     id: 'r4q10', round: 4, category: 'Pomiary', topic: 'rcd',
     question: 'Jak wykonuje się pomiar czasu i prądu zadziałania wyłącznika RCD miernikiem?',
     answer:
-      'Miernik RCD przykłada wzrastający prąd różnicowy i mierzy kiedy RCD zadziała oraz ile czasu minęło. Trzy punkty: 0,5×IΔn (nie może zadziałać), 1×IΔn (musi zadziałać w czasie ≤ 300 ms), 5×IΔn (czas ≤ 40 ms). Wykonuje się też test przy prądzie ujemnym (odwrócona polaryzacja).',
+      'Miernik RCD wykonuje dwie próby. Pomiar prądu zadziałania: prąd różnicowy rośnie stopniowo, a miernik zapisuje, przy jakiej wartości RCD wyłączył (dla prądu sinusoidalnego: między 0,5 a 1 × IΔn). Pomiar czasu zadziałania przy stałym prądzie: przy 0,5×IΔn RCD nie może zadziałać, przy 1×IΔn musi zadziałać w czasie ≤ 300 ms, a przy 5×IΔn – w czasie ≤ 40 ms. Próby wykonuje się dla obu biegunowości prądu (0° i 180°).',
     keyPoints: '0,5×IΔn = nie działa, 1×IΔn = działa ≤ 300 ms, 5×IΔn = działa ≤ 40 ms.',
   },
   {
@@ -404,7 +404,7 @@ export const questions = [
     id: 'r4q13', round: 4, category: 'Pomiary', topic: 'uziemienie',
     question: 'Jaką metodą mierzy się rezystancję uziemienia i dlaczego nie można użyć zwykłego omomierza?',
     answer:
-      'Stosuje się metodę trójzaciskową (spadku potencjału): trzy elektrody – badana, pomocnicza prądowa i pomocnicza napięciowa. Na kursach bywa nazywana „metodą Wernera" (ściśle: Wenner to 4-elektrodowy pomiar rezystywności gruntu). Zwykły omomierz nie może być użyty, bo elektroda jest z definicji połączona z ziemią i omomierz pokazałby zwarcie lub wynik bezsensowny.',
+      'Stosuje się metodę trójzaciskową (spadku potencjału): trzy elektrody – badana, pomocnicza prądowa i pomocnicza napięciowa. Na kursach bywa nazywana „metodą Wernera" (ściśle: Wenner to 4-elektrodowy pomiar rezystywności gruntu). Zwykły omomierz się nie nada: ma tylko dwa zaciski, a rezystancję uziemienia mierzy się względem odległej „ziemi odniesienia", do której nie da się go podłączyć. Dlatego potrzebne są elektrody pomocnicze i miernik uziemień.',
     keyPoints: 'Metoda trójzaciskowa / spadku potencjału, dedykowany miernik uziemienia. Zwykły omomierz = błędny wynik.',
   },
   {
@@ -425,7 +425,7 @@ export const questions = [
     id: 'r4q16', round: 4, category: 'Pomiary', topic: 'podstawy-prawne',
     question: 'Instalacja ma 8 lat, działa bez zarzutu, nikt nie zgłaszał problemów. Czy przegląd i pomiary są wymagane?',
     answer:
-      'Tak – bezwzględnie. Prawo budowlane art. 62 nakłada obowiązek przeglądu instalacji elektrycznej co 5 lat niezależnie od tego czy instalacja „działa". Upływ 8 lat bez przeglądu to naruszenie prawa. Izolacja degraduje się z czasem niewidocznie – dopiero pomiar ujawnia rzeczywisty stan.',
+      'Tak – bezwzględnie. Art. 62 Prawa budowlanego wymaga kontroli instalacji elektrycznej co najmniej raz na 5 lat, niezależnie od tego, czy instalacja „działa". Osiem lat bez kontroli to naruszenie prawa. Izolacja starzeje się niewidocznie – jej rzeczywisty stan pokazuje dopiero pomiar.',
     keyPoints: '5 lat = obowiązek ustawowy, nie opcja. Za jego niedopełnienie właścicielowi grozi grzywna – bez względu na stan instalacji.',
     trap: 'Instalacja działa – po co sprawdzać? Bo wypadki przy „działających" instalacjach zdarzają się najczęściej.',
     wrongAnswer: '„Działa dobrze, nie trzeba." – degradacja izolacji jest niewidoczna gołym okiem.',
