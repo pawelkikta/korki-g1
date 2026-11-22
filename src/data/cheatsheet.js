@@ -24,5 +24,5 @@ export const extraNumbers = [
   { id: 'lethal', group: 'Porażenie', param: 'Prąd potencjalnie śmiertelny', value: '50 mA AC', hint: 'Dlatego RCD 30 mA – wyłącza zanim będzie groźnie' },
   { id: 'cert-5', group: 'Świadectwo kwalifikacyjne', param: 'Ważność świadectwa', value: '5 lat', hint: 'Od daty wydania. Bezterminowe wygasły 3.07.2026. Odnowienie = egzamin' },
   { id: 'class3', group: 'Klasa III', param: 'Napięcie bezpieczne SELV/PELV', value: '≤ 50 V AC', hint: 'Lub ≤ 120 V DC' },
-  { id: 'rko', group: 'Pierwsza pomoc', param: 'Schemat RKO', value: '30 : 2', hint: '30 uciśnięć + 2 oddechy, wezwij 112' },
+  { id: 'rko', group: 'Pierwsza pomoc', param: 'Schemat RKO', value: '30 : 2', hint: '30 uciśnięć + 2 oddechy. 112 dzwonisz od razu, gdy poszkodowany nie reaguje' },
 ]

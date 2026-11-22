@@ -82,8 +82,10 @@ export const questions = [
     id: 'r1q9', round: 1, category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
     question: 'Jak udzielić pierwszej pomocy osobie porażonej prądem elektrycznym?',
     answer:
-      '1. Odłącz napięcie lub odsuń poszkodowanego od źródła prądu izolowanym przedmiotem – nigdy gołymi rękami. 2. Sprawdź reakcję, udrożnij drogi oddechowe i oceń oddech (do 10 s). 3. Jeśli nie oddycha prawidłowo – wezwij 112, poproś o AED i natychmiast zacznij RKO: 30 uciśnięć klatki piersiowej + 2 oddechy. 4. Gdy dotrze AED – włącz go i wykonuj polecenia; porażenie prądem często wywołuje migotanie komór, które może przerwać tylko defibrylacja. 5. Jeśli oddycha, ale jest nieprzytomny – pozycja bezpieczna i stała kontrola oddechu.',
-    keyPoints: 'Najpierw odłącz prąd. Brak oddechu → 112 + AED + RKO 30:2. Po porażeniu AED jest kluczowy (migotanie komór).',
+      '1. Odłącz napięcie lub odsuń poszkodowanego od źródła prądu izolowanym przedmiotem – nigdy gołymi rękami. 2. Sprawdź reakcję. Jeśli nie reaguje – od razu wezwij 112 (najlepiej na głośniku telefonu) i poproś o AED. 3. W trakcie połączenia udrożnij drogi oddechowe i oceń oddech (do 10 s). 4. Jeśli nie oddycha prawidłowo albo masz wątpliwości – natychmiast zacznij RKO: 30 uciśnięć klatki piersiowej + 2 oddechy. 5. Gdy dotrze AED – włącz go i wykonuj polecenia; porażenie prądem często wywołuje migotanie komór, które może przerwać tylko defibrylacja. 6. Jeśli oddycha prawidłowo, ale nie reaguje – pozycja bezpieczna i stała kontrola oddechu. Nie przekładaj poszkodowanego, jeśli ma oznaki urazu (np. po upadku z wysokości).',
+    keyPoints: 'Najpierw odłącz prąd. Nie reaguje → od razu 112, potem oddech. Nie oddycha prawidłowo → RKO 30:2 i AED (migotanie komór).',
+    sources: [{ act: 'erc-bls' }, { act: 'erc-fa' }],
+    trap: 'Starsze materiały (ERC 2021) każą najpierw ocenić oddech, a dopiero potem dzwonić. Od wytycznych ERC 2025 dzwonisz na 112 od razu, gdy poszkodowany nie reaguje.',
   },
   {
     id: 'r1q10', round: 1, category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
@@ -306,7 +308,7 @@ export const questions = [
     id: 'r3q10', round: 3, category: 'BHP', topic: 'pierwsza-pomoc',
     question: 'Jak prawidłowo odciągnąć osobę porażoną prądem, gdy nie można wyłączyć napięcia?',
     answer:
-      'Używamy wyłącznie suchych, nieprzewodzących przedmiotów – drewniana deska, plastikowy fotel, sucha lina, złożona sucha odzież. Nigdy gołymi rękami – ratownik staje się kolejną ofiarą. Stajemy na suchym, izolującym podłożu. Dotyczy to tylko napięcia do 1 kV – przy wyższym nie podchodzimy, tylko wzywamy pomoc i czekamy na wyłączenie napięcia. Po odciągnięciu: sprawdzamy oddech, wzywamy 112, RKO jeśli brak oddechu.',
+      'Używamy wyłącznie suchych, nieprzewodzących przedmiotów – drewniana deska, plastikowy fotel, sucha lina, złożona sucha odzież. Nigdy gołymi rękami – ratownik staje się kolejną ofiarą. Stajemy na suchym, izolującym podłożu. Dotyczy to tylko napięcia do 1 kV – przy wyższym nie podchodzimy, tylko wzywamy pomoc i czekamy na wyłączenie napięcia. Po odciągnięciu: sprawdzamy reakcję, a jeśli jej nie ma – od razu wzywamy 112, oceniamy oddech i przy braku prawidłowego oddechu zaczynamy RKO.',
     keyPoints: 'Suchy nieprzewodzący przedmiot. Nigdy gołymi rękami. Tylko do 1 kV.',
   },
   {

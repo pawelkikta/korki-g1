@@ -1,8 +1,8 @@
 // Akty prawne i normy, na które powołują się wzorcowe odpowiedzi (pole `sources` w questions.js).
 // Przy pytaniu: sources: [{ act: 'bhp', at: '§ 23 ust. 3' }] – act to klucz z tej listy, at to miejsce w akcie (opcjonalnie).
-// Link prowadzi do karty aktu w ISAP: tam jest zawsze aktualny tekst ujednolicony i historia zmian.
-// Normy PN są płatne, więc nie mają linku.
-// Stan prawny sprawdzony w listopadzie 2026 r.
+// Akt prawny ma link do karty aktu w ISAP: tam jest zawsze aktualny tekst ujednolicony i historia zmian.
+// Wytyczne ERC mają link DOI do rozdziału w czasopiśmie „Resuscitation”. Normy PN są płatne, więc nie mają linku.
+// Stan prawny i wytyczne sprawdzone w listopadzie 2026 r.
 
 const isap = (id) => `https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=${id}`
 
@@ -16,6 +16,10 @@ export const SOURCES = {
   // ── Rozporządzenia ──
   bhp: { name: 'rozporządzenie BHP przy urządzeniach energetycznych (t.j. Dz.U. 2021 poz. 1210)', url: isap('WDU20190001830') },
   kwal: { name: 'rozporządzenie w sprawie kwalifikacji do eksploatacji urządzeń (Dz.U. 2022 poz. 1392)', url: isap('WDU20220001392') },
+
+  // ── Wytyczne resuscytacji ──
+  'erc-bls': { name: 'Wytyczne ERC 2025: podstawowe zabiegi resuscytacyjne u dorosłych (BLS)', url: 'https://doi.org/10.1016/j.resuscitation.2025.110771' },
+  'erc-fa': { name: 'Wytyczne ERC 2025: pierwsza pomoc', url: 'https://doi.org/10.1016/j.resuscitation.2025.110752' },
 
   // ── Normy ──
   'pn-hd-60364-4-41': { name: 'PN-HD 60364-4-41 (ochrona przeciwporażeniowa)' },

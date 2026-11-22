@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react'
 import { SOURCES } from '../data/sources.js'
 
 // Pod wzorcową odpowiedzią: przepis lub norma, na której opiera się odpowiedź.
-// Akt prawny ma link do ISAP (nowa karta), norma – tylko nazwę.
+// Akt prawny ma link do ISAP, wytyczne – link DOI (nowa karta), norma – tylko nazwę.
 export function Sources({ items }) {
   if (!items?.length) return null
   return (
@@ -20,7 +20,7 @@ export function Sources({ items }) {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Otwiera tekst aktu w ISAP w nowej karcie"
+                  title="Otwiera źródło w nowej karcie"
                   className="underline decoration-rule-2 underline-offset-2 transition hover:text-accent-ink hover:decoration-current"
                 >
                   {label}

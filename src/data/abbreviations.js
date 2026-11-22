@@ -221,7 +221,7 @@ export const abbreviations = [
   },
   {
     id: 'rko', group: 'BHP i uprawnienia', abbr: 'RKO', lang: 'pl', src: '[R]esuscytacja [K]rążeniowo-[O]ddechowa',
-    note: 'Po porażeniu: najpierw uwolnij poszkodowanego spod napięcia (odłącz zasilanie), potem sprawdź oddech. Brak oddechu: 112 + AED + RKO 30:2.',
+    note: 'Po porażeniu: najpierw uwolnij poszkodowanego spod napięcia (odłącz zasilanie). Nie reaguje: od razu 112, potem oceń oddech. Nie oddycha prawidłowo: RKO 30:2 i AED.',
   },
   {
     id: 'aed', group: 'BHP i uprawnienia', abbr: 'AED', lang: 'en', src: '[A]utomated [E]xternal [D]efibrillator', pl: 'automatyczny defibrylator zewnętrzny',
