@@ -23,7 +23,7 @@ export const chapterQuiz = {
         'Odchodzi na chwilę – zespół zna zakres pracy z polecenia',
       ],
       correct: 0,
-      explain: 'Kierujący nie opuszcza samowolnie strefy. Dopuszczający nie może być kierującym zespołem, a „najstarszy stażem" nie jest wyznaczony w poleceniu.',
+      explain: 'Gdy kierujący zespołem opuszcza strefę pracy, praca zostaje przerwana, a zespół wyprowadzony. Dopuszczający nie może być kierującym zespołem, a „najstarszy stażem" nie jest wyznaczony w poleceniu.',
     },
     {
       question: 'Którą czynność wolno wykonać bez polecenia?',
@@ -34,7 +34,7 @@ export const chapterQuiz = {
         'Pracę przy wyłączonej linii wymagającą założenia uziemiaczy',
       ],
       correct: 0,
-      explain: 'Bez polecenia: czynności z instrukcji eksploatacji oraz ratowanie życia, zdrowia lub mienia. Firma zewnętrzna, praca w pobliżu napięcia i praca wymagająca przygotowania strefy – na polecenie pisemne.',
+      explain: 'Bez polecenia wolno tylko czynności z instrukcji eksploatacji oraz ratowanie życia, zdrowia, środowiska lub mienia. Pozostałe trzy prace to nie rutynowe czynności z instrukcji – więc na polecenie pisemne. Praca obok nieosłoniętych szyn pod napięciem jest wprost na liście prac stwarzających szczególne zagrożenie.',
     },
   ],
   'podstawy-obwodu': [

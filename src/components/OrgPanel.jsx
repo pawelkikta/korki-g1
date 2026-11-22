@@ -27,6 +27,7 @@ export function OrgPanel() {
         Rozporządzenie Ministra Energii z 28 sierpnia 2019 r. w sprawie bezpieczeństwa i higieny pracy przy urządzeniach energetycznych
         (tekst jednolity: Dz.U. 2021 poz. 1210) oraz instrukcja organizacji bezpiecznej pracy (IOBP), którą pracodawca opracowuje na jego podstawie.
         Szczegóły (np. wzór polecenia, wykaz prac szczególnie niebezpiecznych) różnią się między zakładami – zasady opisane niżej są wspólne.
+        Gdy zasada pochodzi z typowej IOBP, a nie z rozporządzenia, piszemy to wprost.
       </NoteBox>
 
       <SectionFrame tag={<><ShieldCheck className="h-3.5 w-3.5" /> Teoria</>} title="Co musisz umieć powiedzieć komisji">

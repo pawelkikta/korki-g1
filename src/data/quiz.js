@@ -441,10 +441,10 @@ export const quiz = [
       'Po sprawdzeniu braku napięcia wskaźnikiem',
       'Przed sprawdzeniem braku napięcia',
       'Po dopuszczeniu zespołu do pracy',
-      'Uziemiacze nie są wymagane',
+      'Przed wyłączeniem napięcia, żeby od razu chronić strefę',
     ],
     correct: 0,
-    explain: 'Kolejność prawnie określona: wyłącz → zabezpiecz → sprawdź brak napięcia → uziem → wygrodź → tabliczki → dopuść.',
+    explain: 'Kolejność wg rozporządzenia BHP i PN-EN 50110-1: wyłącz → zabezpiecz przed załączeniem → sprawdź brak napięcia → uziem (jeżeli wymaga tego technologia prac) → oznacz strefę → dopuść.',
   },
   {
     id: 'q45', category: 'Dozór', topic: 'podstawy-prawne',
@@ -475,7 +475,7 @@ export const quiz = [
       'Tak, jeśli sam sprawdził brak napięcia wskaźnikiem',
     ],
     correct: 0,
-    explain: 'Uprawnienia nie zastępują polecenia ani dopuszczenia. Bez polecenia – tylko prace z instrukcji eksploatacji wskazane w IOBP i ratowanie życia, zdrowia lub mienia.',
+    explain: 'Uprawnienia nie zastępują polecenia ani dopuszczenia. Bez polecenia – tylko prace określone w instrukcji eksploatacji i ratowanie życia, zdrowia, środowiska lub mienia.',
   },
   {
     id: 'q48', category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',

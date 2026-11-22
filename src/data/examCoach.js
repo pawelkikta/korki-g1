@@ -69,11 +69,11 @@ export const coach = {
       'Wydaje poleceniodawca (świadectwo D, upoważnienie pracodawcy)',
       'Określa zakres, strefę pracy, środki bezpieczeństwa i osoby funkcyjne',
       'Wymagane przy pracach stwarzających szczególne zagrożenie',
-      'Wykaz prac na polecenie i bez polecenia – w IOBP pracodawcy',
+      'Wykaz prac na polecenie ustala pracodawca (zwykle w IOBP)',
     ],
     followUps: [
-      { q: 'Jakie prace, poza szczególnym zagrożeniem, wykonuje się zwykle na polecenie pisemne?', a: 'Prace pracowników firm zewnętrznych (chyba że dopuszczenie ustalono odrębnie na piśmie) oraz prace, które prowadzący eksploatację lub poleceniodawca uzna za wymagające polecenia – np. mogące wywołać duże straty.' },
-      { q: 'Ile zespołów i stref obejmuje jedno polecenie pisemne?', a: 'Co do zasady jeden zespół w jednej strefie pracy. Wyjątkowo – takie same prace tego samego zespołu kolejno w kilku strefach, ale zmiana strefy wymaga ponownego dopuszczenia.' },
+      { q: 'Jakie prace wolno wykonać bez polecenia pisemnego?', a: 'Tylko trzy rodzaje: prace określone w instrukcji eksploatacji (przez osoby uprawnione i upoważnione), ratowanie życia lub zdrowia ludzi albo środowiska oraz zabezpieczanie mienia przed zniszczeniem przez osoby uprawnione. Wszystko inne – na polecenie pisemne; polecenia ustnego rozporządzenie nie zna.' },
+      { q: 'Co musi zawierać polecenie pisemne i jak długo się je przechowuje?', a: 'Co najmniej: numer, osoby wyznaczone do organizowania i wykonania pracy, zakres prac i strefę pracy, warunki i środki ochronne oraz termin rozpoczęcia i zakończenia prac, przerwy i warunki wznowienia. Pracodawca przechowuje je co najmniej 90 dni od zakończenia pracy.' },
     ],
   },
   r1q7: {
@@ -132,8 +132,8 @@ export const coach = {
       'Wstrzymanie pracy przy zagrożeniu, bezpieczne zakończenie',
     ],
     followUps: [
-      { q: 'Co robi osoba dozoru, gdy widzi zespół pracujący bez uziemiaczy?', a: 'Natychmiast wstrzymuje pracę – osoby dozoru mają taki obowiązek, gdy nie są zachowane warunki bezpieczeństwa. Wznowienie dopiero po przywróceniu zabezpieczeń.' },
-      { q: 'Kiedy kierujący zespołem wyłącza pracownika z pracy?', a: 'Gdy pracownik nie zapewnia bezpiecznego wykonania pracy – np. jest niedysponowany fizycznie lub psychicznie albo nie stosuje środków ochrony. Powiadamia o tym poleceniodawcę.' },
+      { q: 'Co robi osoba dozoru, gdy widzi zespół pracujący bez uziemiaczy?', a: 'Natychmiast wstrzymuje pracę – osoba kierująca pracownikami musi egzekwować przepisy BHP. Wznowienie dopiero po przywróceniu zabezpieczeń.' },
+      { q: 'Kiedy kierujący zespołem wyłącza pracownika z pracy?', a: 'Gdy pracownik nie zapewnia bezpiecznego wykonania pracy – np. jest niedysponowany fizycznie lub psychicznie albo nie stosuje środków ochrony. Kierujący dobiera osoby do pracy, egzekwuje środki ochrony i odpowiada za bezpieczne wykonanie pracy.' },
     ],
   },
   r1q12: {
@@ -275,11 +275,11 @@ export const coach = {
       'Poleceniodawca (D) – wydaje polecenie pisemne',
       'Dopuszczający (E) – przygotowuje strefę i dopuszcza zespół',
       'Kierujący zespołem (E) – przyjmuje strefę i kieruje pracą',
-      'Koordynujący (D), nadzorujący (E lub D); dopuszczającego i kierującego się nie łączy',
+      'Koordynujący (D); najwyżej 2 funkcje, dopuszczającego i kierującego się nie łączy',
     ],
     followUps: [
       { q: 'Dlaczego dopuszczający nie może być jednocześnie kierującym zespołem?', a: 'To zasada dwóch par oczu: jeden przygotowuje strefę, drugi niezależnie ją sprawdza i przyjmuje. Połączenie tych funkcji usuwa tę kontrolę (wyjątek: prace pod napięciem).' },
-      { q: 'Kiedy wyznacza się nadzorującego?', a: 'Gdy pracę wykonują osoby bez wymaganych kwalifikacji lub pracownicy firmy zewnętrznej, albo gdy poleceniodawca uzna to za konieczne. Nadzorujący wykonuje wyłącznie nadzór.' },
+      { q: 'Kiedy wyznacza się nadzorującego?', a: 'Gdy pracują osoby bez świadectwa kwalifikacyjnego – przyuczające się do zawodu, przedstawiciele organów nadzoru albo serwis specjalistyczny. Pracują one wyłącznie pod nadzorem osoby upoważnionej, a sposób nadzoru ustala pracodawca. Samo rozporządzenie nie używa nazwy „nadzorujący" – to nazwa z IOBP.' },
     ],
   },
   r2q12: {
@@ -287,7 +287,7 @@ export const coach = {
       'Wyłączenie z przerwą izolacyjną i zabezpieczenie przed załączeniem (blokada, tablica)',
       'Sprawdzenie braku napięcia na wszystkich fazach i N',
       'Uziemienie i zwarcie – po sprawdzeniu, ze wszystkich stron',
-      'Oznaczenie strefy i dopuszczenie z podpisami w poleceniu',
+      'Oznaczenie strefy, instruktaż i pisemne potwierdzenie dopuszczenia',
     ],
     followUps: [
       { q: 'Co uważa się za przerwę izolacyjną?', a: 'Otwarte zestyki łącznika na pełną odległość, wyjęte wkładki bezpiecznikowe, zdemontowany fragment obwodu albo łącznik w obudowie, którego otwarcie jednoznacznie pokazuje wskaźnik położenia.' },
@@ -324,12 +324,12 @@ export const coach = {
     checklist: [
       'Zależy od rodzaju pracy – samo wyłączenie napięcia niczego nie zmienia',
       'Szczególne zagrożenie → polecenie pisemne i dopuszczenie',
-      'Bez polecenia: prace z instrukcji eksploatacji wskazane w IOBP',
+      'Bez polecenia: prace określone w instrukcji eksploatacji',
       'Bez polecenia: ratowanie życia, zdrowia, mienia – z powiadomieniem przełożonego',
     ],
     followUps: [
       { q: 'Podaj przykład pracy, którą wolno wykonać bez polecenia.', a: 'Np. oględziny rozdzielni lub odczyt wskazań zgodnie z instrukcją eksploatacji przez upoważnionego pracownika, albo natychmiastowe wyłączenie zasilania, gdy ktoś jest porażony lub woda zalewa rozdzielnicę.' },
-      { q: 'Czy pracownik firmy zewnętrznej może pracować bez polecenia?', a: 'Co do zasady nie – prace pracowników spoza zakładu prowadzącego eksploatację wykonuje się na polecenie pisemne (chyba że dopuszczenie ustalono odrębnie na piśmie), zwykle z nadzorującym.' },
+      { q: 'Czy pracownik firmy zewnętrznej może pracować bez polecenia?', a: 'Rozporządzenie nie ma osobnej zasady dla firm zewnętrznych – decyduje rodzaj pracy. Bez polecenia wolno tylko prace z instrukcji eksploatacji i działania ratownicze, więc praca firmy zewnętrznej zwykle wymaga polecenia pisemnego. Gdy w jednym miejscu pracują pracownicy kilku pracodawców, pracodawcy wyznaczają koordynatora BHP (art. 208 Kodeksu pracy).' },
     ],
   },
   r3q2: {
@@ -389,7 +389,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Kiedy po przerwie nie trzeba ponownego dopuszczenia?', a: 'Gdy w czasie przerwy nie stwierdzono pogorszenia zabezpieczenia strefy pracy ani warunków bezpiecznej pracy. Kierujący i tak sprawdza zabezpieczenia przed każdym wznowieniem – jeśli się pogorszyły, praca rusza dopiero po przywróceniu wymaganego poziomu bezpieczeństwa.' },
-      { q: 'Kto i kiedy może przerwać pracę zespołu?', a: 'Każdy pracownik musi przerwać pracę, gdy pojawi się zagrożenie (i zawiadomić kierującego). Osoby dozoru muszą ją wstrzymać, gdy nie są zachowane warunki bezpieczeństwa.' },
+      { q: 'Kto i kiedy może przerwać pracę zespołu?', a: 'Każdy pracownik ma prawo powstrzymać się od pracy, gdy grozi mu bezpośrednie niebezpieczeństwo, i niezwłocznie zawiadamia przełożonego. Osoba kierująca pracownikami egzekwuje przepisy BHP – wstrzymuje pracę, gdy nie są zachowane warunki bezpieczeństwa. Poleceniodawca może cofnąć polecenie.' },
     ],
   },
   r3q7: {
@@ -448,7 +448,7 @@ export const coach = {
       'Dlatego zwykle zdaje się E i D',
     ],
     followUps: [
-      { q: 'Jakie funkcje przy pracy na polecenie może pełnić osoba z samym D?', a: 'Funkcje dozoru – poleceniodawcy, koordynującego albo nadzorującego. Nie może być dopuszczającym ani kierującym zespołem, bo te funkcje wymagają świadectwa E.' },
+      { q: 'Jakie funkcje przy pracy na polecenie może pełnić osoba z samym D?', a: 'Funkcje dozoru – poleceniodawcy albo koordynującego. Nie może być dopuszczającym ani kierującym zespołem, bo te funkcje wymagają świadectwa E.' },
       { q: 'Czy świadectwa E i D muszą obejmować te same urządzenia?', a: 'Nie – każde świadectwo ma swój zakres (punkty i czynności). Liczy się to, co jest w nim wpisane, i to musi odpowiadać wykonywanej pracy.' },
     ],
   },

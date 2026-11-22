@@ -24,20 +24,23 @@ export const orgSections = [
   {
     heading: 'Polecenie pisemne czy bez polecenia?',
     paragraphs: [
-      'Pracodawca (prowadzący eksploatację) opracowuje **instrukcję organizacji bezpiecznej pracy (IOBP)** – określa w niej, które prace wykonuje się na polecenie pisemne, a które bez polecenia, oraz prowadzi wykaz osób upoważnionych do pełnienia funkcji.',
-      'Na **polecenie pisemne** wykonuje się w szczególności:',
+      'Na **polecenie pisemne** wykonuje się prace stwarzające możliwość wystąpienia **szczególnego zagrożenia** dla zdrowia lub życia. Rozporządzenie podaje ich przykłady (lista jest otwarta – „w szczególności"). Dla elektryka najważniejsze są prace:',
       { list: [
-        'prace stwarzające możliwość wystąpienia **szczególnego zagrożenia** dla zdrowia lub życia,',
-        'prace wykonywane przez **pracowników firm zewnętrznych** (chyba że dopuszczenie ustalono odrębnie na piśmie),',
-        'prace, które prowadzący eksploatację lub poleceniodawca **uzna za wymagające polecenia** – np. mogące wywołać duże straty.',
+        'w pobliżu nieosłoniętych części pod napięciem,',
+        'przy urządzeniach odłączonych od napięcia, gdy **żadne uziemienie nie jest widoczne** z miejsca pracy,',
+        '**w wykopach lub na wysokości**,',
+        'przy **identyfikacji i przecinaniu kabli**,',
+        'pod napięciem – poza pracami wykonywanymi stale w ustalonych miejscach na podstawie instrukcji eksploatacji.',
       ] },
+      'Szczegółowy wykaz takich prac ustala i aktualizuje **pracodawca** po ocenie ryzyka – zwykle w instrukcji organizacji bezpiecznej pracy (IOBP). Prace na polecenie pisemne wykonuje **zespół** (co najmniej dwie osoby), żeby zapewnić asekurację.',
       '**Bez polecenia** wolno wykonywać tylko:',
       { list: [
-        'prace eksploatacyjne opisane w **instrukcji eksploatacji**, wykonywane przez uprawnionych i upoważnionych pracowników (np. oględziny, odczyty),',
-        'czynności związane z **ratowaniem życia, zdrowia** lub środowiska,',
-        'czynności związane z **zabezpieczeniem mienia** przed zniszczeniem (np. pilne wyłączenie zalewanej rozdzielnicy) – z niezwłocznym powiadomieniem przełożonego.',
+        'prace eksploatacyjne określone w **instrukcji eksploatacji**, wykonywane przez osoby uprawnione i upoważnione (np. oględziny, odczyty),',
+        'czynności związane z **ratowaniem życia lub zdrowia** ludzi albo środowiska,',
+        '**zabezpieczanie mienia** przed zniszczeniem przez osoby uprawnione (np. pilne wyłączenie zalewanej rozdzielnicy).',
       ] },
-      'Polecenie pisemne obejmuje co do zasady **jeden zespół w jednej strefie pracy** i jest ważne przez czas określony przez poleceniodawcę. Zmiana strefy pracy wymaga ponownego dopuszczenia.',
+      'Wniosek z tej listy: pracę, której na niej nie ma, wykonuje się na polecenie pisemne. Rozporządzenie nie zna polecenia ustnego. O zagrożeniu życia lub zdrowia zawiadamiasz niezwłocznie przełożonego – to obowiązek z Kodeksu pracy.',
+      'Polecenie pisemne wydaje pracodawca lub osoba przez niego upoważniona (poleceniodawca). Zawiera co najmniej: numer, osoby wyznaczone do organizowania i wykonania pracy, zakres prac i strefę pracy, warunki i środki ochronne oraz termin rozpoczęcia i zakończenia prac, przerwy i warunki wznowienia. Pracodawca przechowuje je **co najmniej 90 dni** od zakończenia pracy.',
     ],
     box: { type: 'trap', title: 'Pułapka egzaminacyjna', text: '„Mam uprawnienia E i sam wyłączyłem napięcie, więc mogę pracować" – nie. Uprawnienia mówią, **co umiesz**, a polecenie i dopuszczenie – **czy wolno ci teraz pracować w tej strefie**.' },
   },
@@ -46,18 +49,18 @@ export const orgSections = [
     table: {
       head: ['Funkcja', 'Kwalifikacje', 'Co robi'],
       rows: [
-        ['Poleceniodawca', 'D + upoważnienie pracodawcy', 'Wydaje polecenie pisemne: zakres, strefa, środki bezpieczeństwa; wyznacza dopuszczającego i kierującego zespołem; prowadzi instruktaż'],
-        ['Koordynujący', 'D', 'Koordynuje prace z ruchem urządzeń: kolejność łączeń, zezwolenie na przygotowanie i likwidację strefy, zgoda na uruchomienie urządzenia'],
-        ['Dopuszczający', 'E + upoważnienie', 'Przygotowuje strefę pracy (czynności łączeniowe), dopuszcza zespół, po pracy likwiduje strefę'],
-        ['Kierujący zespołem', 'E', 'Sprawdza i przyjmuje strefę, kieruje pracą, egzekwuje BHP, nie opuszcza samowolnie strefy, zgłasza zakończenie'],
-        ['Nadzorujący', 'E lub D', 'Wyłącznie nadzór – nad osobami bez kwalifikacji lub pracownikami firm zewnętrznych; nie wykonuje innych prac'],
-        ['Członek zespołu', 'E (do prac eksploatacyjnych)', 'Wykonuje pracę; przerywa ją przy zagrożeniu i zawiadamia kierującego'],
+        ['Poleceniodawca', 'D + upoważnienie, wyznacza go pracodawca', 'Wydaje polecenie pisemne: zakres, strefa, środki ochronne, terminy; wyznacza koordynującego, dopuszczającego i kierującego zespołem'],
+        ['Koordynujący', 'D + upoważnienie', 'Koordynuje prace z ruchem urządzeń: kolejność łączeń, zezwolenie na przygotowanie i likwidację strefy, zgoda na uruchomienie urządzenia'],
+        ['Dopuszczający', 'E + upoważnienie', 'Przygotowuje i przekazuje strefę pracy (czynności łączeniowe), dopuszcza zespół i mówi o zagrożeniach, po pracy likwiduje strefę'],
+        ['Kierujący zespołem', 'E + upoważnienie', 'Dobiera osoby, sprawdza i przejmuje strefę, zapoznaje zespół z zagrożeniami, egzekwuje BHP, zgłasza zakończenie. Gdy opuszcza strefę – praca zostaje przerwana'],
+        ['Członek zespołu', 'E + upoważnienie (prace eksploatacyjne)', 'Wykonuje pracę; przy zagrożeniu może się powstrzymać od pracy i zawiadamia kierującego. W zespole mogą być też osoby do prac pomocniczych'],
       ],
     },
     paragraphs: [
-      '**Zespół** to co najmniej dwie osoby wykonujące pracę. W każdej strefie, w której pracuje zespół, wyznacza się kierującego zespołem.',
+      '**Zespół** to co najmniej dwie osoby wykonujące pracę. W każdym zespole wyznacza się kierującego zespołem.',
+      '**Osoby bez świadectwa kwalifikacyjnego** – przyuczające się do zawodu, przedstawiciele organów nadzoru, serwis specjalistyczny – pracują przy urządzeniach **wyłącznie pod nadzorem osoby upoważnionej**. Sposób nadzoru ustala pracodawca. Wiele IOBP nazywa tę osobę **nadzorującym**, ale rozporządzenie nie definiuje takiej funkcji.',
     ],
-    box: { type: 'remember', title: 'Łączenie funkcji przy poleceniu pisemnym', text: 'Jedna osoba może łączyć **najwyżej dwie funkcje**. Funkcji **dopuszczającego i kierującego zespołem nie łączy się** (wyjątek: prace pod napięciem) – jeden przygotowuje strefę, drugi ją niezależnie sprawdza i przejmuje. Poleceniodawca może być koordynującym.' },
+    box: { type: 'remember', title: 'Łączenie funkcji przy poleceniu pisemnym', text: 'Jedna osoba może łączyć **najwyżej dwie funkcje**. Funkcji **dopuszczającego i kierującego zespołem nie łączy się** (wyjątek: prace pod napięciem) – jeden przygotowuje strefę, drugi ją niezależnie sprawdza i przejmuje. Innych par rozporządzenie nie zabrania (np. poleceniodawca + koordynujący) – szczegóły ustala IOBP.' },
   },
   {
     heading: 'Przygotowanie strefy pracy przy wyłączonym napięciu',
@@ -70,15 +73,15 @@ export const orgSections = [
       '**Sprawdź brak napięcia** – sprawnym wskaźnikiem (sprawdzonym na znanym napięciu), na **wszystkich fazach**, a do 1 kV **także na przewodzie N**; nie na podstawie lampek ani przyrządów tablicowych',
       '**Uziem i zewrzyj** – bezpośrednio po sprawdzeniu braku napięcia; wszystkie fazy, ze wszystkich stron, z których może przyjść napięcie, a co najmniej jeden uziemiacz widoczny z miejsca pracy. Najpierw zacisk uziomowy, potem fazowe (drążkiem)',
       '**Ogrodź i oznacz strefę** – osłoń lub wygródź sąsiednie części pod napięciem, oznacz strefę tablicami',
-      '**Dopuść zespół** – dopuszczający i kierujący sprawdzają strefę, dopuszczający wskazuje ją i udowadnia brak napięcia, obaj podpisują polecenie; ustala się drogę ewakuacyjną',
+      '**Dopuść zespół** – dopuszczający sprawdza przygotowanie strefy, wskazuje ją zespołowi, mówi o zagrożeniach, potwierdza dopuszczenie na piśmie i zgłasza je koordynującemu; kierujący zespołem sprawdza strefę i ją przejmuje',
     ],
     box: { type: 'mistake', text: 'Uziemiacz założony **przed** sprawdzeniem braku napięcia, na obwód, który jednak jest pod napięciem = zwarcie i łuk elektryczny prosto w twarz i ręce. Dlatego: najpierw sprawdź, potem uziemiaj.' },
-    box2: { type: 'remember', text: 'W instalacjach odbiorczych do 1 kV zamiast uziemiaczy dopuszcza się **zwieracze** (lekkie), jeśli przewód neutralny jest trwale uziemiony. Uziemiacza nie zakłada się przez łączniki ani bezpieczniki.' },
+    box2: { type: 'remember', text: 'Rozporządzenie każe uziemiać odłączone urządzenia, **jeżeli wymaga tego technologia prac**. Gdy nie da się założyć uziemienia widocznego z miejsca pracy, stosuje się inne środki z instrukcji eksploatacji. W instalacjach odbiorczych do 1 kV zamiast uziemiaczy często stosuje się **zwieracze** (lekkie), jeśli przewód neutralny jest trwale uziemiony – zasady podaje IOBP. Uziemiacza nie zakłada się przez łączniki ani bezpieczniki.' },
   },
   {
     heading: 'Przerwa w pracy i zakończenie pracy',
     paragraphs: [
-      '**Przerwa.** Każdy pracownik musi przerwać pracę, gdy pojawi się zagrożenie, a osoby dozoru – wstrzymać ją, gdy nie są zachowane warunki bezpieczeństwa. Jeśli kierujący zespołem lub nadzorujący musi opuścić strefę, **praca zostaje przerwana**, zespół wyprowadzony, a strefa zabezpieczona przed osobami postronnymi.',
+      '**Przerwa.** Gdy warunki pracy grożą bezpośrednio zdrowiu lub życiu, pracownik ma prawo powstrzymać się od pracy (a jeśli to nie wystarcza – oddalić się z miejsca zagrożenia) i niezwłocznie zawiadamia przełożonego. Osoba kierująca pracownikami egzekwuje przepisy BHP – nie pozwala pracować w niebezpiecznych warunkach. Gdy kierujący zespołem opuszcza strefę pracy, **praca zostaje przerwana**, a zespół wyprowadzony ze strefy.',
       'Po przerwie w pracy na polecenie pisemne wznowienie wymaga **ponownego dopuszczenia** – chyba że w czasie przerwy nie stwierdzono pogorszenia zabezpieczenia strefy ani warunków bezpiecznej pracy. Przed każdym wznowieniem kierujący zespołem sprawdza zabezpieczenia strefy; jeśli się pogorszyły – praca rusza dopiero po przywróceniu wymaganego poziomu bezpieczeństwa.',
       '**Zakończenie.** Kierujący zespołem usuwa narzędzia i materiały, wyprowadza zespół, powiadamia dopuszczającego (lub koordynującego) i podpisuje zakończenie w poleceniu. Dopuszczający robi oględziny, za zezwoleniem likwiduje strefę (zdejmuje uziemiacze: **najpierw fazowe, na końcu uziomowy**, potem tablice i blokady) i zgłasza gotowość urządzenia. Urządzenie uruchamia się dopiero za zgodą koordynującego lub poleceniodawcy.',
     ],
@@ -87,7 +90,7 @@ export const orgSections = [
   {
     heading: 'Instrukcja eksploatacji – co w niej jest',
     paragraphs: [
-      'Instrukcje eksploatacji zatwierdza **prowadzący eksploatację (pracodawca)**. Opisują konkretne urządzenia i są podstawą prac wykonywanych bez polecenia. Zawierają m.in.:',
+      'Instrukcje eksploatacji opracowuje i aktualizuje **prowadzący eksploatację (pracodawca)**. Opisują konkretne urządzenia i są podstawą prac wykonywanych bez polecenia. Zawierają m.in.:',
       { list: [
         'charakterystykę urządzeń, rysunki i schematy,',
         'uruchomienie, obsługę w czasie pracy i zatrzymanie,',
@@ -109,7 +112,7 @@ export const strefaPrep = [
   { id: 5, label: 'Sprawdź brak napięcia na wszystkich fazach i na przewodzie N', whyNot: 'Brak napięcia sprawdzasz sprawnym wskaźnikiem na wyłączonym i zabezpieczonym obwodzie.' },
   { id: 6, label: 'Uziem i zewrzyj: najpierw zacisk uziomowy, potem zaciski fazowe', whyNot: 'Uziemiacz na niesprawdzony obwód? Jeśli jest pod napięciem – zwarcie i łuk elektryczny prosto w twarz. Najpierw sprawdź brak napięcia.' },
   { id: 7, label: 'Ogrodź i oznacz strefę, osłoń sąsiednie części pod napięciem', whyNot: 'Strefę oznacza się, gdy obwód jest już bezpieczny (wyłączony, sprawdzony, uziemiony).' },
-  { id: 8, label: 'Dopuść zespół: wskaż strefę, udowodnij brak napięcia, podpisy w poleceniu', whyNot: 'Zespół wchodzi do strefy na samym końcu – dopiero gdy jest w pełni przygotowana.' },
+  { id: 8, label: 'Dopuść zespół: wskaż strefę, omów zagrożenia, potwierdź dopuszczenie na piśmie', whyNot: 'Zespół wchodzi do strefy na samym końcu – dopiero gdy jest w pełni przygotowana.' },
 ]
 
 export const strefaClose = [
@@ -136,16 +139,16 @@ export const roleTasks = [
   { id: 't2', text: 'Wykonuje czynności łączeniowe i przygotowuje strefę pracy', role: 'dop', why: 'Przygotowanie strefy (wyłączenie, blokady, sprawdzenie, uziemienie) to zadanie dopuszczającego.' },
   { id: 't3', text: 'Sprawdza przygotowaną strefę i przyjmuje ją od dopuszczającego', role: 'kie', why: 'Kierujący zespołem niezależnie sprawdza strefę – to druga para oczu.' },
   { id: 't4', text: 'Ustala kolejność łączeń przy pracy kilku zespołów i zezwala na uruchomienie urządzenia', role: 'koo', why: 'Skoordynowanie prac z ruchem urządzeń to rola koordynującego (D).' },
-  { id: 't5', text: 'Pilnuje pracowników firmy zewnętrznej i nie wykonuje innych prac', role: 'nad', why: 'Nadzorujący pełni wyłącznie nadzór – nad osobami bez kwalifikacji lub firmami zewnętrznymi.' },
+  { id: 't5', text: 'Nadzoruje pracę osób bez świadectwa kwalifikacyjnego, np. serwisu specjalistycznego', role: 'nad', why: 'Osoby bez kwalifikacji pracują wyłącznie pod nadzorem osoby upoważnionej. Rozporządzenie nie nazywa tej funkcji – w wielu IOBP to „nadzorujący".' },
   { id: 't6', text: 'Nie może samowolnie opuścić strefy, w której pracuje zespół', role: 'kie', why: 'Gdy kierujący musi odejść, praca jest przerywana, a zespół wyprowadzony.' },
   { id: 't7', text: 'Po zakończeniu pracy likwiduje strefę – zdejmuje uziemiacze i blokady', role: 'dop', why: 'Likwidacja strefy należy do dopuszczającego – po oględzinach i za zezwoleniem.' },
   { id: 't8', text: 'Wyznacza dopuszczającego i kierującego zespołem do konkretnej pracy', role: 'pol', why: 'Osoby funkcyjne do pracy wskazuje poleceniodawca w poleceniu.' },
 ]
 
 export const roleCombos = [
-  { id: 'c1', text: 'Poleceniodawca + koordynujący', ok: true, why: 'Wolno – poleceniodawca może pełnić funkcję koordynującego.' },
+  { id: 'c1', text: 'Poleceniodawca + koordynujący', ok: true, why: 'Rozporządzenie tego nie zabrania – to dwie funkcje, a więcej łączyć nie wolno.' },
   { id: 'c2', text: 'Dopuszczający + kierujący zespołem', ok: false, why: 'Nie wolno (poza pracami pod napięciem) – jeden przygotowuje strefę, drugi ją sprawdza i przyjmuje.' },
-  { id: 'c3', text: 'Dopuszczający + członek zespołu', ok: true, why: 'Wolno, jeśli przewiduje to polecenie – ale nadal łączy się najwyżej dwie funkcje.' },
+  { id: 'c3', text: 'Dopuszczający + członek zespołu', ok: true, why: 'Rozporządzenie zakazuje tylko łączenia dopuszczającego z kierującym zespołem i łączenia więcej niż dwóch funkcji. Szczegółowe zasady łączenia ustala IOBP.' },
 ]
 
 // ── Symulacja: polecenie czy nie? ──
@@ -157,10 +160,11 @@ export const ORDER_KINDS = [
 
 export const orderCases = [
   { id: 'p1', text: 'Codzienne oględziny rozdzielni zgodnie z instrukcją eksploatacji, bez zdejmowania osłon', kind: 'ins', why: 'Rutynowa czynność opisana w instrukcji eksploatacji, wykonywana przez upoważnionego pracownika.' },
-  { id: 'p2', text: 'Firma zewnętrzna wymienia przewody w rozdzielnicy zakładu', kind: 'pis', why: 'Prace pracowników spoza zakładu prowadzącego eksploatację – na polecenie pisemne, zwykle z nadzorującym.' },
+  { id: 'p2', text: 'Firma zewnętrzna wymienia przewody w rozdzielnicy zakładu', kind: 'pis', why: 'To nie jest rutynowa czynność z instrukcji eksploatacji ani ratowanie – więc na polecenie pisemne. Rozporządzenie nie ma osobnej zasady dla firm zewnętrznych: decyduje rodzaj pracy.' },
   { id: 'p3', text: 'Wymiana aparatu w polu rozdzielnicy, gdy sąsiednie nieosłonięte szyny są pod napięciem', kind: 'pis', why: 'Praca w pobliżu napięcia – stwarza możliwość szczególnego zagrożenia.' },
   { id: 'p4', text: 'Pracownik został porażony w rozdzielni – trzeba natychmiast wyłączyć zasilanie', kind: 'rat', why: 'Ratowanie życia – działasz od razu, bez czekania na polecenie, potem powiadamiasz przełożonego.' },
-  { id: 'p5', text: 'Z pękniętej rury leje się woda na rozdzielnicę – trzeba ją wyłączyć, zanim dojdzie do zwarcia', kind: 'rat', why: 'Zabezpieczenie mienia przed zniszczeniem – bez polecenia, z niezwłocznym powiadomieniem przełożonego.' },
+  { id: 'p5', text: 'Z pękniętej rury leje się woda na rozdzielnicę – trzeba ją wyłączyć, zanim dojdzie do zwarcia', kind: 'rat', why: 'Zabezpieczenie mienia przed zniszczeniem – osoba uprawniona robi to bez polecenia, a potem powiadamia przełożonego.' },
   { id: 'p6', text: 'Odczyt wskazań liczników i kontrola lampek sygnalizacyjnych opisane w instrukcji eksploatacji', kind: 'ins', why: 'Czynność z instrukcji eksploatacji, bez ingerencji w części czynne.' },
-  { id: 'p7', text: 'Prace przy wyłączonej linii kablowej nn wymagające uziemienia jej z obu stron', kind: 'pis', why: 'Praca przy wyłączonym napięciu wymagająca przygotowania strefy (wyłączenia, uziemienia) – szczególne zagrożenie.' },
+  { id: 'p7', text: 'Prace przy wyłączonej linii kablowej nn wymagające uziemienia jej z obu stron', kind: 'pis', why: 'Uziemiacze są na końcach kabla – z miejsca pracy zwykle żadnego nie widać. Takie prace rozporządzenie wymienia wprost wśród stwarzających szczególne zagrożenie.' },
+  { id: 'p8', text: 'Wymiana oprawy oświetleniowej pod stropem hali, z podnośnika', kind: 'pis', why: 'Prace na wysokości rozporządzenie wymienia wprost wśród stwarzających szczególne zagrożenie – także przy wyłączonym obwodzie.' },
 ]
