@@ -1,5 +1,6 @@
 # Buduje aplikację i wdraża ją na GitHub Pages.
-# Uruchamia się po każdym pushu do main. Można go też uruchomić ręcznie:
+# Przy każdym PR do main tylko buduje: sprawdza npm ci i build, zanim zmergujesz.
+# Po każdym pushu do main buduje i wdraża. Można go też uruchomić ręcznie:
 # zakładka Actions → „Deploy na GitHub Pages” → Run workflow.
 # Wymaga: Settings → Pages → Source: GitHub Actions.
 name: Deploy na GitHub Pages
@@ -7,21 +8,25 @@ name: Deploy na GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# Uprawnienia ma każde zadanie osobno (niżej). Build uruchamia skrypty z paczek npm,
+# więc nie dostaje prawa do wdrażania.
+permissions: {}
 
-# jeden deploy naraz; deploy w toku nie jest przerywany
+# PR: nowy push przerywa poprzedni build tego PR. main: jeden deploy naraz, bez przerywania.
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read # configure-pages odczytuje adres strony
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -35,13 +40,18 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
-      - uses: actions/upload-pages-artifact@v5
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
