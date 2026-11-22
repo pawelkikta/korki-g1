@@ -47,6 +47,7 @@ Przy błędnej odpowiedzi w teście jest link „Doczytaj” do teorii z tego te
 (np. `#/pomiary/3`), więc możesz go zapisać w zakładkach.
 
 Postęp nauki i wyniki testu zapisują się tylko w Twojej przeglądarce (`localStorage`).
+Żeby przenieść je na inne urządzenie, zapisz postęp do pliku i wczytaj go tam (ekran **Plan nauki** → „Twój postęp”).
 Aplikacja nie wysyła żadnych danych i nie ma analityki. Link „Zgłoś błąd” otwiera formularz Google
 w nowej karcie i przekazuje mu tylko to, czego dotyczy zgłoszenie: pytanie, wersję aplikacji i adres strony w aplikacji.
 

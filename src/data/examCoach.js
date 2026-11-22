@@ -8,7 +8,7 @@ export const coach = {
     checklist: [
       'Grupa 1 = urządzenia, instalacje i sieci elektroenergetyczne',
       'Punkty = rodzaje urządzeń (instalacje w budynkach: pkt 2, do 1 kV)',
-      'Zakres czynności: obsługa, konserwacja, remont, montaż, kontrolno-pomiarowy',
+      'Zakres czynności: obsługa, konserwacja, remont, montaż, czynności kontrolno-pomiarowe',
       'Stanowisko: eksploatacja (E) albo dozór (D)',
     ],
     followUps: [
