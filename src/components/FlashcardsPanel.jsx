@@ -6,6 +6,7 @@ import { useStoredState } from '../lib/storage.js'
 import { Badge, Button, FolderTabs, Kbd, NoteBox, PageHeader, ProgressBar, Switch, Tag } from './ui.jsx'
 import { Checklist, FollowUps } from './Coach.jsx'
 import { ReadMore } from './TopicLinks.jsx'
+import { Sources } from './Sources.jsx'
 import { ReportLink } from './ReportLink.jsx'
 import { flashcardsOf, topicById } from '../data/topics.js'
 
@@ -187,6 +188,7 @@ export function FlashcardsPanel({ topicId, onTopic }) {
                       <ReportLink what={`Fiszka ${card.id}: ${card.question}`} />
                     </div>
                     <div className="mt-1.5 font-serif text-[16.5px] leading-[1.65] text-ink">{card.answer}</div>
+                    <Sources items={card.sources} />
                   </div>
                   {card.trap ? <NoteBox type="trap" title="Pułapka">{card.trap}</NoteBox> : null}
                   {card.wrongAnswer ? <NoteBox type="mistake" title="Błędna odpowiedź">{card.wrongAnswer}</NoteBox> : null}

@@ -1,6 +1,7 @@
 // 55 pytań egzaminacyjnych SEP G1 – 4 rundy (treść: Claude (AI) pod kierunkiem autora, sprawdzona z przepisami)
 // trap: opis pułapki (pytania podchwytliwe), wrongAnswer: typowa błędna odpowiedź na egzaminie
 // category: obszar egzaminu (areas.js), topic: gdzie doczytać teorię (topics.js)
+// sources: przepis lub norma, na której opiera się odpowiedź (klucze z sources.js)
 
 export const rounds = [
   { id: 1, title: 'Podstawy', subtitle: 'Eksploatacja, BHP, dozór, pierwsza pomoc', count: 12 },
@@ -17,6 +18,7 @@ export const questions = [
     answer:
       '„Uprawnienia SEP" to potoczna nazwa świadectwa kwalifikacyjnego. Grupa 1 to urządzenia, instalacje i sieci elektroenergetyczne. Świadectwo określa trzy rzeczy: rodzaj urządzeń, zakres czynności i stanowisko. Rodzaj urządzeń to punkt grupy – rozporządzenie z 2022 r. dzieli grupę 1 na 16 punktów, np. pkt 2 – urządzenia, instalacje i sieci do 1 kV, pkt 9 – sieci elektrycznego oświetlenia ulicznego, pkt 13 – aparatura kontrolno-pomiarowa i automatyka. Zakres czynności to obsługa, konserwacja, remont lub naprawa, montaż lub demontaż oraz czynności kontrolno-pomiarowe. Stanowisko to eksploatacja (E) albo dozór (D).',
     keyPoints: 'Grupa 1 = elektroenergetyczne. Świadectwo określa punkt (np. pkt 2 – do 1 kV), zakres czynności (w tym kontrolno-pomiarowy) i stanowisko E albo D. Numeracja punktów wg rozporządzenia z 2022 r.',
+    sources: [{ act: 'kwal', at: '§ 3, § 4 i załącznik nr 1' }],
   },
   {
     id: 'r1q2', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
@@ -24,6 +26,7 @@ export const questions = [
     answer:
       'Eksploatacja (E) to świadectwo do wykonywania prac przy urządzeniach: obsługi, konserwacji, remontu, montażu i pomiarów. Dozór (D) to świadectwo do kierowania pracą innych i nadzoru nad eksploatacją – planowania prac i organizowania ich tak, żeby były bezpieczne. To dwa osobne świadectwa, zdawane osobno.',
     keyPoints: 'E = fizyczna praca, D = nadzór nad innymi.',
+    sources: [{ act: 'kwal', at: '§ 4 ust. 1' }],
   },
   {
     id: 'r1q3', round: 1, category: 'BHP', topic: 'pierwsza-pomoc',
@@ -31,6 +34,7 @@ export const questions = [
     answer:
       'Używa się gaśnic dopuszczonych do gaszenia urządzeń pod napięciem – w praktyce proszkowych (ABC) albo śniegowych (CO₂). Na gaśnicy jest oznaczenie, do jakiego napięcia i z jakiej odległości wolno nią gasić, np. „do 1000 V z odległości 1 m". Nie gasi się wodą z hydrantu ani zwykłą pianą – prąd może popłynąć strumieniem do ratownika. Gaśnica wodna lub mgłowa nadaje się tylko wtedy, gdy ma takie oznaczenie (przeszła badanie dielektryczne).',
     keyPoints: 'Proszek ABC i CO₂ – TAK (sprawdź oznaczenie, np. do 1000 V, 1 m). Woda i zwykła piana – NIE.',
+    sources: [{ act: 'pn-en-3-7' }],
   },
   {
     id: 'r1q4', round: 1, category: 'BHP', topic: 'organizacja-pracy',
@@ -38,6 +42,7 @@ export const questions = [
     answer:
       'Rozporządzenie BHP przy urządzeniach energetycznych (2019) wyznacza wokół nieosłoniętych części pod napięciem dwie strefy: strefę prac pod napięciem (jej granica to DL) i strefę prac w pobliżu napięcia (jej granica to DV). Dla urządzeń do 1 kV: DL – „bez dotyku", czyli każde dotknięcie części czynnej to już praca pod napięciem; DV – 0,3 m. Przy pracy w pobliżu napięcia nie wolno wejść w strefę prac pod napięciem żadną częścią ciała, narzędziem ani przedmiotem. Do 1 kV oznacza to: nie dotykać części czynnych, chyba że zostały osłonięte.',
     keyPoints: 'Do 1 kV: DL = bez dotyku, DV = 0,3 m. Dwie strefy: prac pod napięciem i prac w pobliżu napięcia.',
+    sources: [{ act: 'bhp', at: '§ 23 ust. 3 i 6' }],
     trap: 'Stare materiały podają „0,5 m" i „strefę niebezpieczną" – to nie są pojęcia z obecnego rozporządzenia.',
     wrongAnswer: '„Do 1 kV bezpieczna odległość to 0,5 m" – obecnie granica strefy prac w pobliżu napięcia to 0,3 m.',
   },
@@ -47,6 +52,7 @@ export const questions = [
     answer:
       'Na pracodawcy albo osobie, która kieruje pracownikami. Pracodawca musi opracować instrukcje eksploatacji i udostępnić je na każdym stanowisku pracy przy urządzeniach elektrycznych.',
     keyPoints: 'Pracodawca – nie pracownik, nie SEP.',
+    sources: [{ act: 'bhp', at: '§ 4' }, { act: 'kp', at: 'art. 237⁴ § 2' }],
   },
   {
     id: 'r1q6', round: 1, category: 'BHP', topic: 'organizacja-pracy',
@@ -54,6 +60,7 @@ export const questions = [
     answer:
       'Polecenie pisemne to dokument, na podstawie którego wykonuje się prace stwarzające możliwość wystąpienia szczególnego zagrożenia dla zdrowia lub życia. Wydaje je poleceniodawca – osoba upoważniona przez pracodawcę, ze świadectwem D. Polecenie określa zakres i miejsce pracy, środki bezpieczeństwa, sposób przygotowania strefy pracy oraz osoby funkcyjne: dopuszczającego, kierującego zespołem, a w razie potrzeby koordynującego i nadzorującego. Które prace wymagają polecenia, a które można wykonywać bez niego, pracodawca określa w instrukcji organizacji bezpiecznej pracy (IOBP).',
     keyPoints: 'Polecenie pisemne = prace w warunkach szczególnego zagrożenia. Wydaje poleceniodawca (D). Wykaz prac – w IOBP pracodawcy.',
+    sources: [{ act: 'bhp', at: '§ 2 pkt 8, § 27 i § 28' }],
   },
   {
     id: 'r1q7', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
@@ -61,6 +68,7 @@ export const questions = [
     answer:
       'Ważne świadectwo kwalifikacyjne (E, z właściwą grupą, punktem i zakresem czynności), aktualne badania lekarskie, aktualne szkolenie BHP oraz upoważnienie pracodawcy. Do prac w warunkach szczególnego zagrożenia dodatkowo polecenie pisemne i dopuszczenie do pracy.',
     keyPoints: 'Świadectwo kwalifikacyjne + badania lekarskie + BHP + upoważnienie pracodawcy; przy pracach szczególnie niebezpiecznych – polecenie i dopuszczenie.',
+    sources: [{ act: 'pe', at: 'art. 54 ust. 1' }, { act: 'kp', at: 'art. 229 § 4 i art. 237³ § 2' }, { act: 'bhp', at: '§ 6 ust. 1, § 27 i § 30' }],
   },
   {
     id: 'r1q8', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
@@ -68,6 +76,7 @@ export const questions = [
     answer:
       'Napięcie znamionowe to napięcie, na które zaprojektowano urządzenie, instalację lub sieć (np. 230/400 V). Sama grupa G1 obejmuje wszystkie napięcia, ale ważną granicą jest 1 kV (1000 V): do 1 kV to pkt 2 (większość instalacji w budynkach i zakładach, sieci nn), powyżej 1 kV – pkt 3–5.',
     keyPoints: '1 kV = granica pkt 2 w G1. Sieć domowa 230/400 V = pkt 2.',
+    sources: [{ act: 'kwal', at: 'załącznik nr 1 pkt 2–5' }],
   },
   {
     id: 'r1q9', round: 1, category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
@@ -82,6 +91,7 @@ export const questions = [
     answer:
       'Najważniejsze jest natężenie prądu płynącego przez ciało. Liczą się też: napięcie, rodzaj prądu (AC jest groźniejszy niż DC), częstotliwość (50 Hz jest szczególnie groźne), czas przepływu, droga prądu przez ciało i rezystancja ciała (mokra skóra ma mniejszą niż sucha). Już 50 mA AC może zabić.',
     keyPoints: 'Natężenie > napięcie. 50 mA AC = zagrożenie życia. Mokra skóra = mniejszy opór = większe niebezpieczeństwo.',
+    sources: [{ act: 'iec-60479-1' }],
   },
   {
     id: 'r1q11', round: 1, category: 'Dozór', topic: 'organizacja-pracy',
@@ -89,6 +99,7 @@ export const questions = [
     answer:
       'Osoba dozorująca musi: zapewnić warunki BHP przed rozpoczęciem prac, sprawdzić kwalifikacje pracowników, nadzorować przebieg prac, wydawać polecenia, kontrolować środki ochrony indywidualnej, dopilnować bezpiecznego zakończenia pracy i przywrócenia urządzeń do stanu normalnego.',
     keyPoints: 'Dozór = odpowiedzialność za bezpieczeństwo całego zespołu.',
+    sources: [{ act: 'kp', at: 'art. 212 i art. 237³ § 1' }, { act: 'kwal', at: '§ 4 ust. 1 pkt 2' }],
   },
   {
     id: 'r1q12', round: 1, category: 'Dozór', topic: 'podstawy-prawne',
@@ -96,6 +107,7 @@ export const questions = [
     answer:
       'Świadectwo kwalifikacyjne jest ważne 5 lat od daty wydania (art. 54 Prawa energetycznego). „Odnowienie" to ponowne zdanie egzaminu – warto zaplanować je z wyprzedzeniem. Dawne świadectwa „bezterminowe" straciły ważność 3 lipca 2026 r. Po wygaśnięciu świadectwa nie wolno wykonywać prac, do których jest wymagane.',
     keyPoints: '5 lat od daty wydania. Odnowienie = egzamin. Bezterminowe świadectwa wygasły 3.07.2026.',
+    sources: [{ act: 'pe', at: 'art. 54 ust. 1aa i ust. 2' }, { act: 'pe2021', at: 'art. 25' }],
   },
 
   // ───────────────────────────── RUNDA 2 ─────────────────────────────
@@ -105,6 +117,7 @@ export const questions = [
     answer:
       'To pomiar, który sprawdza, czy izolacja przewodów i urządzeń nie jest uszkodzona. Megaomomierz mierzy rezystancję między przewodami czynnymi (L, N) a przewodem ochronnym PE oraz między przewodami czynnymi. Pomiar wykonuje się przy odbiorze nowej instalacji, po remoncie, po zalaniu lub pożarze oraz podczas kontroli okresowych.',
     keyPoints: 'Megaomomierz, 500 V DC dla instalacji 230/400 V, wynik min. 1 MΩ.',
+    sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r2q2', round: 2, category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -112,6 +125,7 @@ export const questions = [
     answer:
       'Megaomomierz (miernik rezystancji izolacji). Napięcie pomiarowe: 500 V DC. Minimalna dopuszczalna wartość rezystancji izolacji: 1 MΩ. Poniżej 1 MΩ – instalacja wymaga naprawy przed oddaniem do użytku.',
     keyPoints: 'Megaomomierz + 500 V DC + wynik ≥ 1 MΩ. Trzy liczby do zapamiętania.',
+    sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r2q3', round: 2, category: 'Pomiary', topic: 'petla-zwarcia',
@@ -119,6 +133,7 @@ export const questions = [
     answer:
       'Miernik mierzy impedancję drogi, którą popłynie prąd przy zwarciu fazy z obudową: źródło → przewód fazowy → miejsce zwarcia → przewód ochronny PE → z powrotem do źródła. Z wyniku oblicza się prąd zwarciowy i sprawdza, czy zabezpieczenie wyłączy zasilanie w wymaganym czasie. Im mniejsza impedancja, tym większy prąd zwarciowy i tym pewniej zabezpieczenie zadziała.',
     keyPoints: 'Mała impedancja = dobra ochrona. TN 230 V: ≤ 0,4 s dla obwodów odbiorczych do 32 A (z gniazdami do 63 A), ≤ 5 s dla obwodów rozdzielczych.',
+    sources: [{ act: 'pn-hd-60364-4-41' }, { act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r2q4', round: 2, category: 'Pomiary', topic: 'rcd',
@@ -126,6 +141,7 @@ export const questions = [
     answer:
       'To wyłącznik, który porównuje prąd płynący do odbiornika z prądem, który z niego wraca (L i N). Jeśli różnica – prąd różnicowy – przekroczy próg zadziałania, RCD wyłącza obwód. Taka różnica oznacza upływ prądu, np. przez ciało człowieka do ziemi. RCD o IΔn 30 mA daje ochronę uzupełniającą przy dotyku części czynnej. Działanie sprawdza się przyciskiem TEST na obudowie (zwykle raz w miesiącu, wg zalecenia producenta) oraz miernikiem RCD, który mierzy czas i prąd zadziałania.',
     keyPoints: 'IΔn 30 mA = ochrona uzupełniająca. Czas zadziałania przy 1×IΔn ≤ 300 ms. TEST – zwykle co miesiąc, wg zalecenia producenta.',
+    sources: [{ act: 'pn-hd-60364-4-41' }, { act: 'pn-en-61008-1' }],
   },
   {
     id: 'r2q5', round: 2, category: 'Pomiary', topic: 'ciaglosc-pe',
@@ -133,6 +149,7 @@ export const questions = [
     answer:
       'Pomiar ciągłości PE sprawdza, czy przewód ochronny nie jest nigdzie przerwany. Mierzy się małą rezystancję (od miliomów do kilku omów) przy niskim napięciu (4–24 V). Pomiar rezystancji izolacji sprawdza, czy izolacja jest sprawna. Mierzy się bardzo dużą rezystancję (megaomy) przy wysokim napięciu stałym (500 V DC). Oba pomiary są obowiązkowe przy odbiorze instalacji.',
     keyPoints: 'PE ciągłość = małe R, izolacja = duże R. Różne przyrządy, różne napięcia, różny cel.',
+    sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'części 2 i 4' }],
   },
   {
     id: 'r2q6', round: 2, category: 'Pomiary', topic: 'podstawy-prawne',
@@ -140,6 +157,7 @@ export const questions = [
     answer:
       'Potrzebujesz zakresu kontrolno-pomiarowego dla urządzeń, które mierzysz. Dla instalacji w budynkach to G1 pkt 2 (do 1 kV). Punkt 13 grupy G1 to nie „pomiary", tylko rodzaj urządzeń: aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń. W rozporządzeniu z 2003 r. był to pkt 10. Kontrolę okresową instalacji z art. 62 Prawa budowlanego może przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi.',
     keyPoints: 'Pomiary = zakres kontrolno-pomiarowy. Pkt 13 (dawniej 10) = aparatura pomiarowa i automatyka. Dziś pkt 10 = sieć trakcyjna.',
+    sources: [{ act: 'kwal', at: '§ 4 ust. 2 pkt 5 i załącznik nr 1 pkt 13' }, { act: 'pb', at: 'art. 62 ust. 4 i 5' }],
     trap: 'Na kursach wciąż mówi się „pomiary z pkt 10" – to stara numeracja i skrót myślowy.',
     wrongAnswer: '„Pkt 10 = pomiary" – od 2022 r. pkt 10 grupy G1 to elektryczna sieć trakcyjna.',
   },
@@ -149,6 +167,7 @@ export const questions = [
     answer:
       'Protokół musi zawierać: dane obiektu, opis lub schemat badanej instalacji, typ i numer seryjny przyrządów pomiarowych ze świadectwami wzorcowania ważnymi w dniu pomiaru, wyniki pomiarów dla każdego obwodu z jednostkami i wartościami dopuszczalnymi, ocenę zgodności z normą, datę wykonania oraz imię, nazwisko i podpis osoby wykonującej pomiary – ze świadectwem kwalifikacyjnym obejmującym zakres kontrolno-pomiarowy.',
     keyPoints: 'Świadectwa wzorcowania + wyniki każdego obwodu + podpis osoby z zakresem kontrolno-pomiarowym.',
+    sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
     id: 'r2q8', round: 2, category: 'Eksploatacja', topic: 'klasy',
@@ -156,6 +175,7 @@ export const questions = [
     answer:
       'Klasa I: izolacja podstawowa i przewód ochronny PE, do którego przyłącza się metalową obudowę. Klasa II: izolacja podwójna lub wzmocniona, bez przewodu PE – symbol to kwadrat w kwadracie. Klasa III: zasilanie bardzo niskim napięciem SELV lub PELV (≤ 50 V AC albo ≤ 120 V DC). Urządzeń klasy II i III nie przyłącza się do przewodu PE.',
     keyPoints: 'I = PE wymagany, II = bez PE (kwadrat w kwadracie), III = ≤ 50 V AC.',
+    sources: [{ act: 'pn-en-61140' }, { act: 'pn-hd-60364-4-41' }],
   },
   {
     id: 'r2q9', round: 2, category: 'Eksploatacja', topic: 'klasy',
@@ -163,6 +183,7 @@ export const questions = [
     answer:
       'IP (Ingress Protection) to stopień ochrony, jaki daje obudowa. Pierwsza cyfra (0–6) to ochrona przed ciałami stałymi i pyłem, np. 4 – przed cząstkami większymi niż 1 mm. Druga cyfra (0–9) to ochrona przed wodą, np. 4 – przed bryzgami z każdego kierunku. IP44 to typowe minimum dla urządzeń na zewnątrz i w pomieszczeniach wilgotnych.',
     keyPoints: '1. cyfra = pył, 2. cyfra = woda. IP44 = minimum zewnętrze. IP67 = zanurzenie do 1 m.',
+    sources: [{ act: 'pn-en-60529' }],
   },
   {
     id: 'r2q10', round: 2, category: 'Eksploatacja', topic: 'organizacja-pracy',
@@ -170,6 +191,7 @@ export const questions = [
     answer:
       'Elektryk musi: 1) sprawdzić, czy ma ważne świadectwo kwalifikacyjne, 2) upewnić się, że ma polecenie wykonania pracy, 3) osobiście sprawdzić brak napięcia wskaźnikiem – nigdy nie zakładać, że napięcie jest wyłączone, 4) sprawdzić, czy założono uziemiacze i wywieszono tablice ostrzegawcze. Dopiero wtedy może zacząć pracę.',
     keyPoints: 'Zawsze sprawdź napięcie wskaźnikiem osobiście. „Założył, że jest wyłączone" = najczęstsza przyczyna wypadków.',
+    sources: [{ act: 'bhp', at: '§ 24 i § 25' }, { act: 'pn-en-50110-1' }],
   },
   {
     id: 'r2q11', round: 2, category: 'Dozór', topic: 'organizacja-pracy',
@@ -177,6 +199,7 @@ export const questions = [
     answer:
       'Poleceniodawca – wydaje polecenie pisemne; świadectwo D i upoważnienie pracodawcy. Koordynujący – koordynuje prace kilku zespołów lub w kilku miejscach; świadectwo D. Dopuszczający – przygotowuje strefę pracy (czynności łączeniowe) i dopuszcza zespół; świadectwo E i upoważnienie. Kierujący zespołem – kieruje pracą na miejscu, sprawdza i przyjmuje strefę pracy; świadectwo E. Nadzorujący – nadzoruje pracę osób bez kwalifikacji lub obcych firm i nie wykonuje innych prac; E lub D. Członkowie zespołu – wykonują pracę. Przy poleceniu pisemnym nie łączy się więcej niż dwóch funkcji, a funkcji dopuszczającego i kierującego zespołem nie łączy się wcale (wyjątek: prace pod napięciem).',
     keyPoints: 'Poleceniodawca (D), koordynujący (D), dopuszczający (E), kierujący zespołem (E), nadzorujący (E lub D), członek zespołu. Dopuszczający ≠ kierujący.',
+    sources: [{ act: 'bhp', at: '§ 2 pkt 8–11 i § 30 ust. 3' }],
   },
   {
     id: 'r2q12', round: 2, category: 'Dozór', topic: 'organizacja-pracy',
@@ -184,6 +207,7 @@ export const questions = [
     answer:
       'Po uzyskaniu zezwolenia od koordynującego lub poleceniodawcy: 1) wyłączyć napięcie ze wszystkich stron tak, by uzyskać przerwę izolacyjną, 2) zabezpieczyć przed przypadkowym załączeniem (do 1 kV: wyjęte wkładki albo zablokowany napęd) i wywiesić tablice „Nie załączać – pracują ludzie", 3) sprawdzić brak napięcia sprawnym wskaźnikiem na wszystkich fazach i N, 4) uziemić i zewrzeć – ze wszystkich stron, co najmniej jeden uziemiacz widoczny z miejsca pracy, 5) ogrodzić i oznaczyć strefę, osłonić sąsiednie części pod napięciem, 6) dopuścić zespół: wskazać strefę, udowodnić brak napięcia, potwierdzić podpisami w poleceniu.',
     keyPoints: 'Wyłącz → zabezpiecz → sprawdź brak napięcia → uziem → oznacz strefę → dopuść. Uziemienie zakłada się po sprawdzeniu braku napięcia, nie przed.',
+    sources: [{ act: 'bhp', at: '§ 25 i § 30 ust. 1 pkt 2–3' }, { act: 'pn-en-50110-1' }],
   },
   {
     id: 'r2q13', round: 2, category: 'Dozór', topic: 'podstawy-prawne',
@@ -191,6 +215,7 @@ export const questions = [
     answer:
       'Co najmniej raz na 5 lat – tak wymaga art. 62 Prawa budowlanego. Kontrolę może przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi, a pomiary wykonuje elektryk z zakresem kontrolno-pomiarowym. Tam, gdzie ryzyko jest większe, kontroluje się częściej – np. w strefach zagrożenia wybuchem częstotliwość ustala pracodawca w dokumencie zabezpieczenia przed wybuchem, zwykle co rok.',
     keyPoints: 'Co 5 lat = art. 62 (kontroluje osoba z D albo z uprawnieniami budowlanymi). Strefy Ex = częściej, wg dokumentu zabezpieczenia przed wybuchem (typowo co rok).',
+    sources: [{ act: 'pb', at: 'art. 62 ust. 1 pkt 2, ust. 4 i 5' }],
   },
   {
     id: 'r2q14', round: 2, category: 'BHP', topic: 'organizacja-pracy',
@@ -198,6 +223,7 @@ export const questions = [
     answer:
       'Sprzęt ochronny izolacyjny dobrany do napięcia: rękawice elektroizolacyjne, obuwie lub dywanik izolacyjny, drążki izolacyjne. Sprzęt do zabezpieczenia strefy: wskaźnik napięcia, uziemiacze lub zwieracze przenośne, tablice. Przy ryzyku łuku elektrycznego: hełm z przeciwłukową osłoną twarzy i odzież trudnopalna. Sprzęt ogląda się przed każdym użyciem i musi mieć aktualne badania okresowe.',
     keyPoints: 'Sprzęt izolacyjny dobrany do napięcia + wskaźnik + uziemiacze. Łuk = hełm z osłoną twarzy. Oględziny przed użyciem i aktualne badania okresowe.',
+    sources: [{ act: 'bhp', at: '§ 26' }, { act: 'kp', at: 'art. 237⁶ § 1' }],
   },
 
   // ───────────────────────────── RUNDA 3 ─────────────────────────────
