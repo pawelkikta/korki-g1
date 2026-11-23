@@ -50,13 +50,13 @@ export const quiz = [
     id: 'q5', category: 'BHP', topic: 'organizacja-pracy',
     question: 'Kto ma obowiązek wyposażyć stanowiska pracy w instrukcje eksploatacyjne?',
     options: [
-      'Pracodawca lub osoba kierująca pracownikami',
+      'Pracodawca',
       'Inspektor PIP podczas kontroli',
       'Komisja kwalifikacyjna, która wydała świadectwo',
       'Producent urządzeń – instrukcja to jego DTR',
     ],
     correct: 0,
-    explain: 'Instrukcje eksploatacji opracowuje i zatwierdza pracodawca (prowadzący eksploatację) – korzysta przy tym z dokumentacji producenta, ale ta dokumentacja jej nie zastępuje.',
+    explain: 'Instrukcje eksploatacji opracowuje i aktualizuje pracodawca (rozporządzenie BHP, § 4) – korzysta przy tym z dokumentacji producenta, ale ta dokumentacja jej nie zastępuje.',
   },
   {
     id: 'q6', category: 'Pierwsza pomoc', topic: 'pierwsza-pomoc',
@@ -129,7 +129,7 @@ export const quiz = [
   },
   {
     id: 'q13', category: 'Pomiary', topic: 'rezystancja-izolacji',
-    question: 'Co trzeba BEZWZGLĘDNIE zrobić przed pomiarem rezystancji izolacji?',
+    question: 'Co trzeba zrobić przed pomiarem rezystancji izolacji?',
     options: [
       'Odłączyć wszystkie urządzenia końcowe – 500 V DC niszczy elektronikę',
       'Załączyć wszystkie odbiorniki, żeby zmierzyć obwód razem z nimi',
@@ -137,7 +137,7 @@ export const quiz = [
       'Ustawić łączniki oświetlenia w pozycji wyłączonej',
     ],
     correct: 0,
-    explain: '500 V DC trwale uszkadza elektronikę – odbiorniki i SPD się odłącza. Łączniki ustawia się w pozycji załączonej, żeby zmierzyć cały obwód.',
+    explain: '500 V DC trwale uszkadza elektronikę – odbiorniki i SPD się odłącza. Gdy SPD nie da się odłączyć, norma pozwala zmierzyć obwód napięciem 250 V DC (wynik nadal ≥ 1 MΩ). Łączniki ustawia się w pozycji załączonej, żeby zmierzyć cały obwód.',
   },
   {
     id: 'q14', category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -219,14 +219,14 @@ export const quiz = [
   },
   {
     id: 'q23', category: 'Pomiary', topic: 'klasy',
-    question: 'Który system uziemienia jest najpopularniejszy w Polsce?',
+    question: 'Który układ sieci jest najpopularniejszy w Polsce?',
     options: ['TN (w budynkach zwykle TN-C-S)', 'TT – bo każdy budynek ma własny uziom', 'IT – bo pierwsze zwarcie nie wyłącza zasilania', 'Każdy operator stosuje inny – nie ma przewagi'],
     correct: 0,
-    explain: 'TN = standard polski, ochrona przez impedancję pętli. TT = w praktyce RCD. IT = szpitale/przemysł.',
+    explain: 'Sieci nn operatorów to głównie TN-C. W budynku PEN rozdziela się na N i PE – stąd TN-C-S (w starych budynkach często jeszcze TN-C). Układ określa operator w warunkach przyłączenia. TT spotkasz rzadziej, np. na wsi przy linii napowietrznej – tam ochronę daje w praktyce RCD. IT – sale operacyjne i przemysł.',
   },
   {
     id: 'q24', category: 'Pomiary', topic: 'klasy',
-    question: 'W systemie IT (szpitale, przemysł) pierwsze zwarcie:',
+    question: 'W układzie IT (szpitale, przemysł) pierwsze zwarcie z ziemią:',
     options: [
       'Nie powoduje wyłączenia – sygnalizuje je monitor izolacji (IMD)',
       'Natychmiast wyłącza cały obiekt',
@@ -238,10 +238,10 @@ export const quiz = [
   },
   {
     id: 'q25', category: 'Pomiary', topic: 'rcd',
-    question: 'Prąd różnicowy RCD typu ogólnego (przeciwporażeniowego) wynosi:',
+    question: 'Jaki największy prąd IΔn może mieć RCD, który daje ochronę uzupełniającą przy dotyku części czynnej?',
     options: ['30 mA', '300 mA', '16 A', '50 mA'],
     correct: 0,
-    explain: '30 mA = ochrona przeciwporażeniowa. 300 mA = RCD przeciwpożarowy.',
+    explain: 'Ochronę uzupełniającą daje RCD o IΔn ≤ 30 mA (PN-HD 60364-4-41). 300 mA = RCD przeciwpożarowy, 16 A to prąd znamionowy wyłącznika nadprądowego.',
   },
   {
     id: 'q26', category: 'Pomiary', topic: 'podstawy-obwodu',
@@ -292,7 +292,7 @@ export const quiz = [
     id: 'q31', category: 'Pomiary', topic: 'rcd',
     question: 'Czy przycisk TEST na RCD zastępuje pomiar miernikiem przy odbiorze instalacji?',
     options: [
-      'Nie – TEST sprawdza tylko mechanizm; do protokołu wymagany pomiar miernikiem',
+      'Nie – TEST sprawdza tylko, czy sam RCD zadziała; do protokołu wymagany pomiar miernikiem',
       'Tak – skoro RCD wyłącza, to działa',
       'Tak, jeśli wyłącznik wyłączy w czasie krótszym niż 1 s',
       'Tak – TEST symuluje upływ do PE, więc sprawdza też przewód PE',
@@ -302,7 +302,7 @@ export const quiz = [
   },
   {
     id: 'q32', category: 'Pomiary', topic: 'uziemienie',
-    question: 'Dopuszczalna rezystancja uziemienia odgromowego (standard) to:',
+    question: 'Zalecana rezystancja uziemienia odgromowego (PN-EN 62305-3) to:',
     options: ['Poniżej 10 Ω', 'Poniżej 1 MΩ', 'Powyżej 1 MΩ', 'Poniżej 1666 Ω'],
     correct: 0,
     explain: 'Odgrom: zalecane poniżej 10 Ω (PN-EN 62305-3). 1666 Ω to granica dla układu TT z RCD 30 mA (RA × IΔn ≤ 50 V), a megaomy to izolacja.',
@@ -317,7 +317,7 @@ export const quiz = [
       'Miernikiem pętli zwarcia w gnieździe – wynik Zs to RE',
     ],
     correct: 0,
-    explain: 'Omomierz pokazałby bzdurę – elektroda z definicji łączy się z ziemią. Metoda spadku potencjału (na kursach „Wernera"): prąd przez E-C, napięcie na P, RE = U/I.',
+    explain: 'Zwykły omomierz ma dwa zaciski, a rezystancję uziemienia mierzy się względem odległej ziemi odniesienia – do niej nie da się go podłączyć. Metoda spadku potencjału (na kursach „Wernera"): prąd przez E-C, napięcie na P, RE = U/I.',
   },
   {
     id: 'q34', category: 'Pomiary', topic: 'uziemienie',
@@ -329,7 +329,7 @@ export const quiz = [
       'Zmierzyć dwa razy i uśrednić – odłączanie nie jest potrzebne',
     ],
     correct: 0,
-    explain: 'Bez odłączenia wynik dotyczy całej sieci uziemiającej, a nie pojedynczej elektrody.',
+    explain: 'Bez odłączenia wynik dotyczy całej sieci uziemiającej, a nie pojedynczej elektrody. Wyjątek: metoda z cęgami – cęgi mierzą prąd tylko w badanym przewodzie, więc zacisku nie trzeba rozkręcać.',
   },
   {
     id: 'q35', category: 'Pomiary', topic: 'protokol',

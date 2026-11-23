@@ -58,7 +58,7 @@ export const chapterQuiz = {
         'Bo kaloryfer jest zawsze podłączony do przewodu N',
       ],
       correct: 0,
-      explain: 'Uziemienie punktu gwiazdowego czyni z ziemi część obwodu: kaloryfer → ziemia → uziom stacji → punkt gwiazdowy. Obwód zamyka się przez twoje ciało.',
+      explain: 'Kaloryfer przez rury i połączenia wyrównawcze jest połączony z PE i z ziemią, a obie te drogi prowadzą do uziemionego punktu gwiazdowego w stacji: kaloryfer → PE i ziemia → punkt gwiazdowy. Obwód zamyka się przez twoje ciało.',
     },
     {
       question: 'Przez wyłącznik RCD przechodzą przewody:',
@@ -144,7 +144,7 @@ export const chapterQuiz = {
       question: 'Który pomiar odbiorczy wykonuje się POD napięciem?',
       options: ['Impedancję pętli zwarcia', 'Rezystancję izolacji', 'Ciągłość PE', 'Wszystkie pomiary'],
       correct: 0,
-      explain: 'Pętla to wyjątek – miernik potrzebuje działającej sieci. Izolacja i PE zawsze bez napięcia.',
+      explain: 'Pętla potrzebuje działającej sieci – tak samo jak sprawdzenie RCD miernikiem. Izolację i ciągłość PE mierzysz zawsze bez napięcia.',
     },
   ],
   'rcd': [
@@ -162,14 +162,14 @@ export const chapterQuiz = {
     },
     {
       question: 'Co sprawdza przycisk TEST na RCD?',
-      options: ['Tylko sprawność mechanizmu wyzwalającego', 'Czas i prąd zadziałania', 'Rezystancję izolacji obwodu', 'Poprawność podłączenia PE'],
+      options: ['Tylko to, czy sam wyłącznik zadziała', 'Czas i prąd zadziałania', 'Rezystancję izolacji obwodu', 'Poprawność podłączenia PE'],
       correct: 0,
-      explain: 'TEST nie mierzy niczego – do protokołu odbiorczego potrzebny pomiar miernikiem RCD.',
+      explain: 'TEST przepuszcza przez wyłącznik sztuczny prąd różnicowy, ale niczego nie mierzy – do protokołu odbiorczego potrzebny pomiar miernikiem RCD.',
     },
   ],
   'uziemienie': [
     {
-      question: 'Dopuszczalna rezystancja uziemienia odgromowego:',
+      question: 'Zalecana rezystancja uziemienia odgromowego:',
       options: ['Poniżej 10 Ω', 'Poniżej 1666 Ω', 'Powyżej 1 MΩ', 'Poniżej 0,4 Ω'],
       correct: 0,
       explain: 'Odgrom: zalecane poniżej 10 Ω. 1666 Ω to granica dla układu TT z RCD 30 mA (RA × IΔn ≤ 50 V).',
@@ -184,7 +184,7 @@ export const chapterQuiz = {
       question: 'Co zrobić z badanym uziomem przed pomiarem?',
       options: ['Odłączyć od instalacji (zacisk probierczy)', 'Podlać grunt wodą dla lepszego kontaktu', 'Nic – mierzy się w stanie normalnej pracy', 'Wyłączyć zasilanie budynku'],
       correct: 0,
-      explain: 'Bez odłączenia mierzysz całą sieć uziemiającą. I pamiętaj: po pomiarze SKRĘĆ zacisk z powrotem!',
+      explain: 'Bez odłączenia mierzysz całą sieć uziemiającą (wyjątek: metoda z cęgami). I pamiętaj: po pomiarze SKRĘĆ zacisk z powrotem!',
     },
   ],
   'protokol': [
