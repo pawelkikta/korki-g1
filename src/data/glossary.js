@@ -7,7 +7,7 @@ export const glossary = [
   // ───────────── Przewody i instalacja ─────────────
   {
     id: 'l', group: 'Przewody i instalacja', term: 'Przewód fazowy (L)',
-    what: 'Przewód doprowadzający energię – w instalacji 230 V to na nim jest napięcie względem ziemi. Kolor izolacji: brązowy lub czarny (w starych instalacjach bywa różnie!).',
+    what: 'Przewód doprowadzający energię – w instalacji 230 V to na nim jest napięcie względem ziemi. Kolor izolacji: brązowy, czarny albo szary – to barwy zalecane dla L1, L2 i L3 (w starych instalacjach bywa różnie!).',
     use: 'Zasila odbiorniki. To jego dotknięcie powoduje porażenie.',
     example: 'Wskaźnik napięcia świeci po przyłożeniu do L. Zasada: kolor NIGDY nie jest gwarancją – zawsze sprawdzaj wskaźnikiem, w starym budownictwie fazowy bywał niebieski.',
   },
@@ -19,7 +19,7 @@ export const glossary = [
   },
   {
     id: 'pe', group: 'Przewody i instalacja', term: 'Przewód ochronny (PE)',
-    what: 'Żółto-zielony przewód, który w normalnej pracy NIE prowadzi prądu. To „droga ewakuacyjna" dla prądu zwarciowego.',
+    what: 'Żółto-zielony przewód, który w normalnej pracy NIE prowadzi prądu roboczego – najwyżej drobne prądy upływu. To „droga ewakuacyjna" dla prądu zwarciowego.',
     use: 'Łączy metalowe obudowy urządzeń z szyną PE w rozdzielnicy. Przy zwarciu fazy z obudową prąd ucieka przez PE i zabezpieczenie wyłącza obwód.',
     example: 'Pralka (klasa I) ma metalową obudowę podłączoną do PE przez bolec w gnieździe. Gdy grzałka przebije na obudowę – RCD/bezpiecznik wyłącza, zanim ktoś dotknie. Bez PE obudowa po prostu czeka na czyjąś rękę.',
   },
@@ -99,9 +99,9 @@ export const glossary = [
   },
   {
     id: 'pwp', group: 'Zabezpieczenia', term: 'Przeciwpożarowy wyłącznik prądu (PWP)',
-    what: 'Wyłącznik główny odcinający zasilanie całego budynku, umieszczony przy wejściu.',
+    what: 'Wyłącznik, który odcina prąd we wszystkich obwodach – poza obwodami urządzeń, które muszą działać w czasie pożaru. Stoi w pobliżu głównego wejścia albo złącza i jest oznakowany.',
     use: 'Pozwala strażakom odciąć prąd przed akcją gaśniczą – żeby lać wodę bez ryzyka porażenia.',
-    example: 'Czerwony przycisk za szybką przy wejściu do bloku lub hali. Wymagany w budynkach o kubaturze > 1000 m³.',
+    example: 'Czerwony przycisk za szybką przy wejściu do bloku lub hali. Warunki techniczne (§ 183 ust. 2) wymagają go w strefie pożarowej o kubaturze > 1000 m³ albo ze strefą zagrożenia wybuchem.',
   },
 
   // ───────────── Systemy i klasy ─────────────
@@ -109,23 +109,23 @@ export const glossary = [
     id: 'tns', group: 'Systemy i klasy', term: 'System TN-S / TN-C / TN-C-S',
     what: 'Rodziny systemu TN (punkt neutralny transformatora uziemiony). TN-S: osobne N i PE od źródła. TN-C: wspólny PEN. TN-C-S: PEN rozdzielony na N i PE w budynku – dziś standard.',
     use: 'Określa, jak zorganizowana jest ochrona przeciwporażeniowa – w TN chroni niska impedancja pętli zwarcia.',
-    example: 'Typowy polski dom: od słupa przychodzi PEN (TN-C), w rozdzielnicy rozdzielasz go na N i PE (dalej TN-S). Punkt rozdziału się uziemia.',
+    example: 'Typowy polski dom: od słupa przychodzi PEN (TN-C), w złączu albo rozdzielnicy głównej rozdzielasz go na N i PE (dalej TN-S). Punkt rozdziału zwykle się dodatkowo uziemia – norma to zaleca.',
   },
   {
     id: 'tt', group: 'Systemy i klasy', term: 'System TT',
     what: 'Urządzenia mają własny uziom, niezależny od uziemienia sieci.',
-    use: 'Stosowany tam, gdzie pętla zwarcia przez sieć byłaby za słaba. Impedancja pętli jest duża – dlatego RCD jest OBOWIĄZKOWY.',
-    example: 'Wiejskie gospodarstwa zasilane długą linią napowietrzną: własny uziom przy budynku + różnicówka. Bez RCD zabezpieczenie nadprądowe mogłoby w ogóle nie wyłączyć zwarcia na obudowę – prąd przez dwa uziomy jest za mały.',
+    use: 'Układ sieci określa operator w warunkach przyłączenia. W TT impedancja pętli jest duża, więc w praktyce ochronę daje RCD. Zabezpieczenie nadprądowe norma dopuszcza tylko przy trwale małej impedancji pętli.',
+    example: 'Gospodarstwo na wsi zasilane linią napowietrzną w układzie TT: własny uziom przy budynku + różnicówka. Bez RCD zabezpieczenie nadprądowe mogłoby w ogóle nie wyłączyć zwarcia na obudowę – prąd przez dwa uziomy jest za mały.',
   },
   {
     id: 'it', group: 'Systemy i klasy', term: 'System IT',
-    what: 'Punkt neutralny izolowany od ziemi. Pierwsze zwarcie z ziemią nie powoduje wyłączenia – sygnalizuje je monitor stanu izolacji (IMD).',
+    what: 'Punkt neutralny izolowany od ziemi albo uziemiony przez dużą impedancję. Pierwsze zwarcie z ziemią nie powoduje wyłączenia – sygnalizuje je monitor stanu izolacji (IMD).',
     use: 'Tam, gdzie nagłe wyłączenie jest groźniejsze niż samo zwarcie.',
     example: 'Sala operacyjna: pacjent na stole, pierwsze doziemienie w lampie – alarm dla obsługi, ale operacja trwa dalej. Wyłączenie światła w trakcie zabiegu byłoby gorsze.',
   },
   {
     id: 'selv', group: 'Systemy i klasy', term: 'SELV / PELV (napięcie bezpieczne)',
-    what: 'Obwody o napięciu ≤ 50 V AC (≤ 120 V DC), separowane od sieci transformatorem bezpieczeństwa. SELV – nieuziemione, PELV – mogą być uziemione.',
+    what: 'Obwody o napięciu ≤ 50 V AC (≤ 120 V DC), oddzielone od sieci (np. transformatorem bezpieczeństwa). SELV – nieuziemione, PELV – mogą być uziemione.',
     use: 'Napięcie tak niskie, że dotknięcie nie jest groźne – ochrona „z natury".',
     example: 'Oczko halogenowe 12 V przy wannie, dzwonek 8 V, taśmy LED. Dlatego w strefie 0 łazienki (wewnątrz wanny) wolno montować tylko SELV 12 V.',
   },
@@ -139,14 +139,14 @@ export const glossary = [
     id: 'ip', group: 'Systemy i klasy', term: 'Stopień ochrony IP',
     what: 'Dwucyfrowy kod obudowy: pierwsza cyfra (0–6) – pyły i ciała stałe, druga (0–9) – woda.',
     use: 'Dobór osprzętu do warunków: łazienka, zewnętrze, kurz w warsztacie.',
-    example: 'Gniazdo ogrodowe = min. IP44 (bryzgi), oprawa nad prysznicem = IP65, oczko w podjeździe najeżdżane autem i zalewane = IP67 (chwilowe zanurzenie).',
+    example: 'Gniazdo ogrodowe = min. IP44 (bryzgi). Łazienka: w strefach 1 i 2 min. IPX4, a gdzie leci strumień wody (np. prysznic) – IPX5; w strefie 0 (wnętrze wanny) IPX7. Oczko w podjeździe najeżdżane autem i zalewane = IP67 (chwilowe zanurzenie).',
   },
 
   // ───────────── Przyrządy pomiarowe ─────────────
   {
     id: 'wskaznik', group: 'Przyrządy pomiarowe', term: 'Wskaźnik napięcia (dwubiegunowy)',
     what: 'Podstawowe narzędzie BHP – dwie sondy i wyświetlacz/diody pokazujące obecność i przybliżoną wartość napięcia.',
-    use: 'Sprawdzenie braku napięcia przed dotknięciem czegokolwiek. Jedyne akceptowane narzędzie do tej czynności.',
+    use: 'Sprawdzenie braku napięcia przed dotknięciem czegokolwiek. Rozporządzenie BHP (§ 25) każe sprawdzić brak napięcia, ale nie wskazuje przyrządu – w praktyce służy do tego dwubiegunowy wskaźnik napięcia (PN-EN 61243-3).',
     example: 'Procedura: sprawdź wskaźnik na działającym gnieździe → sprawdź wyłączony obwód → sprawdź wskaźnik ponownie. Popularna „neonówka-śrubokręt" NIE jest wskaźnikiem napięcia – potrafi nie zaświecić mimo napięcia.',
   },
   {
@@ -183,12 +183,12 @@ export const glossary = [
     id: 'cegowy', group: 'Przyrządy pomiarowe', term: 'Miernik cęgowy',
     what: 'Cęgi obejmujące przewód i mierzące prąd bez rozłączania obwodu (z pola magnetycznego).',
     use: 'Szybki pomiar obciążenia, szukanie asymetrii faz, prądów upływu.',
-    example: '„Różnicówka wybija raz na kilka dni" – cęgami upływowymi obejmujesz L+N razem i widzisz 18 mA stałego upływu (stara pralka + bojler). Suma blisko progu 30 mA = każdy dodatkowy odbiornik wywala RCD.',
+    example: '„Różnicówka wybija raz na kilka dni" – cęgami upływowymi obejmujesz L+N razem i widzisz 18 mA stałego upływu (stara pralka + bojler). RCD 30 mA może zadziałać już od 15 mA (0,5×IΔn), więc przy takim upływie wystarczy mały skok, żeby wybiło. Szukasz źródła upływu albo dzielisz obwody na kilka RCD.',
   },
   {
     id: 'fazomierz', group: 'Przyrządy pomiarowe', term: 'Tester kolejności faz',
     what: 'Trzy krokodylki (L1, L2, L3) i wskaźnik kierunku wirowania pola.',
-    use: 'Sprawdzenie kolejności faz w instalacjach 3-fazowych – ostatni punkt pomiarów odbiorczych.',
+    use: 'Sprawdzenie kolejności faz w instalacjach 3-fazowych – jedna z ostatnich prób odbiorczych (po niej próby funkcjonalne).',
     example: 'Po wymianie kabla silnik pompy kręci się wstecz i nie pompuje. Tester pokazuje złą kolejność – zamieniasz dwie fazy miejscami i po sprawie.',
   },
   {
