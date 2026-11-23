@@ -264,7 +264,7 @@ export const chapters = [
       {
         heading: 'Pomiar miernikiem RCD vs przycisk TEST',
         paragraphs: [
-          '**Przycisk TEST** na obudowie RCD: sprawdza wyłącznie, czy mechanizm wyzwalający jest sprawny – czy RCD w ogóle zadziała. **Nie mierzy czasu ani dokładnego prądu** zadziałania. Wystarczy do comiesięcznej kontroli przez użytkownika.',
+          '**Przycisk TEST** na obudowie RCD: przepuszcza przez wyłącznik sztuczny prąd różnicowy i sprawdza wyłącznie, czy RCD w ogóle zadziała. **Nie mierzy czasu ani dokładnego prądu** zadziałania. Wystarczy do comiesięcznej kontroli przez użytkownika.',
           '**Miernik RCD**: przykłada wzrastający prąd różnicowy i mierzy dokładny prąd zadziałania (mA) oraz czas zadziałania (ms). Trzy punkty pomiarowe:',
         ],
         table: {
