@@ -4,7 +4,7 @@ import { NoteBox, ValueTile, Tag, keepCase } from '../ui.jsx'
 // Kalkulator doboru wyłącznika nadprądowego do mocy odbiornika.
 // 1-faz: I = P / (U · cosφ)   ·   3-faz: I = P / (√3 · U · cosφ)
 
-const SERIES = [6, 10, 16, 20, 25, 32, 40, 50, 63] // szereg In wg PN-EN 60898
+const SERIES = [6, 10, 16, 20, 25, 32, 40, 50, 63] // typowe In domowych MCB (PN-EN 60898-1 obejmuje aparaty do 125 A)
 
 export function DeviceDobor() {
   const [kw, setKw] = useState(5.5)
@@ -159,8 +159,8 @@ export function DeviceDobor() {
       </div>
 
       {overRange ? (
-        <NoteBox type="warning" title="Prąd przekracza szereg MCB (63 A)">
-          Przy tej mocy dobiera się wyłącznik kompaktowy (MCCB) lub bezpieczniki mocy NH, a nie domową „eskę". Zmniejsz moc lub zmień zasilanie na 3-fazowe, żeby zobaczyć dobór.
+        <NoteBox type="warning" title="Prąd przekracza typowy szereg domowych MCB (do 63 A)">
+          Przy tej mocy potrzebny jest aparat o większym prądzie znamionowym: wyłącznik modułowy do 125 A, wyłącznik kompaktowy (MCCB) albo bezpieczniki mocy NH. Zmniejsz moc lub zmień zasilanie na 3-fazowe, żeby zobaczyć dobór.
         </NoteBox>
       ) : (
         <NoteBox type="remember" title={`Dobór: wyłącznik ${charLetter}${inValue} (${poles})`}>

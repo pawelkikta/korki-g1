@@ -106,7 +106,7 @@ export function DeviceSPD() {
         title: `Udar przejęty i odprowadzony do PE (${newHits}/${MAX_HITS} zadziałań wkładki)`,
         text: newHits >= MAX_HITS
           ? 'Warystor zadziałał, odbiorniki całe – ale wkładka właśnie się zużyła (okienko zmieniło kolor na czerwony). Następnego udaru już nie przejmie. Wymień wkładkę.'
-          : 'Przy przepięciu rezystancja warystora spada z megaomów do pojedynczych omów – udar spływa do uziemienia zamiast w elektronikę. Po udarze warystor wraca do izolowania. Telewizor nawet nie mrugnął.',
+          : 'Przy przepięciu rezystancja warystora spada z megaomów do ułamków oma – udar spływa do uziemienia zamiast w elektronikę. Po udarze warystor wraca do izolowania. Telewizor nawet nie mrugnął.',
       })
     }, 800)
   }
@@ -146,7 +146,7 @@ export function DeviceSPD() {
         <ValueTile value="T3" label="dobezpieczenie czułej elektroniki – przy urządzeniu" />
       </div>
       <NoteBox type="remember" title="Sedno działania">
-        Warystor to rezystor zależny od napięcia: przy 230 V = megaomy (izoluje), przy przepięciu = pojedyncze omy (zwiera udar do PE).
+        Warystor to rezystor zależny od napięcia: przy 230 V = megaomy (izoluje), przy przepięciu = ułamki oma (zwiera udar do PE).
         Działa w nanosekundach i wraca do stanu spoczynku – ale każdy duży udar go zużywa, stąd okienko wskaźnika.
       </NoteBox>
     </div>

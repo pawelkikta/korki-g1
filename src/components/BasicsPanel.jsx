@@ -47,8 +47,9 @@ export function BasicsPanel() {
         <div className="mt-4">
           <NoteBox type="warning" title="To tło do zrozumienia, nie twój teren pracy">
             Stacja SN/nn to urządzenie o napięciu powyżej 1 kV – praca przy niej wymaga świadectwa G1 pkt 3 i jest domeną operatora sieci.
-            Złącze kablowe i układ pomiarowy (licznik) też należą do operatora i są plombowane. Elektryk z G1 pkt 2 zaczyna pracę
-            za licznikiem – w instalacji odbiorcy. Ten schemat jest po to, żebyś rozumiał, skąd biorą się L, N i PE, a nie żebyś tam zaglądał.
+            Złącze kablowe i układ pomiarowy (licznik) zwykle też należą do operatora i są plombowane – bez jego zgody ich nie otwierasz.
+            Elektryk z G1 pkt 2 pracuje w instalacji odbiorcy, a ta zaczyna się już za złączem (w bloku to także WLZ przed licznikami).
+            Ten schemat jest po to, żebyś rozumiał, skąd biorą się L, N i PE, a nie żebyś tam zaglądał.
           </NoteBox>
         </div>
       </SectionFrame>
