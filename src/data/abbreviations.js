@@ -28,7 +28,7 @@ export const abbreviations = [
   },
   {
     id: 'tn-c-s', group: 'Układy sieci', abbr: 'TN-C-S', lang: 'fr', src: 'TN-[C]ombiné-[S]éparé', pl: 'najpierw razem, potem osobno',
-    note: 'Do budynku przychodzi PEN, w złączu lub rozdzielnicy głównej rozdziela się go na N i PE. Za punktem rozdziału N i PE już nigdy się nie łączą. Dziś standard w Polsce.',
+    note: 'Do budynku przychodzi PEN, w złączu lub rozdzielnicy głównej rozdziela się go na N i PE. Za punktem rozdziału N i PE już nigdy się nie łączą. Dziś standard w nowych i modernizowanych instalacjach.',
   },
   {
     id: 'tt', group: 'Układy sieci', abbr: 'TT', lang: 'fr', src: '[T]erre + [T]erre', pl: 'ziemia + ziemia',

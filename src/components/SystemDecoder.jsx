@@ -49,13 +49,13 @@ const SYSTEMS = {
   },
   'TN-C-S': {
     letters: [[1, 'T'], [2, 'N'], [3, 'C', 'Od źródła do punktu rozdziału: N i PE razem w PEN.'], [3, 'S', 'Za punktem rozdziału: osobno N i PE – już nigdy razem.']],
-    summary: 'PEN dochodzi do budynku, w złączu lub rozdzielnicy głównej dzieli się na N i PE. Punkt rozdziału się uziemia.',
+    summary: 'PEN dochodzi do budynku, w złączu lub rozdzielnicy głównej dzieli się na N i PE. Punkt rozdziału zwykle się dodatkowo uziemia – norma to zaleca.',
     where: 'Dziś typowa instalacja w Polsce – dom, blok, mały zakład.',
   },
   TT: {
     letters: [[1, 'T'], [2, 'T']],
     summary: 'Źródło i obudowy mają osobne uziomy. Prąd zwarcia przez dwa uziomy to zwykle kilka–kilkanaście amperów – za mało, żeby eska wyłączyła szybko. Ochronę daje RCD (RA × IΔn ≤ 50 V).',
-    where: 'Zasilanie długą linią napowietrzną, np. gospodarstwa na wsi, gdzie pętla zwarcia przez sieć byłaby za słaba.',
+    where: 'Układ sieci określa operator w warunkach przyłączenia. TT spotkasz np. na wsi, przy zasilaniu linią napowietrzną.',
   },
   IT: {
     letters: [[1, 'I'], [2, 'T']],
