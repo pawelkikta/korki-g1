@@ -195,10 +195,15 @@ export const chapterQuiz = {
       explain: 'Zalecana kolejność: oględziny → ciągłość PE → izolacja → pętla → RCD. Najpierw patrzysz, potem mierzysz.',
     },
     {
-      question: 'Świadectwo wzorcowania miernika wygasło dzień przed pomiarem. Protokół jest:',
-      options: ['Nieważny', 'Ważny – dzień to margines', 'Ważny po adnotacji', 'Ważny przez 30 dni'],
+      question: 'Czy miernik do pomiarów ochronnych (izolacja, pętla, RCD) musi mieć legalizację?',
+      options: [
+        'Nie – wzorcuje się go w terminie, który ustala właściciel miernika',
+        'Tak – co rok w urzędzie miar',
+        'Tak – co 5 lat, jak świadectwo kwalifikacyjne',
+        'Tak – bez legalizacji protokół jest nieważny',
+      ],
       correct: 0,
-      explain: 'Świadectwa muszą być ważne W DNIU pomiaru. Nieważne wzorcowanie = wyniki bez wartości, pomiary do powtórki.',
+      explain: 'Tych mierników nie ma na liście przyrządów objętych prawną kontrolą metrologiczną. Wzorcowanie jest dobrowolne, ale w praktyce konieczne – wyniki z miernika po terminie łatwo podważyć.',
     },
     {
       question: 'Kto podpisuje protokół pomiarowy?',

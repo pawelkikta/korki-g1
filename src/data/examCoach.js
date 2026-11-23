@@ -225,7 +225,7 @@ export const coach = {
   r2q7: {
     checklist: [
       'Dane obiektu i opis lub schemat instalacji',
-      'Przyrządy z ważnym świadectwem wzorcowania',
+      'Przyrządy z datą ostatniego wzorcowania',
       'Wyniki każdego obwodu z jednostkami, wartościami dopuszczalnymi i oceną',
       'Data, podpis osoby z zakresem kontrolno-pomiarowym',
     ],
@@ -639,7 +639,7 @@ export const coach = {
       'Oględziny – przed pomiarami',
       'Ciągłość przewodów ochronnych i połączeń wyrównawczych',
       'Rezystancja izolacji',
-      'Samoczynne wyłączenie (pętla zwarcia), RCD, kolejność faz',
+      'Samoczynne wyłączenie (pętla zwarcia), RCD, biegunowość, kolejność faz',
     ],
     followUps: [
       { q: 'Co sprawdzasz podczas oględzin?', a: 'M.in. dobór i oznaczenie przewodów (kolory, przekroje), dobór zabezpieczeń, stan osłon i obudów, połączenia wyrównawcze, opisy obwodów w rozdzielnicy, schematy, dostęp do aparatów i dobór IP do warunków.' },

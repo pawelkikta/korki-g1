@@ -177,7 +177,7 @@ export const glossary = [
     id: 'miernik-uziemien', group: 'Przyrządy pomiarowe', term: 'Miernik rezystancji uziemienia',
     what: 'Miernik z kompletem elektrod pomocniczych do metody trójzaciskowej (spadku potencjału); wersje cęgowe mierzą bez wbijania elektrod.',
     use: 'Pomiar RE uziomów: odgromowych (zalecane poniżej 10 Ω) i ochronnych w układzie TT (RA × IΔn ≤ 50 V).',
-    example: 'Coroczny przegląd odgromówki na hali: wbijasz elektrody P i C w trawnik 20–40 m od badanego uziomu, miernik liczy RE = U/I. Nie mierzysz tuż po deszczu (wynik wyjdzie za dobry) – najbardziej miarodajny jest suchy grunt, a w innych warunkach wynik mnożysz przez współczynnik poprawkowy.',
+    example: 'Coroczny przegląd odgromówki na hali: wbijasz elektrodę C w trawnik ok. 40 m od badanego uziomu, a P między nimi (zwykle 20–30 m od uziomu), miernik liczy RE = U/I. Nie mierzysz tuż po deszczu (wynik wyjdzie za dobry) – najbardziej miarodajny jest suchy grunt, a w innych warunkach wynik mnożysz przez współczynnik poprawkowy.',
   },
   {
     id: 'cegowy', group: 'Przyrządy pomiarowe', term: 'Miernik cęgowy',
@@ -199,9 +199,9 @@ export const glossary = [
   },
   {
     id: 'wzorcowanie', group: 'Przyrządy pomiarowe', term: 'Świadectwo wzorcowania',
-    what: 'Dokument z laboratorium potwierdzający, że miernik mierzy poprawnie (z określoną niepewnością). Wystawiany na konkretny egzemplarz, na ograniczony czas.',
-    use: 'Bez ważnego świadectwa wyniki nie mają mocy prawnej – protokół jest nieważny.',
-    example: 'Przed wyjazdem do klienta sprawdzasz datę na świadectwie. Pomiar wykonany dzień po jej upływie = cały protokół do kosza i powtórka na własny koszt.',
+    what: 'Dokument z laboratorium, który pokazuje, jak dokładnie mierzy konkretny egzemplarz miernika (wyniki wzorcowania z niepewnością).',
+    use: 'Mierniki do pomiarów ochronnych nie podlegają legalizacji, a wzorcowanie jest dobrowolne – termin kolejnego ustala właściciel miernika (zwykle wg zaleceń producenta). W protokole podaje się przyrządy i datę ich wzorcowania.',
+    example: 'Przed wyjazdem do klienta sprawdzasz, czy nie minął termin wzorcowania, który ustaliłeś dla miernika. Wyniki z miernika po terminie łatwo podważyć.',
   },
   {
     id: 'kamera', group: 'Przyrządy pomiarowe', term: 'Kamera termowizyjna',
