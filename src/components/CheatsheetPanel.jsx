@@ -40,7 +40,8 @@ export function CheatsheetPanel() {
   const filter = (rows) => {
     const q = query.trim().toLowerCase()
     if (!q) return rows
-    return rows.filter((r) => [r.group, r.param, r.value, r.hint].join(' ').toLowerCase().includes(q))
+    // Dane mają znaki niełamliwe (\u00a0, \u2060) – zapytanie wpisane zwykłą spacją też ma pasować
+    return rows.filter((r) => [r.group, r.param, r.value, r.hint].join(' ').replace(/\u00a0/g, ' ').replace(/\u2060/g, '').toLowerCase().includes(q))
   }
   const main = useMemo(() => filter(cheatsheet), [query]) // eslint-disable-line react-hooks/exhaustive-deps
   const extra = useMemo(() => filter(extraNumbers), [query]) // eslint-disable-line react-hooks/exhaustive-deps
