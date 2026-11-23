@@ -424,7 +424,7 @@ export const coach = {
       'Obserwacja poszkodowanego do przyjazdu pomocy',
     ],
     followUps: [
-      { q: 'Jakie skutki porażenia mogą ujawnić się później?', a: 'Zaburzenia rytmu serca (zwykle w ciągu kilku godzin), uszkodzenia mięśni i nerek, oparzenia wewnętrzne wzdłuż drogi przepływu prądu. Dlatego obowiązuje ocena lekarska.' },
+      { q: 'Jakie skutki porażenia mogą ujawnić się później?', a: 'Zaburzenia rytmu serca (zwykle w ciągu kilku godzin), uszkodzenia mięśni i nerek, oparzenia wewnętrzne wzdłuż drogi przepływu prądu. Dlatego poszkodowanego powinien ocenić lekarz.' },
       { q: 'Gdzie szukasz obrażeń na ciele po porażeniu?', a: 'W miejscach wejścia i wyjścia prądu – najczęściej dłonie i stopy. Oparzenia elektryczne bywają małe na skórze, ale głębokie w środku.' },
     ],
   },

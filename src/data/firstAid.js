@@ -1,7 +1,8 @@
 // Moduł „Pierwsza pomoc” – porażenie prądem, RKO i pożar urządzenia pod napięciem.
 // Treść zebrana z odpowiedzi w fiszkach, dopytaniach komisji i teście ABCD (r1q3, r1q9, r1q10, r3q9, r3q10, q6, q49),
 // uzupełniona o kroki oceny poszkodowanego wg wytycznych ERC 2025 (rozdziały BLS i Pierwsza pomoc).
-// ERC 2025 nie ma osobnej części o porażeniu prądem – uwolnienie spod napięcia to zasada bezpieczeństwa ratownika.
+// ERC 2025 nie ma osobnej części o porażeniu prądem (sprawdzone w rozdziałach BLS, Pierwsza pomoc i Okoliczności szczególne)
+// – uwolnienie spod napięcia to zasada bezpieczeństwa ratownika.
 // Format sekcji jak w chapters.js (ChapterSection). Treść: Claude (AI) pod kierunkiem autora.
 
 export const firstAidSections = [
@@ -9,11 +10,11 @@ export const firstAidSections = [
     heading: 'Co decyduje o skutkach porażenia',
     paragraphs: [
       'Najważniejsze jest **natężenie prądu płynącego przez ciało**, a nie samo napięcie. Liczą się też **czas przepływu**, **droga prądu** (przez serce – najgroźniejsza), rodzaj i częstotliwość prądu (przemienny 50 Hz jest groźniejszy niż stały) oraz rezystancja ciała.',
-      'Mokra skóra ma znacznie mniejszą rezystancję – przy tym samym napięciu płynie kilka razy większy prąd. Przy 230 V przez 2000 Ω płynie ok. 115 mA, a przez 500 Ω – ok. 460 mA.',
+      'Mokra skóra ma znacznie mniejszą rezystancję – przy tym samym napięciu płynie kilka razy większy prąd. Przy 230 V przez 2000 Ω płynie ok. 115\u00a0mA, a przez 500\u00a0Ω – ok. 460\u00a0mA.',
     ],
     values: [
       { value: 'ok. 10 mA', label: 'próg samouwolnienia (AC) – dłoń zaciska się na przewodzie' },
-      { value: '30 mA', label: 'prąd różnicowy RCD przeciwporażeniowego' },
+      { value: '30 mA', label: 'największy IΔn RCD do ochrony uzupełniającej' },
       { value: '50 mA', label: 'prąd przemienny, który już może zabić' },
     ],
     box: { type: 'remember', text: 'Natężenie ważniejsze niż napięcie. O skutkach decydują prąd płynący przez ciało, czas i droga przepływu.' },
@@ -47,9 +48,9 @@ export const firstAidSections = [
     steps: [
       'Sprawdź **reakcję** – zawołaj głośno, potrząśnij delikatnie za ramiona.',
       'Nie reaguje: **od razu wezwij 112** (najlepiej na głośniku telefonu) i poproś kogoś o **AED**.',
-      'W trakcie połączenia udrożnij drogi oddechowe i **oceń oddech – nie dłużej niż 10 s**. Oddech wolny, ciężki albo pojedyncze westchnięcia (oddech agonalny) to nie jest prawidłowy oddech.',
+      'W trakcie połączenia udrożnij drogi oddechowe i **oceń oddech – nie dłużej niż 10 s**. Oddech wolny, ciężki albo pojedyncze westchnięcia (oddech agonalny) to nie jest prawidłowy oddech. Na początku zatrzymania krążenia mogą wystąpić krótkie drgawki – gdy ustaną, oceń oddech.',
       'Nie oddycha prawidłowo albo masz wątpliwości: zacznij **RKO: 30 uciśnięć klatki piersiowej + 2 oddechy**. Uciskasz na środku klatki piersiowej i po każdym uciśnięciu pozwalasz jej w pełni się unieść. Jeśli nie umiesz robić oddechów – uciskaj bez przerw.',
-      'Gdy dotrze AED – włącz go i **wykonuj polecenia głosowe**. Nie przerywaj RKO, żeby samemu szukać AED.',
+      'Gdy dotrze AED – włącz go i **wykonuj polecenia głosowe**. Jeśli jesteś sam, nie przerywaj RKO, żeby szukać AED. Wyjątek: AED jest tuż obok i wrócisz od razu.',
       'Oddycha prawidłowo, ale nie reaguje: **pozycja bezpieczna** i stała kontrola oddechu. Wyjątek: oznaki urazu, np. po upadku z drabiny – wtedy nie przekładaj poszkodowanego.',
     ],
     values: [
@@ -72,7 +73,7 @@ export const firstAidSections = [
   {
     heading: 'Przytomny i „czuje się dobrze” – i tak 112',
     paragraphs: [
-      'Skutki porażenia bywają opóźnione: **zaburzenia rytmu serca** (zwykle w ciągu kilku godzin), uszkodzenia mięśni i nerek, oparzenia wewnętrzne wzdłuż drogi przepływu prądu. Dlatego po każdym porażeniu obowiązuje **ocena lekarska** – wezwij 112 albo zorganizuj transport do szpitala i obserwuj poszkodowanego do przyjazdu pomocy.',
+      'Skutki porażenia bywają opóźnione: **zaburzenia rytmu serca** (zwykle w ciągu kilku godzin), uszkodzenia mięśni i nerek, oparzenia wewnętrzne wzdłuż drogi przepływu prądu. Dlatego po każdym porażeniu poszkodowanego powinien **ocenić lekarz** – wezwij 112 albo zorganizuj transport do szpitala i obserwuj poszkodowanego do przyjazdu pomocy.',
       'Obejrzyj miejsca wejścia i wyjścia prądu – najczęściej dłonie i stopy. Oparzenie elektryczne bywa małe na skórze, ale głębokie w środku.',
     ],
     box: {
