@@ -222,7 +222,7 @@ export const quiz = [
     question: 'Który system uziemienia jest najpopularniejszy w Polsce?',
     options: ['TN (w budynkach zwykle TN-C-S)', 'TT – bo każdy budynek ma własny uziom', 'IT – bo pierwsze zwarcie nie wyłącza zasilania', 'Każdy operator stosuje inny – nie ma przewagi'],
     correct: 0,
-    explain: 'TN = standard polski, ochrona przez impedancję pętli. TT = wymagany RCD. IT = szpitale/przemysł.',
+    explain: 'TN = standard polski, ochrona przez impedancję pętli. TT = w praktyce RCD. IT = szpitale/przemysł.',
   },
   {
     id: 'q24', category: 'Pomiary', topic: 'klasy',
@@ -234,7 +234,7 @@ export const quiz = [
       'Wyłącza RCD 30 mA w obwodzie, w którym wystąpiło',
     ],
     correct: 0,
-    explain: 'IT: brak uziemienia punktu neutralnego, pierwsze zwarcie nie wyłącza – dlatego stosowany w szpitalach.',
+    explain: 'IT: punkt neutralny izolowany od ziemi albo uziemiony przez dużą impedancję, więc pierwsze zwarcie nie wyłącza – dlatego stosowany w szpitalach.',
   },
   {
     id: 'q25', category: 'Pomiary', topic: 'rcd',
@@ -345,15 +345,15 @@ export const quiz = [
   },
   {
     id: 'q36', category: 'Pomiary', topic: 'protokol',
-    question: 'Świadectwo wzorcowania miernika było przeterminowane w dniu pomiaru. Protokół jest:',
+    question: 'Kto ustala, jak często wzorcuje się miernik do pomiarów instalacji?',
     options: [
-      'Nieważny – świadectwa muszą być ważne w dniu pomiaru',
-      'Ważny, jeśli wyniki są dobre',
-      'Ważny przez 30 dni',
-      'Ważny po dopisaniu adnotacji',
+      'Właściciel miernika – np. wg zaleceń producenta',
+      'Urząd miar – co rok, z mocy prawa',
+      'Komisja kwalifikacyjna przy egzaminie',
+      'Norma PN-HD 60364-6 – co 5 lat',
     ],
     correct: 0,
-    explain: 'Najczęstszy błąd: przeterminowane wzorcowanie = protokół nieważny. Sprawdź daty przed wyjazdem.',
+    explain: 'Mierników izolacji, pętli i RCD nie obejmuje prawna kontrola metrologiczna, więc nie ma legalizacji ani ustawowego terminu. Wzorcowanie jest dobrowolne, a termin ustala użytkownik. W praktyce wzorcuje się regularnie – wyniki z miernika po terminie łatwo podważyć.',
   },
   {
     id: 'q37', category: 'Pomiary', topic: 'podstawy-prawne',

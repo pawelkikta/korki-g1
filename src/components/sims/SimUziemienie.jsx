@@ -54,7 +54,7 @@ export function SimUziemienie() {
         {/* elektrody E i C (stałe) */}
         {[
           { x: 110, name: 'E', desc: 'badana' },
-          { x: 530, name: 'C', desc: 'prądowa (20–40 m)' },
+          { x: 530, name: 'C', desc: 'prądowa (ok. 40 m)' },
         ].map((e) => (
           <g key={e.name}>
             <rect x={e.x - 4} y={110} width={8} height={70} fill="var(--c-9aa5ad)" stroke="var(--c-8a958e)" />

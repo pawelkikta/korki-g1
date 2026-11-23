@@ -167,8 +167,8 @@ export const questions = [
     id: 'r2q7', round: 2, category: 'Pomiary', topic: 'protokol',
     question: 'Jakie elementy musi zawierać protokół pomiarowy?',
     answer:
-      'Protokół musi zawierać: dane obiektu, opis lub schemat badanej instalacji, typ i numer seryjny przyrządów pomiarowych ze świadectwami wzorcowania ważnymi w dniu pomiaru, wyniki pomiarów dla każdego obwodu z jednostkami i wartościami dopuszczalnymi, ocenę zgodności z normą, datę wykonania oraz imię, nazwisko i podpis osoby wykonującej pomiary – ze świadectwem kwalifikacyjnym obejmującym zakres kontrolno-pomiarowy.',
-    keyPoints: 'Świadectwa wzorcowania + wyniki każdego obwodu + podpis osoby z zakresem kontrolno-pomiarowym.',
+      'Protokół musi zawierać: dane obiektu, opis lub schemat badanej instalacji, typ i numer seryjny przyrządów pomiarowych z datą ich ostatniego wzorcowania, wyniki pomiarów dla każdego obwodu z jednostkami i wartościami dopuszczalnymi, ocenę zgodności z normą, datę wykonania oraz imię, nazwisko i podpis osoby wykonującej pomiary – ze świadectwem kwalifikacyjnym obejmującym zakres kontrolno-pomiarowy.',
+    keyPoints: 'Przyrządy z datą wzorcowania + wyniki każdego obwodu + podpis osoby z zakresem kontrolno-pomiarowym.',
     sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
@@ -422,7 +422,7 @@ export const questions = [
     id: 'r4q9', round: 4, category: 'Pomiary', topic: 'rcd',
     question: 'Jakie rodzaje wyłączników RCD stosuje się w instalacjach i czym się różnią?',
     answer:
-      'Typ AC: reaguje wyłącznie na sinusoidalny prąd AC – najprostszy, ale dziś wypierany (w nowej instalacji wymaga się minimum typu A). Typ A: reaguje na AC i pulsujący DC – dziś podstawowy domowy, do obwodów z elektroniką. Typ F: jak A, plus prądy o mieszanej częstotliwości i większa odporność na udary – urządzenia z falownikiem jednofazowym (pralki, pompy ciepła, klimatyzatory). Typ B: reaguje na wszystkie rodzaje prądów, też gładki DC – falowniki trójfazowe, napędy, PV; przy ładowaniu EV stosuje się typ B albo typ A z detekcją DC 6 mA.',
+      'Typ AC: reaguje wyłącznie na sinusoidalny prąd AC – najprostszy, ale dziś wypierany (w nowej instalacji producenci zalecają co najmniej typ A). Typ A: reaguje na AC i pulsujący DC – dziś podstawowy domowy, do obwodów z elektroniką. Typ F: jak A, plus prądy o mieszanej częstotliwości i większa odporność na udary – urządzenia z falownikiem jednofazowym (pralki, pompy ciepła, klimatyzatory). Typ B: reaguje na wszystkie rodzaje prądów, też gładki DC – falowniki trójfazowe, napędy, PV; przy ładowaniu EV stosuje się typ B albo typ A z detekcją DC 6 mA.',
     keyPoints: 'Dziś minimum to typ A (AC – wypierany). A = elektronika. F = falowniki 1-fazowe. B = gładki DC: napędy, PV, EV. Typ AC nie zadziała przy prądzie pulsującym DC.',
     sources: [{ act: 'pn-en-61008-1' }, { act: 'pn-en-62423' }, { act: 'pn-hd-60364-7-722' }],
   },
@@ -464,7 +464,7 @@ export const questions = [
     id: 'r4q14', round: 4, category: 'Pomiary', topic: 'protokol',
     question: 'Jakie pomiary są obowiązkowe przy odbiorze nowej instalacji elektrycznej wg PN-HD 60364-6?',
     answer:
-      'Norma podaje zalecaną kolejność: 1) Oględziny, 2) Pomiar ciągłości przewodów ochronnych PE, 3) Pomiar rezystancji izolacji, 4) Ochrona przez separację / SELV / PELV (jeśli zastosowana), 5) Samoczynne wyłączenie zasilania – impedancja pętli zwarcia, 6) Sprawdzenie działania RCD, 7) Sprawdzenie kolejności faz (instalacje 3-fazowe) i próby funkcjonalne.',
+      'Norma podaje zalecaną kolejność: 1) Oględziny, 2) Pomiar ciągłości przewodów ochronnych PE, 3) Pomiar rezystancji izolacji, 4) Ochrona przez separację / SELV / PELV (jeśli zastosowana), 5) Samoczynne wyłączenie zasilania – impedancja pętli zwarcia, 6) Sprawdzenie działania RCD, 7) Sprawdzenie biegunowości (łączniki jednobiegunowe tylko w przewodzie fazowym), kolejności faz (instalacje 3-fazowe) i próby funkcjonalne.',
     keyPoints: 'Oględziny → ciągłość PE → izolacja → impedancja pętli → RCD. Pięć kroków w kolejności.',
     sources: [{ act: 'pn-hd-60364-6' }],
   },

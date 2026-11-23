@@ -9,7 +9,7 @@ const TESTS = [
 ]
 
 const TYPES = [
-  { id: 'AC', reactsToPulsedDC: false, desc: 'reaguje tylko na sinusoidalny prąd AC; najprostszy, ale DZIŚ WYPIERANY – w nowej instalacji minimum to typ A' },
+  { id: 'AC', reactsToPulsedDC: false, desc: 'reaguje tylko na sinusoidalny prąd AC; najprostszy, ale DZIŚ WYPIERANY – producenci zalecają w nowej instalacji co najmniej typ A' },
   { id: 'A', reactsToPulsedDC: true, desc: 'AC + pulsujący DC – obwody z elektroniką (zasilacze, AGD, LED); przy falowniku 1-fazowym lepiej typ F' },
   { id: 'B', reactsToPulsedDC: true, desc: 'wszystkie rodzaje prądu, też gładki DC – falowniki 3-fazowe, PV, ładowanie EV (albo typ A + detekcja DC 6 mA)' },
 ]

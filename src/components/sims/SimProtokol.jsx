@@ -81,7 +81,7 @@ function OrderGame() {
 const PROTOCOL_ITEMS = [
   { id: 'obiekt', label: 'Dane identyfikacyjne obiektu (adres, właściciel)', required: true },
   { id: 'schemat', label: 'Schemat lub opis badanej instalacji', required: true },
-  { id: 'przyrzady', label: 'Wykaz przyrządów z ważnymi świadectwami wzorcowania', required: true },
+  { id: 'przyrzady', label: 'Wykaz przyrządów z datą ostatniego wzorcowania', required: true },
   { id: 'wyniki', label: 'Wyniki pomiarów każdego obwodu z jednostkami', required: true },
   { id: 'ocena', label: 'Ocena wyników (zgodne / niezgodne z normą)', required: true },
   { id: 'data', label: 'Data wykonania pomiaru', required: true },
@@ -129,13 +129,13 @@ function ProtocolGame() {
             </NoteBox>
           ) : (
             <NoteBox type="remember" title="Protokół kompletny ✓">
-              Komplet: dane obiektu, schemat, przyrządy ze świadectwami wzorcowania, wyniki, ocena, data i podpis osoby z zakresem kontrolno-pomiarowym.
-              Pamiętaj: świadectwa wzorcowania muszą być ważne W DNIU pomiaru.
+              Komplet: dane obiektu, schemat, przyrządy z datą wzorcowania, wyniki, ocena, data i podpis osoby z zakresem kontrolno-pomiarowym.
+              Pamiętaj: miernik powinien być w terminie wzorcowania, który ustala jego właściciel – inaczej wyniki łatwo podważyć.
             </NoteBox>
           )
         ) : (
           <NoteBox type="mistake" title={`Protokół niekompletny – brakuje ${verdict.missing.length} element(ów)`}>
-            Brak: {verdict.missing.map((m) => m.label.toLowerCase()).join('; ')}. Bez któregokolwiek z 7 elementów protokół zostanie zakwestionowany – pomiary do powtórki.
+            Brak: {verdict.missing.map((m) => m.label.toLowerCase()).join('; ')}. Bez któregokolwiek z 7 elementów protokół łatwo zakwestionować.
           </NoteBox>
         )
       ) : null}
