@@ -145,7 +145,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Kto wydaje świadectwa kwalifikacyjne?', a: 'Komisje kwalifikacyjne działające na podstawie Prawa energetycznego – m.in. przy SEP, ale też przy innych organizacjach. „Uprawnienia SEP" to skrót myślowy.' },
-      { q: 'Co grozi, gdy pracujesz z nieważnym świadectwem?', a: 'To praca bez wymaganych kwalifikacji – pracodawca odpowiada za dopuszczenie do niej, a w razie wypadku obaj ponoszą odpowiedzialność, także karną i cywilną.' },
+      { q: 'Co grozi, gdy pracujesz z nieważnym świadectwem?', a: 'To praca bez wymaganych kwalifikacji – pracodawca odpowiada za dopuszczenie do niej, a w razie wypadku obaj mogą ponieść odpowiedzialność, także karną i cywilną.' },
     ],
   },
 
@@ -460,7 +460,7 @@ export const coach = {
       'Egzamin planuje się z wyprzedzeniem',
     ],
     followUps: [
-      { q: 'Kto odpowiada za to, że pracownik pracuje z nieważnym świadectwem?', a: 'Pracodawca – nie może dopuścić do prac osoby bez wymaganych kwalifikacji. Pracownik też łamie przepisy – w razie wypadku odpowiadają obaj.' },
+      { q: 'Kto odpowiada za to, że pracownik pracuje z nieważnym świadectwem?', a: 'Pracodawca – nie może dopuścić do prac osoby bez wymaganych kwalifikacji. Pracownik też łamie przepisy – w razie wypadku odpowiadać mogą obaj.' },
       { q: 'Czy bez ważnego świadectwa możesz pomagać przy pracach?', a: 'Tylko jak osoba bez kwalifikacji – przy pracach pomocniczych z wykazu pracodawcy, pod nadzorem na zasadach, które on określa. Samodzielnych prac eksploatacyjnych – nie.' },
     ],
   },
@@ -504,7 +504,7 @@ export const coach = {
   },
   r4q3: {
     checklist: [
-      'Tak – bezwzględnie',
+      'Tak – odbiorniki i SPD odłączone przed pomiarem',
       '500 V DC niszczy elektronikę',
       'Odłączyć też SPD – warystory zaniżą wynik',
       'Łączniki w obwodzie załączone, żeby zmierzyć cały obwód',
@@ -601,7 +601,7 @@ export const coach = {
   r4q11: {
     checklist: [
       'Nie zastępuje',
-      'TEST sprawdza tylko mechanizm wyzwalający',
+      'TEST sprawdza tylko, czy sam RCD zadziała (sztuczny prąd różnicowy)',
       'Nie mierzy czasu ani prądu zadziałania i nie sprawdza PE',
       'Do protokołu odbiorczego – pomiar miernikiem RCD',
     ],

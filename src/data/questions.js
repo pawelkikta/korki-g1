@@ -50,7 +50,7 @@ export const questions = [
     id: 'r1q5', round: 1, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Na kim spoczywa obowiązek wyposażenia stanowisk pracy w instrukcje eksploatacyjne?',
     answer:
-      'Na pracodawcy albo osobie, która kieruje pracownikami. Pracodawca musi opracować instrukcje eksploatacji i udostępnić je na każdym stanowisku pracy przy urządzeniach elektrycznych.',
+      'Na pracodawcy. Rozporządzenie BHP (§ 4) mówi, że instrukcję eksploatacji opracowuje pracodawca i on też zapewnia jej bieżącą aktualizację. Pracodawca musi też udostępnić instrukcje pracownikom na stanowiskach pracy przy urządzeniach elektrycznych.',
     keyPoints: 'Pracodawca – nie pracownik, nie SEP.',
     sources: [{ act: 'bhp', at: '§ 4' }, { act: 'kp', at: 'art. 237⁴ § 2' }],
   },
@@ -183,7 +183,7 @@ export const questions = [
     id: 'r2q9', round: 2, category: 'Eksploatacja', topic: 'klasy',
     question: 'Co oznacza oznaczenie IP (np. IP44) na urządzeniu elektrycznym?',
     answer:
-      'IP (Ingress Protection) to stopień ochrony, jaki daje obudowa. Pierwsza cyfra (0–6) to ochrona przed ciałami stałymi i pyłem, np. 4 – przed cząstkami większymi niż 1 mm. Druga cyfra (0–9) to ochrona przed wodą, np. 4 – przed bryzgami z każdego kierunku. IP44 to typowe minimum dla urządzeń na zewnątrz i w pomieszczeniach wilgotnych.',
+      'IP (International Protection – tak nazywa to norma; potocznie Ingress Protection) to stopień ochrony, jaki daje obudowa. Pierwsza cyfra (0–6) to ochrona przed ciałami stałymi i pyłem, np. 4 – przed cząstkami większymi niż 1 mm. Druga cyfra (0–9) to ochrona przed wodą, np. 4 – przed bryzgami z każdego kierunku. IP44 to typowe minimum dla urządzeń na zewnątrz i w pomieszczeniach wilgotnych.',
     keyPoints: '1. cyfra = pył, 2. cyfra = woda. IP44 = minimum zewnętrze. IP67 = zanurzenie do 1 m.',
     sources: [{ act: 'pn-en-60529' }],
   },
@@ -191,8 +191,8 @@ export const questions = [
     id: 'r2q10', round: 2, category: 'Eksploatacja', topic: 'organizacja-pracy',
     question: 'Jakie są obowiązki elektryka bezpośrednio przed przystąpieniem do pracy przy urządzeniu wyłączonym spod napięcia?',
     answer:
-      'Elektryk musi: 1) sprawdzić, czy ma ważne świadectwo kwalifikacyjne, 2) upewnić się, że ma polecenie wykonania pracy, 3) osobiście sprawdzić brak napięcia wskaźnikiem – nigdy nie zakładać, że napięcie jest wyłączone, 4) sprawdzić, czy założono uziemiacze i wywieszono tablice ostrzegawcze. Dopiero wtedy może zacząć pracę.',
-    keyPoints: 'Zawsze sprawdź napięcie wskaźnikiem osobiście. „Założył, że jest wyłączone" = najczęstsza przyczyna wypadków.',
+      'Elektryk musi: 1) sprawdzić, czy ma ważne świadectwo kwalifikacyjne, 2) jeśli praca tego wymaga – mieć polecenie pisemne i zostać dopuszczonym do pracy, 3) osobiście sprawdzić brak napięcia wskaźnikiem – nigdy nie zakładać, że napięcie jest wyłączone, 4) sprawdzić, czy wywieszono tablice ostrzegawcze i czy założono uziemiacze, jeśli są wymagane. Dopiero wtedy może zacząć pracę.',
+    keyPoints: 'Zawsze sprawdź napięcie wskaźnikiem osobiście. „Założył, że jest wyłączone" = typowa przyczyna wypadków.',
     sources: [{ act: 'bhp', at: '§ 24 i § 25' }, { act: 'pn-en-50110-1' }],
   },
   {
@@ -334,7 +334,7 @@ export const questions = [
     id: 'r3q12', round: 3, category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Świadectwo kwalifikacyjne SEP wygasło tydzień temu. Czy można pracować do końca miesiąca?',
     answer:
-      'Nie. Po upływie daty ważności świadectwo traci moc prawną natychmiast – nie ma okresu karencji. Praca bez ważnego świadectwa to naruszenie przepisów: pracodawcy grozi kara za dopuszczenie do pracy osoby bez wymaganych kwalifikacji, a w razie wypadku obaj odpowiadają także karnie i cywilnie.',
+      'Nie. Po upływie daty ważności świadectwo traci moc prawną natychmiast – nie ma okresu karencji. Praca bez ważnego świadectwa to naruszenie przepisów: pracodawcy grozi kara za dopuszczenie do pracy osoby bez wymaganych kwalifikacji, a w razie wypadku obaj mogą odpowiadać także karnie i cywilnie.',
     keyPoints: 'Natychmiastowa utrata ważności. Brak okresu karencji.',
     sources: [{ act: 'pe', at: 'art. 54 ust. 1, 1aa i 2 oraz art. 56 ust. 1 pkt 9' }, { act: 'kp', at: 'art. 237³ § 1 i art. 283 § 1' }],
     trap: 'Tydzień to nic – „prawie ważne".',
@@ -372,8 +372,8 @@ export const questions = [
     id: 'r4q3', round: 4, category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Czy przed pomiarem rezystancji izolacji należy odłączyć urządzenia końcowe (np. komputery)? Dlaczego?',
     answer:
-      'Tak – bezwzględnie. Megaomomierz przykłada 500 V DC, a takie napięcie może trwale uszkodzić elektronikę: komputery, zasilacze, sterowniki, falowniki. Przed pomiarem odłączamy wszystkie urządzenia, wyjmujemy żarówki i odłączamy ograniczniki przepięć (SPD). Łączniki w obwodzie ustawiamy w pozycji załączonej, żeby pomiar objął cały obwód.',
-    keyPoints: '500 V DC niszczy elektronikę. Odłącz wszystko przed pomiarem – to obowiązek, nie opcja.',
+      'Tak. Megaomomierz przykłada 500 V DC, a takie napięcie może trwale uszkodzić elektronikę: komputery, zasilacze, sterowniki, falowniki. Przed pomiarem odłączamy wszystkie urządzenia, wyjmujemy żarówki i odłączamy ograniczniki przepięć (SPD) – ich warystory zaniżyłyby wynik. Gdy SPD nie da się odłączyć (np. gniazdo z wbudowanym SPD), norma pozwala zmierzyć ten obwód napięciem 250 V DC – wynik nadal musi wynosić co najmniej 1 MΩ. Łączniki w obwodzie ustawiamy w pozycji załączonej, żeby pomiar objął cały obwód.',
+    keyPoints: '500 V DC niszczy elektronikę. Odbiorniki i SPD odłączasz przed pomiarem. Gdy SPD nie da się odłączyć: 250 V DC, nadal ≥ 1 MΩ.',
     sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
@@ -438,8 +438,8 @@ export const questions = [
     id: 'r4q11', round: 4, category: 'Pomiary', topic: 'rcd',
     question: 'Czy przycisk TEST na RCD zastępuje pomiar miernikiem RCD?',
     answer:
-      'Nie. Przycisk TEST sprawdza wyłącznie mechanizm wyzwalający – czy RCD w ogóle zadziała. Nie mierzy czasu zadziałania ani dokładnego prądu zadziałania. Do odbioru instalacji i protokołu pomiarowego wymagany jest pomiar miernikiem RCD z udokumentowanymi wynikami.',
-    keyPoints: 'TEST = sprawdzenie mechaniczne, wystarczy do eksploatacji co miesiąc. Miernik RCD = wymagany do protokołu odbiorczego.',
+      'Nie. Przycisk TEST przepuszcza przez wyłącznik sztuczny prąd różnicowy i sprawdza tylko, czy sam RCD w ogóle zadziała. Nie mierzy czasu zadziałania ani dokładnego prądu zadziałania i nie sprawdza przewodu PE w instalacji. Do odbioru instalacji i protokołu pomiarowego wymagany jest pomiar miernikiem RCD z udokumentowanymi wynikami.',
+    keyPoints: 'TEST = czy RCD w ogóle zadziała; użytkownik naciska go okresowo (zwykle co miesiąc). Miernik RCD = wymagany do protokołu odbiorczego.',
     sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 6' }],
     trap: 'Przycisk TEST wystarczy, przecież działa.',
     wrongAnswer: '„TEST wystarczy." Na odbiór instalacji – nie wystarczy.',
@@ -464,8 +464,8 @@ export const questions = [
     id: 'r4q14', round: 4, category: 'Pomiary', topic: 'protokol',
     question: 'Jakie pomiary są obowiązkowe przy odbiorze nowej instalacji elektrycznej wg PN-HD 60364-6?',
     answer:
-      'Norma podaje zalecaną kolejność: 1) Oględziny, 2) Pomiar ciągłości przewodów ochronnych PE, 3) Pomiar rezystancji izolacji, 4) Ochrona przez separację / SELV / PELV (jeśli zastosowana), 5) Samoczynne wyłączenie zasilania – impedancja pętli zwarcia, 6) Sprawdzenie działania RCD, 7) Sprawdzenie biegunowości (łączniki jednobiegunowe tylko w przewodzie fazowym), kolejności faz (instalacje 3-fazowe) i próby funkcjonalne.',
-    keyPoints: 'Oględziny → ciągłość PE → izolacja → impedancja pętli → RCD. Pięć kroków w kolejności.',
+      'Norma podaje zalecaną kolejność: 1) Oględziny, 2) Pomiar ciągłości przewodów ochronnych PE, 3) Pomiar rezystancji izolacji, 4) Ochrona przez separację / SELV / PELV (jeśli zastosowana; przy izolowaniu stanowiska – rezystancja podłóg i ścian), 5) Samoczynne wyłączenie zasilania – w TN impedancja pętli zwarcia, w TT rezystancja uziemienia, 6) Sprawdzenie działania RCD, 7) Sprawdzenie biegunowości (łączniki jednobiegunowe tylko w przewodzie fazowym), kolejności faz (instalacje 3-fazowe) i próby funkcjonalne.',
+    keyPoints: 'Na egzaminie wystarczy: oględziny → ciągłość PE → izolacja → impedancja pętli → RCD. Pięć kroków w kolejności.',
     sources: [{ act: 'pn-hd-60364-6' }],
   },
   {
@@ -483,7 +483,7 @@ export const questions = [
       'Tak – bezwzględnie. Art. 62 Prawa budowlanego wymaga kontroli instalacji elektrycznej co najmniej raz na 5 lat, niezależnie od tego, czy instalacja „działa". Osiem lat bez kontroli to naruszenie prawa. Izolacja starzeje się niewidocznie – jej rzeczywisty stan pokazuje dopiero pomiar.',
     keyPoints: '5 lat = obowiązek ustawowy, nie opcja. Za jego niedopełnienie właścicielowi grozi grzywna – bez względu na stan instalacji.',
     sources: [{ act: 'pb', at: 'art. 62 ust. 1 pkt 2 i art. 93 pkt 8' }],
-    trap: 'Instalacja działa – po co sprawdzać? Bo wypadki przy „działających" instalacjach zdarzają się najczęściej.',
+    trap: 'Instalacja działa – po co sprawdzać? Bo izolacja i połączenia psują się bez widocznych objawów – usterkę pokazuje dopiero pomiar.',
     wrongAnswer: '„Działa dobrze, nie trzeba." – degradacja izolacji jest niewidoczna gołym okiem.',
   },
 ]
