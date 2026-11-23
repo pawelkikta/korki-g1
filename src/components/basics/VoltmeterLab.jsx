@@ -31,7 +31,7 @@ function measure(a, b) {
     return {
       volts: 400,
       title: `${A.label} – ${B.label}: napięcie międzyfazowe 400 V`,
-      text: 'Dwie różne fazy. Nie 460 V (2 × 230), bo napięcia są przesunięte w czasie o 120° – dodają się „po skosie": 230 × √3 ≈ 400 V. Na tym napięciu pracuje kuchenka, przepływowy podgrzewacz i silniki 3-fazowe.',
+      text: 'Dwie różne fazy. Nie 460 V (2 × 230), bo napięcia są przesunięte w czasie o 120° – dodają się „po skosie": 230 × √3 ≈ 400 V. Na tym napięciu pracują silniki 3-fazowe i niektóre grzałki (np. w przepływowym podgrzewaczu). Kuchenka 3-fazowa zwykle tylko rozkłada strefy grzejne na fazy – każda pracuje na 230 V (faza–N).',
       type: 'warning',
     }
   }

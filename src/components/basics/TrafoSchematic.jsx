@@ -39,7 +39,7 @@ const PARTS = {
   },
   phases: {
     label: 'Fazy L1, L2, L3',
-    text: 'Wolne końce trzech uzwojeń. Między **fazą a N: 230 V**. Między **dwiema fazami: 400 V** – nie 460, bo napięcia są przesunięte w czasie o 120°: 230 × √3 ≈ 400 V. Do mieszkania idzie zwykle **jedna faza + N**, do domu z kuchenką – wszystkie trzy.',
+    text: 'Wolne końce trzech uzwojeń. Między **fazą a N: 230 V**. Między **dwiema fazami: 400 V** – nie 460, bo napięcia są przesunięte w czasie o 120°: 230 × √3 ≈ 400 V. Do mieszkania idzie **jedna faza + N** albo – coraz częściej, np. pod płytę indukcyjną – wszystkie trzy. Do domu jednorodzinnego zwykle trzy.',
   },
   pen: {
     label: 'Przewód PEN (od stacji do budynku)',
@@ -47,11 +47,11 @@ const PARTS = {
   },
   split: {
     label: 'Rozdział PEN → N + PE',
-    text: 'W złączu albo w rozdzielnicy głównej budynku PEN **rozdziela się na osobne N i PE** (od tego miejsca układ **TN-S**) i punkt rozdziału **dodatkowo się uziemia**. Całość to **TN-C-S** – dzisiejszy standard. Po rozdzieleniu N i PE **nigdy się już nie łączą**.',
+    text: 'W złączu albo w rozdzielnicy głównej budynku PEN **rozdziela się na osobne N i PE** (od tego miejsca układ **TN-S**). Punkt rozdziału zwykle się **dodatkowo uziemia** – norma zaleca uziemiać PEN i PE tam, gdzie wchodzą do budynku. Całość to **TN-C-S** – dzisiejszy standard. Po rozdzieleniu N i PE **nigdy się już nie łączą**.',
   },
   pe: {
     label: 'Przewód ochronny PE',
-    text: 'Żółto-zielony, w normalnej pracy **nie płynie nim prąd**. Idzie do bolca w gnieździe i do metalowych obudów urządzeń klasy I. Jego jedyne zadanie: przy awarii dać prądowi **drogę powrotną o niskiej rezystancji**, żeby zabezpieczenie natychmiast wyłączyło obwód.',
+    text: 'Żółto-zielony, w normalnej pracy **nie płynie nim prąd roboczy** – najwyżej drobne prądy upływu (np. z filtrów w zasilaczach). Idzie do bolca w gnieździe i do metalowych obudów urządzeń klasy I. Jego główne zadanie: przy awarii dać prądowi **drogę powrotną o niskiej rezystancji**, żeby zabezpieczenie natychmiast wyłączyło obwód.',
   },
   socket: {
     label: 'Gniazdo 230 V',
@@ -64,7 +64,7 @@ const STEPS = [
   {
     part: 'primary',
     title: 'Krok 1 – do stacji przychodzi 15 000 V',
-    text: 'Prąd w twoim mieszkaniu nie „bierze się z gniazdka". Płynie z elektrowni linią wysokiego napięcia, a do twojego osiedla dociera linią **średniego napięcia 15 kV** – do szarego budyneczku albo transformatora na słupie. Tak wysokie napięcie dlatego, że przy wysokim napięciu prąd jest mały i **mniej energii ginie po drodze** na grzaniu przewodów.',
+    text: 'Prąd w twoim mieszkaniu nie „bierze się z gniazdka". Płynie z elektrowni linią wysokiego napięcia, a do twojego osiedla dociera linią **średniego napięcia** – zwykle **15 kV**, w części kraju 20 kV – do szarego budyneczku albo transformatora na słupie. Tak wysokie napięcie dlatego, że przy wysokim napięciu prąd jest mały i **mniej energii ginie po drodze** na grzaniu przewodów.',
   },
   {
     part: 'core',
@@ -99,7 +99,7 @@ const STEPS = [
   {
     part: 'split',
     title: 'Krok 8 – w budynku PEN dzieli się na N i PE',
-    text: 'W złączu albo w rozdzielnicy głównej budynku PEN **rozgałęzia się na dwa osobne przewody: N i PE**, a punkt rozdziału dodatkowo się uziemia. Od tego miejsca dalej – już nigdy ich nie łączymy. Ten układ nazywa się **TN-C-S** i tak wygląda dziś praktycznie każdy polski dom.',
+    text: 'W złączu albo w rozdzielnicy głównej budynku PEN **rozgałęzia się na dwa osobne przewody: N i PE**, a punkt rozdziału zwykle dodatkowo się uziemia. Od tego miejsca dalej – już nigdy ich nie łączymy. Ten układ nazywa się **TN-C-S** i to dziś standard w nowych i modernizowanych instalacjach. W starszych budynkach wciąż spotkasz dwuprzewodowy **TN-C** – bez osobnego PE.',
   },
   {
     part: 'socket',

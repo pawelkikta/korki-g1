@@ -28,7 +28,7 @@ const NODES = {
     label: 'Złącze kablowe + rozdział PEN',
     where: 'Szafka na ścianie budynku lub w ogrodzeniu (te z plombą i bezpiecznikami mocy NH).',
     wires: 'Wchodzi PEN → wychodzą osobno N i PE',
-    text: 'Tu kończy się układ TN-C i zaczyna TN-S. **PEN rozgałęzia się na N i PE**, a punkt rozdziału jest dodatkowo uziemiony uziomem budynku. Od tego miejsca **N i PE już nigdy się nie łączą**. Tu też siedzą bezpieczniki przedlicznikowe (wkładki NH).\n\n**Złącze należy do operatora sieci i jest plombowane** – elektryk z G1 pkt 2 nie otwiera go ani nie wymienia tam wkładek bez zgody operatora.\n\nRozdział PEN bywa zrobiony w złączu albo dopiero w **rozdzielnicy głównej budynku** – zasada jest identyczna. Na schemacie w bloku 1 widzisz ten drugi wariant.',
+    text: 'Tu kończy się układ TN-C i zaczyna TN-S. **PEN rozgałęzia się na N i PE**, a punkt rozdziału zwykle uziemia się dodatkowo uziomem budynku (norma to zaleca). Od tego miejsca **N i PE już nigdy się nie łączą**. Tu też siedzą bezpieczniki przedlicznikowe (wkładki NH).\n\n**Złącze należy do operatora sieci i jest plombowane** – elektryk z G1 pkt 2 nie otwiera go ani nie wymienia tam wkładek bez zgody operatora.\n\nRozdział PEN bywa zrobiony w złączu albo dopiero w **rozdzielnicy głównej budynku** – zasada jest identyczna. Na schemacie w bloku 1 widzisz ten drugi wariant.',
   },
   licznik: {
     label: 'Licznik energii',

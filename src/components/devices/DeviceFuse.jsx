@@ -115,7 +115,7 @@ export function DeviceFuse() {
 
       <div className="grid grid-cols-3 gap-2">
         <ValueTile value="gG" label="charakterystyka ogólnego przeznaczenia (kable, instalacje)" />
-        <ValueTile value="aM" label="charakterystyka do silników – toleruje prąd rozruchu" />
+        <ValueTile value="aM" label="silniki: tylko od zwarć (przeciążenie – przekaźnik termiczny)" />
         <ValueTile value="1 raz" label="wkładka jest jednorazowa – po zadziałaniu wymiana" />
       </div>
       <NoteBox type="remember" title="Wkładka gG 16 A a wyłącznik B16 – nie są zamienne przy ochronie">
