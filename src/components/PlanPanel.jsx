@@ -4,6 +4,7 @@ import { readProgress, learningPath } from '../lib/progress.js'
 import { plural } from '../lib/plural.js'
 import { PageHeader, NoteBox, ProgressBar, Button } from './ui.jsx'
 import { ProgressTransfer } from './ProgressTransfer.jsx'
+import { Sources } from './Sources.jsx'
 
 // Ekran „Plan” – odpowiada na dwa pytania: co teraz zrobić i czy jestem gotowy do egzaminu.
 // Liczby czyta z localStorage przy każdym renderze; App renderuje go ponownie po zapisie postępu.
@@ -132,8 +133,10 @@ export function PlanPanel({ navigate }) {
       </div>
 
       <NoteBox type="remember" title="Strategia na egzamin">
-        Komisja ocenia rozumienie, nie numerację norm. Wystarczy „zgodnie z normą instalacji elektrycznych PN-HD 60364".
-        Ale liczby ze ściągi (1 MΩ, 500 V DC, 200 mA, 30 mA, 0,4 s...) musisz znać na pamięć – przy zakresie kontrolno-pomiarowym pytają szczegółowo.
+        Zakres tematów egzaminu ustala przewodniczący komisji. Podaje go razem z terminem, co najmniej 14 dni przed egzaminem – ucz się według niego.
+        Komisja ocenia rozumienie: nie musisz cytować numerów arkuszy i punktów normy, wystarczy „zgodnie z normą instalacji elektrycznych <span className="whitespace-nowrap">PN-HD 60364</span>”.
+        Liczby ze ściągi (1 MΩ, 500 V DC, 200 mA, 30 mA, 0,4 s...) musisz jednak znać na pamięć, zwłaszcza gdy zdajesz z zakresem kontrolno-pomiarowym.
+        <Sources items={[{ act: 'kwal', at: '§ 10' }]} />
       </NoteBox>
 
       <ProgressTransfer />
