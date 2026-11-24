@@ -10,6 +10,7 @@ import { ReportLink } from './ReportLink.jsx'
 import { Sources } from './Sources.jsx'
 
 const EXAM_SIZE = 10
+const PASS_SCORE = 8 // próg tej apki; prawdziwy egzamin nie ma punktów (§ 11 rozporządzenia o kwalifikacjach)
 
 
 function shuffle(arr) {
@@ -103,15 +104,15 @@ export function ExamPanel() {
         <PageHeader
           eyebrow="Sprawdź · symulacja komisji"
           title="Egzamin próbny"
-          lead={`${EXAM_SIZE} pytań ze wszystkich obszarów (BHP, dozór, pomiary, eksploatacja) – częściej te, których jeszcze nie opanowałeś. Odpowiadasz na głos, zaznaczasz, które kluczowe elementy padły, a potem komisja dopytuje. Pytanie jest zaliczone tylko wtedy, gdy padły wszystkie elementy i obroniłeś się przy dopytaniu.`}
+          lead={`${EXAM_SIZE} pytań ze wszystkich obszarów (BHP i pierwsza pomoc, dozór, pomiary, eksploatacja) – częściej te, których jeszcze nie opanowałeś. Odpowiadasz na głos, zaznaczasz, które kluczowe elementy padły, a potem komisja dopytuje. Pytanie jest zaliczone tylko wtedy, gdy padły wszystkie elementy i obroniłeś się przy dopytaniu.`}
           meta={history.length ? `ostatnio ${history[history.length - 1].score}/${history[history.length - 1].total}` : 'brak podejść'}
         />
 
         <section className="sheet relative z-[1] px-5 py-5 md:px-7 md:py-6">
           {done ? (
             <div className="mb-5 space-y-4">
-              <NoteBox type={score >= 8 ? 'ok' : 'mistake'} title={`Wynik: ${score}/${exam.length}`}>
-                {score >= 8
+              <NoteBox type={score >= PASS_SCORE ? 'ok' : 'mistake'} title={`Wynik: ${score}/${exam.length}`}>
+                {score >= PASS_SCORE
                   ? 'Tak trzymaj. Na prawdziwym egzaminie komisja oczekuje pewnych, pełnych odpowiedzi i spokoju przy dopytaniach.'
                   : 'Pytania niezaliczone trafiły do fiszek z oznaczeniem „do powtórki". Przejdź je, a potem podejdź do egzaminu jeszcze raz.'}
               </NoteBox>
@@ -147,6 +148,11 @@ export function ExamPanel() {
               </div>
             ) : null}
           </div>
+          <p className="mt-4 max-w-[68ch] text-[14px] leading-[1.55] text-ink-2">
+            Apka zalicza egzamin próbny od {PASS_SCORE}/{EXAM_SIZE}. Prawdziwy egzamin nie ma punktów: zdajesz go ustnie przed co najmniej
+            trzema osobami z komisji, a one ustalają wynik „pozytywny” albo „negatywny” większością głosów.
+          </p>
+          <Sources items={[{ act: 'kwal', at: '§ 9–11' }]} />
         </section>
       </div>
     )
