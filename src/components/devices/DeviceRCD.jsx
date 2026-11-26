@@ -109,7 +109,7 @@ export function DeviceRCD() {
     if (leak < 15) {
       setVerdict({ type: 'remember', title: `IΔ = ${leak} mA – RCD nie zadziała (i słusznie)`, text: 'Poniżej 0,5×IΔn (15 mA) wyłącznik MA nie działać – inaczej wyłączałby się od naturalnych upływów instalacji (filtry przeciwzakłóceniowe, wilgoć).' })
     } else if (leak < 21) {
-      setVerdict({ type: 'warning', title: `IΔ = ${leak} mA – strefa „może zadziałać"`, text: 'Norma: RCD musi zadziałać między 0,5×IΔn a 1×IΔn (15–30 mA). Ten egzemplarz jeszcze trzyma – ale inny mógłby już wyłączyć. Przy pomiarze miernikiem zapisujesz rzeczywisty prąd zadziałania.' })
+      setVerdict({ type: 'warning', title: `IΔ = ${leak} mA – strefa „może zadziałać”`, text: 'Norma: RCD musi zadziałać między 0,5×IΔn a 1×IΔn (15–30 mA). Ten egzemplarz jeszcze trzyma – ale inny mógłby już wyłączyć. Przy pomiarze miernikiem zapisujesz rzeczywisty prąd zadziałania.' })
     } else {
       // czasy jak u sprawnego wyłącznika w praktyce (limity normy: 300 ms przy 1×IΔn, 40 ms przy 5×IΔn)
       const timeMs = leak >= 150 ? 8 + Math.round(Math.random() * 8) : 18 + Math.round(Math.random() * 20)
@@ -177,7 +177,7 @@ export function DeviceRCD() {
       <NoteBox type="remember" title="Sedno działania">
         W zdrowym obwodzie prąd L = prąd N, pola magnetyczne w przekładniku się znoszą i nic się nie dzieje. Gdy część prądu ucieka
         (przez ciało, uszkodzoną izolację) – równowaga znika, w uzwojeniu wtórnym indukuje się napięcie i przekaźnik otwiera styki.
-        RCD nie „przycina" prądu do 30 mA – 30 mA to tylko próg czułości. Chroni, bo wyłącza w ułamku sekundy.
+        RCD nie „przycina” prądu do 30 mA – 30 mA to tylko próg czułości. Chroni, bo wyłącza w ułamku sekundy.
       </NoteBox>
     </div>
   )

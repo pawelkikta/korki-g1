@@ -44,7 +44,7 @@ export const quiz = [
     question: 'Granica strefy prac w pobliżu napięcia (DV) dla urządzeń do 1 kV to:',
     options: ['0,3 m', '0,5 m', '1,5 m', '3 m'],
     correct: 0,
-    explain: 'Rozporządzenie BHP (2019): do 1 kV DL = „bez dotyku", DV = 0,3 m. „0,5 m" to zapis ze starych materiałów.',
+    explain: 'Rozporządzenie BHP (2019): do 1 kV DL = „bez dotyku”, DV = 0,3 m. „0,5 m” to zapis ze starych materiałów.',
   },
   {
     id: 'q5', category: 'BHP', topic: 'organizacja-pracy',
@@ -87,7 +87,7 @@ export const quiz = [
     question: 'Jak długo ważne jest świadectwo kwalifikacyjne SEP?',
     options: ['5 lat', 'Bezterminowo', '1 rok', '10 lat'],
     correct: 0,
-    explain: '5 lat od daty wydania (art. 54 Prawa energetycznego). Po upływie – ponowny egzamin, bez karencji. Świadectwa „bezterminowe" wygasły 3.07.2026.',
+    explain: '5 lat od daty wydania (art. 54 Prawa energetycznego). Po upływie – ponowny egzamin, bez karencji. Świadectwa „bezterminowe” wygasły 3.07.2026.',
   },
   {
     id: 'q9', category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -101,7 +101,7 @@ export const quiz = [
     question: 'Minimalna dopuszczalna rezystancja izolacji dla instalacji 230/400 V wynosi:',
     options: ['1 MΩ', '0,5 MΩ', '230 kΩ (1 kΩ na wolt)', '10 MΩ'],
     correct: 0,
-    explain: 'Minimum 1 MΩ (PN-HD 60364-6). 0,5 MΩ dotyczy obwodów SELV/PELV, „1 kΩ na wolt" to dawne kryterium.',
+    explain: 'Minimum 1 MΩ (PN-HD 60364-6). 0,5 MΩ dotyczy obwodów SELV/PELV, „1 kΩ na wolt” to dawne kryterium.',
   },
   {
     id: 'q11', category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -113,7 +113,7 @@ export const quiz = [
       'Powtarzam pomiar niższym napięciem aż wynik wzrośnie',
     ],
     correct: 0,
-    explain: 'Pułapka egzaminacyjna: 0,8 MΩ brzmi jak dużo, ale próg to 1 MΩ. Nie ma „prawie dobrze".',
+    explain: 'Pułapka egzaminacyjna: 0,8 MΩ brzmi jak dużo, ale próg to 1 MΩ. Nie ma „prawie dobrze”.',
   },
   {
     id: 'q12', category: 'Pomiary', topic: 'rezystancja-izolacji',
@@ -215,7 +215,7 @@ export const quiz = [
     question: 'Obwód oświetlenia B10 w układzie TN 230 V musi zostać wyłączony przy zwarciu w czasie:',
     options: ['≤ 0,4 s – to obwód odbiorczy do 32 A', '≤ 5 s – bo to obwód stały', '≤ 60 s', 'Czas nie ma znaczenia'],
     correct: 0,
-    explain: 'Pułapka ze starej normy: dawniej „obwody stałe = 5 s". Wg PN-HD 60364-4-41 każdy obwód odbiorczy do 32 A wyłącza w 0,4 s; 5 s – obwody rozdzielcze (np. WLZ).',
+    explain: 'Pułapka ze starej normy: dawniej „obwody stałe = 5 s”. Wg PN-HD 60364-4-41 każdy obwód odbiorczy do 32 A wyłącza w 0,4 s; 5 s – obwody rozdzielcze (np. WLZ).',
   },
   {
     id: 'q23', category: 'Pomiary', topic: 'klasy',
@@ -317,7 +317,7 @@ export const quiz = [
       'Miernikiem pętli zwarcia w gnieździe – wynik Zs to RE',
     ],
     correct: 0,
-    explain: 'Zwykły omomierz ma dwa zaciski, a rezystancję uziemienia mierzy się względem odległej ziemi odniesienia – do niej nie da się go podłączyć. Metoda spadku potencjału (na kursach „Wernera"): prąd przez E-C, napięcie na P, RE = U/I.',
+    explain: 'Zwykły omomierz ma dwa zaciski, a rezystancję uziemienia mierzy się względem odległej ziemi odniesienia – do niej nie da się go podłączyć. Metoda spadku potencjału (na kursach „Wernera”): prąd przez E-C, napięcie na P, RE = U/I.',
   },
   {
     id: 'q34', category: 'Pomiary', topic: 'uziemienie',
@@ -408,7 +408,7 @@ export const quiz = [
       'Tak, jeśli potwierdzi na piśmie',
     ],
     correct: 0,
-    explain: 'Pułapka: „Nie zakładaj, zawsze sprawdź". Słowo kolegi nie jest zabezpieczeniem.',
+    explain: 'Pułapka: „Nie zakładaj, zawsze sprawdź”. Słowo kolegi nie jest zabezpieczeniem.',
   },
   {
     id: 'q42', category: 'BHP', topic: 'organizacja-pracy',
@@ -457,7 +457,7 @@ export const quiz = [
     id: 'q46', category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Instalacja ma 8 lat, działa bez zarzutu. Czy przegląd jest wymagany?',
     options: [
-      'Tak – obowiązek co 5 lat niezależnie od tego czy instalacja „działa"',
+      'Tak – obowiązek co 5 lat niezależnie od tego czy instalacja „działa”',
       'Nie – skoro działa, przegląd jest zbędny',
       'Tylko jeśli właściciel chce',
       'Dopiero po 10 latach',
@@ -467,7 +467,7 @@ export const quiz = [
   },
   {
     id: 'q47', category: 'BHP', topic: 'organizacja-pracy',
-    question: 'Elektryk z uprawnieniami E chce pracować bez polecenia, bo „sam wyłączył napięcie". Czy może?',
+    question: 'Elektryk z uprawnieniami E chce pracować bez polecenia, bo „sam wyłączył napięcie”. Czy może?',
     options: [
       'Zależy od pracy: przy szczególnym zagrożeniu – tylko na polecenie pisemne; bez polecenia wolno jedynie prace wskazane przez pracodawcę i ratowanie życia/mienia',
       'Tak – uprawnienia E wystarczą do każdej pracy',
@@ -506,7 +506,7 @@ export const quiz = [
     question: 'Osoba z samym D (bez E) może wykonywać prace fizyczne przy urządzeniach?',
     options: [
       'Nie – samo D uprawnia wyłącznie do nadzorowania prac',
-      'Tak – D to „wyższe" uprawnienia niż E',
+      'Tak – D to „wyższe” uprawnienia niż E',
       'Tak, ale tylko proste prace',
       'Tak, pod nadzorem osoby z E',
     ],

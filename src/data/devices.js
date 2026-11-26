@@ -1,7 +1,7 @@
 // Aparaty w sekcji Urządzenia. Komponenty symulacji przypisuje DevicesPanel (po id).
 export const DEVICES = [
   {
-    id: 'mcb', short: 'Nadprądowy', title: 'Wyłącznik nadprądowy (MCB, „eska")',
+    id: 'mcb', short: 'Nadprądowy', title: 'Wyłącznik nadprądowy (MCB, „eska”)',
     subtitle: 'Chroni przewody, a w układzie TN wyłącza też zwarcie na obudowę. Dwa wyzwalacze: bimetal łapie przeciążenia, cewka – zwarcia. Ustaw prąd suwakiem i zobacz, który zareaguje.',
   },
   {

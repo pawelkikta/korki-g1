@@ -3,7 +3,7 @@ import { NoteBox, ValueTile } from '../ui.jsx'
 
 // Ciągłość PE: dlaczego miernik ≥ 200 mA (PN-EN 61557-4), a nie brzęczyk multimetru.
 // Fizyka jak w realu:
-//  - brzęczyk multimetru piszczy do kilkudziesięciu Ω – „ciągłość jest" także przy luźnym zacisku (fałszywie dobry),
+//  - brzęczyk multimetru piszczy do kilkudziesięciu Ω – „ciągłość jest” także przy luźnym zacisku (fałszywie dobry),
 //  - cienka warstwa tlenku przy prądzie ~1 mA potrafi ZAWYŻYĆ i rozchwiać odczyt (fałszywie zły),
 //    a prąd 200 mA ją przebija – tak jak przebiłby ją prąd zwarciowy.
 
@@ -22,7 +22,7 @@ export function SimCiagloscPE() {
   const [state, setState] = useState('loose')
   const [highCurrent, setHighCurrent] = useState(false)
   const [zeroed, setZeroed] = useState(true)
-  const [tick, setTick] = useState(0) // „ponowny pomiar" – przy tlenku multimetr pokazuje za każdym razem co innego
+  const [tick, setTick] = useState(0) // „ponowny pomiar” – przy tlenku multimetr pokazuje za każdym razem co innego
 
   const st = STATES[state]
   const lead = zeroed ? 0 : LEAD_R
@@ -134,15 +134,15 @@ export function SimCiagloscPE() {
 
       {!highCurrent && state === 'loose' ? (
         <NoteBox type="trap" title="Brzęczyk piszczy – a połączenie jest złe">
-          Multimetr piszczy przy każdej rezystancji poniżej kilkudziesięciu omów, więc „ciągłość jest". Tymczasem {fmt(st.trueR)} Ω na krótkim obwodzie
+          Multimetr piszczy przy każdej rezystancji poniżej kilkudziesięciu omów, więc „ciągłość jest”. Tymczasem {fmt(st.trueR)} Ω na krótkim obwodzie
           to kilka razy za dużo – luźny zacisk, który przy zwarciu podniesie impedancję pętli i może się przepalić. Brzęczyk odpowiada tylko na pytanie
-          „jest przewód czy go nie ma", a nie „czy połączenie jest dobre". Przełącz na miernik ≥ 200 mA i odczytaj wartość.
+          „jest przewód czy go nie ma”, a nie „czy połączenie jest dobre”. Przełącz na miernik ≥ 200 mA i odczytaj wartość.
         </NoteBox>
       ) : !highCurrent && state === 'oxide' ? (
         <NoteBox type="warning" title="Wynik skacze i jest zawyżony – to też błąd pomiaru">
           Połączenie jest metalicznie dobre, ale cienka warstwa tlenku przy ~1 mA działa jak izolator: odczyt jest zawyżony i za każdym razem inny.
-          Mógłbyś niesłusznie „oblać" dobry obwód. Prąd ≥ 200 mA przebija taką warstwę – tak samo, jak zrobiłby to prąd zwarciowy – i pokazuje
-          rzeczywistą, stabilną wartość. Kliknij „Zmierz jeszcze raz", a potem przełącz przyrząd.
+          Mógłbyś niesłusznie „oblać” dobry obwód. Prąd ≥ 200 mA przebija taką warstwę – tak samo, jak zrobiłby to prąd zwarciowy – i pokazuje
+          rzeczywistą, stabilną wartość. Kliknij „Zmierz jeszcze raz”, a potem przełącz przyrząd.
         </NoteBox>
       ) : !highCurrent ? (
         <NoteBox type="warning" title="Wygląda dobrze – ale do protokołu się nie nadaje">
@@ -157,7 +157,7 @@ export function SimCiagloscPE() {
       ) : (
         <NoteBox type="remember" title={`${fmt(reading)} Ω – wynik stabilny i miarodajny`}>
           Przewód PE nieprzerwany od gniazda do szyny PE, wartość zgodna z długością i przekrojem przewodu. Taki wynik wpisujesz do protokołu.
-          {state === 'oxide' ? ' Zauważ: ten sam zacisk multimetrem „wyglądał" na wadliwy.' : ''}
+          {state === 'oxide' ? ' Zauważ: ten sam zacisk multimetrem „wyglądał” na wadliwy.' : ''}
         </NoteBox>
       )}
 
@@ -165,7 +165,7 @@ export function SimCiagloscPE() {
         „Mierzę miernikiem wg PN-EN 61557-4 – napięcie 4–24 V, prąd co najmniej 200 mA – po wyzerowaniu przewodów pomiarowych. Taki prąd daje
         miarodajny wynik w miliomach: przebija cienkie warstwy tlenków, a luźny zacisk widać jako konkretną wartość, a nie piśnięcie brzęczyka."
         Uwaga na <strong className="font-semibold text-[color:var(--c-14543e)]">równoległe drogi</strong> (rury, metalowe obudowy połączone z PE) – potrafią
-        „przykryć" przerwany przewód niezależnie od przyrządu.
+        „przykryć” przerwany przewód niezależnie od przyrządu.
       </NoteBox>
     </div>
   )

@@ -20,7 +20,7 @@ export const abbreviations = [
   },
   {
     id: 'tn-c', group: 'Układy sieci', abbr: 'TN-C', lang: 'fr', src: 'TN-[C]ombiné', pl: 'połączony',
-    note: 'N i PE w jednej żyle – przewodzie PEN. Stare instalacje dwużyłowe („zerowanie"). Przerwa w PEN = napięcie na obudowach.',
+    note: 'N i PE w jednej żyle – przewodzie PEN. Stare instalacje dwużyłowe („zerowanie”). Przerwa w PEN = napięcie na obudowach.',
   },
   {
     id: 'tn-s', group: 'Układy sieci', abbr: 'TN-S', lang: 'fr', src: 'TN-[S]éparé', pl: 'oddzielony',
@@ -50,11 +50,11 @@ export const abbreviations = [
   },
   {
     id: 'n', group: 'Przewody', abbr: 'N', lang: 'en', src: '[N]eutral', pl: 'przewód neutralny',
-    note: 'Dawniej nazywany „zerowym" – stąd potoczne „zero" i stare słowo „zerowanie".',
+    note: 'Dawniej nazywany „zerowym” – stąd potoczne „zero” i stare słowo „zerowanie”.',
   },
   {
     id: 'pe', group: 'Przewody', abbr: 'PE', lang: 'en', src: '[P]rotective [E]arth', pl: 'przewód ochronny',
-    note: 'Dosłownie „ochronne uziemienie". Tylko żółto-zielony – tego koloru nie wolno użyć do niczego innego.',
+    note: 'Dosłownie „ochronne uziemienie”. Tylko żółto-zielony – tego koloru nie wolno użyć do niczego innego.',
   },
   {
     id: 'pen', group: 'Przewody', abbr: 'PEN', lang: 'en', src: '[PE] + [N]', pl: 'przewód ochronno-neutralny',
@@ -72,7 +72,7 @@ export const abbreviations = [
   // ───────────── Aparaty i zabezpieczenia ─────────────
   {
     id: 'mcb', group: 'Aparaty i zabezpieczenia', abbr: 'MCB', lang: 'en', src: '[M]iniature [C]ircuit [B]reaker', pl: 'wyłącznik nadprądowy (instalacyjny)',
-    note: 'Dosłownie „miniaturowy wyłącznik obwodu". Potocznie „eska" – od litery S w oznaczeniach popularnych serii (np. S301 B16).',
+    note: 'Dosłownie „miniaturowy wyłącznik obwodu”. Potocznie „eska” – od litery S w oznaczeniach popularnych serii (np. S301 B16).',
   },
   {
     id: 'bcd', group: 'Aparaty i zabezpieczenia', abbr: 'B / C / D', lang: 'sym', pl: 'charakterystyki wyłącznika nadprądowego',
@@ -80,11 +80,11 @@ export const abbreviations = [
   },
   {
     id: 'rcd', group: 'Aparaty i zabezpieczenia', abbr: 'RCD', lang: 'en', src: '[R]esidual [C]urrent [D]evice', pl: 'wyłącznik różnicowoprądowy',
-    note: '„Residual" = reszta: to, co zostaje po zsumowaniu prądów w L i N. W sprawnym obwodzie suma wynosi 0. Gdy coś zostaje, prąd ucieka poza obwód – np. przez człowieka.',
+    note: '„Residual” = reszta: to, co zostaje po zsumowaniu prądów w L i N. W sprawnym obwodzie suma wynosi 0. Gdy coś zostaje, prąd ucieka poza obwód – np. przez człowieka.',
   },
   {
     id: 'rccb', group: 'Aparaty i zabezpieczenia', abbr: 'RCCB', lang: 'en', src: '[R]esidual [C]urrent [C]ircuit [B]reaker', pl: 'wyłącznik różnicowoprądowy bez członu nadprądowego',
-    note: 'Tak „różnicówka" nazywa się na tabliczce i w katalogu (PN-EN 61008). Nie chroni przed przeciążeniem ani zwarciem – potrzebuje zabezpieczenia nadprądowego.',
+    note: 'Tak „różnicówka” nazywa się na tabliczce i w katalogu (PN-EN 61008). Nie chroni przed przeciążeniem ani zwarciem – potrzebuje zabezpieczenia nadprądowego.',
   },
   {
     id: 'rcbo', group: 'Aparaty i zabezpieczenia', abbr: 'RCBO', lang: 'en', src: '[R]esidual [C]urrent operated [B]reaker with [O]vercurrent protection', pl: 'wyłącznik różnicowoprądowy z członem nadprądowym',
@@ -126,7 +126,7 @@ export const abbreviations = [
   },
   {
     id: 'zs', group: 'Pomiary i symbole', abbr: 'Zs', lang: 'sym', pl: 'impedancja pętli zwarcia',
-    note: 'Z – symbol impedancji, czyli „oporu" obwodu prądu przemiennego. Pętla: źródło → L → miejsce zwarcia → PE → z powrotem do źródła.',
+    note: 'Z – symbol impedancji, czyli „oporu” obwodu prądu przemiennego. Pętla: źródło → L → miejsce zwarcia → PE → z powrotem do źródła.',
   },
   {
     id: 'ia', group: 'Pomiary i symbole', abbr: 'Ia', lang: 'sym', pl: 'prąd samoczynnego zadziałania zabezpieczenia',
@@ -180,7 +180,7 @@ export const abbreviations = [
   },
   {
     id: 'nn', group: 'Napięcia i ochrona', abbr: 'nN / SN / WN / NN', lang: 'pl', src: '[n]iskie [N]apięcie · [Ś]rednie · [W]ysokie · [N]ajwyższe', pl: 'poziomy napięć w sieci',
-    note: 'nN – do 1 kV (instalacje 230/400 V), SN – w Polsce zwykle 15 lub 20 kV, WN – 110 kV, NN – 220 i 400 kV. Małe „n" w nN odróżnia niskie napięcie od najwyższego.',
+    note: 'nN – do 1 kV (instalacje 230/400 V), SN – w Polsce zwykle 15 lub 20 kV, WN – 110 kV, NN – 220 i 400 kV. Małe „n” w nN odróżnia niskie napięcie od najwyższego.',
   },
   {
     id: 'ip', group: 'Napięcia i ochrona', abbr: 'IP', lang: 'en', src: '[I]nternational [P]rotection', pl: 'stopień ochrony obudowy',
@@ -194,7 +194,7 @@ export const abbreviations = [
   // ───────────── BHP i uprawnienia ─────────────
   {
     id: 'sep', group: 'BHP i uprawnienia', abbr: 'SEP', lang: 'pl', src: '[S]towarzyszenie [E]lektryków [P]olskich',
-    note: 'Przy SEP działa wiele komisji kwalifikacyjnych – stąd potoczna nazwa „uprawnienia SEP". Formalnie to świadectwo kwalifikacyjne.',
+    note: 'Przy SEP działa wiele komisji kwalifikacyjnych – stąd potoczna nazwa „uprawnienia SEP”. Formalnie to świadectwo kwalifikacyjne.',
   },
   {
     id: 'ged', group: 'BHP i uprawnienia', abbr: 'G1 / E / D', lang: 'pl', src: '[G]rupa 1 · [E]ksploatacja · [D]ozór',

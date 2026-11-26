@@ -23,7 +23,7 @@ function shuffle(arr) {
 }
 
 function drawExam() {
-  // losowanie ważone: „do powtórki" ×4, nowe ×2, opanowane ×1
+  // losowanie ważone: „do powtórki” ×4, nowe ×2, opanowane ×1
   const progress = loadStored('flash', {})
   const weightOf = (q) => (progress[q.id] === 'review' ? 4 : progress[q.id] === 'know' ? 1 : 2)
   const pickWeighted = (pool, used) => {
@@ -113,8 +113,8 @@ export function ExamPanel() {
             <div className="mb-5 space-y-4">
               <NoteBox type={score >= PASS_SCORE ? 'ok' : 'mistake'} title={`Wynik: ${score}/${exam.length}`}>
                 {score >= PASS_SCORE
-                  ? 'Tak trzymaj. Na prawdziwym egzaminie komisja oczekuje pewnych, pełnych odpowiedzi i spokoju przy dopytaniach.'
-                  : 'Pytania niezaliczone trafiły do fiszek z oznaczeniem „do powtórki". Przejdź je, a potem podejdź do egzaminu jeszcze raz.'}
+                  ? 'Tak trzymaj. Na prawdziwym egzaminie liczą się pewne, pełne odpowiedzi i spokój przy dopytaniach.'
+                  : 'Pytania niezaliczone trafiły do fiszek z oznaczeniem „do powtórki”. Przejdź je, a potem podejdź do egzaminu jeszcze raz.'}
               </NoteBox>
               {failed.length ? (
                 <div>

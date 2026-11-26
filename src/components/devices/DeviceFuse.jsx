@@ -91,7 +91,7 @@ export function DeviceFuse() {
     clearTimeout(timer.current)
     setBlown(false)
     setGlowing(false)
-    setVerdict({ type: 'remember', title: 'Nowa wkładka założona', text: 'Zawsze ta sama wartość i charakterystyka. Większa wkładka „żeby nie przepalało" = kable grzeją się bez ochrony = pożar.' })
+    setVerdict({ type: 'remember', title: 'Nowa wkładka założona', text: 'Zawsze ta sama wartość i charakterystyka. Większa wkładka „żeby nie przepalało” = kable grzeją się bez ochrony = pożar.' })
   }
 
   return (
@@ -124,7 +124,7 @@ export function DeviceFuse() {
         zawsze dla tego zabezpieczenia, które faktycznie stoi w obwodzie.
       </NoteBox>
       <NoteBox type="mistake" title="Śmiertelnie poważny błąd praktyczny">
-        „Naprawianie" wkładki drucikiem albo wkładanie grubszej „żeby trzymała" – obwód zostaje bez ochrony, kable grzeją się do pożaru.
+        „Naprawianie” wkładki drucikiem albo wkładanie grubszej „żeby trzymała” – obwód zostaje bez ochrony, kable grzeją się do pożaru.
         Na egzaminie to pytanie-pewniak z BHP.
       </NoteBox>
     </div>

@@ -44,7 +44,7 @@ export const chapters = [
         paragraphs: [
           'Prawo do **wykonywania pomiarów** daje **zakres kontrolno-pomiarowy** wpisany dla urządzeń, które mierzysz – dla instalacji w budynkach to **pkt 2**. Punkt 13 to coś innego: w obowiązującym rozporządzeniu (MKiŚ z 1 lipca 2022 r.) to osobny rodzaj urządzeń – aparatura pomiarowa i automatyka:',
           { quote: 'aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń urządzeń i instalacji wymienionych w pkt 1–12' },
-          'W starym rozporządzeniu z 2003 r. był to **punkt 10** – stąd „pomiary z pkt 10" na wielu kursach i w starszych świadectwach. **Dziś pkt 10 to elektryczna sieć trakcyjna.** Wypełniając wniosek, czytaj opis punktu, a nie sam numer.',
+          'W starym rozporządzeniu z 2003 r. był to **punkt 10** – stąd „pomiary z pkt 10” na wielu kursach i w starszych świadectwach. **Dziś pkt 10 to elektryczna sieć trakcyjna.** Wypełniając wniosek, czytaj opis punktu, a nie sam numer.',
           'Osobna sprawa to **okresowa kontrola z art. 62 Prawa budowlanego**: instalację elektryczną może kontrolować osoba z kwalifikacjami **dozoru (D)** (art. 62 ust. 5) albo osoba z **uprawnieniami budowlanymi** w specjalności instalacyjnej elektrycznej (ust. 4).',
         ],
         box: { type: 'remember', text: '**Pomiary = zakres kontrolno-pomiarowy.** Aparatura pomiarowa i automatyka = **pkt 13** (w starej numeracji pkt 10). **Kontrola okresowa z art. 62 = kwalifikacje D albo uprawnienia budowlane.**' },
@@ -59,7 +59,7 @@ export const chapters = [
           { value: 'co 5 lat', label: 'kontrola instalacji elektrycznej – art. 62 Prawa budowlanego' },
           { value: 'częściej', label: 'strefy zagrożenia wybuchem – wg dokumentu zabezpieczenia przed wybuchem (typowo co rok)' },
         ],
-        box: { type: 'warning', text: 'Brak kontroli = naruszenie prawa budowlanego (grozi grzywna). Właściciel odpowiada też **cywilnie** za skutki, nawet jeśli „instalacja działała".' },
+        box: { type: 'warning', text: 'Brak kontroli = naruszenie prawa budowlanego (grozi grzywna). Właściciel odpowiada też **cywilnie** za skutki, nawet jeśli „instalacja działała”.' },
       },
       {
         heading: 'Norma PN-HD 60364 – co reguluje?',
@@ -70,7 +70,7 @@ export const chapters = [
             '**PN-HD 60364-6** – sprawdzanie instalacji (co mierzyć, w jakiej kolejności, jakie wartości są dopuszczalne)',
           ] },
         ],
-        box: { type: 'remember', text: 'Na egzaminie nie musisz znać numeru normy na pamięć. Wystarczy powiedzieć **„zgodnie z normą instalacji elektrycznych PN-HD 60364"**. Komisja ocenia rozumienie, nie numerację.' },
+        box: { type: 'remember', text: 'Na egzaminie nie musisz znać numeru normy na pamięć. Wystarczy powiedzieć **„zgodnie z normą instalacji elektrycznych PN-HD 60364”**. Komisja ocenia rozumienie, nie numerację.' },
       },
     ],
   },
@@ -84,7 +84,7 @@ export const chapters = [
       {
         heading: 'Co to jest rezystancja izolacji i po co ją mierzyć?',
         paragraphs: [
-          'Izolacja to warstwa materiału (PVC, guma, XLPE), która otacza przewód i uniemożliwia prądowi „ucieczkę" na zewnątrz. Z czasem izolacja **starzeje się, pęka, zawilgaca**, uszkadza mechanicznie. Pomiar rezystancji izolacji sprawdza, czy ta warstwa wciąż skutecznie izoluje.',
+          'Izolacja to warstwa materiału (PVC, guma, XLPE), która otacza przewód i uniemożliwia prądowi „ucieczkę” na zewnątrz. Z czasem izolacja **starzeje się, pęka, zawilgaca**, uszkadza mechanicznie. Pomiar rezystancji izolacji sprawdza, czy ta warstwa wciąż skutecznie izoluje.',
           'Mierzy się opór elektryczny między: **przewodem fazowym (L) a PE** oraz **L a N**. Im wyższy wynik – tym lepsza izolacja.',
         ],
         values: [
@@ -96,7 +96,7 @@ export const chapters = [
         heading: 'Megaomomierz – dlaczego nie zwykły multimetr?',
         paragraphs: [
           'Zwykły multimetr mierzy rezystancję przy napięciu zaledwie **kilku woltów**. To za mało – mikrouszkodzenia izolacji, które pojawią się pod napięciem roboczym 230 V, pozostają niewidoczne.',
-          'Megaomomierz (miernik izolacji) przykłada **500 V DC** – więcej niż napięcie robocze (230 V, w szczycie ok. 325 V). Dzięki temu **„stresuje" izolację** i ujawnia słabe miejsca. Wynik w megaomach (MΩ).',
+          'Megaomomierz (miernik izolacji) przykłada **500 V DC** – więcej niż napięcie robocze (230 V, w szczycie ok. 325 V). Dzięki temu **„stresuje” izolację** i ujawnia słabe miejsca. Wynik w megaomach (MΩ).',
         ],
         box: { type: 'warning', title: 'Uwaga – zniszczy elektronikę', text: '500 V DC uszkadza trwale urządzenia elektroniczne (komputery, zasilacze, sterowniki PLC, falowniki). Przed pomiarem **odłącz WSZYSTKIE urządzenia końcowe**.' },
       },
@@ -124,7 +124,7 @@ export const chapters = [
       {
         heading: 'Po co mierzyć ciągłość PE?',
         paragraphs: [
-          'Przewód ochronny PE to **„droga ewakuacyjna" dla prądu zwarciowego** – gdy faza zewrze się z obudową urządzenia, prąd zwarciowy płynie przez PE do szyny PE w rozdzielnicy, zabezpieczenie zadziała i odetnie napięcie, zanim ktoś dotknie obudowy.',
+          'Przewód ochronny PE to **„droga ewakuacyjna” dla prądu zwarciowego** – gdy faza zewrze się z obudową urządzenia, prąd zwarciowy płynie przez PE do szyny PE w rozdzielnicy, zabezpieczenie zadziała i odetnie napięcie, zanim ktoś dotknie obudowy.',
           'Jeśli PE jest przerwany (korozja, luźny zacisk, uszkodzenie mechaniczne) – **obudowa urządzenia pozostaje pod napięciem**. Użytkownik dotknie i dostanie porażenie.',
           'Pomiar ciągłości PE sprawdza, czy ten przewód jest **nieprzerwany i dobrze podłączony** na całej długości od gniazda do szyny PE.',
         ],
@@ -133,7 +133,7 @@ export const chapters = [
       {
         heading: 'Dlaczego prąd pomiarowy musi być co najmniej 200 mA?',
         paragraphs: [
-          'Mierzysz ułamki oma, więc liczy się każde słabe połączenie. Multimetr się do tego nie nadaje z dwóch powodów. **Brzęczyk** piszczy przy każdej rezystancji poniżej kilkudziesięciu omów – „ciągłość jest" także przy luźnym, przegrzanym zacisku (**fałszywie dobry wynik**). A przy prądzie rzędu **1 mA** cienka warstwa tlenku na dobrym zacisku działa jak izolator – odczyt skacze i jest zawyżony (**fałszywie zły wynik**).',
+          'Mierzysz ułamki oma, więc liczy się każde słabe połączenie. Multimetr się do tego nie nadaje z dwóch powodów. **Brzęczyk** piszczy przy każdej rezystancji poniżej kilkudziesięciu omów – „ciągłość jest” także przy luźnym, przegrzanym zacisku (**fałszywie dobry wynik**). A przy prądzie rzędu **1 mA** cienka warstwa tlenku na dobrym zacisku działa jak izolator – odczyt skacze i jest zawyżony (**fałszywie zły wynik**).',
           'Dlatego norma **PN-HD 60364-6** wymaga przyrządu (wg PN-EN 61557-4) o napięciu **4–24 V** i prądzie **co najmniej 200 mA**. Taki prąd przebija cienkie warstwy tlenków – tak jak zrobiłby to prąd zwarciowy – i daje **stabilny wynik w miliomach**, w którym luźny zacisk widać jako konkretną, za dużą wartość.',
         ],
         values: [
@@ -189,7 +189,7 @@ export const chapters = [
           { value: '≤ 0,4 s', label: 'TN 230 V: obwody odbiorcze do 32 A (z gniazdami – do 63 A), także oświetlenie' },
           { value: '≤ 5 s', label: 'TN: obwody rozdzielcze (np. WLZ) i obwody odbiorcze powyżej tych prądów' },
         ],
-        box: { type: 'trap', title: 'Pułapka ze starych materiałów', text: 'Dawna norma dawała 5 s „obwodom stałym" (np. oświetleniu). Według aktualnej **PN-HD 60364-4-41** obwód oświetlenia B10 to zwykły obwód odbiorczy do 32 A – obowiązuje go **0,4 s**. 5 s dotyczy obwodów rozdzielczych i dużych obwodów odbiorczych.' },
+        box: { type: 'trap', title: 'Pułapka ze starych materiałów', text: 'Dawna norma dawała 5 s „obwodom stałym” (np. oświetleniu). Według aktualnej **PN-HD 60364-4-41** obwód oświetlenia B10 to zwykły obwód odbiorczy do 32 A – obowiązuje go **0,4 s**. 5 s dotyczy obwodów rozdzielczych i dużych obwodów odbiorczych.' },
       },
       {
         heading: 'Systemy uziemienia TN, TT, IT – co musisz wiedzieć',
@@ -216,7 +216,7 @@ export const chapters = [
           'Porównaj wynik z wartością **maksymalną Zs dla zabezpieczenia** obwodu (czyli: czy Ik wystarczy do wyłączenia w 0,4 s / 5 s)',
           'Powtórz dla **każdego obwodu** i zapisz wyniki w protokole',
         ],
-        box: { type: 'warning', text: 'W obwodach z RCD klasyczny pomiar pętli L-PE może **wyzwolić różnicówkę** (prąd pomiarowy płynie przez PE jak prąd upływu). Używaj trybu **„bez wyzwalania RCD"** (mały prąd pomiarowy, pomiar trwa dłużej). Nie mierz pętli „przed RCD" w rozdzielnicy – to nie jest impedancja na końcu badanego obwodu.' },
+        box: { type: 'warning', text: 'W obwodach z RCD klasyczny pomiar pętli L-PE może **wyzwolić różnicówkę** (prąd pomiarowy płynie przez PE jak prąd upływu). Używaj trybu **„bez wyzwalania RCD”** (mały prąd pomiarowy, pomiar trwa dłużej). Nie mierz pętli „przed RCD” w rozdzielnicy – to nie jest impedancja na końcu badanego obwodu.' },
         box2: { type: 'remember', text: '**Pętla zwarcia i RCD = pomiary POD napięciem.** Izolacja i ciągłość PE = zawsze bez napięcia.' },
       },
     ],
@@ -232,7 +232,7 @@ export const chapters = [
         heading: 'Jak działa RCD i czym różni się od wyłącznika nadprądowego?',
         paragraphs: [
           'Wyłącznik nadprądowy chroni przewody przed przeciążeniem i zwarciem. Przed porażeniem chroni tylko w jednym przypadku: przy **zwarciu fazy z obudową** płynie prąd zwarciowy setek amperów i wyłącznik wyłącza obwód (samoczynne wyłączenie zasilania – rozdział o pętli zwarcia). Ale gdy człowiek dotknie fazy, przez ciało płyną **dziesiątki–setki mA** – a już **50 mA AC może zabić**. Wyłącznik nadprądowy tego nie czuje.',
-          'RCD mierzy **różnicę prądów** między L (wpływa) a N (wypływa). W normalnych warunkach różnica = 0. Gdy prąd „ucieka" przez ciało człowieka – różnica rośnie. Przy **30 mA** RCD wyłącza obwód w czasie **≤ 300 ms**.',
+          'RCD mierzy **różnicę prądów** między L (wpływa) a N (wypływa). W normalnych warunkach różnica = 0. Gdy prąd „ucieka” przez ciało człowieka – różnica rośnie. Przy **30 mA** RCD wyłącza obwód w czasie **≤ 300 ms**.',
           { quote: 'Zwarcie na obudowę wyłączy wyłącznik nadprądowy (jeśli pętla jest dobra). Dotknięcie fazy przez człowieka wyłączy tylko RCD 30 mA. Jedno nie zastępuje drugiego.' },
         ],
         values: [
@@ -255,7 +255,7 @@ export const chapters = [
             ['F', 'Jak A + prądy o mieszanej częstotliwości, odporny na udary', 'Urządzenia z falownikiem jednofazowym: pralki, zmywarki, pompy ciepła, klimatyzatory'],
             ['B', 'AC + pulsujący DC + gładki DC', 'Falowniki trójfazowe, napędy, PV (gdy wymaga tego falownik), ładowanie EV – typ B albo typ A z detekcją DC 6 mA'],
             ['G', 'Krótka zwłoka (~10 ms), odporny na zakłócenia', 'Ogranicza zbędne wyłączenia od chwilowych udarów i zakłóceń'],
-            ['S', 'Selektywny – przy IΔn nie zadziała przed 130 ms (maks. 500 ms)', 'Montowany „przed" zwykłym RCD; przy usterce wyłącza tylko ten bliżej odbiornika'],
+            ['S', 'Selektywny – przy IΔn nie zadziała przed 130 ms (maks. 500 ms)', 'Montowany „przed” zwykłym RCD; przy usterce wyłącza tylko ten bliżej odbiornika'],
           ],
         },
         box: { type: 'trap', title: 'Kluczowa pułapka egzaminacyjna', text: 'Typ AC **NIE zadziała przy prądzie pulsującym DC** – czyli może nie ochronić przy sprzęcie z elektroniką. Wymagany **typ A lub wyższy** (przy falownikach – F, przy ładowaniu EV – B albo A + detekcja DC 6 mA).' },
@@ -301,7 +301,7 @@ export const chapters = [
       {
         heading: 'Co to jest rezystancja uziemienia i jakie są wartości dopuszczalne?',
         paragraphs: [
-          'Rezystancja uziemienia (**RE**) to opór elektryczny między elektrodą uziemiającą (pręt, taśma w ziemi) a „nieskończoną ziemią". **Im mniejsza RE, tym łatwiej prąd odpływa do ziemi** i tym skuteczniejsza ochrona.',
+          'Rezystancja uziemienia (**RE**) to opór elektryczny między elektrodą uziemiającą (pręt, taśma w ziemi) a „nieskończoną ziemią”. **Im mniejsza RE, tym łatwiej prąd odpływa do ziemi** i tym skuteczniejsza ochrona.',
         ],
         table: {
           head: ['Zastosowanie', 'Dopuszczalna RE'],
@@ -327,7 +327,7 @@ export const chapters = [
           'Miernik przepuszcza prąd przez E i C, mierzy spadek napięcia na P i oblicza **RE = U/I**.',
         ],
         box: { type: 'warning', text: 'Przed pomiarem **odłącz badaną elektrodę od instalacji** – inaczej mierzysz rezystancję całej sieci uziemiającej, nie pojedynczej elektrody.' },
-        box2: { type: 'remember', title: 'Nazewnictwo', text: 'Na kursach ta metoda bywa nazywana „metodą Wernera". Ściśle: metoda Wennera to 4-elektrodowy pomiar **rezystywności gruntu**, a pomiar RE pojedynczego uziomu to **metoda spadku potencjału** (trójzaciskowa). Komisja zaakceptuje obie nazwy – ważne, żebyś umiał opisać układ E-P-C.' },
+        box2: { type: 'remember', title: 'Nazewnictwo', text: 'Na kursach ta metoda bywa nazywana „metodą Wernera”. Ściśle: metoda Wennera to 4-elektrodowy pomiar **rezystywności gruntu**, a pomiar RE pojedynczego uziomu to **metoda spadku potencjału** (trójzaciskowa). Obie nazwy są w użyciu – ważniejsze, żebyś umiał opisać układ E-P-C.' },
       },
       {
         heading: 'Jak wykonuje się pomiar uziemienia – krok po kroku',
@@ -340,7 +340,7 @@ export const chapters = [
           'Porównaj z wartością dopuszczalną (**poniżej 10 Ω** odgrom, **RA × IΔn ≤ 50 V** w układzie TT), zapisz w protokole i **SKRĘĆ zacisk probierczy z powrotem**',
         ],
         box: { type: 'mistake', text: '**Niezłożenie zacisku probierczego** po pomiarze – obiekt zostaje bez uziemienia do następnego przeglądu. Ostatni krok pomiaru to zawsze przywrócenie połączenia.' },
-        box2: { type: 'remember', text: '**Wilgotność gruntu** mocno wpływa na wynik: mokry grunt zaniża RE (wynik „za dobry"), suchy lub zamarznięty – zawyża. **Nie mierz tuż po deszczu.** Najbardziej miarodajny jest pomiar przy suchym gruncie (najgorszy przypadek), a w innych warunkach wynik mnoży się przez **współczynnik poprawkowy**.' },
+        box2: { type: 'remember', text: '**Wilgotność gruntu** mocno wpływa na wynik: mokry grunt zaniża RE (wynik „za dobry”), suchy lub zamarznięty – zawyża. **Nie mierz tuż po deszczu.** Najbardziej miarodajny jest pomiar przy suchym gruncie (najgorszy przypadek), a w innych warunkach wynik mnoży się przez **współczynnik poprawkowy**.' },
       },
     ],
   },
@@ -353,7 +353,7 @@ export const chapters = [
     sections: [
       {
         heading: 'Kolejność pomiarów przy odbiorze instalacji (PN-HD 60364-6)',
-        paragraphs: ['Norma podaje kolejność prób jako zalecaną („najlepiej w następującej kolejności") – ale ma ona twardą logikę: każdy pomiar opiera się na poprzednim, a po naprawie powtarzasz próby, na które usterka mogła wpłynąć. **Na egzaminie trzymaj się tej kolejności:**'],
+        paragraphs: ['Norma podaje kolejność prób jako zalecaną („najlepiej w następującej kolejności”) – ale ma ona twardą logikę: każdy pomiar opiera się na poprzednim, a po naprawie powtarzasz próby, na które usterka mogła wpłynąć. **Na egzaminie trzymaj się tej kolejności:**'],
         steps: [
           '**Oględziny** – wzrokowe sprawdzenie instalacji (przekroje kabli, oznakowania, prawidłowość montażu)',
           '**Ciągłość PE** – przewody ochronne i połączenia wyrównawcze',
@@ -374,7 +374,7 @@ export const chapters = [
           '**Schemat lub opis badanej instalacji** – które obwody były mierzone',
           '**Wykaz przyrządów pomiarowych** – model, nr seryjny, data ostatniego wzorcowania',
           '**Wyniki pomiarów dla każdego obwodu** – z jednostkami i wartościami dopuszczalnymi',
-          '**Ocena wyników** – „zgodne z normą" lub „niezgodne – wymagana naprawa"',
+          '**Ocena wyników** – „zgodne z normą” lub „niezgodne – wymagana naprawa”',
           '**Data wykonania pomiaru**',
           '**Imię, nazwisko i podpis** osoby wykonującej pomiary – ze świadectwem kwalifikacyjnym obejmującym **zakres kontrolno-pomiarowy** (kontrolę okresową z art. 62 podpisuje osoba z kwalifikacjami D albo z uprawnieniami budowlanymi)',
         ],

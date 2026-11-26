@@ -15,11 +15,11 @@ export const glossary = [
     id: 'n', group: 'Przewody i instalacja', term: 'Przewód neutralny (N)',
     what: 'Przewód roboczy zamykający obwód – prąd wraca nim ze sprzętu do sieci. Kolor: niebieski.',
     use: 'Razem z L tworzy obwód roboczy 230 V.',
-    example: 'W lampie prąd płynie: L → żarówka → N. Mimo że N „nie powinien kopać", przy przerwanym N lub zamienionych żyłach potrafi – dlatego traktujemy go z takim samym szacunkiem jak L.',
+    example: 'W lampie prąd płynie: L → żarówka → N. Mimo że N „nie powinien kopać”, przy przerwanym N lub zamienionych żyłach potrafi – dlatego traktujemy go z takim samym szacunkiem jak L.',
   },
   {
     id: 'pe', group: 'Przewody i instalacja', term: 'Przewód ochronny (PE)',
-    what: 'Żółto-zielony przewód, który w normalnej pracy NIE prowadzi prądu roboczego – najwyżej drobne prądy upływu. To „droga ewakuacyjna" dla prądu zwarciowego.',
+    what: 'Żółto-zielony przewód, który w normalnej pracy NIE prowadzi prądu roboczego – najwyżej drobne prądy upływu. To „droga ewakuacyjna” dla prądu zwarciowego.',
     use: 'Łączy metalowe obudowy urządzeń z szyną PE w rozdzielnicy. Przy zwarciu fazy z obudową prąd ucieka przez PE i zabezpieczenie wyłącza obwód.',
     example: 'Pralka (klasa I) ma metalową obudowę podłączoną do PE przez bolec w gnieździe. Gdy grzałka przebije na obudowę – RCD/bezpiecznik wyłącza, zanim ktoś dotknie. Bez PE obudowa po prostu czeka na czyjąś rękę.',
   },
@@ -27,19 +27,19 @@ export const glossary = [
     id: 'pen', group: 'Przewody i instalacja', term: 'Przewód PEN',
     what: 'Połączony przewód ochronno-neutralny (PE + N w jednej żyle) – występuje w starszych instalacjach TN-C.',
     use: 'Pełni obie funkcje naraz. We współczesnych instalacjach rozdziela się go na osobne PE i N (system TN-C-S).',
-    example: 'Stare bloki z aluminiową instalacją 2-żyłową: w gnieździe tylko L i PEN („zerowanie"). Przerwa w PEN to bardzo groźna awaria – na obudowach może pojawić się pełne napięcie fazowe.',
+    example: 'Stare bloki z aluminiową instalacją 2-żyłową: w gnieździe tylko L i PEN („zerowanie”). Przerwa w PEN to bardzo groźna awaria – na obudowach może pojawić się pełne napięcie fazowe.',
   },
   {
     id: 'rozdzielnica', group: 'Przewody i instalacja', term: 'Rozdzielnica',
     what: 'Skrzynka, w której schodzą się wszystkie obwody instalacji – z zabezpieczeniami, szynami PE i N.',
     use: 'Rozdziela energię na obwody (gniazda, oświetlenie, kuchenka...) i mieści aparaty: wyłączniki nadprądowe, RCD, ograniczniki przepięć.',
-    example: 'Domowa „skrzynka z korkami" w przedpokoju. Przy pomiarach odbiorczych to tu podpinasz miernik do szyny PE i tu wyłączasz obwody.',
+    example: 'Domowa „skrzynka z korkami” w przedpokoju. Przy pomiarach odbiorczych to tu podpinasz miernik do szyny PE i tu wyłączasz obwody.',
   },
   {
     id: 'szyna-pe', group: 'Przewody i instalacja', term: 'Szyna PE / szyna wyrównawcza',
     what: 'Metalowa listwa zaciskowa w rozdzielnicy, do której schodzą się wszystkie przewody ochronne.',
     use: 'Wspólny punkt ochrony – z niej PE rozchodzi się do każdego gniazda, do niej podłącza się uziemienie.',
-    example: 'Pomiar ciągłości PE wykonujesz właśnie między bolcem gniazda a tą szyną – sprawdzasz, czy „droga ewakuacyjna" jest nieprzerwana.',
+    example: 'Pomiar ciągłości PE wykonujesz właśnie między bolcem gniazda a tą szyną – sprawdzasz, czy „droga ewakuacyjna” jest nieprzerwana.',
   },
   {
     id: 'wyrownawcze', group: 'Przewody i instalacja', term: 'Połączenia wyrównawcze',
@@ -56,19 +56,19 @@ export const glossary = [
   {
     id: 'wlz', group: 'Przewody i instalacja', term: 'WLZ (wewnętrzna linia zasilająca)',
     what: 'Kabel od złącza/licznika do rozdzielnicy mieszkania lub domu.',
-    use: 'Główna „arteria" instalacji – wszystkie obwody zasilane są z jej końca.',
+    use: 'Główna „arteria” instalacji – wszystkie obwody zasilane są z jej końca.',
     example: 'W bloku: piony w klatce schodowej to WLZ-ty. Za ich stan odpowiada zwykle administracja, za instalację za licznikiem – właściciel mieszkania.',
   },
 
   // ───────────── Zabezpieczenia ─────────────
   {
-    id: 'mcb', group: 'Zabezpieczenia', term: 'Wyłącznik nadprądowy (MCB, „eska")',
+    id: 'mcb', group: 'Zabezpieczenia', term: 'Wyłącznik nadprądowy (MCB, „eska”)',
     what: 'Automatyczny wyłącznik reagujący na za duży prąd. Charakterystyki: B (wyzwala przy 3–5×In – mieszkania), C (5–10×In – silniki, rozruch), D (10–20×In – przemysł).',
     use: 'Chroni PRZEWODY przed przeciążeniem i zwarciem. W układzie TN realizuje też ochronę przy uszkodzeniu – wyłącza zwarcie fazy z obudową, jeśli impedancja pętli jest mała. Przy dotknięciu fazy przez człowieka nie zadziała – to zadanie RCD.',
-    example: 'B16 na obwodzie gniazd kuchennych: włączasz czajnik + piekarnik + zmywarkę i „wybija korek" – to przeciążenie, eska robi swoje. Po zwarciu w uszkodzonym przedłużaczu wyłącza w ułamku sekundy.',
+    example: 'B16 na obwodzie gniazd kuchennych: włączasz czajnik + piekarnik + zmywarkę i „wybija korek” – to przeciążenie, eska robi swoje. Po zwarciu w uszkodzonym przedłużaczu wyłącza w ułamku sekundy.',
   },
   {
-    id: 'rcd', group: 'Zabezpieczenia', term: 'Wyłącznik różnicowoprądowy (RCD, „różnicówka")',
+    id: 'rcd', group: 'Zabezpieczenia', term: 'Wyłącznik różnicowoprądowy (RCD, „różnicówka”)',
     what: 'Porównuje prąd wpływający (L) i wypływający (N). Różnica = prąd ucieka poza obwód, np. przez człowieka. Przy 30 mA wyłącza w ≤ 300 ms.',
     use: 'Chroni LUDZI przed porażeniem i (wersja 300 mA) budynki przed pożarem od prądów upływu.',
     example: 'Suszarka do włosów wpada do umywalki z wodą – prąd ucieka do ziemi przez wodę i armaturę, różnicówka strzela w kilkadziesiąt milisekund. Bezpiecznik by tego w ogóle nie zauważył.',
@@ -81,7 +81,7 @@ export const glossary = [
   },
   {
     id: 'spd', group: 'Zabezpieczenia', term: 'Ogranicznik przepięć (SPD)',
-    what: 'Aparat „upuszczający" przepięcia do ziemi. Typy: T1 (prądy piorunowe), T2 (przepięcia łączeniowe i pośrednie), T3 (dobezpieczenie przy urządzeniu).',
+    what: 'Aparat „upuszczający” przepięcia do ziemi. Typy: T1 (prądy piorunowe), T2 (przepięcia łączeniowe i pośrednie), T3 (dobezpieczenie przy urządzeniu).',
     use: 'Chroni elektronikę przed przepięciami – od burzy po skoki sieciowe.',
     example: 'Burza, piorun trafia w linię dwie ulice dalej. Bez SPD: telewizor, router i płyta indukcyjna do wymiany. Z SPD T1+T2 w rozdzielnicy przepięcie spływa do uziemienia.',
   },
@@ -89,12 +89,12 @@ export const glossary = [
     id: 'topikowy', group: 'Zabezpieczenia', term: 'Bezpiecznik topikowy',
     what: 'Najprostsze zabezpieczenie – drucik, który topi się od za dużego prądu. Jednorazowy.',
     use: 'Zabezpiecza WLZ-ty i obwody w starszych i przemysłowych instalacjach. Po zadziałaniu wymienia się wkładkę.',
-    example: 'Szare „korki" w starych mieszkaniach i wkładki mocy przy liczniku. Uwaga egzaminacyjna: naprawianie przepalonej wkładki drucikiem to proszenie się o pożar – wkładkę się WYMIENIA.',
+    example: 'Szare „korki” w starych mieszkaniach i wkładki mocy przy liczniku. Uwaga egzaminacyjna: naprawianie przepalonej wkładki drucikiem to proszenie się o pożar – wkładkę się WYMIENIA.',
   },
   {
     id: 'nh', group: 'Zabezpieczenia', term: 'Bezpiecznik mocy (NH)',
-    what: 'Duży bezpiecznik topikowy w obudowie nożowej (NH). Działa jak „korek", ale na znacznie większe prądy i z wysoką zdolnością zwarciową (np. 120 kA). Ma blaszkę sygnalizacyjną pokazującą zadziałanie.',
-    use: 'Zabezpieczenie przedlicznikowe w złączach kablowych i u dużych odbiorców – tam, gdzie prądy są za duże na domową „eskę". Wymienia się go specjalnym uchwytem z osłoną przedramienia. W złączu robi to operator sieci lub osoba przez niego upoważniona – wymiana pod napięciem to praca w warunkach szczególnego zagrożenia (polecenie pisemne, ŚOI z osłoną twarzy).',
+    what: 'Duży bezpiecznik topikowy w obudowie nożowej (NH). Działa jak „korek”, ale na znacznie większe prądy i z wysoką zdolnością zwarciową (np. 120 kA). Ma blaszkę sygnalizacyjną pokazującą zadziałanie.',
+    use: 'Zabezpieczenie przedlicznikowe w złączach kablowych i u dużych odbiorców – tam, gdzie prądy są za duże na domową „eskę”. Wymienia się go specjalnym uchwytem z osłoną przedramienia. W złączu robi to operator sieci lub osoba przez niego upoważniona – wymiana pod napięciem to praca w warunkach szczególnego zagrożenia (polecenie pisemne, ŚOI z osłoną twarzy).',
     example: 'Szara skrzynka złącza kablowego na ścianie bloku albo zasilanie hali/galerii. Charakterystyka zwykle gG (ogólnego przeznaczenia). Na tabliczce: prąd znamionowy (np. 160 A), napięcie (500 V), zdolność zwarciowa.',
   },
   {
@@ -126,7 +126,7 @@ export const glossary = [
   {
     id: 'selv', group: 'Systemy i klasy', term: 'SELV / PELV (napięcie bezpieczne)',
     what: 'Obwody o napięciu ≤ 50 V AC (≤ 120 V DC), oddzielone od sieci (np. transformatorem bezpieczeństwa). SELV – nieuziemione, PELV – mogą być uziemione.',
-    use: 'Napięcie tak niskie, że dotknięcie nie jest groźne – ochrona „z natury".',
+    use: 'Napięcie tak niskie, że dotknięcie nie jest groźne – ochrona „z natury”.',
     example: 'Oczko halogenowe 12 V przy wannie, dzwonek 8 V, taśmy LED. Dlatego w strefie 0 łazienki (wewnątrz wanny) wolno montować tylko SELV 12 V.',
   },
   {
@@ -147,7 +147,7 @@ export const glossary = [
     id: 'wskaznik', group: 'Przyrządy pomiarowe', term: 'Wskaźnik napięcia (dwubiegunowy)',
     what: 'Podstawowe narzędzie BHP – dwie sondy i wyświetlacz/diody pokazujące obecność i przybliżoną wartość napięcia.',
     use: 'Sprawdzenie braku napięcia przed dotknięciem czegokolwiek. Rozporządzenie BHP (§ 25) każe sprawdzić brak napięcia, ale nie wskazuje przyrządu – w praktyce służy do tego dwubiegunowy wskaźnik napięcia (PN-EN 61243-3).',
-    example: 'Procedura: sprawdź wskaźnik na działającym gnieździe → sprawdź wyłączony obwód → sprawdź wskaźnik ponownie. Popularna „neonówka-śrubokręt" NIE jest wskaźnikiem napięcia – potrafi nie zaświecić mimo napięcia.',
+    example: 'Procedura: sprawdź wskaźnik na działającym gnieździe → sprawdź wyłączony obwód → sprawdź wskaźnik ponownie. Popularna „neonówka-śrubokręt” NIE jest wskaźnikiem napięcia – potrafi nie zaświecić mimo napięcia.',
   },
   {
     id: 'multimetr', group: 'Przyrządy pomiarowe', term: 'Multimetr',
@@ -158,7 +158,7 @@ export const glossary = [
   {
     id: 'megaomomierz', group: 'Przyrządy pomiarowe', term: 'Megaomomierz (miernik izolacji)',
     what: 'Miernik przykładający wysokie napięcie DC (250/500/1000 V) i mierzący rezystancję izolacji w MΩ.',
-    use: 'Pomiar rezystancji izolacji – czy izolacja przewodów wciąż „trzyma". Minimum 1 MΩ przy 500 V DC dla instalacji 230/400 V.',
+    use: 'Pomiar rezystancji izolacji – czy izolacja przewodów wciąż „trzyma”. Minimum 1 MΩ przy 500 V DC dla instalacji 230/400 V.',
     example: 'Mieszkanie po zalaniu przez sąsiada: zanim włączysz prąd, mierzysz izolację. Zawilgocona ściana z przewodem potrafi pokazać 0,2 MΩ – czekasz, aż wyschnie, i mierzysz ponownie.',
   },
   {
@@ -171,7 +171,7 @@ export const glossary = [
     id: 'miernik-rcd', group: 'Przyrządy pomiarowe', term: 'Miernik RCD',
     what: 'Wymusza kontrolowany prąd upływu i mierzy, przy jakim prądzie i po jakim czasie różnicówka zadziałała.',
     use: 'Pomiar odbiorczy RCD: 0,5×IΔn (nie działa), 1×IΔn (≤ 300 ms), 5×IΔn (≤ 40 ms). Wyniki do protokołu.',
-    example: 'Przycisk TEST mówi tylko „mechanizm żyje". Miernik RCD mówi „zadziałał przy 24 mA po 187 ms" – i dopiero to wpisujesz do protokołu odbiorczego.',
+    example: 'Przycisk TEST mówi tylko „mechanizm żyje”. Miernik RCD mówi „zadziałał przy 24 mA po 187 ms” – i dopiero to wpisujesz do protokołu odbiorczego.',
   },
   {
     id: 'miernik-uziemien', group: 'Przyrządy pomiarowe', term: 'Miernik rezystancji uziemienia',
@@ -183,7 +183,7 @@ export const glossary = [
     id: 'cegowy', group: 'Przyrządy pomiarowe', term: 'Miernik cęgowy',
     what: 'Cęgi obejmujące przewód i mierzące prąd bez rozłączania obwodu (z pola magnetycznego).',
     use: 'Szybki pomiar obciążenia, szukanie asymetrii faz, prądów upływu.',
-    example: '„Różnicówka wybija raz na kilka dni" – cęgami upływowymi obejmujesz L+N razem i widzisz 18 mA stałego upływu (stara pralka + bojler). RCD 30 mA może zadziałać już od 15 mA (0,5×IΔn), więc przy takim upływie wystarczy mały skok, żeby wybiło. Szukasz źródła upływu albo dzielisz obwody na kilka RCD.',
+    example: '„Różnicówka wybija raz na kilka dni” – cęgami upływowymi obejmujesz L+N razem i widzisz 18 mA stałego upływu (stara pralka + bojler). RCD 30 mA może zadziałać już od 15 mA (0,5×IΔn), więc przy takim upływie wystarczy mały skok, żeby wybiło. Szukasz źródła upływu albo dzielisz obwody na kilka RCD.',
   },
   {
     id: 'fazomierz', group: 'Przyrządy pomiarowe', term: 'Tester kolejności faz',
@@ -193,7 +193,7 @@ export const glossary = [
   },
   {
     id: 'mpi', group: 'Przyrządy pomiarowe', term: 'Miernik wielofunkcyjny instalacji',
-    what: '„Kombajn pomiarowy" łączący wszystko: izolacja, ciągłość PE 200 mA, pętla zwarcia, RCD, rezystancja uziemienia.',
+    what: '„Kombajn pomiarowy” łączący wszystko: izolacja, ciągłość PE 200 mA, pętla zwarcia, RCD, rezystancja uziemienia.',
     use: 'Standardowe narzędzie elektryka wykonującego pomiary – całe pomiary odbiorcze jednym przyrządem, z pamięcią wyników do protokołu.',
     example: 'Odbiór nowego mieszkania: jeden miernik, kolejno wszystkie pomiary normowe obwód po obwodzie, eksport wyników do programu generującego protokół.',
   },

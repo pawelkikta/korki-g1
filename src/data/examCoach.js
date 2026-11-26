@@ -141,10 +141,10 @@ export const coach = {
       '5 lat',
       'Liczone od daty wydania świadectwa',
       'Odnowienie = ponowny egzamin, bez okresu karencji',
-      'Świadectwa „bezterminowe" wygasły 3.07.2026',
+      'Świadectwa „bezterminowe” wygasły 3.07.2026',
     ],
     followUps: [
-      { q: 'Kto wydaje świadectwa kwalifikacyjne?', a: 'Komisje kwalifikacyjne działające na podstawie Prawa energetycznego – m.in. przy SEP, ale też przy innych organizacjach. „Uprawnienia SEP" to skrót myślowy.' },
+      { q: 'Kto wydaje świadectwa kwalifikacyjne?', a: 'Komisje kwalifikacyjne działające na podstawie Prawa energetycznego – m.in. przy SEP, ale też przy innych organizacjach. „Uprawnienia SEP” to skrót myślowy.' },
       { q: 'Co grozi, gdy pracujesz z nieważnym świadectwem?', a: 'To praca bez wymaganych kwalifikacji – pracodawca odpowiada za dopuszczenie do niej, a w razie wypadku obaj mogą ponieść odpowiedzialność, także karną i cywilną.' },
     ],
   },
@@ -171,7 +171,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Dlaczego mierzy się napięciem stałym, a nie przemiennym?', a: 'Przy napięciu stałym, po naładowaniu pojemności przewodów, płynie już tylko prąd upływu przez izolację – z niego miernik liczy rezystancję. Przy AC płynąłby prąd pojemnościowy, który zafałszowałby wynik.' },
-      { q: 'Miernik pokazuje „> 999 MΩ". Co wpisujesz do protokołu?', a: 'Wynik powyżej zakresu – wpisuje się go w tej postaci (np. > 999 MΩ) z oceną pozytywną. Nie wpisuje się zera ani „nieskończoności".' },
+      { q: 'Miernik pokazuje „> 999 MΩ”. Co wpisujesz do protokołu?', a: 'Wynik powyżej zakresu – wpisuje się go w tej postaci (np. > 999 MΩ) z oceną pozytywną. Nie wpisuje się zera ani „nieskończoności”.' },
     ],
   },
   r2q3: {
@@ -218,7 +218,7 @@ export const coach = {
       'Kontrola okresowa z art. 62 – kwalifikacje D albo uprawnienia budowlane',
     ],
     followUps: [
-      { q: 'Co oznacza dziś pkt 10 grupy G1?', a: 'Elektryczną sieć trakcyjną (wg rozporządzenia z 2022 r.). „Pkt 10 = pomiary" to numeracja z rozporządzenia z 2003 r.' },
+      { q: 'Co oznacza dziś pkt 10 grupy G1?', a: 'Elektryczną sieć trakcyjną (wg rozporządzenia z 2022 r.). „Pkt 10 = pomiary” to numeracja z rozporządzenia z 2003 r.' },
       { q: 'Kto podpisuje protokół z pomiarów, a kto z kontroli okresowej?', a: 'Protokół pomiarów – osoba, która je wykonała (E z zakresem kontrolno-pomiarowym). Kontrolę okresową z art. 62 przeprowadza i podpisuje osoba z kwalifikacjami D (albo z uprawnieniami budowlanymi w specjalności instalacyjnej).' },
     ],
   },
@@ -230,7 +230,7 @@ export const coach = {
       'Data, podpis osoby z zakresem kontrolno-pomiarowym',
     ],
     followUps: [
-      { q: 'Co robisz, gdy jeden obwód nie spełnia wymagań?', a: 'Wpisuję wynik z oceną negatywną, opisuję usterkę i zalecenie naprawy. Obwód nie może pracować do naprawy i ponownego pomiaru. Wyników w protokole się nie „poprawia".' },
+      { q: 'Co robisz, gdy jeden obwód nie spełnia wymagań?', a: 'Wpisuję wynik z oceną negatywną, opisuję usterkę i zalecenie naprawy. Obwód nie może pracować do naprawy i ponownego pomiaru. Wyników w protokole się nie „poprawia”.' },
       { q: 'Po co w protokole wartości dopuszczalne?', a: 'Żeby ocena była sprawdzalna – przy każdym wyniku widać, z jaką granicą go porównano (np. Zs ≤ 2,88 Ω dla B16, izolacja ≥ 1 MΩ).' },
     ],
   },
@@ -279,7 +279,7 @@ export const coach = {
     ],
     followUps: [
       { q: 'Dlaczego dopuszczający nie może być jednocześnie kierującym zespołem?', a: 'To zasada dwóch par oczu: jeden przygotowuje strefę, drugi niezależnie ją sprawdza i przyjmuje. Połączenie tych funkcji usuwa tę kontrolę (wyjątek: prace pod napięciem).' },
-      { q: 'Kiedy wyznacza się nadzorującego?', a: 'Gdy pracują osoby bez świadectwa kwalifikacyjnego – przyuczające się do zawodu, przedstawiciele organów nadzoru albo serwis specjalistyczny. Pracują one wyłącznie pod nadzorem osoby upoważnionej, a sposób nadzoru ustala pracodawca. Samo rozporządzenie nie używa nazwy „nadzorujący" – to nazwa z IOBP.' },
+      { q: 'Kiedy wyznacza się nadzorującego?', a: 'Gdy pracują osoby bez świadectwa kwalifikacyjnego – przyuczające się do zawodu, przedstawiciele organów nadzoru albo serwis specjalistyczny. Pracują one wyłącznie pod nadzorem osoby upoważnionej, a sposób nadzoru ustala pracodawca. Samo rozporządzenie nie używa nazwy „nadzorujący” – to nazwa z IOBP.' },
     ],
   },
   r2q12: {
@@ -606,7 +606,7 @@ export const coach = {
       'Do protokołu odbiorczego – pomiar miernikiem RCD',
     ],
     followUps: [
-      { q: 'Jak często użytkownik powinien naciskać TEST?', a: 'Zgodnie z zaleceniem producenta – zwykle raz w miesiącu. Wyłącznik, który długo nie działał, może się „zastać".' },
+      { q: 'Jak często użytkownik powinien naciskać TEST?', a: 'Zgodnie z zaleceniem producenta – zwykle raz w miesiącu. Wyłącznik, który długo nie działał, może się „zastać”.' },
       { q: 'TEST działa, ale miernik nie wywołuje zadziałania przy 1×IΔn. Co to znaczy?', a: 'RCD lub obwód jest niesprawny mimo działającego mechanizmu – np. za mała czułość wyłącznika albo błąd połączeń (N połączony z PE za wyłącznikiem – część prądu probierczego wraca wtedy przewodem N przez przekładnik i RCD jej nie widzi). Obwód wymaga sprawdzenia i naprawy.' },
     ],
   },
@@ -662,12 +662,12 @@ export const coach = {
     checklist: [
       'Tak – wymagane',
       'Art. 62: kontrola co najmniej raz na 5 lat',
-      'Niezależnie od tego, czy instalacja „działa"',
+      'Niezależnie od tego, czy instalacja „działa”',
       'Obowiązek właściciela lub zarządcy; degradacja izolacji jest niewidoczna',
     ],
     followUps: [
       { q: 'Kto ponosi konsekwencje braku kontroli okresowej?', a: 'Właściciel lub zarządca obiektu – grozi mu grzywna, a w razie wypadku lub pożaru także odpowiedzialność cywilna.' },
-      { q: 'Co oceniasz w instalacji, która „działa"?', a: 'Stan izolacji, ciągłość PE, skuteczność samoczynnego wyłączenia (pętla zwarcia), działanie RCD, stan osprzętu i połączeń (np. przegrzane zaciski) – rzeczy niewidoczne dla użytkownika.' },
+      { q: 'Co oceniasz w instalacji, która „działa”?', a: 'Stan izolacji, ciągłość PE, skuteczność samoczynnego wyłączenia (pętla zwarcia), działanie RCD, stan osprzętu i połączeń (np. przegrzane zaciski) – rzeczy niewidoczne dla użytkownika.' },
     ],
   },
 }

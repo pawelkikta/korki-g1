@@ -16,7 +16,7 @@ export const questions = [
     id: 'r1q1', round: 1, category: 'Eksploatacja', topic: 'podstawy-prawne',
     question: 'Co to są uprawnienia SEP grupy G1 i co obejmują?',
     answer:
-      '„Uprawnienia SEP" to potoczna nazwa świadectwa kwalifikacyjnego. Grupa 1 to urządzenia, instalacje i sieci elektroenergetyczne. Świadectwo określa trzy rzeczy: rodzaj urządzeń, zakres czynności i stanowisko. Rodzaj urządzeń to punkt grupy – rozporządzenie z 2022 r. dzieli grupę 1 na 16 punktów, np. pkt 2 – urządzenia, instalacje i sieci do 1 kV, pkt 9 – sieci elektrycznego oświetlenia ulicznego, pkt 13 – aparatura kontrolno-pomiarowa i automatyka. Zakres czynności to obsługa, konserwacja, remont lub naprawa, montaż lub demontaż oraz czynności kontrolno-pomiarowe. Stanowisko to eksploatacja (E) albo dozór (D).',
+      '„Uprawnienia SEP” to potoczna nazwa świadectwa kwalifikacyjnego. Grupa 1 to urządzenia, instalacje i sieci elektroenergetyczne. Świadectwo określa trzy rzeczy: rodzaj urządzeń, zakres czynności i stanowisko. Rodzaj urządzeń to punkt grupy – rozporządzenie z 2022 r. dzieli grupę 1 na 16 punktów, np. pkt 2 – urządzenia, instalacje i sieci do 1 kV, pkt 9 – sieci elektrycznego oświetlenia ulicznego, pkt 13 – aparatura kontrolno-pomiarowa i automatyka. Zakres czynności to obsługa, konserwacja, remont lub naprawa, montaż lub demontaż oraz czynności kontrolno-pomiarowe. Stanowisko to eksploatacja (E) albo dozór (D).',
     keyPoints: 'Grupa 1 = elektroenergetyczne. Świadectwo określa punkt (np. pkt 2 – do 1 kV), zakres czynności (w tym kontrolno-pomiarowy) i stanowisko E albo D. Numeracja punktów wg rozporządzenia z 2022 r.',
     sources: [{ act: 'kwal', at: '§ 3, § 4 i załącznik nr 1' }],
   },
@@ -32,7 +32,7 @@ export const questions = [
     id: 'r1q3', round: 1, category: 'BHP', topic: 'pierwsza-pomoc',
     question: 'Jakie środki gaśnicze wolno stosować przy gaszeniu urządzeń elektrycznych pod napięciem?',
     answer:
-      'Używa się gaśnic dopuszczonych do gaszenia urządzeń pod napięciem – w praktyce proszkowych (ABC) albo śniegowych (CO₂). Na gaśnicy jest oznaczenie, do jakiego napięcia i z jakiej odległości wolno nią gasić, np. „do 1000 V z odległości 1 m". Nie gasi się wodą z hydrantu ani zwykłą pianą – prąd może popłynąć strumieniem do ratownika. Gaśnica wodna lub mgłowa nadaje się tylko wtedy, gdy ma takie oznaczenie (przeszła badanie dielektryczne).',
+      'Używa się gaśnic dopuszczonych do gaszenia urządzeń pod napięciem – w praktyce proszkowych (ABC) albo śniegowych (CO₂). Na gaśnicy jest oznaczenie, do jakiego napięcia i z jakiej odległości wolno nią gasić, np. „do 1000 V z odległości 1 m”. Nie gasi się wodą z hydrantu ani zwykłą pianą – prąd może popłynąć strumieniem do ratownika. Gaśnica wodna lub mgłowa nadaje się tylko wtedy, gdy ma takie oznaczenie (przeszła badanie dielektryczne).',
     keyPoints: 'Proszek ABC i CO₂ – TAK (sprawdź oznaczenie, np. do 1000 V, 1 m). Woda i zwykła piana – NIE.',
     sources: [{ act: 'pn-en-3-7' }],
   },
@@ -40,11 +40,11 @@ export const questions = [
     id: 'r1q4', round: 1, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Czym są strefa prac pod napięciem i strefa prac w pobliżu napięcia? Jakie odległości obowiązują do 1 kV?',
     answer:
-      'Rozporządzenie BHP przy urządzeniach energetycznych (2019) wyznacza wokół nieosłoniętych części pod napięciem dwie strefy: strefę prac pod napięciem (jej granica to DL) i strefę prac w pobliżu napięcia (jej granica to DV). Dla urządzeń do 1 kV: DL – „bez dotyku", czyli każde dotknięcie części czynnej to już praca pod napięciem; DV – 0,3 m. Przy pracy w pobliżu napięcia nie wolno wejść w strefę prac pod napięciem żadną częścią ciała, narzędziem ani przedmiotem. Do 1 kV oznacza to: nie dotykać części czynnych, chyba że zostały osłonięte.',
+      'Rozporządzenie BHP przy urządzeniach energetycznych (2019) wyznacza wokół nieosłoniętych części pod napięciem dwie strefy: strefę prac pod napięciem (jej granica to DL) i strefę prac w pobliżu napięcia (jej granica to DV). Dla urządzeń do 1 kV: DL – „bez dotyku”, czyli każde dotknięcie części czynnej to już praca pod napięciem; DV – 0,3 m. Przy pracy w pobliżu napięcia nie wolno wejść w strefę prac pod napięciem żadną częścią ciała, narzędziem ani przedmiotem. Do 1 kV oznacza to: nie dotykać części czynnych, chyba że zostały osłonięte.',
     keyPoints: 'Do 1 kV: DL = bez dotyku, DV = 0,3 m. Dwie strefy: prac pod napięciem i prac w pobliżu napięcia.',
     sources: [{ act: 'bhp', at: '§ 23 ust. 3 i 6' }],
-    trap: 'Stare materiały podają „0,5 m" i „strefę niebezpieczną" – to nie są pojęcia z obecnego rozporządzenia.',
-    wrongAnswer: '„Do 1 kV bezpieczna odległość to 0,5 m" – obecnie granica strefy prac w pobliżu napięcia to 0,3 m.',
+    trap: 'Stare materiały podają „0,5 m” i „strefę niebezpieczną” – to nie są pojęcia z obecnego rozporządzenia.',
+    wrongAnswer: '„Do 1 kV bezpieczna odległość to 0,5 m” – obecnie granica strefy prac w pobliżu napięcia to 0,3 m.',
   },
   {
     id: 'r1q5', round: 1, category: 'BHP', topic: 'organizacja-pracy',
@@ -107,7 +107,7 @@ export const questions = [
     id: 'r1q12', round: 1, category: 'Dozór', topic: 'podstawy-prawne',
     question: 'Na jak długo wydawane są świadectwa kwalifikacyjne SEP i kiedy można je odnowić?',
     answer:
-      'Świadectwo kwalifikacyjne jest ważne 5 lat od daty wydania (art. 54 Prawa energetycznego). „Odnowienie" to ponowne zdanie egzaminu – warto zaplanować je z wyprzedzeniem. Dawne świadectwa „bezterminowe" straciły ważność 3 lipca 2026 r. Po wygaśnięciu świadectwa nie wolno wykonywać prac, do których jest wymagane.',
+      'Świadectwo kwalifikacyjne jest ważne 5 lat od daty wydania (art. 54 Prawa energetycznego). „Odnowienie” to ponowne zdanie egzaminu – warto zaplanować je z wyprzedzeniem. Dawne świadectwa „bezterminowe” straciły ważność 3 lipca 2026 r. Po wygaśnięciu świadectwa nie wolno wykonywać prac, do których jest wymagane.',
     keyPoints: '5 lat od daty wydania. Odnowienie = egzamin. Bezterminowe świadectwa wygasły 3.07.2026.',
     sources: [{ act: 'pe', at: 'art. 54 ust. 1aa i ust. 2' }, { act: 'pe2021', at: 'art. 25' }],
   },
@@ -157,11 +157,11 @@ export const questions = [
     id: 'r2q6', round: 2, category: 'Pomiary', topic: 'podstawy-prawne',
     question: 'Co musisz mieć w świadectwie kwalifikacyjnym, żeby wykonywać pomiary instalacji elektrycznej? Czym jest punkt 13 (dawniej 10)?',
     answer:
-      'Potrzebujesz zakresu kontrolno-pomiarowego dla urządzeń, które mierzysz. Dla instalacji w budynkach to G1 pkt 2 (do 1 kV). Punkt 13 grupy G1 to nie „pomiary", tylko rodzaj urządzeń: aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń. W rozporządzeniu z 2003 r. był to pkt 10. Kontrolę okresową instalacji z art. 62 Prawa budowlanego może przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi.',
+      'Potrzebujesz zakresu kontrolno-pomiarowego dla urządzeń, które mierzysz. Dla instalacji w budynkach to G1 pkt 2 (do 1 kV). Punkt 13 grupy G1 to nie „pomiary”, tylko rodzaj urządzeń: aparatura kontrolno-pomiarowa oraz urządzenia i instalacje automatycznej regulacji, sterowania i zabezpieczeń. W rozporządzeniu z 2003 r. był to pkt 10. Kontrolę okresową instalacji z art. 62 Prawa budowlanego może przeprowadzić osoba z kwalifikacjami dozoru (D) albo z uprawnieniami budowlanymi.',
     keyPoints: 'Pomiary = zakres kontrolno-pomiarowy. Pkt 13 (dawniej 10) = aparatura pomiarowa i automatyka. Dziś pkt 10 = sieć trakcyjna.',
     sources: [{ act: 'kwal', at: '§ 4 ust. 2 pkt 5 i załącznik nr 1 pkt 13' }, { act: 'pb', at: 'art. 62 ust. 4 i 5' }],
-    trap: 'Na kursach wciąż mówi się „pomiary z pkt 10" – to stara numeracja i skrót myślowy.',
-    wrongAnswer: '„Pkt 10 = pomiary" – od 2022 r. pkt 10 grupy G1 to elektryczna sieć trakcyjna.',
+    trap: 'Na kursach wciąż mówi się „pomiary z pkt 10” – to stara numeracja i skrót myślowy.',
+    wrongAnswer: '„Pkt 10 = pomiary” – od 2022 r. pkt 10 grupy G1 to elektryczna sieć trakcyjna.',
   },
   {
     id: 'r2q7', round: 2, category: 'Pomiary', topic: 'protokol',
@@ -192,14 +192,14 @@ export const questions = [
     question: 'Jakie są obowiązki elektryka bezpośrednio przed przystąpieniem do pracy przy urządzeniu wyłączonym spod napięcia?',
     answer:
       'Elektryk musi: 1) sprawdzić, czy ma ważne świadectwo kwalifikacyjne, 2) jeśli praca tego wymaga – mieć polecenie pisemne i zostać dopuszczonym do pracy, 3) osobiście sprawdzić brak napięcia wskaźnikiem – nigdy nie zakładać, że napięcie jest wyłączone, 4) sprawdzić, czy wywieszono tablice ostrzegawcze i czy założono uziemiacze, jeśli są wymagane. Dopiero wtedy może zacząć pracę.',
-    keyPoints: 'Zawsze sprawdź napięcie wskaźnikiem osobiście. „Założył, że jest wyłączone" = typowa przyczyna wypadków.',
+    keyPoints: 'Zawsze sprawdź napięcie wskaźnikiem osobiście. „Założył, że jest wyłączone” = typowa przyczyna wypadków.',
     sources: [{ act: 'bhp', at: '§ 24 i § 25' }, { act: 'pn-en-50110-1' }],
   },
   {
     id: 'r2q11', round: 2, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Jakie osoby funkcyjne występują przy pracy na polecenie pisemne i jakie muszą mieć kwalifikacje?',
     answer:
-      'Poleceniodawca – wydaje polecenie pisemne; świadectwo D. Koordynujący – koordynuje prace z ruchem urządzeń (kolejność łączeń, zezwolenie na przygotowanie i likwidację strefy, zgoda na uruchomienie urządzenia); świadectwo D. Dopuszczający – przygotowuje strefę pracy (czynności łączeniowe) i dopuszcza zespół; świadectwo E. Kierujący zespołem – sprawdza i przyjmuje strefę pracy, kieruje pracą na miejscu; świadectwo E. Każda z tych osób musi być upoważniona przez pracodawcę. Członkowie zespołu – wykonują pracę. Przy poleceniu pisemnym nie łączy się więcej niż dwóch funkcji, a funkcji dopuszczającego i kierującego zespołem nie łączy się wcale (wyjątek: prace pod napięciem). Osoby bez świadectwa (np. serwis specjalistyczny) pracują wyłącznie pod nadzorem osoby upoważnionej – w wielu IOBP to „nadzorujący", ale rozporządzenie nie definiuje takiej funkcji.',
+      'Poleceniodawca – wydaje polecenie pisemne; świadectwo D. Koordynujący – koordynuje prace z ruchem urządzeń (kolejność łączeń, zezwolenie na przygotowanie i likwidację strefy, zgoda na uruchomienie urządzenia); świadectwo D. Dopuszczający – przygotowuje strefę pracy (czynności łączeniowe) i dopuszcza zespół; świadectwo E. Kierujący zespołem – sprawdza i przyjmuje strefę pracy, kieruje pracą na miejscu; świadectwo E. Każda z tych osób musi być upoważniona przez pracodawcę. Członkowie zespołu – wykonują pracę. Przy poleceniu pisemnym nie łączy się więcej niż dwóch funkcji, a funkcji dopuszczającego i kierującego zespołem nie łączy się wcale (wyjątek: prace pod napięciem). Osoby bez świadectwa (np. serwis specjalistyczny) pracują wyłącznie pod nadzorem osoby upoważnionej – w wielu IOBP to „nadzorujący”, ale rozporządzenie nie definiuje takiej funkcji.',
     keyPoints: 'Poleceniodawca (D), koordynujący (D), dopuszczający (E), kierujący zespołem (E) – wszyscy upoważnieni przez pracodawcę. Najwyżej dwie funkcje na osobę. Dopuszczający ≠ kierujący.',
     sources: [{ act: 'bhp', at: '§ 2 pkt 8–11, § 6 ust. 2 i § 30 ust. 3' }],
   },
@@ -207,7 +207,7 @@ export const questions = [
     id: 'r2q12', round: 2, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Jakie czynności musi wykonać dopuszczający przed dopuszczeniem zespołu do pracy?',
     answer:
-      'Po uzyskaniu zezwolenia od koordynującego lub poleceniodawcy: 1) wyłączyć napięcie ze wszystkich stron tak, by uzyskać przerwę izolacyjną, 2) zabezpieczyć przed przypadkowym załączeniem (do 1 kV: wyjęte wkładki albo zablokowany napęd) i wywiesić tablice „Nie załączać – pracują ludzie", 3) sprawdzić brak napięcia sprawnym wskaźnikiem na wszystkich fazach i N, 4) uziemić i zewrzeć, jeżeli wymaga tego technologia prac – ze wszystkich stron, co najmniej jeden uziemiacz widoczny z miejsca pracy, 5) ogrodzić i oznaczyć strefę, osłonić sąsiednie części pod napięciem, 6) dopuścić zespół: sprawdzić przygotowanie strefy, wskazać ją, przeprowadzić instruktaż o zagrożeniach, potwierdzić dopuszczenie na piśmie i zgłosić je koordynującemu.',
+      'Po uzyskaniu zezwolenia od koordynującego lub poleceniodawcy: 1) wyłączyć napięcie ze wszystkich stron tak, by uzyskać przerwę izolacyjną, 2) zabezpieczyć przed przypadkowym załączeniem (do 1 kV: wyjęte wkładki albo zablokowany napęd) i wywiesić tablice „Nie załączać – pracują ludzie”, 3) sprawdzić brak napięcia sprawnym wskaźnikiem na wszystkich fazach i N, 4) uziemić i zewrzeć, jeżeli wymaga tego technologia prac – ze wszystkich stron, co najmniej jeden uziemiacz widoczny z miejsca pracy, 5) ogrodzić i oznaczyć strefę, osłonić sąsiednie części pod napięciem, 6) dopuścić zespół: sprawdzić przygotowanie strefy, wskazać ją, przeprowadzić instruktaż o zagrożeniach, potwierdzić dopuszczenie na piśmie i zgłosić je koordynującemu.',
     keyPoints: 'Wyłącz → zabezpiecz → sprawdź brak napięcia → uziem → oznacz strefę → dopuść. Uziemienie zakłada się po sprawdzeniu braku napięcia, nie przed.',
     sources: [{ act: 'bhp', at: '§ 25 i § 30 ust. 1 pkt 2–3' }, { act: 'pn-en-50110-1' }],
   },
@@ -236,28 +236,28 @@ export const questions = [
       'To zależy od rodzaju pracy – a samo wyłączenie napięcia niczego tu nie zmienia. Prace stwarzające możliwość szczególnego zagrożenia wykonuje się wyłącznie na polecenie pisemne, z przygotowaniem strefy pracy i dopuszczeniem. Bez polecenia wolno wykonywać tylko prace wskazane przez pracodawcę – typowo rutynowe czynności opisane w instrukcji eksploatacji – oraz działania ratujące życie lub zdrowie ludzi albo środowisko i zabezpieczające mienie przed zniszczeniem (z niezwłocznym powiadomieniem przełożonego).',
     keyPoints: 'Szczególne zagrożenie → polecenie pisemne. Bez polecenia: prace określone w instrukcji eksploatacji i ratowanie życia/mienia. Uprawnienia E same nie wystarczą.',
     sources: [{ act: 'bhp', at: '§ 27 ust. 1, § 29 i § 30 ust. 1 pkt 2–3' }, { act: 'kp', at: 'art. 211 pkt 6' }],
-    trap: 'Brzmi logicznie – sam wyłączył, sam sprawdził. Komisja sprawdza, czy wiesz, kiedy potrzebne jest polecenie.',
-    wrongAnswer: '„Tak, bo mam E i sam wyłączyłem napięcie." – uprawnienia nie zastępują polecenia ani dopuszczenia.',
+    trap: 'Brzmi logicznie – sam wyłączył, sam sprawdził. Pytanie sprawdza, czy wiesz, kiedy potrzebne jest polecenie.',
+    wrongAnswer: '„Tak, bo mam E i sam wyłączyłem napięcie.” – uprawnienia nie zastępują polecenia ani dopuszczenia.',
   },
   {
     id: 'r3q2', round: 3, category: 'Eksploatacja', topic: 'organizacja-pracy',
     question: 'Kolega mówi ci, że sprawdził napięcie i jest wyłączone – czy możesz zacząć pracę?',
     answer:
-      'Nie. Przed pracą przy urządzeniu odłączonym od napięcia trzeba sprawdzić, że napięcia nie ma – wskaźnikiem napięcia, w miejscu pracy, bezpośrednio przed rozpoczęciem pracy. Ustna informacja kolegi tego nie zastępuje. W praktyce każdy, kto ma dotknąć urządzenia, sprawdza brak napięcia sam, sprawnym wskaźnikiem. Zasada: „Nie zakładaj, zawsze sprawdź."',
+      'Nie. Przed pracą przy urządzeniu odłączonym od napięcia trzeba sprawdzić, że napięcia nie ma – wskaźnikiem napięcia, w miejscu pracy, bezpośrednio przed rozpoczęciem pracy. Ustna informacja kolegi tego nie zastępuje. W praktyce każdy, kto ma dotknąć urządzenia, sprawdza brak napięcia sam, sprawnym wskaźnikiem. Zasada: „Nie zakładaj, zawsze sprawdź.”',
     keyPoints: 'Brak napięcia sprawdzasz wskaźnikiem, sam – nie na słowo kolegi.',
     sources: [{ act: 'bhp', at: '§ 25 ust. 1 pkt 3' }, { act: 'pn-en-50110-1' }],
-    trap: 'Komisja sprawdza czy wiesz że zaufanie = śmierć w elektryce.',
-    wrongAnswer: '„Tak, ufam koledze." – komisja przerwie i obleje.',
+    trap: 'Pytanie sprawdza, czy wiesz, że w elektryce nie ufa się na słowo – brak napięcia sprawdzasz sam.',
+    wrongAnswer: '„Tak, ufam koledze.” – ustna informacja nie zastępuje sprawdzenia braku napięcia wskaźnikiem.',
   },
   {
     id: 'r3q3', round: 3, category: 'Pomiary', topic: 'rezystancja-izolacji',
     question: 'Instalacja ma rezystancję izolacji 0,8 MΩ – czy można ją oddać do użytku?',
     answer:
       'Nie. Minimalna dopuszczalna rezystancja izolacji dla instalacji 230/400 V to 1 MΩ. Wynik 0,8 MΩ jest za niski, więc instalacji nie wolno oddać do użytku. Trzeba znaleźć i usunąć uszkodzenie izolacji, a potem powtórzyć pomiar.',
-    keyPoints: '< 1 MΩ = instalacja do naprawy. Nie ma „prawie dobrze".',
+    keyPoints: '< 1 MΩ = instalacja do naprawy. Nie ma „prawie dobrze”.',
     sources: [{ act: 'pn-hd-60364-6' }],
     trap: '0,8 MΩ to dużo – brzmi jak dobry wynik. Ale próg to 1 MΩ.',
-    wrongAnswer: '„Tak, to dużo omów." – wartości poniżej 1 MΩ dyskwalifikują instalację.',
+    wrongAnswer: '„Tak, to dużo omów.” – wartości poniżej 1 MΩ dyskwalifikują instalację.',
   },
   {
     id: 'r3q4', round: 3, category: 'Eksploatacja', topic: 'urzadzenia',
@@ -266,8 +266,8 @@ export const questions = [
       'Częściowo – i trzeba umieć powiedzieć kiedy. W układzie TN wyłącznik nadprądowy realizuje ochronę przy uszkodzeniu (dotyk pośredni) przez samoczynne wyłączenie zasilania: gdy faza zewrze się z obudową, prąd zwarciowy płynie przez PE i wyłącznik wyłącza obwód – pod warunkiem, że impedancja pętli zwarcia jest dostatecznie mała (B16: ≥ 80 A, czyli Zs ≤ 2,88 Ω). Nie chroni natomiast przy dotyku części czynnej (np. fazy) – prąd płynący przez ciało (dziesiątki–setki mA) jest dla niego niezauważalny. Tu działa ochrona uzupełniająca: RCD 30 mA.',
     keyPoints: 'Zwarcie na obudowę (dotyk pośredni) → wyłącznik nadprądowy, jeśli Zs jest mała. Dotyk fazy przez człowieka → tylko RCD 30 mA. Podstawowa funkcja MCB to ochrona przewodów przed przeciążeniem i zwarciem.',
     sources: [{ act: 'pn-hd-60364-4-41' }],
-    trap: 'Slogan „bezpiecznik chroni kable, RCD chroni ludzi" jest za prosty – komisja dopyta o samoczynne wyłączenie zasilania w TN.',
-    wrongAnswer: '„Nie, wyłącznik nadprądowy w ogóle nie chroni przed porażeniem" – a pomiar pętli zwarcia sprawdza właśnie tę ochronę.',
+    trap: 'Slogan „bezpiecznik chroni kable, RCD chroni ludzi” jest za prosty – spodziewaj się dopytania o samoczynne wyłączenie zasilania w TN.',
+    wrongAnswer: '„Nie, wyłącznik nadprądowy w ogóle nie chroni przed porażeniem” – a pomiar pętli zwarcia sprawdza właśnie tę ochronę.',
   },
   {
     id: 'r3q5', round: 3, category: 'Eksploatacja', topic: 'klasy',
@@ -276,14 +276,14 @@ export const questions = [
       'Nie. Urządzenie klasy II ma podwójną lub wzmocnioną izolację i jest zaprojektowane do pracy bez przewodu ochronnego PE. Symbol klasy II to kwadrat w kwadracie na tabliczce znamionowej.',
     keyPoints: 'Klasa II = bezpieczna bez PE. Symbol kwadrat w kwadracie.',
     sources: [{ act: 'pn-en-61140' }, { act: 'pn-hd-60364-4-41' }],
-    trap: 'PE kojarzony z bezpieczeństwem – intuicja mówi „tak".',
-    wrongAnswer: '„Tak, dla bezpieczeństwa zawsze PE." – klasa II jest bezpieczna bez PE z założenia.',
+    trap: 'PE kojarzony z bezpieczeństwem – intuicja mówi „tak”.',
+    wrongAnswer: '„Tak, dla bezpieczeństwa zawsze PE.” – klasa II jest bezpieczna bez PE z założenia.',
   },
   {
     id: 'r3q6', round: 3, category: 'Dozór', topic: 'organizacja-pracy',
     question: 'Kierujący zespołem musi na chwilę opuścić miejsce pracy zespołu – co robi, zanim odejdzie?',
     answer:
-      'Przerywa pracę i wyprowadza zespół ze strefy pracy. Rozporządzenie BHP mówi wprost: gdy kierujący zespołem opuszcza strefę pracy, praca zostaje przerwana, a zespół – wyprowadzony ze strefy. Nie zostawia zespołu „na chwilę" samego. Zmiana kierującego zespołem to zmiana polecenia pisemnego – możliwa tylko w trybie, który przewiduje IOBP pracodawcy. Pracę na polecenie pisemne wznawia się po ponownym dopuszczeniu. Nie jest ono potrzebne, jeśli w czasie przerwy nie stwierdzono pogorszenia zabezpieczenia strefy ani warunków pracy. Przed każdym wznowieniem kierujący zespołem sprawdza zabezpieczenia strefy.',
+      'Przerywa pracę i wyprowadza zespół ze strefy pracy. Rozporządzenie BHP mówi wprost: gdy kierujący zespołem opuszcza strefę pracy, praca zostaje przerwana, a zespół – wyprowadzony ze strefy. Nie zostawia zespołu „na chwilę” samego. Zmiana kierującego zespołem to zmiana polecenia pisemnego – możliwa tylko w trybie, który przewiduje IOBP pracodawcy. Pracę na polecenie pisemne wznawia się po ponownym dopuszczeniu. Nie jest ono potrzebne, jeśli w czasie przerwy nie stwierdzono pogorszenia zabezpieczenia strefy ani warunków pracy. Przed każdym wznowieniem kierujący zespołem sprawdza zabezpieczenia strefy.',
     keyPoints: 'Kierujący zespołem (E) opuszcza strefę → praca przerwana, zespół wychodzi ze strefy. Przed wznowieniem kierujący sprawdza zabezpieczenia strefy.',
     sources: [{ act: 'bhp', at: '§ 31 ust. 2–4 i § 33 pkt 10' }],
   },
@@ -310,7 +310,7 @@ export const questions = [
       'Nie. Porażenie może powodować opóźnione skutki – arytmię serca, uszkodzenia wewnętrzne, oparzenia niewidoczne z zewnątrz. Nawet jeśli poszkodowany czuje się dobrze, należy wezwać pogotowie (112) lub niezwłocznie przetransportować do szpitala na obserwację.',
     keyPoints: 'Zawsze 112 po porażeniu prądem. Objawy mogą pojawić się z opóźnieniem godzin.',
     trap: 'Czuje się dobrze = jest dobrze. To błędne założenie.',
-    wrongAnswer: '„Skoro chodzi to wszystko OK." – objawy mogą pojawić się z opóźnieniem.',
+    wrongAnswer: '„Skoro chodzi to wszystko OK.” – objawy mogą pojawić się z opóźnieniem.',
   },
   {
     id: 'r3q10', round: 3, category: 'BHP', topic: 'pierwsza-pomoc',
@@ -327,8 +327,8 @@ export const questions = [
       'Tylko jeśli ma też świadectwo E. Samo D uprawnia do kierowania pracą innych i nadzoru – nie do wykonywania prac. Dlatego zwykle zdaje się na oba świadectwa: E i D.',
     keyPoints: 'D bez E = tylko nadzór. Aby pracować fizycznie potrzeba E.',
     sources: [{ act: 'kwal', at: '§ 4 ust. 1' }],
-    trap: 'D wydaje się „wyższą" kategorią niż E – więc logicznie może więcej.',
-    wrongAnswer: '„Tak, D to wyższe uprawnienia." – D bez E = tylko nadzór, zero pracy fizycznej.',
+    trap: 'D wydaje się „wyższą” kategorią niż E – więc logicznie może więcej.',
+    wrongAnswer: '„Tak, D to wyższe uprawnienia.” – D bez E = tylko nadzór, zero pracy fizycznej.',
   },
   {
     id: 'r3q12', round: 3, category: 'Dozór', topic: 'podstawy-prawne',
@@ -337,18 +337,18 @@ export const questions = [
       'Nie. Po upływie daty ważności świadectwo traci moc prawną natychmiast – nie ma okresu karencji. Praca bez ważnego świadectwa to naruszenie przepisów: pracodawcy grozi kara za dopuszczenie do pracy osoby bez wymaganych kwalifikacji, a w razie wypadku obaj mogą odpowiadać także karnie i cywilnie.',
     keyPoints: 'Natychmiastowa utrata ważności. Brak okresu karencji.',
     sources: [{ act: 'pe', at: 'art. 54 ust. 1, 1aa i 2 oraz art. 56 ust. 1 pkt 9' }, { act: 'kp', at: 'art. 237³ § 1 i art. 283 § 1' }],
-    trap: 'Tydzień to nic – „prawie ważne".',
-    wrongAnswer: '„Kilka dni to drobiazg." – dla inspektora PIP nie jest.',
+    trap: 'Tydzień to nic – „prawie ważne”.',
+    wrongAnswer: '„Kilka dni to drobiazg.” – dla inspektora PIP nie jest.',
   },
   {
     id: 'r3q13', round: 3, category: 'BHP', topic: 'organizacja-pracy',
     question: 'Miernik nie wskazuje napięcia przy urządzeniu. Czy to znaczy, że napięcia nie ma?',
     answer:
-      'Niekoniecznie. Miernik może być uszkodzony, mieć rozładowaną baterię albo przerwany przewód pomiarowy. Dlatego przed pomiarem sprawdź miernik na znanym źródle napięcia (np. w gniazdku 230 V), a po pomiarze sprawdź go jeszcze raz. Wynik „brak napięcia" jest wiarygodny dopiero wtedy, gdy miernik działał przed pomiarem i po nim.',
+      'Niekoniecznie. Miernik może być uszkodzony, mieć rozładowaną baterię albo przerwany przewód pomiarowy. Dlatego przed pomiarem sprawdź miernik na znanym źródle napięcia (np. w gniazdku 230 V), a po pomiarze sprawdź go jeszcze raz. Wynik „brak napięcia” jest wiarygodny dopiero wtedy, gdy miernik działał przed pomiarem i po nim.',
     keyPoints: 'Zawsze testuj miernik przed i po pomiarze. Uszkodzony miernik = fałszywe bezpieczeństwo.',
     sources: [{ act: 'bhp', at: '§ 25 ust. 1 pkt 3 i § 26' }, { act: 'pn-en-50110-1' }],
     trap: 'Brak wskazania = brak napięcia. Niekoniecznie.',
-    wrongAnswer: '„Nie wskazuje = nie ma napięcia." – uszkodzony miernik zabił niejednego elektryka.',
+    wrongAnswer: '„Nie wskazuje = nie ma napięcia.” – uszkodzony miernik zabił niejednego elektryka.',
   },
 
   // ───────────────────────────── RUNDA 4 ─────────────────────────────
@@ -397,7 +397,7 @@ export const questions = [
     question: 'Dlaczego pomiar ciągłości PE wykonuje się prądem o wartości co najmniej 200 mA?',
     answer:
       'Bo mierzy się ułamki oma, a luźny zacisk musi dać wyraźnie za duży wynik. Norma PN-HD 60364-6 wymaga przyrządu wg PN-EN 61557-4 o napięciu 4–24 V i prądzie co najmniej 200 mA. Taki prąd przebija cienkie warstwy tlenków na zaciskach (podobnie jak prąd zwarciowy), więc wynik w miliomach jest stabilny i powtarzalny. Multimetr mierzy prądem ok. 1 mA, więc przez tlenki jego wynik bywa zawyżony i niestabilny. Jego brzęczyk piszczy nawet przy kilku omach – nie odróżni dobrego połączenia od złego.',
-    keyPoints: '≥ 200 mA przy 4–24 V (PN-EN 61557-4) = wynik miarodajny i powtarzalny. Brzęczyk multimetru mówi tylko „jest przewód", nie „połączenie jest dobre".',
+    keyPoints: '≥ 200 mA przy 4–24 V (PN-EN 61557-4) = wynik miarodajny i powtarzalny. Brzęczyk multimetru mówi tylko „jest przewód”, nie „połączenie jest dobre”.',
     sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 4' }],
   },
   {
@@ -415,8 +415,8 @@ export const questions = [
       'Wg PN-HD 60364-4-41: obwody odbiorcze do 32 A (a z gniazdami – do 63 A) – maksymalnie 0,4 s. Dotyczy to gniazd, ale też np. obwodu oświetlenia czy ogrzewania. Obwody rozdzielcze (np. WLZ) oraz obwody odbiorcze powyżej tych prądów – maksymalnie 5 s.',
     keyPoints: 'TN 230 V: obwody odbiorcze do 32 A = 0,4 s (także oświetlenie). Obwody rozdzielcze = 5 s.',
     sources: [{ act: 'pn-hd-60364-4-41' }],
-    trap: 'Stare materiały: „obwody stałe = 5 s". Według aktualnej normy obwód oświetlenia B10 też musi wyłączyć w 0,4 s.',
-    wrongAnswer: '„Oświetlenie wbudowane – 5 s" – to zapis ze starej normy.',
+    trap: 'Stare materiały: „obwody stałe = 5 s”. Według aktualnej normy obwód oświetlenia B10 też musi wyłączyć w 0,4 s.',
+    wrongAnswer: '„Oświetlenie wbudowane – 5 s” – to zapis ze starej normy.',
   },
   {
     id: 'r4q9', round: 4, category: 'Pomiary', topic: 'rcd',
@@ -442,7 +442,7 @@ export const questions = [
     keyPoints: 'TEST = czy RCD w ogóle zadziała; użytkownik naciska go okresowo (zwykle co miesiąc). Miernik RCD = wymagany do protokołu odbiorczego.',
     sources: [{ act: 'pn-hd-60364-6' }, { act: 'pn-en-61557', at: 'część 6' }],
     trap: 'Przycisk TEST wystarczy, przecież działa.',
-    wrongAnswer: '„TEST wystarczy." Na odbiór instalacji – nie wystarczy.',
+    wrongAnswer: '„TEST wystarczy.” Na odbiór instalacji – nie wystarczy.',
   },
   {
     id: 'r4q12', round: 4, category: 'Pomiary', topic: 'uziemienie',
@@ -456,7 +456,7 @@ export const questions = [
     id: 'r4q13', round: 4, category: 'Pomiary', topic: 'uziemienie',
     question: 'Jaką metodą mierzy się rezystancję uziemienia i dlaczego nie można użyć zwykłego omomierza?',
     answer:
-      'Stosuje się metodę trójzaciskową (spadku potencjału): trzy elektrody – badana, pomocnicza prądowa i pomocnicza napięciowa. Na kursach bywa nazywana „metodą Wernera" (ściśle: Wenner to 4-elektrodowy pomiar rezystywności gruntu). Zwykły omomierz się nie nada: ma tylko dwa zaciski, a rezystancję uziemienia mierzy się względem odległej „ziemi odniesienia", do której nie da się go podłączyć. Dlatego potrzebne są elektrody pomocnicze i miernik uziemień.',
+      'Stosuje się metodę trójzaciskową (spadku potencjału): trzy elektrody – badana, pomocnicza prądowa i pomocnicza napięciowa. Na kursach bywa nazywana „metodą Wernera” (ściśle: Wenner to 4-elektrodowy pomiar rezystywności gruntu). Zwykły omomierz się nie nada: ma tylko dwa zaciski, a rezystancję uziemienia mierzy się względem odległej „ziemi odniesienia”, do której nie da się go podłączyć. Dlatego potrzebne są elektrody pomocnicze i miernik uziemień.',
     keyPoints: 'Metoda trójzaciskowa / spadku potencjału, dedykowany miernik uziemienia. Zwykły omomierz = błędny wynik.',
     sources: [{ act: 'pn-en-61557', at: 'część 5' }, { act: 'pn-hd-60364-6' }],
   },
@@ -480,11 +480,11 @@ export const questions = [
     id: 'r4q16', round: 4, category: 'Pomiary', topic: 'podstawy-prawne',
     question: 'Instalacja ma 8 lat, działa bez zarzutu, nikt nie zgłaszał problemów. Czy przegląd i pomiary są wymagane?',
     answer:
-      'Tak – bezwzględnie. Art. 62 Prawa budowlanego wymaga kontroli instalacji elektrycznej co najmniej raz na 5 lat, niezależnie od tego, czy instalacja „działa". Osiem lat bez kontroli to naruszenie prawa. Izolacja starzeje się niewidocznie – jej rzeczywisty stan pokazuje dopiero pomiar.',
+      'Tak – bezwzględnie. Art. 62 Prawa budowlanego wymaga kontroli instalacji elektrycznej co najmniej raz na 5 lat, niezależnie od tego, czy instalacja „działa”. Osiem lat bez kontroli to naruszenie prawa. Izolacja starzeje się niewidocznie – jej rzeczywisty stan pokazuje dopiero pomiar.',
     keyPoints: '5 lat = obowiązek ustawowy, nie opcja. Za jego niedopełnienie właścicielowi grozi grzywna – bez względu na stan instalacji.',
     sources: [{ act: 'pb', at: 'art. 62 ust. 1 pkt 2 i art. 93 pkt 8' }],
     trap: 'Instalacja działa – po co sprawdzać? Bo izolacja i połączenia psują się bez widocznych objawów – usterkę pokazuje dopiero pomiar.',
-    wrongAnswer: '„Działa dobrze, nie trzeba." – degradacja izolacji jest niewidoczna gołym okiem.',
+    wrongAnswer: '„Działa dobrze, nie trzeba.” – degradacja izolacji jest niewidoczna gołym okiem.',
   },
 ]
 

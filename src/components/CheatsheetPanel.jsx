@@ -51,7 +51,7 @@ export function CheatsheetPanel() {
       <PageHeader
         eyebrow="Utrwal · liczby"
         title="Ściąga – liczby, które musisz znać na pamięć"
-        lead={'Przy pomiarach komisja pyta o konkretne wartości. Tryb drill zakrywa liczby – odpytuj się, aż wszystkie będziesz mieć w głowie.'}
+        lead={'Przy pomiarach liczą się konkretne wartości, nie „mniej więcej”. Tryb drill zakrywa liczby – odpytuj się, aż wszystkie będziesz mieć w głowie.'}
       >
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <SearchField value={query} onChange={setQuery} placeholder="Szukaj: RCD, izolacja, uziemienie..." />
@@ -60,11 +60,11 @@ export function CheatsheetPanel() {
       </PageHeader>
 
       <SectionFrame tag="Pomiary" title="Wartości graniczne i terminy" badge={`${main.length} pozycji`}>
-        {main.length ? <CheatTable rows={main} drill={drill} revealed={revealed} setRevealed={setRevealed} /> : <Tag>Brak wyników dla „{query}"</Tag>}
+        {main.length ? <CheatTable rows={main} drill={drill} revealed={revealed} setRevealed={setRevealed} /> : <Tag>Brak wyników dla „{query}”</Tag>}
       </SectionFrame>
 
       <SectionFrame tag="Bonus" title="Pozostałe liczby egzaminacyjne" badge={`${extra.length} pozycji`}>
-        {extra.length ? <CheatTable rows={extra} drill={drill} revealed={revealed} setRevealed={setRevealed} /> : <Tag>Brak wyników dla „{query}"</Tag>}
+        {extra.length ? <CheatTable rows={extra} drill={drill} revealed={revealed} setRevealed={setRevealed} /> : <Tag>Brak wyników dla „{query}”</Tag>}
       </SectionFrame>
     </div>
   )

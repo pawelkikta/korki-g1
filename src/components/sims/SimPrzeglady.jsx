@@ -8,7 +8,7 @@ const yearsText = (n) => `${n} ${plural(n, 'rok', 'lata', 'lat')}`
 const OBJECTS = [
   { id: 'blok', icon: Home, label: 'Blok mieszkalny', interval: 5, basis: 'art. 62', basisLabel: 'Prawa budowlanego – kontrola co najmniej raz na 5 lat', why: 'budynek mieszkalny – kontrola okresowa z art. 62 Prawa budowlanego' },
   { id: 'biuro', icon: Building2, label: 'Biurowiec', interval: 5, basis: 'art. 62', basisLabel: 'Prawa budowlanego – kontrola co najmniej raz na 5 lat', why: 'budynek użytkowy – kontrola okresowa z art. 62 Prawa budowlanego' },
-  // strefy Ex: żaden przepis nie podaje „co rok" wprost – częstotliwość ustala pracodawca (dokument zabezpieczenia
+  // strefy Ex: żaden przepis nie podaje „co rok” wprost – częstotliwość ustala pracodawca (dokument zabezpieczenia
   // przed wybuchem, § 7 rozporządzenia z 8.07.2010 o atmosferze wybuchowej); co rok to typowy wybór
   { id: 'lakiernia', icon: Flame, label: 'Lakiernia', interval: 1, typical: true, basis: 'dokument Ex', basisLabel: 'dokument zabezpieczenia przed wybuchem i instrukcja eksploatacji (art. 62 i tak: min. co 5 lat)', why: 'strefa zagrożenia wybuchem (opary rozpuszczalników) – pracodawca ustala częstsze kontrole na podstawie oceny ryzyka, typowo co rok' },
   { id: 'stacja', icon: Fuel, label: 'Stacja paliw', interval: 1, typical: true, basis: 'dokument Ex', basisLabel: 'dokument zabezpieczenia przed wybuchem i instrukcja eksploatacji (art. 62 i tak: min. co 5 lat)', why: 'obiekt zagrożony wybuchem – pracodawca ustala częstsze kontrole na podstawie oceny ryzyka, typowo co rok' },
@@ -67,7 +67,7 @@ export function SimPrzeglady() {
               ) : (
                 <>
                   {obj.label}: limit to {yearsText(obj.interval)} ({obj.why}). Właściciel lub zarządca łamie art. 62 –
-                  grozi mu grzywna (art. 93 pkt 8 Prawa budowlanego), a przy wypadku odpowiada też cywilnie, nawet jeśli „instalacja działa".
+                  grozi mu grzywna (art. 93 pkt 8 Prawa budowlanego), a przy wypadku odpowiada też cywilnie, nawet jeśli „instalacja działa”.
                 </>
               )}
             </NoteBox>

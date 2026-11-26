@@ -1,4 +1,4 @@
-// Mini-quiz „Sprawdź się" po każdym rozdziale szkolenia – 3 pytania ABCD na rozdział.
+// Mini-quiz „Sprawdź się” po każdym rozdziale szkolenia – 3 pytania ABCD na rozdział.
 // correct = indeks poprawnej odpowiedzi w options (kolejność tasowana przy wyświetlaniu).
 
 export const chapterQuiz = {
@@ -23,7 +23,7 @@ export const chapterQuiz = {
         'Odchodzi na chwilę – zespół zna zakres pracy z polecenia',
       ],
       correct: 0,
-      explain: 'Gdy kierujący zespołem opuszcza strefę pracy, praca zostaje przerwana, a zespół wyprowadzony. Dopuszczający nie może być kierującym zespołem, a „najstarszy stażem" nie jest wyznaczony w poleceniu.',
+      explain: 'Gdy kierujący zespołem opuszcza strefę pracy, praca zostaje przerwana, a zespół wyprowadzony. Dopuszczający nie może być kierującym zespołem, a „najstarszy stażem” nie jest wyznaczony w poleceniu.',
     },
     {
       question: 'Którą czynność wolno wykonać bez polecenia?',
@@ -92,13 +92,13 @@ export const chapterQuiz = {
       question: 'Napięcie pomiarowe izolacji dla instalacji 230/400 V:',
       options: ['500 V DC', '230 V AC', '250 V DC', '1000 V AC'],
       correct: 0,
-      explain: 'Megaomomierz „stresuje" izolację napięciem 500 V DC – wyższym od roboczego.',
+      explain: 'Megaomomierz „stresuje” izolację napięciem 500 V DC – wyższym od roboczego.',
     },
     {
       question: 'Wynik 0,8 MΩ oznacza:',
       options: ['Instalację do naprawy – minimum to 1 MΩ', 'Wynik dobry – to dużo omów', 'Wynik graniczny – można oddać warunkowo', 'Wynik dobry, jeśli mierzono napięciem 250 V'],
       correct: 0,
-      explain: 'Poniżej 1 MΩ nie ma „prawie dobrze" – instalacja nie może być oddana do użytku.',
+      explain: 'Poniżej 1 MΩ nie ma „prawie dobrze” – instalacja nie może być oddana do użytku.',
     },
     {
       question: 'Co trzeba zrobić bezpośrednio PO pomiarze izolacji?',
@@ -158,7 +158,7 @@ export const chapterQuiz = {
       question: 'Jaki typ RCD do pralki z falownikiem?',
       options: ['Typ A (lub wyższy)', 'Typ AC', 'Dowolny – byle 30 mA', 'Typ S – bo jest zwłoczny i nie wybija przy wirowaniu'],
       correct: 0,
-      explain: 'Prąd upływu z elektroniki ma składowe, na które typ AC jest „ślepy". Dziś minimum to typ A, a przy falowniku jednofazowym najlepiej typ F.',
+      explain: 'Prąd upływu z elektroniki ma składowe, na które typ AC jest „ślepy”. Dziś minimum to typ A, a przy falowniku jednofazowym najlepiej typ F.',
     },
     {
       question: 'Co sprawdza przycisk TEST na RCD?',
@@ -178,7 +178,7 @@ export const chapterQuiz = {
       question: 'Jak nazywa się metoda pomiaru RE trzema elektrodami?',
       options: ['Metoda spadku potencjału (trójzaciskowa)', 'Metoda pętli zwarcia', 'Metoda megaomomierza 500 V', 'Metoda dwuprzewodowa omomierzem'],
       correct: 0,
-      explain: 'Elektrody E-P-C, miernik liczy RE = U/I. Na kursach bywa nazywana „metodą Wernera".',
+      explain: 'Elektrody E-P-C, miernik liczy RE = U/I. Na kursach bywa nazywana „metodą Wernera”.',
     },
     {
       question: 'Co zrobić z badanym uziomem przed pomiarem?',

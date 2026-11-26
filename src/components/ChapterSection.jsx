@@ -28,7 +28,7 @@ export function ChapterSection({ section }) {
           if (p.quote) {
             return (
               <blockquote key={i} className="border-l-[3px] border-rule-2 pl-4 font-serif text-[16.5px] italic leading-[1.65] text-ink-2">
-                „{p.quote}"
+                „{p.quote}”
               </blockquote>
             )
           }

@@ -98,7 +98,7 @@ export function DeviceMCB() {
         setVerdict({
           type: 'warning',
           title: `Strefa niepewności – ${amps} A może NIE wyzwolić wcale`,
-          text: `${amps} A = ${(amps / 16).toFixed(2).replace('.', ',')}×In. Norma: przy 1,13×In (~18 A) B16 ma NIE zadziałać, pewne zadziałanie termiczne dopiero od 1,45×In (23,2 A) – i to w ciągu godziny. Bimetal się grzeje, ale może tak trzymać godzinami. Dlatego kabel dobiera się z zapasem, a „lekko przeciążony" obwód potrafi grzać się latami bez wybicia.`,
+          text: `${amps} A = ${(amps / 16).toFixed(2).replace('.', ',')}×In. Norma: przy 1,13×In (~18 A) B16 ma NIE zadziałać, pewne zadziałanie termiczne dopiero od 1,45×In (23,2 A) – i to w ciągu godziny. Bimetal się grzeje, ale może tak trzymać godzinami. Dlatego kabel dobiera się z zapasem, a „lekko przeciążony” obwód potrafi grzać się latami bez wybicia.`,
         })
       }, 1800)
       return
@@ -228,7 +228,7 @@ export function DeviceMCB() {
       </div>
 
       <NoteBox type="trap" title="Pułapka egzaminacyjna">
-        „Czy wyłącznik nadprądowy chroni przed porażeniem?" – odpowiedź brzmi: częściowo. Komisja chce usłyszeć oba przypadki.
+        „Czy wyłącznik nadprądowy chroni przed porażeniem?” – odpowiedź brzmi: częściowo. Pełna odpowiedź obejmuje oba przypadki.
         <ul className="mt-1.5 list-disc space-y-1 pl-5">
           <li>
             <b>Faza zwiera się z obudową</b> (uszkodzona izolacja w urządzeniu) – <b>TAK</b>. W układzie TN prąd zwarcia wraca przewodem PE

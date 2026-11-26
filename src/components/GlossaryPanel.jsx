@@ -92,7 +92,7 @@ export function GlossaryPanel() {
       <PageHeader
         eyebrow="Pod ręką"
         title="Słowniczek"
-        lead="Pojęcia i urządzenia wyjaśnione „po ludzku” oraz skróty – skąd się biorą. Egzamin ustny to rozmowa: komisja lubi, gdy umiesz wyjaśnić pojęcie własnymi słowami, a nie regułką."
+        lead="Pojęcia i urządzenia wyjaśnione „po ludzku” oraz skróty – skąd się biorą. Egzamin jest ustny, więc pojęcie warto umieć wyjaśnić własnymi słowami, a nie regułką."
       />
 
       <div>
@@ -100,7 +100,7 @@ export function GlossaryPanel() {
         <section className="sheet relative z-[1] px-5 py-5 md:px-7 md:py-6">
           <p className="max-w-[70ch] font-serif text-[16px] leading-[1.55] text-ink-2">
             {abbrMode
-              ? 'TN pochodzi z francuskiego, RCD z angielskiego, NH z niemieckiego. Rozwinięcie mówi, CO oznacza skrót – a komisja lubi zapytać, co znaczy litera T w TN.'
+              ? 'TN pochodzi z francuskiego, RCD z angielskiego, NH z niemieckiego. Rozwinięcie mówi, CO oznacza skrót – przyda się, gdy padnie pytanie, co znaczy litera T w TN.'
               : 'Krótko: co to jest, do czego służy i przykład z życia.'}
           </p>
           <div className="mt-4">
@@ -124,7 +124,7 @@ export function GlossaryPanel() {
               <div className="mt-4"><SystemDecoder /></div>
               <div className="mt-4">
                 <NoteBox type="trap" title="Na egzaminie">
-                  Nie kończ na „T to ziemia". Powiedz, czego dotyczy litera: pierwsza – jak źródło jest połączone z ziemią, druga – jak
+                  Nie kończ na „T to ziemia”. Powiedz, czego dotyczy litera: pierwsza – jak źródło jest połączone z ziemią, druga – jak
                   połączone są obudowy, kolejne – czy N i PE biegną razem (C), czy osobno (S).
                 </NoteBox>
               </div>
