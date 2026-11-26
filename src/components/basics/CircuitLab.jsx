@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NoteBox, ValueTile, Tag } from '../ui.jsx'
 
-// „Kiedy popłynie prąd?" – scenariusze zamykania obwodu + realny prąd przez ciało.
+// „Kiedy popłynie prąd?” – scenariusze zamykania obwodu + realny prąd przez ciało.
 
 const C = {
   L: 'var(--c-a05a1f)',
@@ -327,7 +327,7 @@ export function CircuitLab() {
         </NoteBox>
       ) : id === 'zwarcie' ? (
         <NoteBox type="mistake" title="Zwarcie – prąd ograniczony tylko rezystancją przewodów">
-          L1 dotknęło N z pominięciem odbiornika. Nie ma już żarówki, która „hamowała" prąd – płynie <strong className="font-semibold text-[color:var(--c-14543e)]">kilkaset amperów</strong> – ogranicza go już tylko impedancja przewodów i transformatora (w gnieździe mieszkania typowo 200–500 A).
+          L1 dotknęło N z pominięciem odbiornika. Nie ma już żarówki, która „hamowała” prąd – płynie <strong className="font-semibold text-[color:var(--c-14543e)]">kilkaset amperów</strong> – ogranicza go już tylko impedancja przewodów i transformatora (w gnieździe mieszkania typowo 200–500 A).
           Wyzwalacz elektromagnetyczny wyłącznika nadprądowego otwiera styki w kilka milisekund.
           <br /><br />
           <strong className="font-semibold text-[color:var(--c-14543e)]">Uwaga egzaminacyjna:</strong> RCD tego NIE widzi! Prąd wypłynął L i wrócił N – różnica dalej wynosi zero.
@@ -366,21 +366,21 @@ export function CircuitLab() {
         </NoteBox>
       ) : id === 'przerwaL' ? (
         <NoteBox type="warning" title="Przerwa w L1 – żarówka nie świeci, ale napięcie NIE zniknęło">
-          Pęknięty przewód fazowy przerywa obwód, więc prąd roboczy nie płynie i odbiornik nie działa. Wygląda jak „brak prądu" – i to jest pułapka.
+          Pęknięty przewód fazowy przerywa obwód, więc prąd roboczy nie płynie i odbiornik nie działa. Wygląda jak „brak prądu” – i to jest pułapka.
           <br /><br />
           <strong className="font-semibold text-[color:var(--c-14543e)]">Odcinek L1 od stacji do miejsca przerwy nadal ma pełne 230 V względem ziemi.</strong> Dotknięcie go
-          kończy się porażeniem dokładnie tak samo, jak przy sprawnej instalacji. Za przerwą (od strony odbiornika) faza jest „martwa", bo przez żarówkę
+          kończy się porażeniem dokładnie tak samo, jak przy sprawnej instalacji. Za przerwą (od strony odbiornika) faza jest „martwa”, bo przez żarówkę
           łączy się z N.
           <br /><br />
-          Stąd żelazna zasada z egzaminu: <strong className="font-semibold text-[color:var(--c-14543e)]">„urządzenie nie działa" nie znaczy „nie ma napięcia"</strong>.
+          Stąd żelazna zasada z egzaminu: <strong className="font-semibold text-[color:var(--c-14543e)]">„urządzenie nie działa” nie znaczy „nie ma napięcia”</strong>.
           Zawsze sprawdzasz wskaźnikiem, osobiście, bezpośrednio przed dotknięciem.
         </NoteBox>
       ) : id === 'przerwaN' ? (
-        <NoteBox type="trap" title={`Przerwa w N – neutralny „ożywa" (${bodyMa} mA przez ciało)`}>
+        <NoteBox type="trap" title={`Przerwa w N – neutralny „ożywa” (${bodyMa} mA przez ciało)`}>
           Żarówka też nie świeci, więc objaw wygląda identycznie jak przy przerwie w fazie. Różnica jest zabójcza.
           <br /><br />
           <strong className="font-semibold text-[color:var(--c-14543e)]">Przewód N za przerwą jest przez odbiornik połączony z fazą</strong> – przyjmuje potencjał
-          bliski 230 V. „Neutralny" przestaje być neutralny. Gdy go dotkniesz stojąc na ziemi, prąd popłynie: L1 → żarówka → N → twoje ciało → ziemia →
+          bliski 230 V. „Neutralny” przestaje być neutralny. Gdy go dotkniesz stojąc na ziemi, prąd popłynie: L1 → żarówka → N → twoje ciało → ziemia →
           uziom stacji → punkt gwiazdowy.
           <br /><br />
           Prąd ogranicza tu jeszcze rezystancja odbiornika: I = 230 V / ({R_BULB} Ω + {bodyR} Ω) = <strong className="font-semibold text-[color:var(--c-14543e)]">{bodyMa} mA</strong>. {d.text}

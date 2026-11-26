@@ -174,7 +174,7 @@ export function DeviceDobor() {
       {motor && !overRange ? (
         <NoteBox type="warning" title="Silnik ≠ sam wyłącznik nadprądowy">
           Dobrany {charLetter}{inValue} chroni przede wszystkim przed ZWARCIEM. Przed przeciążeniem silnik chroni wyłącznik silnikowy
-          lub przekaźnik termiczny nastawiony na prąd z tabliczki (tu ok. {fmt(I, 1)} A) – {charLetter}{inValue} jest na to za „gruby".
+          lub przekaźnik termiczny nastawiony na prąd z tabliczki (tu ok. {fmt(I, 1)} A) – {charLetter}{inValue} jest na to za „gruby”.
           Kalkulator przyjmuje sprawność η = {fmt(ETA)} i rozruch ok. {START}×IN; przy dużych silnikach stosuje się rozruch gwiazda-trójkąt
           albo softstart i charakterystykę D lub wyłącznik silnikowy.
         </NoteBox>
@@ -188,7 +188,7 @@ export function DeviceDobor() {
 
       <NoteBox type="warning" title="To uproszczenie do nauki">
         Pełny dobór uwzględnia jeszcze obciążalność i przekrój kabla, spadek napięcia, warunki układania, jednoczesność i selektywność.
-        Tu pokazujemy samą zależność prąd ↔ wartość znamionowa i charakterystyka – tak, jak pyta o to komisja.
+        Tu pokazujemy samą zależność prąd ↔ wartość znamionowa i charakterystyka.
       </NoteBox>
     </div>
   )

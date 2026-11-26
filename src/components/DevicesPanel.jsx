@@ -27,7 +27,7 @@ export function DevicesPanel({ deviceId, onDevice }) {
       <PageHeader
         eyebrow="Zrozum · aparaty"
         title="Aparaty w rozdzielnicy – jak działają od środka"
-        lead={'Symboliczne rysunki (tak wyglądają na schematach i szynie DIN) i interaktywna zasada działania. Komisja często pyta „jak działa różnicówka?" – po tej sekcji odpowiesz z detalem przekładnika.'}
+        lead={'Symboliczne rysunki (tak wyglądają na schematach i szynie DIN) i interaktywna zasada działania. Po tej sekcji na pytanie „jak działa różnicówka?” odpowiesz z detalem przekładnika.'}
         meta={`obejrzane ${DEVICES.filter((d) => seen[d.id]).length}/${DEVICES.length}`}
       />
 

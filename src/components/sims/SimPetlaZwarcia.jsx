@@ -109,7 +109,7 @@ export function SimPetlaZwarcia() {
         <NoteBox type="remember" title="Zabezpieczenie zadziała">
           Ik = {Math.round(ik)} A ≥ {threshold} A – cewka {char}{IN} wyzwala natychmiast, dużo szybciej niż wymagane 0,4 s. Niska impedancja = dobra ochrona.
           {zs > (2 / 3) * zsMax ? ` Uwaga praktyczna: mierzysz na zimnych przewodach, a przy zwarciu się nagrzewają i ich rezystancja rośnie. Norma w załączniku informacyjnym podpowiada zapas – zmierzone Zs najlepiej do ok. 2/3 wartości granicznej (tu ${(zsMax * 2 / 3).toFixed(2).replace('.', ',')} Ω). Ten wynik jest blisko granicy.` : ''}
-          {char !== 'B' ? ` Zauważ: przy charakterystyce ${char} potrzeba ${CHARS[char].mult}×In – czyli tym niższej impedancji pętli, im „twardsza" charakterystyka.` : ''}
+          {char !== 'B' ? ` Zauważ: przy charakterystyce ${char} potrzeba ${CHARS[char].mult}×In – czyli tym niższej impedancji pętli, im „twardsza” charakterystyka.` : ''}
         </NoteBox>
       ) : (
         <NoteBox type="mistake" title="Zabezpieczenie może nie zdążyć">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NoteBox } from '../ui.jsx'
 
-// „Napięcie jest MIĘDZY dwoma punktami" – wirtualny woltomierz.
+// „Napięcie jest MIĘDZY dwoma punktami” – wirtualny woltomierz.
 // Punkty neutralne (N, PE, kaloryfer, ziemia) mają praktycznie ten sam potencjał,
 // bo wszystkie schodzą się w uziemionym punkcie gwiazdowym stacji.
 
@@ -31,7 +31,7 @@ function measure(a, b) {
     return {
       volts: 400,
       title: `${A.label} – ${B.label}: napięcie międzyfazowe 400 V`,
-      text: 'Dwie różne fazy. Nie 460 V (2 × 230), bo napięcia są przesunięte w czasie o 120° – dodają się „po skosie": 230 × √3 ≈ 400 V. Na tym napięciu pracują silniki 3-fazowe i niektóre grzałki (np. w przepływowym podgrzewaczu). Kuchenka 3-fazowa zwykle tylko rozkłada strefy grzejne na fazy – każda pracuje na 230 V (faza–N).',
+      text: 'Dwie różne fazy. Nie 460 V (2 × 230), bo napięcia są przesunięte w czasie o 120° – dodają się „po skosie”: 230 × √3 ≈ 400 V. Na tym napięciu pracują silniki 3-fazowe i niektóre grzałki (np. w przepływowym podgrzewaczu). Kuchenka 3-fazowa zwykle tylko rozkłada strefy grzejne na fazy – każda pracuje na 230 V (faza–N).',
       type: 'warning',
     }
   }
@@ -42,7 +42,7 @@ function measure(a, b) {
       N: 'To podstawowy pomiar – napięcie fazowe względem punktu gwiazdowego stacji.',
       PE: 'PE schodzi się z N w rozdzielnicy, a dalej w punkcie gwiazdowym – więc ma ten sam potencjał co N. Stąd te same 230 V.',
       KAL: 'Kaloryfer jest połączony z ziemią (rury, połączenia wyrównawcze), a ziemia z uziemionym punktem gwiazdowym. Dlatego między fazą a kaloryferem jest PEŁNE 230 V – i dlatego dotknięcie fazy przy kaloryferze zabija.',
-      ZIEM: 'Ziemia jest „podłączona" do punktu gwiazdowego przez uziom stacji. Stojąc na mokrej trawie i dotykając fazy, masz na sobie 230 V – bez dotykania jakiegokolwiek drugiego przewodu.',
+      ZIEM: 'Ziemia jest „podłączona” do punktu gwiazdowego przez uziom stacji. Stojąc na mokrej trawie i dotykając fazy, masz na sobie 230 V – bez dotykania jakiegokolwiek drugiego przewodu.',
     }[other.id]
     return {
       volts: 230,
@@ -51,11 +51,11 @@ function measure(a, b) {
       type: other.id === 'N' ? 'remember' : 'trap',
     }
   }
-  // dwa punkty „neutralne"
+  // dwa punkty „neutralne”
   return {
     volts: 0,
     title: `${A.label} – ${B.label}: około 0 V`,
-    text: 'Oba punkty schodzą się ostatecznie w tym samym miejscu – uziemionym punkcie gwiazdowym stacji. W praktyce zobaczysz kilka woltów (spadki napięcia na przewodzie N pod obciążeniem), ale to nie jest napięcie robocze. UWAGA: to nie znaczy, że N jest bezpieczny – przy przerwie w N potrafi „ożyć".',
+    text: 'Oba punkty schodzą się ostatecznie w tym samym miejscu – uziemionym punkcie gwiazdowym stacji. W praktyce zobaczysz kilka woltów (spadki napięcia na przewodzie N pod obciążeniem), ale to nie jest napięcie robocze. UWAGA: to nie znaczy, że N jest bezpieczny – przy przerwie w N potrafi „ożyć”.',
     type: A.id === 'N' || B.id === 'N' ? 'warning' : 'remember',
   }
 }
@@ -120,7 +120,7 @@ export function VoltmeterLab() {
       {r ? <NoteBox type={r.type} title={r.title}>{r.text}</NoteBox> : null}
 
       <NoteBox type="remember" title="Najważniejszy wniosek z tego ćwiczenia">
-        Napięcie <strong className="font-semibold text-[color:var(--c-14543e)]">nie siedzi „w przewodzie"</strong> – jest zawsze <strong className="font-semibold text-[color:var(--c-14543e)]">między dwoma
+        Napięcie <strong className="font-semibold text-[color:var(--c-14543e)]">nie siedzi „w przewodzie”</strong> – jest zawsze <strong className="font-semibold text-[color:var(--c-14543e)]">między dwoma
         punktami</strong>. Faza sama w sobie nie jest groźna, dopóki nie ma drugiego punktu o innym potencjale. Problem w tym, że tym drugim
         punktem jest <strong className="font-semibold text-[color:var(--c-14543e)]">cała ziemia dookoła ciebie</strong> – podłoga, rury, kaloryfer, wilgotna ściana.
       </NoteBox>

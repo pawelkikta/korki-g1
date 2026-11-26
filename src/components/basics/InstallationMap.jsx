@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NoteBox, Tag } from '../ui.jsx'
 
-// „Gdzie to wszystko siedzi" – droga L / N / PE od stacji do gniazdka,
+// „Gdzie to wszystko siedzi” – droga L / N / PE od stacji do gniazdka,
 // z pokazaniem, KTÓRE przewody przechodzą przez KTÓRY aparat.
 
 const C = {
@@ -40,7 +40,7 @@ const NODES = {
     label: 'Wyłącznik główny (rozłącznik)',
     where: 'Pierwszy aparat w twojej rozdzielnicy, od lewej.',
     wires: 'Rozłącza: L i N',
-    text: 'Jednym ruchem odcina **całe mieszkanie**. Rozłącza L i N (dlatego jest 2-biegunowy). To on daje ci „brak napięcia" przed pracą – ale i tak **musisz sprawdzić wskaźnikiem**, czy faktycznie zniknęło.',
+    text: 'Jednym ruchem odcina **całe mieszkanie**. Rozłącza L i N (dlatego jest 2-biegunowy). To on daje ci „brak napięcia” przed pracą – ale i tak **musisz sprawdzić wskaźnikiem**, czy faktycznie zniknęło.',
   },
   spd: {
     label: 'Ogranicznik przepięć (SPD)',
@@ -52,13 +52,13 @@ const NODES = {
     label: 'Wyłącznik różnicowoprądowy (RCD)',
     where: 'W rozdzielnicy, za wyłącznikiem głównym – zwykle jeden na kilka obwodów albo RCBO na każdy.',
     wires: 'Przechodzą przez niego: L i N. PE go OMIJA!',
-    text: 'To jest sedno, którego zwykle nikt nie pokazuje: **przez przekładnik RCD przewleczone są przewody L i N – ale NIE PE**. Dzięki temu RCD porównuje, ile prądu wypłynęło L i ile wróciło N.\n\nGdy prąd ucieknie inną drogą (przez PE albo przez człowieka do ziemi) – **nie wróci przez przekładnik**, pojawi się różnica i wyłącznik zadziała. Gdyby PE też przez niego przechodził, prąd upływu do PE wracałby przez przekładnik, różnica by się „zasklepiła" i RCD by nie zadziałał.',
+    text: 'To jest sedno, którego zwykle nikt nie pokazuje: **przez przekładnik RCD przewleczone są przewody L i N – ale NIE PE**. Dzięki temu RCD porównuje, ile prądu wypłynęło L i ile wróciło N.\n\nGdy prąd ucieknie inną drogą (przez PE albo przez człowieka do ziemi) – **nie wróci przez przekładnik**, pojawi się różnica i wyłącznik zadziała. Gdyby PE też przez niego przechodził, prąd upływu do PE wracałby przez przekładnik, różnica by się „zasklepiła” i RCD by nie zadziałał.',
   },
   mcb: {
     label: 'Wyłączniki nadprądowe (MCB)',
-    where: 'Rządek „esek" w rozdzielnicy – po jednym na każdy obwód: gniazda, światło, kuchenka.',
+    where: 'Rządek „esek” w rozdzielnicy – po jednym na każdy obwód: gniazda, światło, kuchenka.',
     wires: 'Jednobiegunowy (1P): TYLKO na L',
-    text: 'W instalacji 1-fazowej zwykła „eska" 1P **przerywa wyłącznie przewód fazowy L** – N i PE idą obok nietknięte. Chroni kabel danego obwodu przed przeciążeniem i zwarciem. Stąd oczywisty wniosek: **po zadziałaniu „eski" przewód N nadal jest połączony** z resztą instalacji.',
+    text: 'W instalacji 1-fazowej zwykła „eska” 1P **przerywa wyłącznie przewód fazowy L** – N i PE idą obok nietknięte. Chroni kabel danego obwodu przed przeciążeniem i zwarciem. Stąd oczywisty wniosek: **po zadziałaniu „eski” przewód N nadal jest połączony** z resztą instalacji.',
   },
   gniazdo: {
     label: 'Gniazdo w ścianie',

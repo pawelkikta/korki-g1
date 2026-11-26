@@ -25,7 +25,7 @@ const byId = Object.fromEntries(questions.map((q) => [q.id, q]))
 const scopeOf = (roundId, topic) => (topic ? flashcardsOf(topic) : questions.filter((q) => q.round === roundId))
 
 // kolejność pytań (lista id) zapisujemy razem z pozycją – po powrocie losowa kolejność
-// i skład puli „do powtórki" są takie same jak przed wyjściem z fiszek
+// i skład puli „do powtórki” są takie same jak przed wyjściem z fiszek
 function buildOrder(roundId, onlyReview, shuffleOn, progress, topic = null) {
   const base = scopeOf(roundId, topic)
   const filtered = onlyReview ? base.filter((q) => progress[q.id] === 'review') : base

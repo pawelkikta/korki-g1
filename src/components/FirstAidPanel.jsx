@@ -17,7 +17,7 @@ export function FirstAidPanel() {
       <PageHeader
         eyebrow="Zrozum · BHP"
         title="Porażenie prądem i pierwsza pomoc"
-        lead="Co robisz, gdy ktoś zostanie porażony – i gdy pali się urządzenie pod napięciem. Komisja pyta tu głównie o kolejność: najpierw twoje bezpieczeństwo i przerwanie przepływu prądu, potem poszkodowany."
+        lead="Co robisz, gdy ktoś zostanie porażony – i gdy pali się urządzenie pod napięciem. Najważniejsza jest tu kolejność: najpierw twoje bezpieczeństwo i przerwanie przepływu prądu, potem poszkodowany."
         meta={passed ? <Badge tone="ok">zaliczone ✓</Badge> : null}
       />
 

@@ -30,7 +30,7 @@ function Schematic({ installed, surging, wornOut, tvDead }) {
         <g>
           <line x1="120" y1="60" x2="120" y2="96" stroke="var(--c-66736c)" strokeWidth="3" />
           <rect x="96" y="96" width="48" height="56" rx="4" fill={wornOut ? 'var(--c-fdf0ee)' : 'var(--c-f3f6f4)'} stroke={wornOut ? 'var(--c-b3261e)' : 'var(--c-8a958e)'} strokeWidth="2" />
-          {/* symbol warystora: rezystor + ukośna kreska z „ogonkiem" (rezystancja zależna od napięcia) */}
+          {/* symbol warystora: rezystor + ukośna kreska z „ogonkiem” (rezystancja zależna od napięcia) */}
           <line x1="120" y1="96" x2="120" y2="108" stroke={varColor} strokeWidth="2" />
           <rect x="113" y="108" width="14" height="32" fill="var(--c-ffffff)" stroke={varColor} strokeWidth="2"
             style={{ filter: surging && installed && !wornOut ? 'drop-shadow(0 0 5px var(--c-b3261e))' : 'none' }} />

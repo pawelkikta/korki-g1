@@ -27,11 +27,11 @@ const PARTS = {
   },
   secondary: {
     label: 'Trzy uzwojenia wtórne (230 V)',
-    text: 'Trzy oddzielne cewki, każda na swojej kolumnie rdzenia, nad „swoim" uzwojeniem pierwotnym. W każdej indukuje się **230 V** – bo mają **znacznie mniej zwojów** niż uzwojenie pierwotne (w takim stosunku, w jakim 15 000 V ma się do 230 V, czyli ok. 65 razy mniej). To tutaj dosłownie „powstaje" napięcie z twojego gniazdka.',
+    text: 'Trzy oddzielne cewki, każda na swojej kolumnie rdzenia, nad „swoim” uzwojeniem pierwotnym. W każdej indukuje się **230 V** – bo mają **znacznie mniej zwojów** niż uzwojenie pierwotne (w takim stosunku, w jakim 15 000 V ma się do 230 V, czyli ok. 65 razy mniej). To tutaj dosłownie „powstaje” napięcie z twojego gniazdka.',
   },
   star: {
     label: 'Punkt gwiazdowy (neutralny)',
-    text: 'Jeden koniec **każdego z trzech uzwojeń** jest fizycznie skręcony razem w jeden wspólny punkt – stąd nazwa „gwiazda". Z tego punktu wyprowadza się **przewód N**. Gdy mówimy „faza ma 230 V", znaczy to: 230 V **względem punktu gwiazdowego**.',
+    text: 'Jeden koniec **każdego z trzech uzwojeń** jest fizycznie skręcony razem w jeden wspólny punkt – stąd nazwa „gwiazda”. Z tego punktu wyprowadza się **przewód N**. Gdy mówimy „faza ma 230 V”, znaczy to: 230 V **względem punktu gwiazdowego**.',
   },
   earth: {
     label: 'Uziemienie punktu gwiazdowego',
@@ -64,7 +64,7 @@ const STEPS = [
   {
     part: 'primary',
     title: 'Krok 1 – do stacji przychodzi 15 000 V',
-    text: 'Prąd w twoim mieszkaniu nie „bierze się z gniazdka". Płynie z elektrowni linią wysokiego napięcia, a do twojego osiedla dociera linią **średniego napięcia** – zwykle **15 kV**, w części kraju 20 kV – do szarego budyneczku albo transformatora na słupie. Tak wysokie napięcie dlatego, że przy wysokim napięciu prąd jest mały i **mniej energii ginie po drodze** na grzaniu przewodów.',
+    text: 'Prąd w twoim mieszkaniu nie „bierze się z gniazdka”. Płynie z elektrowni linią wysokiego napięcia, a do twojego osiedla dociera linią **średniego napięcia** – zwykle **15 kV**, w części kraju 20 kV – do szarego budyneczku albo transformatora na słupie. Tak wysokie napięcie dlatego, że przy wysokim napięciu prąd jest mały i **mniej energii ginie po drodze** na grzaniu przewodów.',
   },
   {
     part: 'core',

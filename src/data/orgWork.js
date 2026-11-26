@@ -24,7 +24,7 @@ export const orgSections = [
   {
     heading: 'Polecenie pisemne czy bez polecenia?',
     paragraphs: [
-      'Na **polecenie pisemne** wykonuje się prace stwarzające możliwość wystąpienia **szczególnego zagrożenia** dla zdrowia lub życia. Rozporządzenie podaje ich przykłady (lista jest otwarta – „w szczególności"). Dla elektryka najważniejsze są prace:',
+      'Na **polecenie pisemne** wykonuje się prace stwarzające możliwość wystąpienia **szczególnego zagrożenia** dla zdrowia lub życia. Rozporządzenie podaje ich przykłady (lista jest otwarta – „w szczególności”). Dla elektryka najważniejsze są prace:',
       { list: [
         'w pobliżu nieosłoniętych części pod napięciem,',
         'przy urządzeniach odłączonych od napięcia, gdy **żadne uziemienie nie jest widoczne** z miejsca pracy,',
@@ -42,7 +42,7 @@ export const orgSections = [
       'Wniosek z tej listy: pracę, której na niej nie ma, wykonuje się na polecenie pisemne. Rozporządzenie nie zna polecenia ustnego. O zagrożeniu życia lub zdrowia zawiadamiasz niezwłocznie przełożonego – to obowiązek z Kodeksu pracy.',
       'Polecenie pisemne wydaje pracodawca lub osoba przez niego upoważniona (poleceniodawca). Zawiera co najmniej: numer, osoby wyznaczone do organizowania i wykonania pracy, zakres prac i strefę pracy, warunki i środki ochronne oraz termin rozpoczęcia i zakończenia prac, przerwy i warunki wznowienia. Pracodawca przechowuje je **co najmniej 90 dni** od zakończenia pracy.',
     ],
-    box: { type: 'trap', title: 'Pułapka egzaminacyjna', text: '„Mam uprawnienia E i sam wyłączyłem napięcie, więc mogę pracować" – nie. Uprawnienia mówią, **co umiesz**, a polecenie i dopuszczenie – **czy wolno ci teraz pracować w tej strefie**.' },
+    box: { type: 'trap', title: 'Pułapka egzaminacyjna', text: '„Mam uprawnienia E i sam wyłączyłem napięcie, więc mogę pracować” – nie. Uprawnienia mówią, **co umiesz**, a polecenie i dopuszczenie – **czy wolno ci teraz pracować w tej strefie**.' },
   },
   {
     heading: 'Osoby funkcyjne – kto jest kim',
@@ -69,7 +69,7 @@ export const orgSections = [
     ],
     steps: [
       '**Wyłącz** – tak, żeby uzyskać przerwę izolacyjną: otwarte zestyki łącznika, wyjęte wkładki bezpiecznikowe, zdemontowany fragment obwodu albo łącznik w obudowie z jednoznacznym wskaźnikiem położenia',
-      '**Zabezpiecz przed załączeniem** – do 1 kV: wyjęcie wkładek albo zablokowanie napędu otwartego łącznika (kłódka); w miejscu wyłączenia tablica **„Nie załączać – pracują ludzie"**',
+      '**Zabezpiecz przed załączeniem** – do 1 kV: wyjęcie wkładek albo zablokowanie napędu otwartego łącznika (kłódka); w miejscu wyłączenia tablica **„Nie załączać – pracują ludzie”**',
       '**Sprawdź brak napięcia** – sprawnym wskaźnikiem (sprawdzonym na znanym napięciu), na **wszystkich fazach**, a do 1 kV **także na przewodzie N**; nie na podstawie lampek ani przyrządów tablicowych',
       '**Uziem i zewrzyj** – bezpośrednio po sprawdzeniu braku napięcia; wszystkie fazy, ze wszystkich stron, z których może przyjść napięcie, a co najmniej jeden uziemiacz widoczny z miejsca pracy. Najpierw zacisk uziomowy, potem fazowe (drążkiem)',
       '**Ogrodź i oznacz strefę** – osłoń lub wygródź sąsiednie części pod napięciem, oznacz strefę tablicami',
@@ -107,7 +107,7 @@ export const orgSections = [
 export const strefaPrep = [
   { id: 1, label: 'Uzyskaj zezwolenie na przygotowanie strefy (od koordynującego lub poleceniodawcy)', whyNot: 'Zanim cokolwiek przełączysz, musisz mieć zezwolenie – koordynujący wie, co jeszcze dzieje się w sieci i czy wyłączenie nikomu nie zagraża.' },
   { id: 2, label: 'Wyłącz obwód tak, by uzyskać przerwę izolacyjną (otwarty rozłącznik, wyjęte wkładki)', whyNot: 'Najpierw trzeba wyłączyć – bez przerwy izolacyjnej nie ma czego zabezpieczać ani sprawdzać.' },
-  { id: 3, label: 'Zabezpiecz przed załączeniem: kłódka na napędzie, tablica „Nie załączać – pracują ludzie"', whyNot: 'Blokadę zakłada się zaraz po wyłączeniu – zanim ktokolwiek dotknie obwodu, nikt nie może go przypadkiem załączyć.' },
+  { id: 3, label: 'Zabezpiecz przed załączeniem: kłódka na napędzie, tablica „Nie załączać – pracują ludzie”', whyNot: 'Blokadę zakłada się zaraz po wyłączeniu – zanim ktokolwiek dotknie obwodu, nikt nie może go przypadkiem załączyć.' },
   { id: 4, label: 'Sprawdź wskaźnik napięcia na znanym źródle napięcia', whyNot: 'Wskaźnik sprawdzasz bezpośrednio przed sprawdzeniem braku napięcia – wcześniej nie ma to sensu, a później jest za późno.' },
   { id: 5, label: 'Sprawdź brak napięcia na wszystkich fazach i na przewodzie N', whyNot: 'Brak napięcia sprawdzasz sprawnym wskaźnikiem na wyłączonym i zabezpieczonym obwodzie.' },
   { id: 6, label: 'Uziem i zewrzyj: najpierw zacisk uziomowy, potem zaciski fazowe', whyNot: 'Uziemiacz na niesprawdzony obwód? Jeśli jest pod napięciem – zwarcie i łuk elektryczny prosto w twarz. Najpierw sprawdź brak napięcia.' },
@@ -139,7 +139,7 @@ export const roleTasks = [
   { id: 't2', text: 'Wykonuje czynności łączeniowe i przygotowuje strefę pracy', role: 'dop', why: 'Przygotowanie strefy (wyłączenie, blokady, sprawdzenie, uziemienie) to zadanie dopuszczającego.' },
   { id: 't3', text: 'Sprawdza przygotowaną strefę i przyjmuje ją od dopuszczającego', role: 'kie', why: 'Kierujący zespołem niezależnie sprawdza strefę – to druga para oczu.' },
   { id: 't4', text: 'Ustala kolejność łączeń przy pracy kilku zespołów i zezwala na uruchomienie urządzenia', role: 'koo', why: 'Skoordynowanie prac z ruchem urządzeń to rola koordynującego (D).' },
-  { id: 't5', text: 'Nadzoruje pracę osób bez świadectwa kwalifikacyjnego, np. serwisu specjalistycznego', role: 'nad', why: 'Osoby bez kwalifikacji pracują wyłącznie pod nadzorem osoby upoważnionej. Rozporządzenie nie nazywa tej funkcji – w wielu IOBP to „nadzorujący".' },
+  { id: 't5', text: 'Nadzoruje pracę osób bez świadectwa kwalifikacyjnego, np. serwisu specjalistycznego', role: 'nad', why: 'Osoby bez kwalifikacji pracują wyłącznie pod nadzorem osoby upoważnionej. Rozporządzenie nie nazywa tej funkcji – w wielu IOBP to „nadzorujący”.' },
   { id: 't6', text: 'Nie może samowolnie opuścić strefy, w której pracuje zespół', role: 'kie', why: 'Gdy kierujący musi odejść, praca jest przerywana, a zespół wyprowadzony.' },
   { id: 't7', text: 'Po zakończeniu pracy likwiduje strefę – zdejmuje uziemiacze i blokady', role: 'dop', why: 'Likwidacja strefy należy do dopuszczającego – po oględzinach i za zezwoleniem.' },
   { id: 't8', text: 'Wyznacza dopuszczającego i kierującego zespołem do konkretnej pracy', role: 'pol', why: 'Osoby funkcyjne do pracy wskazuje poleceniodawca w poleceniu.' },

@@ -3,7 +3,7 @@ import { RotateCcw, Check, X } from 'lucide-react'
 import { Button, NoteBox } from '../ui.jsx'
 import { ROLES, roleTasks, roleCombos } from '../../data/orgWork.js'
 
-// „Kto jest kim" – przypisz zadanie do osoby funkcyjnej, potem oceń łączenie funkcji.
+// „Kto jest kim” – przypisz zadanie do osoby funkcyjnej, potem oceń łączenie funkcji.
 
 export function SimRole() {
   const [picks, setPicks] = useState({}) // taskId -> roleId

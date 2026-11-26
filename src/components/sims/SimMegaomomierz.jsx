@@ -99,7 +99,7 @@ function Gauge({ megohms, seconds }) {
   return (
     <svg viewBox="0 0 300 196" className="w-full max-w-[420px]">
       <rect x="10" y="10" width="280" height="176" fill="var(--c-f3f6f4)" stroke="var(--c-d7ded9)" />
-      {/* strefa NIEZGODNE: 0,01–1 MΩ, strefa OK: od 1 MΩ – granica dokładnie na kresce „1" */}
+      {/* strefa NIEZGODNE: 0,01–1 MΩ, strefa OK: od 1 MΩ – granica dokładnie na kresce „1” */}
       <path d={`M 40 140 A 110 110 0 0 1 ${bx.toFixed(1)} ${by.toFixed(1)}`} fill="none" stroke="var(--c-e5b8b4)" strokeWidth="14" />
       <path d={`M ${bx.toFixed(1)} ${by.toFixed(1)} A 110 110 0 0 1 260 140`} fill="none" stroke="var(--c-9fcab1)" strokeWidth="14" />
       {ticks.map((v) => {
@@ -209,7 +209,7 @@ export function SimMegaomomierz() {
             {phase === 'done' ? (
               target >= 1 ? (
                 <NoteBox type="remember" title={`Wynik ustabilizowany: ${target >= 1000 ? '>1000' : target.toFixed(2).replace('.', ',')} MΩ ≥ 1 MΩ`}>
-                  Instalacja 230/400 V spełnia minimum normy. Zapisz wynik z jednostką i oceną „OK" – i pamiętaj o rozładowaniu obwodu.
+                  Instalacja 230/400 V spełnia minimum normy. Zapisz wynik z jednostką i oceną „OK” – i pamiętaj o rozładowaniu obwodu.
                 </NoteBox>
               ) : (
                 <NoteBox type="mistake" title={`Wynik ustabilizowany: ${target.toFixed(2).replace('.', ',')} MΩ < 1 MΩ`}>
@@ -218,7 +218,7 @@ export function SimMegaomomierz() {
               )
             ) : phase === 'running' ? (
               <NoteBox type="warning" title="Nie odczytuj jeszcze!">
-                Wskazówka wciąż się wspina – odczyt przed ustabilizowaniem byłby zaniżony i mógłbyś niesłusznie „oblać" zdrową instalację.
+                Wskazówka wciąż się wspina – odczyt przed ustabilizowaniem byłby zaniżony i mógłbyś niesłusznie „oblać” zdrową instalację.
               </NoteBox>
             ) : (
               <NoteBox type="remember" title="Ustaw stan izolacji i zmierz">

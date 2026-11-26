@@ -64,7 +64,7 @@ function OrderGame() {
       </div>
       {wrong ? (
         <NoteBox type="mistake" title="Nie ta kolejność">
-          „{wrong.label}" wykonuje się później. Kolejność zalecana w normie: oględziny → ciągłość PE → izolacja → impedancja pętli → RCD. Każdy krok opiera się na poprzednim – na egzaminie trzymaj się jej.
+          „{wrong.label}” wykonuje się później. Kolejność zalecana w normie: oględziny → ciągłość PE → izolacja → impedancja pętli → RCD. Każdy krok opiera się na poprzednim – na egzaminie trzymaj się jej.
         </NoteBox>
       ) : null}
       {complete ? (

@@ -45,7 +45,7 @@ const SYSTEMS = {
   'TN-C': {
     letters: [[1, 'T'], [2, 'N'], [3, 'C']],
     summary: 'Do odbiornika biegnie jeden przewód PEN. Przerwa w PEN = napięcie na obudowach. RCD tu nie pomoże: prąd zwarcia wraca tym samym PEN, który przechodzi przez przekładnik.',
-    where: 'Stare instalacje dwużyłowe („zerowanie"). PEN wolno dziś układać tylko w instalacji stałej o przekroju co najmniej 10 mm² Cu (16 mm² Al) – więc nie w obwodach mieszkania.',
+    where: 'Stare instalacje dwużyłowe („zerowanie”). PEN wolno dziś układać tylko w instalacji stałej o przekroju co najmniej 10 mm² Cu (16 mm² Al) – więc nie w obwodach mieszkania.',
   },
   'TN-C-S': {
     letters: [[1, 'T'], [2, 'N'], [3, 'C', 'Od źródła do punktu rozdziału: N i PE razem w PEN.'], [3, 'S', 'Za punktem rozdziału: osobno N i PE – już nigdy razem.']],

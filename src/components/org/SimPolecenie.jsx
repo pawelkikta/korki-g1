@@ -3,7 +3,7 @@ import { RotateCcw, Check, X } from 'lucide-react'
 import { Button, NoteBox } from '../ui.jsx'
 import { ORDER_KINDS, orderCases } from '../../data/orgWork.js'
 
-// „Polecenie czy nie?" – klasyfikacja typowych sytuacji z pracy elektryka.
+// „Polecenie czy nie?” – klasyfikacja typowych sytuacji z pracy elektryka.
 
 function shuffled(arr) {
   const a = [...arr]

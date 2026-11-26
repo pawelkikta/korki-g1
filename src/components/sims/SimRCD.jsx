@@ -92,7 +92,7 @@ export function SimRCD() {
               <NoteBox type="remember" title={`Wynik prawidłowy – ${result.timeMs} ms ≤ ${result.test.limit} ms`}>
                 Przy {result.test.label} sprawny RCD musi wyłączyć w czasie ≤ {result.test.limit} ms. W praktyce nowe wyłączniki mieszczą się
                 z dużym zapasem – {result.test.id === '1' ? 'typowo 15–40 ms' : 'zwykle kilka–kilkanaście ms'}. Wynik bliski limitowi to sygnał,
-                że mechanizm jest „zmęczony". Czas wpisujesz do protokołu odbiorczego – przycisk TEST go nie zmierzy.
+                że mechanizm jest „zmęczony”. Czas wpisujesz do protokołu odbiorczego – przycisk TEST go nie zmierzy.
               </NoteBox>
             </div>
           ) : (
@@ -106,7 +106,7 @@ export function SimRCD() {
       </div>
 
       <div className="border-t border-[color:var(--c-d7ded9)] pt-4">
-        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-gray-600">Pułapka typów: czy ten RCD „widzi" ten prąd?</div>
+        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-gray-600">Pułapka typów: czy ten RCD „widzi” ten prąd?</div>
         <div className="mt-3 grid gap-2 md:grid-cols-2">
           <div className="space-y-1.5">
             <div className="text-[11px] text-gray-500">Typ wyłącznika RCD:</div>
@@ -158,7 +158,7 @@ export function SimRCD() {
         <div className="mt-3">
           {blind ? (
             <NoteBox type="trap" title={`RCD typu ${rcdType} NIE ZADZIAŁA – człowiek bez ochrony`}>
-              Typ AC jest „ślepy" na pulsujący prąd DC. Przy upływie przez ciało człowieka z obwodu z elektroniką ten wyłącznik może nie zareagować.
+              Typ AC jest „ślepy” na pulsujący prąd DC. Przy upływie przez ciało człowieka z obwodu z elektroniką ten wyłącznik może nie zareagować.
               To kluczowa pułapka egzaminacyjna – nowoczesny sprzęt wymaga typu A lub wyższego.
             </NoteBox>
           ) : (

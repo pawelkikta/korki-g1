@@ -18,7 +18,7 @@ export function BasicsPanel() {
       <PageHeader
         eyebrow="Zrozum · fundament"
         title="Skąd prąd: od transformatora do twojego gniazdka"
-        lead={'Zanim wejdziesz w pomiary i aparaty, musisz mieć w głowie jeden obraz: skąd bierze się napięcie, czym są L, N i PE, oraz kiedy prąd w ogóle płynie. Bez tego cała reszta to „abstrakcyjne gadanie".'}
+        lead={'Zanim wejdziesz w pomiary i aparaty, musisz mieć w głowie jeden obraz: skąd bierze się napięcie, czym są L, N i PE, oraz kiedy prąd w ogóle płynie. Bez tego cała reszta to „abstrakcyjne gadanie”.'}
         meta={passed ? <Badge tone="ok">zaliczone ✓</Badge> : null}
       />
 
@@ -26,7 +26,7 @@ export function BasicsPanel() {
         <ul className="mt-1 space-y-1.5">
           {[
             'Skąd fizycznie bierze się 230 V w gniazdku – i czemu akurat tyle?',
-            'Czym są L, N i PE, gdzie się zaczynają i dlaczego N i PE „schodzą się" w jednym miejscu?',
+            'Czym są L, N i PE, gdzie się zaczynają i dlaczego N i PE „schodzą się” w jednym miejscu?',
             'Co się stanie, jak zewrę L z N, a co – jak dotknę L i kaloryfera? Jaki prąd popłynie i czy jest śmiertelny?',
             'Gdzie w mieszkaniu siedzi RCD, którędy przez niego idą przewody i dlaczego akurat tak?',
           ].map((q, i) => (
