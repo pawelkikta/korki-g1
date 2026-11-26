@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Building2, Flame, Home, Fuel } from 'lucide-react'
 import { NoteBox, ValueTile } from '../ui.jsx'
+import { plural } from '../../lib/plural.js'
+
+const yearsText = (n) => `${n} ${plural(n, 'rok', 'lata', 'lat')}`
 
 const OBJECTS = [
   { id: 'blok', icon: Home, label: 'Blok mieszkalny', interval: 5, basis: 'art. 62', basisLabel: 'Prawa budowlanego – kontrola co najmniej raz na 5 lat', why: 'budynek mieszkalny – kontrola okresowa z art. 62 Prawa budowlanego' },
@@ -40,7 +43,7 @@ export function SimPrzeglady() {
 
       <div className="grid grid-cols-2 gap-2">
         <ValueTile
-          value={`${obj.typical ? 'typowo ' : ''}co ${obj.interval} ${obj.interval === 1 ? 'rok' : 'lat'}`}
+          value={`${obj.typical ? 'typowo ' : ''}${obj.interval === 1 ? 'co rok' : `co ${obj.interval} lat`}`}
           label={obj.typical ? 'częstotliwość ustalona przez pracodawcę – pomiary / kontrola instalacji' : 'wymagane pomiary / kontrola instalacji elektrycznej'}
         />
         <ValueTile value={obj.basis} label={obj.basisLabel} />
@@ -49,7 +52,7 @@ export function SimPrzeglady() {
       <div className="border border-[color:var(--c-e3e8e5)] bg-[color:var(--b-fafbfa)] p-4">
         <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.16em] text-gray-600">
           <span>Lata od ostatniego przeglądu</span>
-          <span className="text-base font-black text-[color:var(--c-14543e)]">{years} {years === 1 ? 'rok' : years < 5 ? 'lata' : 'lat'}</span>
+          <span className="text-base font-black text-[color:var(--c-14543e)]">{yearsText(years)}</span>
         </div>
         <input type="range" min={0} max={10} step={1} value={years} onChange={(e) => setYears(Number(e.target.value))} className="mt-3 w-full" />
         <div className="mt-3">
@@ -63,8 +66,8 @@ export function SimPrzeglady() {
                 </>
               ) : (
                 <>
-                  {obj.label}: limit to {obj.interval} {obj.interval === 1 ? 'rok' : 'lat'} ({obj.why}). Właściciel łamie przepisy –
-                  grozi mu grzywna, a przy wypadku odpowiada też cywilnie, nawet jeśli „instalacja działa".
+                  {obj.label}: limit to {yearsText(obj.interval)} ({obj.why}). Właściciel lub zarządca łamie art. 62 –
+                  grozi mu grzywna (art. 93 pkt 8 Prawa budowlanego), a przy wypadku odpowiada też cywilnie, nawet jeśli „instalacja działa".
                 </>
               )}
             </NoteBox>
@@ -73,7 +76,7 @@ export function SimPrzeglady() {
               {obj.label}: {obj.why}.{' '}
               {obj.interval - years === 0
                 ? 'Termin mija właśnie teraz – kontrola musi odbyć się w tym roku.'
-                : `Następna kontrola najpóźniej za ${obj.interval - years} ${obj.interval - years === 1 ? 'rok' : obj.interval - years < 5 ? 'lata' : 'lat'}.`}
+                : `Następna kontrola najpóźniej za ${yearsText(obj.interval - years)}.`}
             </NoteBox>
           )}
         </div>
