@@ -146,7 +146,7 @@ export function SimCiagloscPE() {
         </NoteBox>
       ) : !highCurrent ? (
         <NoteBox type="warning" title="Wygląda dobrze – ale do protokołu się nie nadaje">
-          Multimetr ma za małą rozdzielczość i za mały prąd, żeby miarodajnie odróżnić 0,2 Ω od 0,6 Ω. Do oceny i do protokołu liczy się pomiar
+          Multimetr ma za mały prąd i za małą dokładność przy ułamkach oma, żeby miarodajnie odróżnić 0,2 Ω od 0,6 Ω. Do oceny i do protokołu liczy się pomiar
           przyrządem zgodnym z PN-EN 61557-4 (4–24 V, ≥ 200 mA).
         </NoteBox>
       ) : trulyBad ? (

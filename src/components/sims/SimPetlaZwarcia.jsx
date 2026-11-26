@@ -116,7 +116,7 @@ export function SimPetlaZwarcia() {
           Zmierzone Zs = {zs.toFixed(2).replace('.', ',')} Ω przekracza dopuszczalne {zsMax.toFixed(2).replace('.', ',')} Ω dla {char}{IN} (Ik = {Math.round(ik)} A &lt; {threshold} A). Obudowa zostaje pod napięciem na sekundy lub dłużej – przekroczony limit 0,4 s.
           {char !== 'B' && 230 / zs >= 80
             ? ` Uwaga: zwykły B16 by tu zadziałał (próg 80 A) – to pokazuje, że przy charakterystyce ${char} wymagana jest niższa impedancja pętli.`
-            : ' W praktyce: napraw pętlę (lepsze styki, większy przekrój) albo system wymaga RCD (jak w sieciach TT).'}
+            : ' W praktyce: napraw pętlę (lepsze styki, większy przekrój) albo zastosuj RCD – norma pozwala nim zapewnić samoczynne wyłączenie także w układzie TN (ale nie TN-C).'}
         </NoteBox>
       )}
     </div>
